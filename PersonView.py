@@ -6,14 +6,14 @@
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from random import randint
-import sys
+from Events import movementEvent
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import QGraphicsView, \
                         QGraphicsScene, \
                         QPixmap
 
 class PersonView(QGraphicsView):
-    def __init__(self, parent=None, data):
+    def __init__(self, data, parent=None):
         """
         QGraphicsView widget which will show where the player is located.
         """
@@ -35,7 +35,6 @@ class PersonView(QGraphicsView):
         self.setGeometry(300, 300, 800, 640)
         self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        #setCornerWidget(QPointF
         
         #LoadObjects
         self.initUI()
@@ -44,38 +43,22 @@ class PersonView(QGraphicsView):
 
 
     def initUI(self):
-        # Load Background.
-        self.loadGraphic(-512,-512,'image','grass texture2.png')
+        # Load Loc Objects
+        for loc in self.data.places:
+            self.loadGraphic(loc)
 
-        # Load Trees.
-        numTrees = 20
-        for i in xrange(7):
-            treeX = randint(-350,350)
-            treeY = randint(-350,350)
-            self.loadGraphic(treeX-162,treeY-162,'image','Forest3.png')
+        self.loadGraphic(self.data.character)
+		
+	self.show()
 
-        # Person
-        person = self.loadGraphic(0,0, 'image','circle.png')
-        self.data.person = person
-        self.centerOn(person);
-
-        self.show()
-
+    def loadGraphic(self, loc):
+        obj = self.scene.addPixmap(QPixmap(loc.image))
+        loc.pViewObj = obj
+        obj.setX(loc.x)
+        obj.setY(loc.y)
+        loc.updatePViewObj()
         
-    def loadGraphic(self, x, y, graphicType = None, name=''):
-        if graphicType == 'text':
-            obj = self.scene.addText(name)            
-        elif graphicType == 'image':
-            obj = self.scene.addPixmap(QPixmap(name))
-        else:
-            print 'error'
-            return False
-
-        self.data.places.append(obj)   
-        obj.setX(x)
-        obj.setY(y)        
-        print 'Load '+str(name)+' at:', obj.x(), obj.y()
-        return obj
-
+        print 'Load '+str(loc.image)+' at:', obj.x(), obj.y()
+        
     def keyPressEvent(self, event):
         movementEvent(self.data, event)
