@@ -6,8 +6,9 @@
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 import sys
-from Data import Data
-from View.PersonView import PersonView
+from Data import Data, View
+from PersonView import PersonView
+from PyQt4 import QtGui
 
 class game(object):
     def __init__(self):
@@ -16,5 +17,16 @@ class game(object):
         data.loadDataInitial()
 
         app = QtGui.QApplication(sys.argv)
+        MainWindow = QtGui.QMainWindow()
+        
+        
         p = PersonView(data)
         sys.exit(app.exec_())
+
+# For testing only
+def main():
+    print 'Starting Game'
+    gameInstance = game()
+
+if __name__ == '__main__':
+    main()
