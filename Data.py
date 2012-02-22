@@ -85,6 +85,7 @@ class clue(object):
 class View(object):
     def __init__(self, MainWindow=None):
         self.MainWindow = MainWindow
+        self.guiState = None
         self.personView = None
         #There really should be more stuff here.
     

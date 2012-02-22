@@ -9,18 +9,36 @@ import sys
 from Data import Data, View
 from PersonView import PersonView
 from PyQt4 import QtGui
+from Gui import Ui_MainWindow
+from Events import movementEvent
+
+#Hack to allow key presses
+class MainWindow(QtGui.QMainWindow):
+    def __init__(self, data, parent = None):
+        super(MainWindow, self).__init__()
+        self.data = data
+        
+    def keyPressEvent(self, event):
+        movementEvent(self.data, event)
 
 class game(object):
     def __init__(self):
         print 'Game has started'
         data = Data()
         data.loadDataInitial()
+        data.view = View()
+        
 
         app = QtGui.QApplication(sys.argv)
-        MainWindow = QtGui.QMainWindow()
+        mainWindow = MainWindow(data)
+        
+        ui_main = Ui_MainWindow()
+        ui_main.setupUi(mainWindow)
+        data.view.MainWindow = ui_main
         
         
-        p = PersonView(data)
+        #p = PersonView(data)
+        mainWindow.show()
         sys.exit(app.exec_())
 
 # For testing only
@@ -30,3 +48,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
