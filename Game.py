@@ -5,47 +5,19 @@
 # Version: 0.1 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-import sys
-from Data import Data, View
-from PersonView import PersonView
-from PyQt4 import QtGui
-from Gui import Ui_MainWindow
-from Events import movementEvent
+from Data import Data #Toplevel data class
 
-#Hack to allow key presses
-class MainWindow(QtGui.QMainWindow):
-    def __init__(self, data, parent = None):
-        super(MainWindow, self).__init__()
-        self.data = data
-        
-    def keyPressEvent(self, event):
-        movementEvent(self.data, event)
+class Game(object):
+    def __init__(self, debug = True):
+        "Start Game"
+        data = Data(debug) #Load Data 
+        #Load View
+        #Start Mainloop
+        #Mainloop is finished
 
-class game(object):
-    def __init__(self):
-        print 'Game has started'
-        data = Data()
-        data.loadDataInitial()
-        data.view = View()
-        
-
-        app = QtGui.QApplication(sys.argv)
-        mainWindow = MainWindow(data)
-        
-        ui_main = Ui_MainWindow()
-        ui_main.setupUi(mainWindow)
-        data.view.MainWindow = ui_main
-        
-        
-        #p = PersonView(data)
-        mainWindow.show()
-        sys.exit(app.exec_())
-
-# For testing only
-def main():
-    print 'Starting Game'
-    gameInstance = game()
+def testGame():
+    print 'Starting Game' 
+    gameInstance = Game(debug = True)
 
 if __name__ == '__main__':
-    main()
-
+    testGame()

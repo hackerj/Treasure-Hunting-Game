@@ -5,12 +5,9 @@
 # Version: 0.1 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from Game import Game
+from PyQt4.QtGui import QMainWindow
 
-def startGame():
-    "Run Game without terminal or debuging"
-    gameInstance = Game(debug = False)
-
-if __name__ == '__main__':
-    startGame()
-    
+class WidMain(QMainWindow):
+    def keyPressEvent(self, event):
+        "Get keyboard events no matter what widget has focus"
+        movementEvent(event)

@@ -6,20 +6,21 @@
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from random import randint #Only temporary
+from View import View      #Everything Graphics Related
 
 class Data(object):
-    def __init__(self):
+    def __init__(self, debug = True):
+        self.debug = debug
         self.places = []       # A list of Locs (e.g. cities).
         self.character =  None # A special Loc for our character (only one)
         self.clues = []         # A list of clues for the game.
         self.view = None       # A container for PyQt specific data and widgets
         
+        self.loadDataInitial()
+        
     def loadDataInitial(self):
-        #Initialize View
         self.view = View()
         self._temperaryLoadSystem()
-        
-        #There really should be more stuff here.
         
     def _temperaryLoadSystem(self):
         bgSize = 1024
@@ -68,9 +69,8 @@ class Loc(object):
             self.pViewObj.setX(self.x)
             self.pViewObj.setY(self.y)
         except:
-            print 'Could not transform'
-        #print 'location is: ', data.person.x(), data.person.y()
-
+            print 'Could not move', self.name, 'from', self.x, self.y
+        
 class clue(object):
     def __init__(self, data, difficulty = 0, target= None, loc = None, text = ''):
         self.data = data
@@ -82,10 +82,4 @@ class clue(object):
     def drawNewClue(self):
         None
     
-class View(object):
-    def __init__(self, MainWindow=None):
-        self.MainWindow = MainWindow
-        self.guiState = None
-        self.personView = None
-        #There really should be more stuff here.
     
