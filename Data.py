@@ -13,6 +13,7 @@ class Data(object):
         self.debug = debug
         self.places = []       # A list of Locs (e.g. cities).
         self.character =  None # A special Loc for our character (only one)
+        self.charSpeed = 5
         self.clues = []         # A list of clues for the game.
         self.view = None       # A container for PyQt specific data and widgets
         

@@ -1,3 +1,10 @@
+# ---------------
+# Map Master Game
+# ---------------
+# Authors: MI Maps Team, CS121-SoftwareDevelopment, Harvey Mudd College
+# Version: 0.1 using PyQt4.9
+# Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
+
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'Gui.ui'
@@ -7,20 +14,22 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt4 import QtCore, QtGui
+from PyQt4 import QtCore, QtGui #All of QT
 
+#Specify character encoding (8 Bit Unicode)
 try:
-    _fromUtf8 = QtCore.QString.fromUtf8
+    _fromUtf8 = QtCore.QString.fromUtf8 
 except AttributeError:
     _fromUtf8 = lambda s: s
 
-class Ui_MainWindow(object):
+#Toplevel Widget Class for Game Window
+class GuiMain(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(818, 665)
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("icon_medium.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("icon_medium.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))

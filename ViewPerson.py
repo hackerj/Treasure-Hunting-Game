@@ -14,9 +14,7 @@ from PyQt4.QtGui import QGraphicsView, \
 
 class ViewPerson(QGraphicsView):
     def __init__(self, data, parent=None):
-        """
-        QGraphicsView widget which will show where the player is located.
-        """
+        "QGraphicsView widget which will show where the player is located."
         
         #Initialize the class instance
         super(ViewPerson, self).__init__()
@@ -25,30 +23,22 @@ class ViewPerson(QGraphicsView):
         self.scene = QtGui.QGraphicsScene()
         self.setScene(self.scene)
 
-        #remember data 
-        self.data = data # Should be modified to no longer need this.
-
-        #View Settings
-        self.setWindowTitle('Map Master Prototype')
-        self.setWindowIcon(QtGui.QIcon('icon_medium.png'))
-        self.setGeometry(300, 300, 800, 640)
+        #View Settings (Fix Scroll Bars)
         self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         
-        #LoadObjects
-        self.initUI()
-
-        #print dir(self)
-
+        #Reference alling us to remember where the data is.
+        self.data = data
+        
+        self.initUI()         #LoadObjects
 
     def initUI(self):
-        # Load Loc Objects
+        #Load Places from Loc Object List
         for loc in self.data.places:
             self.loadGraphic(loc)
 
+        #Load Character
         self.loadGraphic(self.data.character)
-		
-	self.show()
 
     def loadGraphic(self, loc):
         obj = self.scene.addPixmap(QPixmap(loc.image))
@@ -57,7 +47,4 @@ class ViewPerson(QGraphicsView):
         obj.setY(loc.y)
         loc.updatePViewObj()
         
-        print 'Load '+str(loc.image)+' at:', obj.x(), obj.y()
-        
-    def keyPressEvent(self, event):
-        movementEvent(self.data, event)
+        if data.debug: print 'Load '+str(loc.image)+' at:', obj.x(), obj.y()

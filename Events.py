@@ -9,7 +9,7 @@ from PyQt4 import QtCore, QtGui
 
 def movementEvent(data, event):
     key = event.key()
-    s = 5
+    data.charSpeed
 
     if key == QtCore.Qt.Key_W:
         data.character.translate(data,0,-s) #Forward
