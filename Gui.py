@@ -15,6 +15,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui #All of QT
+from ViewGraphics import ViewGraphics #Person View Class
 
 #Specify character encoding (8 Bit Unicode)
 try:
@@ -126,24 +127,31 @@ class GuiMain(object):
         self.stackedWidget.addWidget(self.settingsPage)
         self.mainPage = QtGui.QWidget()
         self.mainPage.setObjectName(_fromUtf8("mainPage"))
-        self.personView = QtGui.QGraphicsView(self.mainPage)
+        
+        #Person View
+        self.personView = ViewGraphics(self.mainPage)
         self.personView.setGeometry(QtCore.QRect(0, 0, 390, 500))
         self.personView.setObjectName(_fromUtf8("personView"))
-        self.mapView = QtGui.QGraphicsView(self.mainPage)
+        
+        #Map View
+        self.mapView = ViewGraphics(self.mainPage)
         self.mapView.setGeometry(QtCore.QRect(410, 0, 390, 500))
         self.mapView.setObjectName(_fromUtf8("mapView"))
-        self.clueView = QtGui.QGraphicsView(self.mainPage)
+        
+        #ClueView
+        self.clueView = ViewGraphics(self.mainPage)
         self.clueView.setGeometry(QtCore.QRect(0, 510, 390, 91))
         self.clueView.setObjectName(_fromUtf8("clueView"))
+        
         self.latLongCheck = QtGui.QCheckBox(self.mainPage)
         self.latLongCheck.setGeometry(QtCore.QRect(420, 510, 97, 41))
         self.latLongCheck.setText(QtGui.QApplication.translate("MainWindow", "Latitude/ \n"
-"Longitude", None, QtGui.QApplication.UnicodeUTF8))
+        "Longitude", None, QtGui.QApplication.UnicodeUTF8))
         self.latLongCheck.setObjectName(_fromUtf8("latLongCheck"))
         self.colorCheck = QtGui.QCheckBox(self.mainPage)
         self.colorCheck.setGeometry(QtCore.QRect(560, 510, 97, 41))
         self.colorCheck.setText(QtGui.QApplication.translate("MainWindow", "Color\n"
-"Coding", None, QtGui.QApplication.UnicodeUTF8))
+        "Coding", None, QtGui.QApplication.UnicodeUTF8))
         self.colorCheck.setObjectName(_fromUtf8("colorCheck"))
         self.labelsCheck = QtGui.QCheckBox(self.mainPage)
         self.labelsCheck.setGeometry(QtCore.QRect(680, 520, 97, 22))
@@ -285,11 +293,11 @@ class GuiMain(object):
         font.setPointSize(20)
         self.credits.setFont(font)
         self.credits.setText(QtGui.QApplication.translate("MainWindow", "Gary Lent\n"
-"Grant Stafford\n"
-"Jessie Liu\n"
-"Peter Andrien\n"
-"Nokia (Qt4 framework)\n"
-"Riverbank Computing Ltd (PyQt)", None, QtGui.QApplication.UnicodeUTF8))
+        "Grant Stafford\n"
+        "Jessie Liu\n"
+        "Peter Andrien\n"
+        "Nokia (Qt4 framework)\n"
+        "Riverbank Computing Ltd (PyQt)", None, QtGui.QApplication.UnicodeUTF8))
         self.credits.setAlignment(QtCore.Qt.AlignCenter)
         self.credits.setObjectName(_fromUtf8("credits"))
         self.doneButton3 = QtGui.QPushButton(self.creditsPage)

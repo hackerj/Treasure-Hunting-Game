@@ -6,27 +6,48 @@
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from PyQt4 import QtCore, QtGui
+from PyQt4.QtGui import QPixmap
 
 def movementEvent(data, event):
     key = event.key()
-    data.charSpeed
+    s = data.charSpeed
 
     if key == QtCore.Qt.Key_W:
-        data.character.translate(data,0,-s) #Forward
+        data.character.translate(data, 0,-s) #Forward
 
     elif key == QtCore.Qt.Key_S:
-        data.character.translate(data,0,s) #Backward
+        data.character.translate(data, 0, s) #Backward
 
     elif key == QtCore.Qt.Key_A:
-        data.character.translate(data,-s,0) #Left
+        data.character.translate(data, -s,0) #Left
     elif key == QtCore.Qt.Key_D:
-        data.character.translate(data,s,0) #Right
-    elif key == QtCore.Qt.Key_J:
-        print 'swap'
-        _swapGui(data)
-        return
+        data.character.translate(data, s,0) #Right
     else:
         print 'You pressed', event.text()
 
-    #data.view.personView.centerOn(data.character.pViewObj);
+    data.view.guiMain.personView.centerOn(data.character.pViewObj);
 
+def loadGraphics(data):
+    if data.debug:
+        print "Loading Graphics"
+    
+    for loc in data.places:
+                loadPNG(data, loc)
+            
+    #Load Character
+    loadPNG(data, data.character)
+    
+def loadPNG(data, loc):
+
+    if loc.pViewImag:
+        obj = data.view.guiMain.personView.scene.addPixmap(QPixmap(loc.pViewImag))
+        loc.pViewObj = obj
+        loc.updatePViewObj()
+        
+    if loc.mViewImag:
+        obj = data.view.guiMain.mapView.scene.addPixmap(QPixmap(loc.mViewImag))
+        loc.mViewObj = obj
+        loc.updateMViewObj(data.mapScale)
+    
+    if data.debug: 
+        print 'Load '+str(loc.text)+' at:', #obj.x(), obj.y()

@@ -5,7 +5,6 @@
 # Version: 0.1 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from random import randint
 from Events import movementEvent
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import QGraphicsView, \
@@ -16,8 +15,8 @@ class ViewPerson(QGraphicsView):
     def __init__(self, data, parent=None):
         "QGraphicsView widget which will show where the player is located."
         
-        #Initialize the class instance
-        super(ViewPerson, self).__init__()
+        #Initialize the abstracted class instance
+        super(ViewPerson, self).__init__(parent)
 
         #Create Containter to store graphicObjectsaaaaa
         self.scene = QtGui.QGraphicsScene()
@@ -27,7 +26,7 @@ class ViewPerson(QGraphicsView):
         self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         
-        #Reference alling us to remember where the data is.
+        #Reference to data for event calls.
         self.data = data
         
         self.initUI()         #LoadObjects
@@ -47,4 +46,5 @@ class ViewPerson(QGraphicsView):
         obj.setY(loc.y)
         loc.updatePViewObj()
         
-        if data.debug: print 'Load '+str(loc.image)+' at:', obj.x(), obj.y()
+        if self.data.debug: 
+            print 'Load '+str(loc.image)+' at:', obj.x(), obj.y()

@@ -10,10 +10,9 @@ from Data import Data #Toplevel data class
 class Game(object):
     def __init__(self, debug = True):
         "Start Game"
-        data = Data(debug) #Load Data 
-        #Load View
-        #Start Mainloop
-        #Mainloop is finished
+        data = Data(debug)          #Load Data and View
+        data.view.widMain.show()    #Start mainloop
+        exit(data.view.app.exec_()) #Mainloop is finished. Close Window
 
 def testGame():
     print 'Starting Game' 
