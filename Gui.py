@@ -14,7 +14,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt4 import QtCore, QtGui #All of QT
+from PyQt4 import QtCore, QtGui       #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
 
 #Specify character encoding (8 Bit Unicode)
@@ -96,21 +96,20 @@ class GuiMain(object):
         self.soundLabel.setText(QtGui.QApplication.translate("MainWindow", "Volume", None, QtGui.QApplication.UnicodeUTF8))
         self.soundLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.soundLabel.setObjectName(_fromUtf8("soundLabel"))
-        self.quietGraphic = QtGui.QGraphicsView(self.settingsPage)
+        
+        #Quiet Sound Graphic
+        self.quietGraphic = QtGui.QLabel(self.settingsPage)
+        self.quietGraphic.setPixmap(QtGui.QPixmap("speakerQuiet.png"))
         self.quietGraphic.setGeometry(QtCore.QRect(90, 180, 80, 80))
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        self.quietGraphic.setBackgroundBrush(brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        self.quietGraphic.setForegroundBrush(brush)
-        self.quietGraphic.setInteractive(False)
         self.quietGraphic.setObjectName(_fromUtf8("quietGraphic"))
-        self.loudGraphic = QtGui.QGraphicsView(self.settingsPage)
+        
+        #Loud Sound Graphic
+        self.loudGraphic = QtGui.QLabel(self.settingsPage)
+        self.loudGraphic.setPixmap(QtGui.QPixmap("speakerLoud.png"))
         self.loudGraphic.setEnabled(True)
         self.loudGraphic.setGeometry(QtCore.QRect(630, 180, 80, 80))
-        self.loudGraphic.setInteractive(False)
         self.loudGraphic.setObjectName(_fromUtf8("loudGraphic"))
+        
         self.settingsLabel = QtGui.QLabel(self.settingsPage)
         self.settingsLabel.setGeometry(QtCore.QRect(260, 30, 280, 60))
         font = QtGui.QFont()

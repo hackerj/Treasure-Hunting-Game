@@ -43,11 +43,22 @@ def loadPNG(data, loc):
         obj = data.view.guiMain.personView.scene.addPixmap(QPixmap(loc.pViewImag))
         loc.pViewObj = obj
         loc.updatePViewObj()
-        
+    
+    elif loc.pViewText:
+        obj = data.view.guiMain.personView.scene.addText(loc.pViewText)
+        loc.pViewObj = obj
+        loc.updatePViewObj()
+    
     if loc.mViewImag:
         obj = data.view.guiMain.mapView.scene.addPixmap(QPixmap(loc.mViewImag))
         loc.mViewObj = obj
         loc.updateMViewObj(data.mapScale)
+        
+    elif loc.pViewText:
+        obj = data.view.guiMain.mapView.scene.addText(loc.mViewText)
+        loc.mViewObj = obj
+        loc.updateMViewObj(data.mapScale)
+        
     
     if data.debug: 
-        print 'Load '+str(loc.text)+' at:', #obj.x(), obj.y()
+        print 'Load ', loc
