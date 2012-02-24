@@ -76,7 +76,7 @@ class Data(object):
 
 
     def _temperaryLoadSystem2(self):
-        None #Not Implemented!
+        None
                              
     def loadDataFromUserFile(self, path):
         None #Not Implemented!
@@ -84,12 +84,15 @@ class Data(object):
     def saveData(self, path):
         None #Not Implemented!
     
-    def addPlace(self):
-        None #Not Implemented!
+    def addPlace(self, position, objType = None):
+        # Create Location Object
+        
+        self.places.append(Loc((-390/2/self.mapScale,-500/2/self.mapScale),
+                               'bg', mViewImag = 'mapBackground.png'))
 
 
 class Loc(object):
-    def __init__(self, position = (0,0), objType=None,
+    def __init__(self, position, objType=None,
                  pViewImag = None, mViewImag = None,
                  pViewText = None, mViewText = None):
 
