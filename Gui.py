@@ -147,7 +147,7 @@ class GuiMain(object):
         self.mapView.setFocusPolicy(QtCore.Qt.NoFocus)
         
         #ClueView
-        self.clueView = QLabel(self.mainPage)
+        self.clueView = QtGui.QLabel(self.mainPage)
         self.clueView.setGeometry(QtCore.QRect(0, 510, 390, 91))
         self.clueView.setObjectName(_fromUtf8("clueView"))
         self.clueView.setFocusPolicy(QtCore.Qt.NoFocus)

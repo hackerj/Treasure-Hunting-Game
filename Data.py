@@ -122,7 +122,7 @@ class Loc(object):
     
     def getCenter(self):
         try:
-            return city.x + city.pViewObj.width/2,
+            return city.x + city.pViewObj.width/2, \
                    city.y + city.pViewObj.hight/2
         except:
             print "could not find center"
