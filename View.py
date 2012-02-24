@@ -13,8 +13,7 @@ from Gui import GuiMain as GuiMain  #Gui for Toplevel Widget
 class View(object):
     def __init__(self, data):
         "Init Window and Gui"
-        self.app = QApplication(argv)    #Create Window
-        self.widMain = WidMain(data)         #Inherits from QMainWindow
+        self.app = QApplication(argv)      #Create Window
+        self.widMain = WidMain(data)       #Inherits from QMainWindow
         self.guiMain  = GuiMain()          #Contains buttons, graphics, etc.
-        self.guiMain.setupUi(self.widMain)    #Add ui to main window
-        
+        self.guiMain.setupUi(self.widMain) #Add ui to main window

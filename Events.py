@@ -65,19 +65,24 @@ def loadPNG(data, loc):
 
 def searchCity(data):
     if getDistance(self.clueCity) < CITY_RADIUS:
-        #Load new Clue and City Data.
-        self.currClue = self.clueStack.pop()
-        self.currCity = self.cities[self.currClue.cityName]
         
-        #updateClueGui
-        
-        
+        if self.clueStack:            
+            #Load new Clue and City Data.
+            data.currClue = self.clueStack.pop()
+            data.currCity = self.cities[self.currClue.cityName]
+            
+            #updateClueGui
+            data.view.clueView.setText(self.currClue.text)
+            return True
+         
+        print "you have won or the the game has not started"
         return True
+         
     else:
         return False
     
 def getDistance(data,city):
-    charX, charY = data.character.center()
-    cityX, cityY = city.center()
+    charX, charY = data.character.center(data.mapScale)
+    cityX, cityY = city.center(data.mapScale)
     
     return ((charX - cityX)^2 + (charY - cityY)^2)^0.5

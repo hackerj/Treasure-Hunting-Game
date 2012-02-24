@@ -76,7 +76,7 @@ class Data(object):
 
 
     def _temperaryLoadSystem2(self):
-        None
+        
                              
     def loadDataFromUserFile(self, path):
         None #Not Implemented!
@@ -121,12 +121,18 @@ class Loc(object):
         self.updateMViewObj(data.mapScale)
     
     def getCenter(self):
+        #print dir(self.pViewObj.pixmap)
+        
+        return self.x + self.pViewObj.pixmap().width()/2, self.y + self.pViewObj.pixmap().height()/2
+
         try:
-            return self.x + self.pViewObj.width/2, \
-                   self.y + self.pViewObj.hight/2
+            self.x + self.pViewObj.width()/2, \
+                   self.y + self.pViewObj.height()/2
         except:
-            print "could not find center"
-            
+            print "could not find center", self
+            print dir(self.pViewObj)
+        
+        
     def updatePViewObj(self):
         try:
             self.pViewObj.setX(self.x)
@@ -141,6 +147,7 @@ class Loc(object):
             newx, newy = self.getCenter()
         else:
             newx, newy = self.x, self.y
+            print 'no pView'
         self.mViewObj.setX(newx * mapScale)
         self.mViewObj.setY(newy * mapScale)
         #except:
