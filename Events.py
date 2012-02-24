@@ -80,8 +80,8 @@ def searchCity(data):
         return True
     
     #else
-    data.view.guiMain.clueView.setText("YOU WON!"
-                                       "But the game as just begun")
+    data.view.guiMain.clueView.setText("         YOU WON! "
+                                       "But the game has just begun")
     return True
         
 def getDistance(data,city):

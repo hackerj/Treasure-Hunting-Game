@@ -20,7 +20,7 @@ class Data(object):
         self.overlays = {}     # a dictionary of overlays
         
         self.character =  None # A special Loc for our character
-        self.charSpeed = 5
+        self.charSpeed = 6
         
         self.cities = {}       # dictionary of cities.
         self.currCity = None   # City with current Clue
@@ -55,8 +55,8 @@ class Data(object):
                     mViewImag = 'mapBackground.png')
         
         # Add Trees
-        treeList = [(200,158), (80,45),(120,80), (310,470), 
-                    (220, -400), (-200,500)]
+        treeList = [(200,158), (-800,45),(120,80), (310,470), 
+                    (220, -400), (100,500)]
         
         for position in treeList:
             self.addLoc(position, 'tree', pViewImag = 'Forest3.png', 
@@ -66,7 +66,7 @@ class Data(object):
         self.addLoc((-350, 100), 'city', pViewImag = 'city2.png',
                      mViewImag = 'city.png', itemName = 'city0')
         
-        self.addLoc((-450, 700), 'city', pViewImag = 'city2.png', 
+        self.addLoc((-450, 910), 'city', pViewImag = 'city2.png', 
                      mViewImag = 'city.png', itemName = 'city1')
                      
         self.addLoc((450, -700), 'city', pViewImag = 'city2.png', 
@@ -80,17 +80,19 @@ class Data(object):
         self.addLoc((0,0),'char',pViewImag='circle.png', mViewImag='circle.png')
         
         # Add Clues:
-        self.addClue('city2', 
+        # Clue 3
+        self.addClue('city1',
                      "For this final clue look\n"
                      "Look to the city most southernly")
-        
-        # Add Clues:
-        self.addClue('city1', 
-                     "For this final clue look\n"
-                     "Look to the city most southernly")
+        # Clue 2
+        self.addClue('city0',
+                     "Latitude: Distance from Equator"
+                     "Check 37.8 deg latitude")
+        # Clue 1     
         self.addClue('city2', 
                      "For this first clue\n"
                      "You must journey north")
+
                              
     def loadDataFromUserFile(self, path):
         None #Not Implemented!
