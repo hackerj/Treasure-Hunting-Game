@@ -10,31 +10,39 @@ from View import View      #Everything Graphics Related
 from Events import loadGraphics
 
 class Data(object):
+    CITY_RADIUS = 256
+
     def __init__(self, debug = True):
         "Initialize with defaults"
         self.debug = debug
-        self.places = []       # rename to graphics. (non cities)
-        self.cities = {}       # dictionary of cities.
+        self.places = []       # graphics objects (non cities)
+        
         self.character =  None # A special Loc for our character
         self.charSpeed = 5
-        self.clues = []         # A list of clues for the game.
-        self.view = None       # A container for PyQt specific data and widgets
-        self.mapScale = 0.2
+        
+        self.cities = {}       # dictionary of cities.
+        self.currCity = None   # City with current Clue
+        
+        self.currClue = None   # Current Clue
+        self.clueStack = []    # A list of clues    
+        
+        self.view = None       # Container for PyQt specific data and widgets
+        self.mapScale = 0.1
 
         self.loadDataInitial()
 
     def loadDataInitial(self):
         "Initialize with heap objects"
-        self._temperaryLoadSystem() #Load data before init view
-        self.view = View(self)          #Initialize view
-        loadGraphics(self)          #Initialize graphics
+        self._temperaryLoadSystem1() # Load data before init view
+        self.view = View(self)      # Initialize view
+        loadGraphics(self)          # Initialize graphics
 
-    def _temperaryLoadSystem(self):
+    def _temperaryLoadSystem1(self):
         "Use untill we have a save and load system"
         #Add Person View Background
         bgSize = 1024
-        for i in xrange(-1,1):
-            for j in xrange(-1,1):
+        for i in xrange(-2,2):
+            for j in xrange(-2,2):
                 self.places.append(
                     Loc((i*bgSize,j*bgSize), 'bg',
                         pViewImag = 'grasstexture2.png'))
@@ -65,14 +73,18 @@ class Data(object):
         self.character = Loc((0,0), 'char',
                              pViewImag='circle.png',
                              mViewImag='circle.png')
-        
-        #self.cities.
-        #self.clues.
-        
+
+
+    def _temperaryLoadSystem2(self):
+        None
+                             
     def loadDataFromUserFile(self, path):
         None #Not Implemented!
 
     def saveData(self, path):
+        None #Not Implemented!
+    
+    def addPlace(self):
         None #Not Implemented!
 
 
@@ -84,8 +96,6 @@ class Loc(object):
         self.x = position[0]
         self.y = position[1]
         self.objType = objType
-
-        self.clue = None
 
         #Person View Data
         self.pViewImag = pViewImag
@@ -100,8 +110,8 @@ class Loc(object):
     def __repr__(self):
         str = ''
         if self.objType: str += self.objType
-        if self.pViewText: str += self.pViewText
-        if self.mViewText: str += self.mViewText
+        if self.pViewImag: str += self.pViewImag
+        elif self.mViewImag: str += self.mViewImag
         return str
 
     def translate(self, data, xDist,yDist):
@@ -109,7 +119,14 @@ class Loc(object):
         self.y += yDist
         self.updatePViewObj()
         self.updateMViewObj(data.mapScale)
-
+    
+    def getCenter(self):
+        try:
+            return city.x + city.pViewObj.width/2,
+                   city.y + city.pViewObj.hight/2
+        except:
+            print "could not find center"
+            
     def updatePViewObj(self):
         try:
             self.pViewObj.setX(self.x)
@@ -127,9 +144,10 @@ class Loc(object):
         #         'from', self.x, self.y
             
 class clue(object):
-    def __init__(self, data, difficulty = 0, target= None, loc = None, text = ''):
+    def __init__(self, data, difficulty = 0, target= None, 
+                 cityName = None, text = ''):
         self.data = data
         self.difficulty = difficulty
         self.target = target
-        self.loc = loc
+        self.cityName = cityName
         self.text = text

@@ -62,3 +62,22 @@ def loadPNG(data, loc):
     
     if data.debug: 
         print 'Load ', loc
+
+def searchCity(data):
+    if getDistance(self.clueCity) < CITY_RADIUS:
+        #Load new Clue and City Data.
+        self.currClue = self.clueStack.pop()
+        self.currCity = self.cities[self.currClue.cityName]
+        
+        #updateClueGui
+        
+        
+        return True
+    else:
+        return False
+    
+def getDistance(data,city):
+    charX, charY = data.character.center()
+    cityX, cityY = city.center()
+    
+    return ((charX - cityX)^2 + (charY - cityY)^2)^0.5
