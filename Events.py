@@ -12,15 +12,15 @@ def movementEvent(data, event):
     key = event.key()
     s = data.charSpeed
 
-    if key == QtCore.Qt.Key_W:
+    if key == QtCore.Qt.Key_W or key == QtCore.Qt.Key_Up:
         data.character.translate(data, 0,-s) #Forward
 
-    elif key == QtCore.Qt.Key_S:
+    elif key == QtCore.Qt.Key_S or key = QtCore.Qt.Key_Down:
         data.character.translate(data, 0, s) #Backward
 
-    elif key == QtCore.Qt.Key_A:
+    elif key == QtCore.Qt.Key_A or key == QtCore.Qt.Key_Left:
         data.character.translate(data, -s,0) #Left
-    elif key == QtCore.Qt.Key_D:
+    elif key == QtCore.Qt.Key_D or key == QtCore.Qt.Key_Right:
         data.character.translate(data, s,0) #Right
     else:
         print 'You pressed', event.text()
