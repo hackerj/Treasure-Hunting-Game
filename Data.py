@@ -46,12 +46,20 @@ class Data(object):
         #Add Trees
         numTrees = 7
         for i in xrange(numTrees):
-            treeX = randint(-500,500)
-            treeY = randint(-500,500)
+            treeX = randint(-1300,700)
+            treeY = randint(-800,600)
             self.places.append(Loc((treeX, treeY), 'tree',
                                     pViewImag = 'Forest3.png',
                                     mViewImag = 'treeSymbol.png'))
 
+        #Add Trees
+        numCites = 3
+        for i in xrange(numCites):
+            cityX = randint(-500,500)
+            cityY = randint(-500,500)
+            self.places.append(Loc((cityX, cityY), 'city',
+                                    pViewImag = 'city2.png',
+                                    mViewText = 'City'))
         
         #Add Character
         self.character = Loc((0,0), 'char',
@@ -70,7 +78,8 @@ class Data(object):
 
 class Loc(object):
     def __init__(self, position = (0,0), objType=None,
-                 pViewImag = None, mViewImag = None):
+                 pViewImag = None, mViewImag = None,
+                 pViewText = None, mViewText = None):
 
         self.x = position[0]
         self.y = position[1]

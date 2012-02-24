@@ -54,7 +54,7 @@ def loadPNG(data, loc):
         loc.mViewObj = obj
         loc.updateMViewObj(data.mapScale)
         
-    elif loc.pViewText:
+    elif loc.mViewText:
         obj = data.view.guiMain.mapView.scene.addText(loc.mViewText)
         loc.mViewObj = obj
         loc.updateMViewObj(data.mapScale)
