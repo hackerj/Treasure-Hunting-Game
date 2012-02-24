@@ -155,6 +155,10 @@ class GuiMain(object):
         self.clueView = QtGui.QLabel(self.mainPage)
         self.clueView.setGeometry(QtCore.QRect(0, 510, 390, 91))
         self.clueView.setObjectName(_fromUtf8("clueView"))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Century Schoolbook L"))
+        font.setPointSize(20)
+        self.clueView.setFont(font)
         
         self.latLongCheck = QtGui.QCheckBox(self.mainPage)
         self.latLongCheck.setGeometry(QtCore.QRect(420, 510, 97, 41))
