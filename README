@@ -9,3 +9,12 @@ This is the current state of our alpha release.
 
 run MapMaster.pyw to start the game
 run Game.py to start game with debugging
+
+---------------
+TODO:
+---------------
+Bounds Checking
+Sound
+Save and Load
+Story
+Graphics (more overlays, map key)

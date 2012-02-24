@@ -80,7 +80,7 @@ def searchCity(data):
         return True
     
     #else
-    data.view.guiMain.clueView.setText("         YOU WON! "
+    data.view.guiMain.clueView.setText(" YOU WON!\n"
                                        "But the game has just begun")
     return True
         

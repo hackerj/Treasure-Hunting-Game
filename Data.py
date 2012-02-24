@@ -82,12 +82,12 @@ class Data(object):
         # Add Clues:
         # Clue 3
         self.addClue('city1',
-                     "For this final clue look\n"
+                     "For this final clue\n"
                      "Look to the city most southernly")
         # Clue 2
         self.addClue('city0',
-                     "Latitude: Distance from Equator"
-                     "Check 37.8 deg latitude")
+                     "Check 37.8 deg latitude\n"
+                     "(Distance from Equator)")
         # Clue 1     
         self.addClue('city2', 
                      "For this first clue\n"
