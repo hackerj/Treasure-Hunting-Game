@@ -85,10 +85,10 @@ class Data(object):
                      "Look to the city most southernly")
         
         # Add Clues:
-        self.addClue('city2', 
+        self.addClue('city1', 
                      "For this final clue look\n"
                      "Look to the city most southernly")
-        self.addClue('city1', 
+        self.addClue('city2', 
                      "For this first clue\n"
                      "You must journey north")
                              
