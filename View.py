@@ -15,5 +15,5 @@ class View(object):
         "Init Window and Gui"
         self.app = QApplication(argv)      #Create Window
         self.widMain = WidMain(data)       #Inherits from QMainWindow
-        self.guiMain  = GuiMain()          #Contains buttons, graphics, etc.
+        self.guiMain  = GuiMain(data)          #Contains buttons, graphics, etc.
         self.guiMain.setupUi(self.widMain) #Add ui to main window

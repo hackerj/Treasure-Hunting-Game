@@ -26,6 +26,11 @@ except AttributeError:
 
 #Toplevel Widget Class for Game Window
 class GuiMain(object):
+    def __init__(self, data, parent = None):
+        super(GuiMain, self).__init__(parent)
+        
+        self.data = data
+        
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(818, 665)

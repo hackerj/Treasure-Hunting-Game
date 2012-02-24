@@ -25,7 +25,7 @@ class Data(object):
         self.currCity = None   # City with current Clue
         
         self.currClue = None   # Current Clue
-        self.clueStack = []    # A list of clues    
+        self.clueStack = []    # A list of clues
         
         self.view = None       # Container for PyQt specific data and widgets
         self.mapScale = 0.1
@@ -40,17 +40,33 @@ class Data(object):
 
 
     def _temperaryLoadSystem2(self):
-        
+        # Add Background
         for i in xrange(-2,2):
             for j in xrange(-2,2):
                 self.addLoc((i*1024,j*1024),'bg',pViewImag= 'grasstexture2.png')
         
-        self.addLoc((-450, 200), 'city', pViewImag = 'city2.png', 
+        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'bg',
+                    mViewImag = 'mapBackground.png')
+        
+        # Add Trees
+        treeList = [(200,158), (80,45),(120,80), (310,470), 
+                    (220, -400), (-200,500)]
+        
+        for position in treeList:
+            self.addLoc(position, 'tree', pViewImag = 'Forest3.png', 
+                        mViewImag = 'tree.png')
+                     
+        # Add Cities
+        self.addLoc((-350, 100), 'city', pViewImag = 'city2.png',
+                     mViewImag = 'city.png', cityName = 'city1')
+        
+        self.addLoc((-450, 700), 'city', pViewImag = 'city2.png', 
                      mViewImag = 'city.png', cityName = 'city1')
                      
-        self.addLoc((450, -200), 'city', pViewImag = 'city2.png', 
+        self.addLoc((450, -700), 'city', pViewImag = 'city2.png', 
                      mViewImag = 'city.png', cityName = 'city2')
         
+        # Add Character
         self.addLoc((0,0),'char',pViewImag='circle.png', mViewImag='circle.png')
                              
     def loadDataFromUserFile(self, path):
@@ -68,7 +84,7 @@ class Data(object):
         
         if pViewImag:
             pViewImagPath = normpath("./images/"+pViewImag)
-        else: mViewImagPath = None
+        else: pViewImagPath = None
         
         locObj = Loc(position, objType, mViewImag = mViewImagPath, pViewImag = pViewImagPath)
         
@@ -82,7 +98,7 @@ class Data(object):
             self.cities[cityName] = locObj
             
         return
-
+        
 class Loc(object):
     def __init__(self, position, objType=None,
                  pViewImag = None, mViewImag = None,
