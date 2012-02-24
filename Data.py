@@ -7,7 +7,7 @@
 
 from random import randint #Only temporary
 from View import View      #Everything Graphics Related
-from Events import loadGraphics
+from Events import loadGraphics, searchCity
 from os.path import normpath
 
 class Data(object):
@@ -38,8 +38,12 @@ class Data(object):
         self._temperaryLoadSystem2() # Load data before init view
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
+        
+        #Hack to get overlays to work
         self.overlays['latLongOverlay'].mViewObj.setVisible(False)
-
+        
+        #Initial Search Yealds first clue.
+        searchCity(self)
 
     def _temperaryLoadSystem2(self):
         # Add Background
@@ -60,7 +64,7 @@ class Data(object):
                      
         # Add Cities
         self.addLoc((-350, 100), 'city', pViewImag = 'city2.png',
-                     mViewImag = 'city.png', itemName = 'city1')
+                     mViewImag = 'city.png', itemName = 'city0')
         
         self.addLoc((-450, 700), 'city', pViewImag = 'city2.png', 
                      mViewImag = 'city.png', itemName = 'city1')
@@ -74,6 +78,19 @@ class Data(object):
         
         # Add Character
         self.addLoc((0,0),'char',pViewImag='circle.png', mViewImag='circle.png')
+        
+        # Add Clues:
+        self.addClue('city2', 
+                     "For this final clue look\n"
+                     "Look to the city most southernly")
+        
+        # Add Clues:
+        self.addClue('city2', 
+                     "For this final clue look\n"
+                     "Look to the city most southernly")
+        self.addClue('city1', 
+                     "For this first clue\n"
+                     "You must journey north")
                              
     def loadDataFromUserFile(self, path):
         None #Not Implemented!
@@ -106,7 +123,12 @@ class Data(object):
             self.overlays[itemName] = locObj
             
         return
-        
+
+    def addClue(self, city, text):
+        clue = Clue(city, text)
+        self.clueStack.append(clue)
+
+ 
 class Loc(object):
     def __init__(self, position, objType=None,
                  pViewImag = None, mViewImag = None,
@@ -169,11 +191,7 @@ class Loc(object):
         self.mViewObj.setX(newx * mapScale)
         self.mViewObj.setY(newy * mapScale)
             
-class clue(object):
-    def __init__(self, data, difficulty = 0, target= None, 
-                 itemName = None, text = ''):
-        self.data = data
-        self.difficulty = difficulty
-        self.target = target
-        self.itemName = itemName
+class Clue(object):
+    def __init__(self, targetCity, text):
         self.text = text
+        self.targetCity = targetCity
