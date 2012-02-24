@@ -8,6 +8,7 @@
 from random import randint #Only temporary
 from View import View      #Everything Graphics Related
 from Events import loadGraphics
+from os import normpath
 
 class Data(object):
     CITY_RADIUS = 256
@@ -33,7 +34,7 @@ class Data(object):
 
     def loadDataInitial(self):
         "Initialize with heap objects"
-        self._temperaryLoadSystem1() # Load data before init view
+        self._temperaryLoadSystem2() # Load data before init view
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
 
@@ -43,8 +44,7 @@ class Data(object):
         bgSize = 1024
         for i in xrange(-2,2):
             for j in xrange(-2,2):
-                self.places.append(
-                    Loc((i*bgSize,j*bgSize), 'bg',
+                self.places.append(Loc((i*bgSize,j*bgSize), 'bg', pViewImage = 'grasstexture2.png')
                         pViewImag = 'grasstexture2.png'))
                         
         #Add Map View Background
@@ -76,7 +76,19 @@ class Data(object):
 
 
     def _temperaryLoadSystem2(self):
-        None
+        
+        for i in xrange(-2,2):
+            for j in xrange(-2,2):
+                self.addPlace((i*1024,j*1024),'bg',pViewImag= 'grasstexture2.png')
+        
+        
+        self.addPlace((-450, 200), 'city', pViewImag = 'city2.png', 
+                     mViewImag = 'city.png', cityName = 'city1'))
+                     
+        self.addPlace((450, -200), 'city', pViewImag = 'city2.png', 
+                     mViewImag = 'city.png', cityName = 'city2'))
+        
+        self.addPlace((0,0),'char',pViewImag='circle.png', mViewImag='circle.png')
                              
     def loadDataFromUserFile(self, path):
         None #Not Implemented!
@@ -84,12 +96,24 @@ class Data(object):
     def saveData(self, path):
         None #Not Implemented!
     
-    def addPlace(self, position, objType = None):
-        # Create Location Object
+    def addPlace(self, position, objType = None,
+                mViewImag2=None, pViewImag2 = None, cityName = None):
         
-        self.places.append(Loc((-390/2/self.mapScale,-500/2/self.mapScale),
-                               'bg', mViewImag = 'mapBackground.png'))
-
+        if mViewImag2:
+            mViewImagPath = normpath("./images/"+mViewImag2)
+        else mViewImagPath = None
+        
+        if pViewImag2:
+            pViewImagPath = normpath("./images/"+pViewImag2)
+        else mViewImagPath = None
+        
+        locObj = Loc(position, objType, mViewImag = mViewImagPath, mViewImag = mViewImagPath,
+        
+        self.places.append(locObj)
+        
+        if cityName:
+            self.cities[cityName] = locObj
+            
 
 class Loc(object):
     def __init__(self, position, objType=None,
@@ -145,7 +169,6 @@ class Loc(object):
                   'from', self.x, self.y
                   
     def updateMViewObj(self, mapScale):
-        #try:
         if (self.pViewImag):
             newx, newy = self.getCenter()
         else:
@@ -153,9 +176,6 @@ class Loc(object):
             print 'no pView'
         self.mViewObj.setX(newx * mapScale)
         self.mViewObj.setY(newy * mapScale)
-        #except:
-        #    print 'Could not update map view', self.text, \
-        #         'from', self.x, self.y
             
 class clue(object):
     def __init__(self, data, difficulty = 0, target= None, 
