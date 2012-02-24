@@ -89,12 +89,12 @@ class Loc(object):
 
         #Person View Data
         self.pViewImag = pViewImag
-        self.pViewText = None
+        self.pViewText = pViewText
         self.pViewObj = None
 
         #Map View Data
         self.mViewImag = mViewImag
-        self.mViewText = None
+        self.mViewText = pViewText
         self.mViewObj = None
         
     def __repr__(self):
