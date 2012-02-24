@@ -32,6 +32,13 @@ class GuiMain(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("icon_medium.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
+
+        #Test Experimental Code
+        self.background = QtGui.QLabel(MainWindow)
+        self.background.setPixmap(QtGui.QPixmap("GameTitle3.png"))
+        self.background.setGeometry(QtCore.QRect(0, 0, 818, 665))
+        
+
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)

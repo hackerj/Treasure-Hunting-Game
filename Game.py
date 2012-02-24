@@ -5,6 +5,7 @@
 # Version: 0.1 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
+from sys import exit
 from Data import Data #Toplevel data class
 
 class Game(object):
