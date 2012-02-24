@@ -23,3 +23,6 @@ class ViewGraphics(QGraphicsView):
         #View Settings (Fix Scroll Bars)
         self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        
+    def wheelEvent(self, event):
+        event.ignore()
