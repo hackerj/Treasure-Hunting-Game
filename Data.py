@@ -93,8 +93,7 @@ class Data(object):
         else:
             self.places.append(locObj)
         
-        
-        if cityName:
+        if objType == 'city' and cityName:
             self.cities[cityName] = locObj
             
         return
