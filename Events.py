@@ -15,7 +15,7 @@ def movementEvent(data, event):
     if key == QtCore.Qt.Key_W or key == QtCore.Qt.Key_Up:
         data.character.translate(data, 0,-s) #Forward
 
-    elif key == QtCore.Qt.Key_S or key = QtCore.Qt.Key_Down:
+    elif key == QtCore.Qt.Key_S or key == QtCore.Qt.Key_Down:
         data.character.translate(data, 0, s) #Backward
 
     elif key == QtCore.Qt.Key_A or key == QtCore.Qt.Key_Left:
