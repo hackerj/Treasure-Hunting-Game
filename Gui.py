@@ -18,6 +18,7 @@ from PyQt4 import QtCore, QtGui       #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
 from os.path import normpath
 from PyQt4.QtGui import QPixmap
+from Events import searchCity
 
 #Specify character encoding (8 Bit Unicode)
 try:
@@ -376,6 +377,7 @@ class GuiMain(object):
         QtCore.QObject.connect(self.doneButton3, QtCore.SIGNAL(_fromUtf8("released()")), self.goBack)
         QtCore.QObject.connect(self.actionCredits, QtCore.SIGNAL(_fromUtf8("triggered()")), self.setCredits)
         self.latLongCheck.stateChanged.connect(self.latLong)
+        QtCore.QObject.connect(self.searchButton, QtCore.SIGNAL(_fromUtf8("released()")), self.doSearch)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -411,6 +413,9 @@ class GuiMain(object):
     def latLong(self):
         print self.latLongCheck.isChecked()
         self.data.overlays['latLongOverlay'].mViewObj.setVisible(self.latLongCheck.isChecked())
+        
+    def doSearch(self):
+        searchCity(self.data)
             
         
 if __name__ == "__main__":
