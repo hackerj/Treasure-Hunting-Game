@@ -76,7 +76,7 @@ class Data(object):
 
 
     def _temperaryLoadSystem2(self):
-        
+        None #Not Implemented!
                              
     def loadDataFromUserFile(self, path):
         None #Not Implemented!

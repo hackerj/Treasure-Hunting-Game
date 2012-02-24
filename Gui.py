@@ -138,19 +138,16 @@ class GuiMain(object):
         self.personView = ViewGraphics(self.mainPage)
         self.personView.setGeometry(QtCore.QRect(0, 0, 390, 500))
         self.personView.setObjectName(_fromUtf8("personView"))
-        self.personView.setFocusPolicy(QtCore.Qt.NoFocus)
         
         #Map View
         self.mapView = ViewGraphics(self.mainPage)
         self.mapView.setGeometry(QtCore.QRect(410, 0, 390, 500))
         self.mapView.setObjectName(_fromUtf8("mapView"))
-        self.mapView.setFocusPolicy(QtCore.Qt.NoFocus)
         
         #ClueView
         self.clueView = QtGui.QLabel(self.mainPage)
         self.clueView.setGeometry(QtCore.QRect(0, 510, 390, 91))
         self.clueView.setObjectName(_fromUtf8("clueView"))
-        self.clueView.setFocusPolicy(QtCore.Qt.NoFocus)
         
         self.latLongCheck = QtGui.QCheckBox(self.mainPage)
         self.latLongCheck.setGeometry(QtCore.QRect(420, 510, 97, 41))
