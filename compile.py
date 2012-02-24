@@ -3,7 +3,7 @@ import py2exe
 
 setup(windows=[{"script" : "MapMaster.pyw"}],
       data_files = [('imageformats',
-                     ['C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qmng4.dll',
+                     ['C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qico4.dll',
                       'C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qmng4.dll'])],
       options={"py2exe" : {"includes" : ["sip"]}})
 
