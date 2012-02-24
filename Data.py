@@ -58,16 +58,16 @@ class Data(object):
             treeY = randint(-800,600)
             self.places.append(Loc((treeX, treeY), 'tree',
                                     pViewImag = 'Forest3.png',
-                                    mViewImag = 'treeSymbol.png'))
+                                    mViewImag = 'tree.png'))
 
-        #Add Trees
+        #Add Cities
         numCites = 3
         for i in xrange(numCites):
             cityX = randint(-500,500)
             cityY = randint(-500,500)
             self.places.append(Loc((cityX, cityY), 'city',
                                     pViewImag = 'city2.png',
-                                    mViewText = 'City'))
+                                    mViewImag = 'city.png'))
         
         #Add Character
         self.character = Loc((0,0), 'char',
@@ -122,8 +122,8 @@ class Loc(object):
     
     def getCenter(self):
         try:
-            return city.x + city.pViewObj.width/2, \
-                   city.y + city.pViewObj.hight/2
+            return self.x + self.pViewObj.width/2, \
+                   self.y + self.pViewObj.hight/2
         except:
             print "could not find center"
             
@@ -137,8 +137,12 @@ class Loc(object):
                   
     def updateMViewObj(self, mapScale):
         #try:
-        self.mViewObj.setX(self.x * mapScale)
-        self.mViewObj.setY(self.y * mapScale)
+        if (self.pViewImag):
+            newx, newy = self.getCenter()
+        else:
+            newx, newy = self.x, self.y
+        self.mViewObj.setX(newx * mapScale)
+        self.mViewObj.setY(newy * mapScale)
         #except:
         #    print 'Could not update map view', self.text, \
         #         'from', self.x, self.y
