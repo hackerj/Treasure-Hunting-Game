@@ -27,8 +27,7 @@ except AttributeError:
 
 #Toplevel Widget Class for Game Window
 class GuiMain(object):
-    def __init__(self, data, parent = None):
-        super(GuiMain, self).__init__(parent)
+    def __init__(self, data):
         
         self.data = data
         
@@ -161,10 +160,7 @@ class GuiMain(object):
         self.latLongCheck.setText(QtGui.QApplication.translate("MainWindow", "Latitude/ \n"
         "Longitude", None, QtGui.QApplication.UnicodeUTF8))
         self.latLongCheck.setObjectName(_fromUtf8("latLongCheck"))
-        
-        #Overlay is here, should get moved
-        self.latLongOverlay = self.personView.scene.addPixmap(QPixmap(normpath("images/latOverlay.png")))
-        self.latLongOverlay.setVisible(False)
+
         self.colorCheck = QtGui.QCheckBox(self.mainPage)
         self.colorCheck.setGeometry(QtCore.QRect(560, 510, 97, 41))
         self.colorCheck.setText(QtGui.QApplication.translate("MainWindow", "Color\n"
@@ -414,7 +410,7 @@ class GuiMain(object):
         
     def latLong(self):
         print self.latLongCheck.isChecked()
-        self.latLongOverlay.setVisible(self.latLongCheck.isChecked())
+        self.data.overlays['latLongOverlay'].mViewObj.setVisible(self.latLongCheck.isChecked())
             
         
 if __name__ == "__main__":

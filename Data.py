@@ -17,6 +17,7 @@ class Data(object):
         "Initialize with defaults"
         self.debug = debug
         self.places = []       # graphics objects (non cities)
+        self.overlays = {}     # a dictionary of overlays
         
         self.character =  None # A special Loc for our character
         self.charSpeed = 5
@@ -37,6 +38,7 @@ class Data(object):
         self._temperaryLoadSystem2() # Load data before init view
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
+        self.overlays['latLongOverlay'].mViewObj.setVisible(False)
 
 
     def _temperaryLoadSystem2(self):
@@ -58,13 +60,17 @@ class Data(object):
                      
         # Add Cities
         self.addLoc((-350, 100), 'city', pViewImag = 'city2.png',
-                     mViewImag = 'city.png', cityName = 'city1')
+                     mViewImag = 'city.png', itemName = 'city1')
         
         self.addLoc((-450, 700), 'city', pViewImag = 'city2.png', 
-                     mViewImag = 'city.png', cityName = 'city1')
+                     mViewImag = 'city.png', itemName = 'city1')
                      
         self.addLoc((450, -700), 'city', pViewImag = 'city2.png', 
-                     mViewImag = 'city.png', cityName = 'city2')
+                     mViewImag = 'city.png', itemName = 'city2')
+                     
+        #Add Lat/Long overlay
+        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
+                    mViewImag = 'latOverlay.png', itemName = 'latLongOverlay')
         
         # Add Character
         self.addLoc((0,0),'char',pViewImag='circle.png', mViewImag='circle.png')
@@ -76,7 +82,7 @@ class Data(object):
         None #Not Implemented!
     
     def addLoc(self, position, objType = None,
-                mViewImag=None, pViewImag = None, cityName = None):
+                mViewImag=None, pViewImag = None, itemName = None):
         
         if mViewImag:
             mViewImagPath = normpath("./images/"+mViewImag)
@@ -93,8 +99,11 @@ class Data(object):
         else:
             self.places.append(locObj)
         
-        if objType == 'city' and cityName:
-            self.cities[cityName] = locObj
+        if objType == 'city' and itemName:
+            self.cities[itemName] = locObj
+            
+        if objType == 'overlay' and itemName:
+            self.overlays[itemName] = locObj
             
         return
         
@@ -162,9 +171,9 @@ class Loc(object):
             
 class clue(object):
     def __init__(self, data, difficulty = 0, target= None, 
-                 cityName = None, text = ''):
+                 itemName = None, text = ''):
         self.data = data
         self.difficulty = difficulty
         self.target = target
-        self.cityName = cityName
+        self.itemName = itemName
         self.text = text
