@@ -29,17 +29,4 @@ class ViewGraphics(QGraphicsView):
         
     def keyPressEvent(self, event):
         event.ignore()
-        
-        '''
-        key = event.key()
-        if key == QtCore.Qt.Key_Up:
-            event.ignore()
-        elif key == QtCore.Qt.Key_Down:
-            event.ignore()
-        elif key == QtCore.Qt.Key_Left:
-            event.ignore()
-        elif key == QtCore.Qt.Key_Right:
-            event.ignore()
-        else:
-        '''
             

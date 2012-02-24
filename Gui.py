@@ -16,6 +16,7 @@
 
 from PyQt4 import QtCore, QtGui       #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
+from os.path import normpath
 
 #Specify character encoding (8 Bit Unicode)
 try:
@@ -154,6 +155,10 @@ class GuiMain(object):
         self.latLongCheck.setText(QtGui.QApplication.translate("MainWindow", "Latitude/ \n"
         "Longitude", None, QtGui.QApplication.UnicodeUTF8))
         self.latLongCheck.setObjectName(_fromUtf8("latLongCheck"))
+        
+        #Overlay is here, should get moved
+        self.latLongOverlay = personView.scene.addPixmap(QPixmap(normpath("./images/latOverlay.png")))
+        self.latLongOverlay.setVisible(False)
         self.colorCheck = QtGui.QCheckBox(self.mainPage)
         self.colorCheck.setGeometry(QtCore.QRect(560, 510, 97, 41))
         self.colorCheck.setText(QtGui.QApplication.translate("MainWindow", "Color\n"
@@ -368,6 +373,7 @@ class GuiMain(object):
         QtCore.QObject.connect(self.doneButton2, QtCore.SIGNAL(_fromUtf8("released()")), self.goBack)
         QtCore.QObject.connect(self.doneButton3, QtCore.SIGNAL(_fromUtf8("released()")), self.goBack)
         QtCore.QObject.connect(self.actionCredits, QtCore.SIGNAL(_fromUtf8("triggered()")), self.setCredits)
+        QtCore.QObject.connect(self.latLongCheck, QtCore.SIGNAL(_fromUtf8("stateChanged()")), self.latLong)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -399,6 +405,10 @@ class GuiMain(object):
     def setMain(self):
         self.stackedWidget.setCurrentIndex(0)
         self.location = 0
+        
+    def latLong(self):
+        self.latLongOverlay.setVisible(latLongCheck.isChecked()):
+            
         
 if __name__ == "__main__":
     import sys
