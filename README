@@ -13,9 +13,14 @@ run Game.py to start game with debugging
 ---------------
 TODO:
 ---------------
-Bounds Checking
+Bounds Checking on Map
 Sound
 Save and Load
 Story
-Graphics (more overlays, map key)
+Graphics (more overlays, better background)
 Update Score
+Add Close Dialog
+Resume Game Vs. NewGame Used Correctly
+Disable resizing
+More Settings
+Character Starts Centered Properly
