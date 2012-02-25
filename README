@@ -13,11 +13,13 @@ run Game.py to start game with debugging
 ---------------
 TODO:
 ---------------
+SVN Copy Trunk into Alpha 0.2 First!
+
 Bounds Checking on Map
 Sound
 Save and Load
 Story
-Graphics (more overlays, better background)
+Graphics (more overlays, better background/background swaps)
 Update Score
 Add Close Dialog
 Resume Game Vs. NewGame Used Correctly
@@ -26,3 +28,4 @@ More Settings
 Character Starts Centered Properly
 Add Frame Handling (better navigation, and for animation)
 Make SearchButton More Noticeable
+Not Just searches in cities (change to Landmarks)
