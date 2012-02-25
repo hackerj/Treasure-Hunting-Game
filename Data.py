@@ -20,7 +20,7 @@ class Data(object):
         self.overlays = {}     # a dictionary of overlays
         
         self.character =  None # A special Loc for our character
-        self.charSpeed = 6
+        self.charSpeed = 10
         
         self.cities = {}       # dictionary of cities.
         self.currCity = None   # City with current Clue
@@ -90,8 +90,8 @@ class Data(object):
                      "(Distance from Equator)")
         # Clue 1     
         self.addClue('city2', 
-                     "For this first clue\n"
-                     "You must journey north")
+                     "Search for the second Clue \n"
+                     "in the northern most city")
 
                              
     def loadDataFromUserFile(self, path):
