@@ -41,7 +41,7 @@ class Data(object):
         
         #Hack to get overlays to work
         self.overlays['latLongOverlay'].mViewObj.setVisible(False)
-        self.overlays['colorOverlay'].mviewObj.setVisible(False)
+        self.overlays['colorOverlay'].mViewObj.setVisible(False)
         
         #Initial Search Yealds first clue.
         searchCity(self)
