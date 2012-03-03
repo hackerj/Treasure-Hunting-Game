@@ -382,6 +382,7 @@ class GuiMain(object):
         QtCore.QObject.connect(self.doneButton3, QtCore.SIGNAL(_fromUtf8("released()")), self.goBack)
         QtCore.QObject.connect(self.actionCredits, QtCore.SIGNAL(_fromUtf8("triggered()")), self.setCredits)
         self.latLongCheck.stateChanged.connect(self.latLong)
+        self.colorCheck.stateChanged.connect(self.colorize)
         QtCore.QObject.connect(self.searchButton, QtCore.SIGNAL(_fromUtf8("released()")), self.doSearch)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
