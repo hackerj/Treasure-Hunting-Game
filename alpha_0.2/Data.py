@@ -43,11 +43,11 @@ class Data(object):
         self.overlays['latLongOverlay'].mViewObj.setVisible(False)
         self.overlays['colorOverlay'].mViewObj.setVisible(False)
         
-        #Initial Search Yealds first clue.
+        #Initial search yields first clue.
         searchCity(self)
 
     def _temperaryLoadSystem(self):
-        "Used by loadData Initial Untill we create a save and load system."
+        "Used by loadData Initial until we create a save and load system."
         # Add Background
         for i in xrange(-2,2):
             for j in xrange(-2,2):

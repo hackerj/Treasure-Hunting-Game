@@ -22,6 +22,8 @@ def movementEvent(data, event):
         data.character.translate(data, -s,0) #Left
     elif key == QtCore.Qt.Key_D or key == QtCore.Qt.Key_Right:
         data.character.translate(data, s,0) #Right
+    elif key == QtCore.Qt.Key_Space:
+        searchCity(data) #Searches with space bar
     else:
         print 'You pressed', event.text()
 
