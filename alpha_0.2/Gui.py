@@ -316,7 +316,8 @@ class GuiMain(object):
         "Jessie Liu\n"
         "Peter Andrien\n"
         "Nokia (Qt4 framework)\n"
-        "Riverbank Computing Ltd (PyQt)", None, QtGui.QApplication.UnicodeUTF8))
+        "Riverbank Computing Ltd (PyQt)\n"
+        "Celestial Aeon Project", None, QtGui.QApplication.UnicodeUTF8))
         self.credits.setAlignment(QtCore.Qt.AlignCenter)
         self.credits.setObjectName(_fromUtf8("credits"))
         self.doneButton3 = QtGui.QPushButton(self.creditsPage)
@@ -372,7 +373,8 @@ class GuiMain(object):
         QtCore.QObject.connect(self.quitButton, QtCore.SIGNAL(_fromUtf8("released()")), MainWindow.close)
         QtCore.QObject.connect(self.settingsButton, QtCore.SIGNAL(_fromUtf8("released()")), self.setSettings)
         QtCore.QObject.connect(self.actionSettings, QtCore.SIGNAL(_fromUtf8("triggered()")), self.setSettings)
-        QtCore.QObject.connect(self.loadButton, QtCore.SIGNAL(_fromUtf8("released()")), self.open_file_dialog)
+        QtCore.QObject.connect(self.loadButton, QtCore.SIGNAL(_fromUtf8("released()")), self.load_file_dialog)
+        QtCore.QObject.connect(self.actionSave_Game, QtCore.SIGNAL(_fromUtf8("triggered()")),self.save_file_dialog)
         QtCore.QObject.connect(self.doneButton, QtCore.SIGNAL(_fromUtf8("released()")), self.goBack)
         QtCore.QObject.connect(self.startButton, QtCore.SIGNAL(_fromUtf8("released()")), self.newGame)
         QtCore.QObject.connect(self.actionMain_Menu, QtCore.SIGNAL(_fromUtf8("triggered()")), self.setMain)
@@ -402,12 +404,26 @@ class GuiMain(object):
     def goBack(self):
         self.stackedWidget.setCurrentIndex(self.location)
         
-    def open_file_dialog(self):
+    def load_file_dialog(self):
         fd = QtGui.QFileDialog()
         self.filename = fd.getOpenFileName(None, "Load Saved Game", "saves", "MapMaster Save files (*.save)")
         from os.path import isfile
         if isfile(self.filename):
-            print "Success!"
+            print self.filename
+            self.fname = open(self.filename)
+            self.loadData = self.fname.read()
+            print self.loadData
+            self.fname.close()
+            
+    def save_file_dialog(self):
+        filename = QtGui.QFileDialog.getSaveFileName(None,"Save Game", "saves", "MapMaster Save files (*.save)")
+        print filename
+        if ".save" in filename:
+            self.fname = open(filename, "w")
+        else:
+            self.fname = open(filename + ".save",'w')
+        self.fname.write("Hello")
+        self.fname.close()
     
     def newGame(self):
         self.stackedWidget.setCurrentIndex(2)
