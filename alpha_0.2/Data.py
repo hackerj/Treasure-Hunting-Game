@@ -35,7 +35,7 @@ class Data(object):
 
     def loadDataInitial(self):
         "Initialize with heap objects"
-        self._temperaryLoadSystem2() # Load data before init view
+        self._temperaryLoadSystem() # Load data before init view
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
         
@@ -46,7 +46,8 @@ class Data(object):
         #Initial Search Yealds first clue.
         searchCity(self)
 
-    def _temperaryLoadSystem2(self):
+    def _temperaryLoadSystem(self):
+        "Used by loadData Initial Untill we create a save and load system."
         # Add Background
         for i in xrange(-2,2):
             for j in xrange(-2,2):
@@ -107,6 +108,8 @@ class Data(object):
     
     def addLoc(self, position, objType = None,
                 mViewImag=None, pViewImag = None, itemName = None):
+        "Helper Function used when loading objects  into data for use in the"
+        "into the person and map view."
         
         if mViewImag:
             mViewImagPath = normpath("./images/"+mViewImag)
@@ -140,6 +143,7 @@ class Loc(object):
     def __init__(self, position, objType=None,
                  pViewImag = None, mViewImag = None,
                  pViewText = None, mViewText = None):
+        "Data container for objects appearing in the person and map views"
 
         self.x = position[0]
         self.y = position[1]
@@ -156,6 +160,7 @@ class Loc(object):
         self.mViewObj = None
         
     def __repr__(self):
+        "Print some info about object for debuging."
         str = ''
         if self.objType: str += self.objType
         if self.pViewImag: str += self.pViewImag
