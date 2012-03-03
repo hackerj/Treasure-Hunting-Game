@@ -35,6 +35,8 @@ class GuiMain(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(818, 665)
+        MainWindow.setFixedHeight(665)
+        MainWindow.setFixedWidth(818)
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("icon_medium.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
