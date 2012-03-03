@@ -41,6 +41,7 @@ class Data(object):
         
         #Hack to get overlays to work
         self.overlays['latLongOverlay'].mViewObj.setVisible(False)
+        self.overlays['colorOverlay'].mviewObj.setVisible(False)
         
         #Initial Search Yealds first clue.
         searchCity(self)
@@ -75,6 +76,10 @@ class Data(object):
         #Add Lat/Long overlay
         self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
                     mViewImag = 'latOverlay.png', itemName = 'latLongOverlay')
+                    
+        #Add Color overlay
+        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
+                    mViewImag = 'colorOverlay.png', itemName = 'colorOverlay')
         
         # Add Character
         self.addLoc((0,0),'char',pViewImag='circle.png', mViewImag='circle.png')

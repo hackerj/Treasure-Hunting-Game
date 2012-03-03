@@ -171,10 +171,10 @@ class GuiMain(object):
         self.colorCheck.setText(QtGui.QApplication.translate("MainWindow", "Color\n"
         "Coding", None, QtGui.QApplication.UnicodeUTF8))
         self.colorCheck.setObjectName(_fromUtf8("colorCheck"))
-        self.labelsCheck = QtGui.QCheckBox(self.mainPage)
-        self.labelsCheck.setGeometry(QtCore.QRect(680, 520, 97, 22))
-        self.labelsCheck.setText(QtGui.QApplication.translate("MainWindow", "Labels", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelsCheck.setObjectName(_fromUtf8("labelsCheck"))
+        self.legendCheck = QtGui.QCheckBox(self.mainPage)
+        self.legendCheck.setGeometry(QtCore.QRect(680, 520, 97, 22))
+        self.legendCheck.setText(QtGui.QApplication.translate("MainWindow", "Legend", None, QtGui.QApplication.UnicodeUTF8))
+        self.legendCheck.setObjectName(_fromUtf8("legendCheck"))
         self.searchButton = QtGui.QPushButton(self.mainPage)
         self.searchButton.setGeometry(QtCore.QRect(420, 560, 211, 41))
         self.searchButton.setText(QtGui.QApplication.translate("MainWindow", "Search", None, QtGui.QApplication.UnicodeUTF8))
@@ -366,6 +366,7 @@ class GuiMain(object):
         self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        #These are the slots and signals to connect buttons to other functions
         self.location = 0
         QtCore.QObject.connect(self.actionQuit, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.close)
         QtCore.QObject.connect(self.quitButton, QtCore.SIGNAL(_fromUtf8("released()")), MainWindow.close)
@@ -386,7 +387,8 @@ class GuiMain(object):
 
     def retranslateUi(self, MainWindow):
         pass
-        
+
+    #Custom signals are here        
     def setSettings(self):
         self.stackedWidget.setCurrentIndex(1)
         
@@ -415,8 +417,18 @@ class GuiMain(object):
         self.location = 0
         
     def latLong(self):
-        print self.latLongCheck.isChecked()
+        if self.latLongCheck.isChecked():
+            print "Lat/long overlay on"
+        else:
+            print "Lat/long overlay off"
         self.data.overlays['latLongOverlay'].mViewObj.setVisible(self.latLongCheck.isChecked())
+        
+    def colorize(self):
+        if self.colorCheck.isChecked():
+            print "Color overlay on"
+        else:
+            print "COlor overlay off"
+        self.data.overlays['colorOverlay'].mViewObj.setVisible(self.colorCheck.isChecked())
         
     def doSearch(self):
         searchCity(self.data)
