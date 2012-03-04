@@ -59,6 +59,7 @@ class Data(object):
         #Hack to get overlays to work
         self.overlays['latLongOverlay'].mViewObj.setVisible(False)
         self.overlays['colorOverlay'].mViewObj.setVisible(False)
+        self.overlays['legendOverlay'].mViewObj.setVisible(False)
         
         #Initial search yields first clue.
         searchCity(self)
@@ -98,6 +99,10 @@ class Data(object):
         #Add Color overlay
         self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
                     mViewImag = 'colorOverlay.png', itemName = 'colorOverlay')
+                    
+        #Add Legend overlay
+        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
+                    mViewImag = 'legendOverlay.png', itemName = 'legendOverlay')
         
         # Add Character
         self.addLoc((0,0),'char',pViewImag='circle.png', mViewImag='circle.png')

@@ -159,7 +159,6 @@ class GuiMain(object):
         self.clueView.setFont(font)
         self.clueView.setStyleSheet(self.fg)
         self.latLongCheck = QtGui.QCheckBox(self.mainPage)
-        self.latLongCheck.setTextColor("black")
         self.latLongCheck.setGeometry(QtCore.QRect(420, 510, 97, 41))
         self.latLongCheck.setText(QtGui.QApplication.translate("MainWindow", "Latitude/ \n"
         "Longitude", None, QtGui.QApplication.UnicodeUTF8))
@@ -399,6 +398,7 @@ class GuiMain(object):
         QtCore.QObject.connect(self.actionCredits, QtCore.SIGNAL(_fromUtf8("triggered()")), self.setCredits)
         self.latLongCheck.stateChanged.connect(self.latLong)
         self.colorCheck.stateChanged.connect(self.colorize)
+        self.legendCheck.stateChanged.connect(self.legend)
         QtCore.QObject.connect(self.searchButton, QtCore.SIGNAL(_fromUtf8("released()")), self.doSearch)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -457,9 +457,16 @@ class GuiMain(object):
         if self.colorCheck.isChecked():
             print "Color overlay on"
         else:
-            print "COlor overlay off"
+            print "Color overlay off"
         self.data.overlays['colorOverlay'].mViewObj.setVisible(self.colorCheck.isChecked())
         
+    def legend(self):
+        if self.legendCheck.isChecked():
+            print "Legend overlay on"
+        else:
+            print "Legend overlay off"
+        self.data.overlays['legendOverlay'].mViewObj.setVisible(self.legendCheck.isChecked())
+    
     def doSearch(self):
         searchCity(self.data)
             
