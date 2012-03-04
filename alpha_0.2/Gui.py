@@ -64,10 +64,6 @@ class GuiMain(object):
         self.stackedWidget.setObjectName(_fromUtf8("stackedWidget"))
         self.menuPage = QtGui.QWidget()
         
-        #Experimental audio (SHOULD NOT BE HERE)
-        mixer.pre_init(44100,-16,2,1024)
-        mixer.init()
-        
         self.menuPage.setObjectName(_fromUtf8("menuPage"))
         self.startButton = QtGui.QPushButton(self.menuPage)
         self.startButton.setStyleSheet(self.fgb)
@@ -381,6 +377,13 @@ class GuiMain(object):
         self.menuMenu.addAction(self.actionMain_Menu)
         self.menuMenu.addAction(self.actionQuit)
         self.menubar.addAction(self.menuMenu.menuAction())
+        
+        #Experimental audio (SHOULD NOT BE HERE)
+        mixer.pre_init(44100,-16,2,1024)
+        mixer.init()
+        self.newSound = mixer.Sound(normpath("sounds/theme.wav"))
+        self.newSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)
+        self.newSound.play()
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(0)
@@ -408,10 +411,6 @@ class GuiMain(object):
         QtCore.QObject.connect(self.searchButton, QtCore.SIGNAL(_fromUtf8("released()")), self.doSearch)
         self.volumeSlider.sliderMoved.connect(self.setVol)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        
-        self.newSound = mixer.Sound(normpath("sounds/theme.wav"))
-        self.newSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)
-        self.newSound.play()
 
     def retranslateUi(self, MainWindow):
         pass
@@ -441,12 +440,15 @@ class GuiMain(object):
             
     def save_file_dialog(self):
         filename = QtGui.QFileDialog.getSaveFileName(None,"Save Game", "saves", "MapMaster Save files (*.save)")
-        if ".save" in filename:
-            self.fname = open(filename, "w")
+        if filename == "":
+            print "No file specified!"
         else:
-            self.fname = open(filename + ".save",'w')
-        self.fname.write("Hello")
-        self.fname.close()
+            if ".save" in filename:
+                self.fname = open(filename, "w")
+            else:
+                self.fname = open(filename + ".save",'w')
+            self.fname.write("Hello")
+            self.fname.close()
     
     def newGame(self):
         self.stackedWidget.setCurrentIndex(2)
