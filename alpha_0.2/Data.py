@@ -87,7 +87,7 @@ class Data(object):
                      mViewImag = 'city.png', itemName = 'city0')
         
         self.addLoc((-450, 910), 'landmark', pViewImag = 'city2.png', 
-                     mViewImag = 'city.png', itemName = 'city1')
+                     mViewImag = 'capital.png', itemName = 'city1')
                      
         self.addLoc((450, -700), 'landmark', pViewImag = 'city2.png', 
                      mViewImag = 'city.png', itemName = 'city2')
@@ -198,7 +198,7 @@ class Loc(object):
 
             # Update the step count to erase outdated messages
             data.stepCount += 1
-            if (data.stepCount > 5):
+            if (data.stepCount > 5 and data.clueStack):
                 data.view.guiMain.clueView.setText(data.currClue.text)
                 data.stepCount = 0
 

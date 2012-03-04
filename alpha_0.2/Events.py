@@ -74,6 +74,7 @@ def searchLandmark(data):
     
     if not getDistance(data, data.currLandmark) < data.LANDMARK_RADIUS:
         data.view.guiMain.clueView.setText("No clue here, must be \n somewhere else")
+        
         return False
     
     if data.clueStack:            
