@@ -65,6 +65,7 @@ class GuiMain(object):
         self.menuPage = QtGui.QWidget()
         
         #Experimental audio (SHOULD NOT BE HERE)
+        mixer.pre_init(44100,-16,2,1024)
         mixer.init()
         
         self.menuPage.setObjectName(_fromUtf8("menuPage"))
