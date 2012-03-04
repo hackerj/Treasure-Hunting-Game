@@ -392,7 +392,6 @@ class GuiMain(object):
         self.filename = fd.getOpenFileName(None, "Load Saved Game", "saves", "MapMaster Save files (*.save)")
         from os.path import isfile
         if isfile(self.filename):
-            print self.filename
             self.fname = open(self.filename)
             self.loadData = self.fname.read()
             print self.loadData
@@ -400,7 +399,6 @@ class GuiMain(object):
             
     def save_file_dialog(self):
         filename = QtGui.QFileDialog.getSaveFileName(None,"Save Game", "saves", "MapMaster Save files (*.save)")
-        print filename
         if ".save" in filename:
             self.fname = open(filename, "w")
         else:
@@ -413,6 +411,7 @@ class GuiMain(object):
         self.location = 2
         
     def setMain(self):
+        self.save_file_dialog()
         self.stackedWidget.setCurrentIndex(0)
         self.location = 0
         
