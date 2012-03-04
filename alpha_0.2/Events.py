@@ -79,6 +79,10 @@ def searchCity(data):
         
         #updateClueGui
         data.view.guiMain.clueView.setText(data.currClue.text)
+        #return True
+
+        #updateScore
+        data.view.guiMain.scoreLabel.setText("100")
         return True
     
     #else
