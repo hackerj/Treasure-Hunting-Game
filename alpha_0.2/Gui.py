@@ -109,13 +109,13 @@ class GuiMain(object):
         
         #Quiet Sound Graphic
         self.quietGraphic = QtGui.QLabel(self.settingsPage)
-        self.quietGraphic.setPixmap(QtGui.QPixmap("speakerQuiet.png"))
+        self.quietGraphic.setPixmap(QtGui.QPixmap(normpath("images/speakerQuiet.png")))
         self.quietGraphic.setGeometry(QtCore.QRect(90, 180, 80, 80))
         self.quietGraphic.setObjectName(_fromUtf8("quietGraphic"))
         
         #Loud Sound Graphic
         self.loudGraphic = QtGui.QLabel(self.settingsPage)
-        self.loudGraphic.setPixmap(QtGui.QPixmap("speakerLoud.png"))
+        self.loudGraphic.setPixmap(QtGui.QPixmap(normpath("images/speakerLoud.png")))
         self.loudGraphic.setEnabled(True)
         self.loudGraphic.setGeometry(QtCore.QRect(630, 180, 80, 80))
         self.loudGraphic.setObjectName(_fromUtf8("loudGraphic"))
