@@ -7,11 +7,11 @@
 
 from random import randint #Only temporary
 from View import View      #Everything Graphics Related
-from Events import loadGraphics, searchCity
+from Events import loadGraphics, searchLandmark
 from os.path import normpath
 
 class Data(object):
-    CITY_RADIUS = 256
+    LANDMARK_RADIUS = 256
 
     def __init__(self, debug = True):
         "Initialize with defaults"
@@ -28,8 +28,8 @@ class Data(object):
         self.character =  None # A special Loc for our character
         self.charSpeed = 10
         
-        self.cities = {}       # dictionary of cities.
-        self.currCity = None   # City with current Clue
+        self.landmarks = {}       # dictionary of cities.
+        self.currLandmark = None   # City with current Clue
         
         self.currClue = None   # Current Clue
         self.clueStack = []    # A list of clues
@@ -62,7 +62,7 @@ class Data(object):
         self.overlays['legendOverlay'].mViewObj.setVisible(False)
         
         #Initial search yields first clue.
-        searchCity(self)
+        searchLandmark(self)
 
     def _temperaryLoadSystem(self):
         "Used by loadData Initial until we create a save and load system."
@@ -83,13 +83,13 @@ class Data(object):
                         mViewImag = 'tree.png')
                      
         # Add Cities
-        self.addLoc((-350, 100), 'city', pViewImag = 'city2.png',
+        self.addLoc((-350, 100), 'landmark', pViewImag = 'city2.png',
                      mViewImag = 'city.png', itemName = 'city0')
         
-        self.addLoc((-450, 910), 'city', pViewImag = 'city2.png', 
+        self.addLoc((-450, 910), 'landmark', pViewImag = 'city2.png', 
                      mViewImag = 'city.png', itemName = 'city1')
                      
-        self.addLoc((450, -700), 'city', pViewImag = 'city2.png', 
+        self.addLoc((450, -700), 'landmark', pViewImag = 'city2.png', 
                      mViewImag = 'city.png', itemName = 'city2')
                      
         #Add Color overlay
@@ -148,16 +148,16 @@ class Data(object):
         else:
             self.places.append(locObj)
         
-        if objType == 'city' and itemName:
-            self.cities[itemName] = locObj
+        if objType == 'landmark' and itemName:
+            self.landmarks[itemName] = locObj
             
         if objType == 'overlay' and itemName:
             self.overlays[itemName] = locObj
             
         return
 
-    def addClue(self, city, text):
-        clue = Clue(city, text)
+    def addClue(self, landmark, text):
+        clue = Clue(landmark, text)
         self.clueStack.append(clue)
 
  
@@ -242,6 +242,6 @@ class Loc(object):
         self.mViewObj.setY(newy * mapScale)
             
 class Clue(object):
-    def __init__(self, targetCity, text):
+    def __init__(self, targetLandmark, text):
         self.text = text
-        self.targetCity = targetCity
+        self.targetLandmark = targetLandmark

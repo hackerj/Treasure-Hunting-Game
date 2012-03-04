@@ -18,7 +18,7 @@ from PyQt4 import QtCore, QtGui       #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
 from os.path import normpath
 from PyQt4.QtGui import QPixmap
-from Events import searchCity
+from Events import searchLandmark
 from os.path import normpath
 from pygame import mixer
 
@@ -485,7 +485,7 @@ class GuiMain(object):
         self.newSound.set_volume(float(num)/100.0)
     
     def doSearch(self):
-        searchCity(self.data)
+        searchLandmark(self.data)
             
         
 if __name__ == "__main__":

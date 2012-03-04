@@ -24,8 +24,8 @@ def movementEvent(data, event):
     elif key == QtCore.Qt.Key_D or key == QtCore.Qt.Key_Right:
         data.character.translate(data, s,0) #Right
 
-    elif key == QtCore.Qt.Key_Space:
-        searchCity(data) #Searches with space bar
+    elif key == QtCore.Qt.Key_Space or key == QtCore.Qt.Key_Enter or key == QtCore.Qt.Key_Return:
+        searchLandmark(data) #Searches with space bar
 
     else:
         print 'You pressed', event.text()
@@ -68,18 +68,18 @@ def loadPNG(data, loc):
     if data.debug: 
         print 'Load ', loc
 
-def searchCity(data):
-    if not data.currCity:
-        data.currCity = data.character
+def searchLandmark(data):
+    if not data.currLandmark:
+        data.currLandmark = data.character
     
-    if not getDistance(data, data.currCity) < data.CITY_RADIUS:
+    if not getDistance(data, data.currLandmark) < data.LANDMARK_RADIUS:
         data.view.guiMain.clueView.setText("No clue here, must be \n somewhere else")
         return False
     
     if data.clueStack:            
         #Load new Clue and City Data.
         data.currClue = data.clueStack.pop()
-        data.currCity = data.cities[data.currClue.targetCity]
+        data.currLandmark = data.landmarks[data.currClue.targetLandmark]
         
         #updateClueGui
         data.view.guiMain.clueView.setText(data.currClue.text)
@@ -94,8 +94,8 @@ def searchCity(data):
                                        "But the game has just begun")
     return True
         
-def getDistance(data,city):
+def getDistance(data,landmark):
     charX, charY = data.character.getCenter()
-    cityX, cityY = city.getCenter()
+    lmX, lmY = landmark.getCenter()
     
-    return ((charX - cityX)**2 + (charY - cityY)**2)**0.5
+    return ((charX - lmX)**2 + (charY - lmY)**2)**0.5
