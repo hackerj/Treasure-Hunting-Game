@@ -34,6 +34,10 @@ class Data(object):
         self.currClue = None   # Current Clue
         self.clueStack = []    # A list of clues
         
+        self.stepCount = 0    # Step counter for erasing updates
+
+        self.score = 0
+        
         self.view = None       # Container for PyQt specific data and widgets
         self.mapScale = 0.1
 
@@ -186,6 +190,12 @@ class Loc(object):
             self.y += yDist
             self.updatePViewObj()
             self.updateMViewObj(data.mapScale)
+
+            # Update the step count to erase outdated messages
+            data.stepCount += 1
+            if (data.stepCount > 5):
+                data.view.guiMain.clueView.setText(data.currClue.text)
+                data.stepCount = 0
 
     def isValidMove(self, data, xDist, yDist):
         checkX = self.x + xDist

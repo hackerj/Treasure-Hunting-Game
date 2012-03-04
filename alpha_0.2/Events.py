@@ -20,10 +20,13 @@ def movementEvent(data, event):
 
     elif key == QtCore.Qt.Key_A or key == QtCore.Qt.Key_Left:
         data.character.translate(data, -s,0) #Left
+
     elif key == QtCore.Qt.Key_D or key == QtCore.Qt.Key_Right:
         data.character.translate(data, s,0) #Right
+
     elif key == QtCore.Qt.Key_Space:
         searchCity(data) #Searches with space bar
+
     else:
         print 'You pressed', event.text()
 
@@ -70,6 +73,7 @@ def searchCity(data):
         data.currCity = data.character
     
     if not getDistance(data, data.currCity) < data.CITY_RADIUS:
+        data.view.guiMain.clueView.setText("No clue here, must be \n somewhere else")
         return False
     
     if data.clueStack:            
@@ -79,10 +83,10 @@ def searchCity(data):
         
         #updateClueGui
         data.view.guiMain.clueView.setText(data.currClue.text)
-        #return True
 
         #updateScore
-        data.view.guiMain.scoreLabel.setText("100")
+        data.score += 100
+        data.view.guiMain.scoreBox.setText((str)(data.score))
         return True
     
     #else
