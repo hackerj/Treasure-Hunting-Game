@@ -46,7 +46,7 @@ class GuiMain(object):
 
         #Test Experimental Code
         self.background = QtGui.QLabel(MainWindow)
-        self.background.setPixmap(QtGui.QPixmap(normpath("images/GameMenu2.png")))
+        self.background.setPixmap(QtGui.QPixmap(normpath("images/gameMenu2.png")))
         self.background.setGeometry(QtCore.QRect(0, 0, 818, 665))
         
 
