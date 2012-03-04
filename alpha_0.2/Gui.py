@@ -20,6 +20,7 @@ from os.path import normpath
 from PyQt4.QtGui import QPixmap
 from Events import searchCity
 from os.path import normpath
+from pygame import mixer
 
 #Specify character encoding (8 Bit Unicode)
 try:
@@ -62,6 +63,10 @@ class GuiMain(object):
         self.stackedWidget.setEnabled(True)
         self.stackedWidget.setObjectName(_fromUtf8("stackedWidget"))
         self.menuPage = QtGui.QWidget()
+        
+        #Experimental audio (SHOULD NOT BE HERE)
+        mixer.init()
+        
         self.menuPage.setObjectName(_fromUtf8("menuPage"))
         self.startButton = QtGui.QPushButton(self.menuPage)
         self.startButton.setStyleSheet(self.fgb)
@@ -400,7 +405,12 @@ class GuiMain(object):
         self.colorCheck.stateChanged.connect(self.colorize)
         self.legendCheck.stateChanged.connect(self.legend)
         QtCore.QObject.connect(self.searchButton, QtCore.SIGNAL(_fromUtf8("released()")), self.doSearch)
+        self.volumeSlider.sliderMoved.connect(self.setVol)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        
+        self.newSound = mixer.Sound(normpath("sounds/theme.wav"))
+        self.newSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)
+        self.newSound.play()
 
     def retranslateUi(self, MainWindow):
         pass
@@ -466,6 +476,10 @@ class GuiMain(object):
         else:
             print "Legend overlay off"
         self.data.overlays['legendOverlay'].mViewObj.setVisible(self.legendCheck.isChecked())
+    
+    def setVol(self):
+        num = self.volumeSlider.sliderPosition()
+        self.newSound.set_volume(float(num)/100.0)
     
     def doSearch(self):
         searchCity(self.data)

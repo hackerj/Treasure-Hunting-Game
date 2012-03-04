@@ -10,8 +10,6 @@ from View import View      #Everything Graphics Related
 from Events import loadGraphics, searchCity
 from os.path import normpath
 
-from PyQt4.QtGui import QSound
-
 class Data(object):
     CITY_RADIUS = 256
 
@@ -52,15 +50,13 @@ class Data(object):
         loadGraphics(self)          # Initialize graphics
         self.view.guiMain.personView.centerOn(self.character.pViewObj); # Center on the character
 
-        QSound.play("sounds/theme.wav") #play sound
-
         # Set boundaries
         self.maxX = 1768
         self.minX = -2024
         self.maxY = 2024
         self.minY = -2024
         
-        #Hack to get overlays to work
+        #Add overlays
         self.overlays['latLongOverlay'].mViewObj.setVisible(False)
         self.overlays['colorOverlay'].mViewObj.setVisible(False)
         self.overlays['legendOverlay'].mViewObj.setVisible(False)
