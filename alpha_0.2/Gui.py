@@ -330,7 +330,7 @@ class GuiMain(object):
         self.creditsLabel.setObjectName(_fromUtf8("creditsLabel"))
         self.credits = QtGui.QLabel(self.creditsPage)
         self.credits.setStyleSheet(self.fg)
-        self.credits.setGeometry(QtCore.QRect(180, 150, 440, 210))
+        self.credits.setGeometry(QtCore.QRect(180, 150, 500, 400))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Century Schoolbook L"))
         font.setPointSize(20)
@@ -342,7 +342,7 @@ class GuiMain(object):
         "Nokia (Qt4 framework)\n"
         "Riverbank Computing Ltd (PyQt)\n"
         "Celestial Aeon Project", None, QtGui.QApplication.UnicodeUTF8))
-        self.credits.setAlignment(QtCore.Qt.AlignCenter)
+        self.credits.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.credits.setObjectName(_fromUtf8("credits"))
         self.doneButton3 = QtGui.QPushButton(self.creditsPage)
         self.doneButton3.setStyleSheet(self.fgb)
@@ -408,9 +408,11 @@ class GuiMain(object):
         #Experimental audio (SHOULD NOT BE HERE)
         mixer.pre_init(44100,-16,2,1024)
         mixer.init()
-        self.newSound = mixer.Sound(normpath("sounds/theme.wav"))
-        self.newSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)
-        self.newSound.play(-1)
+        self.menuSound = mixer.Sound(normpath("sounds/theme.wav"))
+        self.menuSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)
+        self.menuSound.play(-1)
+        self.gameSound = mixer.Sound(normpath("sounds/gameTheme.wav"))
+        
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(0)
@@ -418,6 +420,7 @@ class GuiMain(object):
 
         #These are the slots and signals to connect buttons to other functions
         self.location = 0
+        self.currSound = self.menuSound
         QtCore.QObject.connect(self.actionQuit, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.close)
         QtCore.QObject.connect(self.quitButton, QtCore.SIGNAL(_fromUtf8("released()")), MainWindow.close)
         QtCore.QObject.connect(self.settingsButton, QtCore.SIGNAL(_fromUtf8("released()")), self.setSettings)
@@ -494,12 +497,20 @@ class GuiMain(object):
     def storyButton(self):
         self.stackedWidget.setCurrentIndex(2)
         self.location = 2
+        self.menuSound.fadeout(500)
+        self.gameSound.play(loops=-1, fade_ms=500)
+        self.currSound = self.gameSound
+        self.currSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)
         
     def setMain(self):
         self.save_file_dialog()
         self.background.setPixmap(self.backgroundPixmapMenu)
         self.stackedWidget.setCurrentIndex(0)
-        self.location = 0        
+        self.location = 0
+        self.gameSound.fadeout(500)
+        self.menuSound.play(loops=-1, fade_ms=500)
+        self.currSound = self.menuSound
+        self.currSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)        
            
         
     def latLong(self):
@@ -525,7 +536,7 @@ class GuiMain(object):
     
     def setVol(self):
         num = self.volumeSlider.sliderPosition()
-        self.newSound.set_volume(float(num)/100.0)
+        self.currSound.set_volume(float(num)/100.0)
     
     def doSearch(self):
         searchLandmark(self.data)
