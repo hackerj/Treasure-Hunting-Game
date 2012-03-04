@@ -125,11 +125,11 @@ class Data(object):
         "into the person and map view."
         
         if mViewImag:
-            mViewImagPath = normpath("./images/"+mViewImag)
+            mViewImagPath = normpath("images/"+mViewImag)
         else: mViewImagPath = None
         
         if pViewImag:
-            pViewImagPath = normpath("./images/"+pViewImag)
+            pViewImagPath = normpath("images/"+pViewImag)
         else: pViewImagPath = None
         
         locObj = Loc(position, objType, mViewImag = mViewImagPath, pViewImag = pViewImagPath)

@@ -19,6 +19,7 @@ from ViewGraphics import ViewGraphics #Person View Class
 from os.path import normpath
 from PyQt4.QtGui import QPixmap
 from Events import searchCity
+from os.path import normpath
 
 #Specify character encoding (8 Bit Unicode)
 try:
@@ -44,7 +45,7 @@ class GuiMain(object):
 
         #Test Experimental Code
         self.background = QtGui.QLabel(MainWindow)
-        self.background.setPixmap(QtGui.QPixmap("GameTitle3.png"))
+        self.background.setPixmap(QtGui.QPixmap(normpath("images/gameMenu2.png")))
         self.background.setGeometry(QtCore.QRect(0, 0, 818, 665))
         
 

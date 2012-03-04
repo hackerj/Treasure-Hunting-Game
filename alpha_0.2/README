@@ -21,11 +21,11 @@ Save and Load
 Story
 Graphics (more overlays, better background/background swaps)
 Update Score
-Add Close Dialog
 Resume Game Vs. NewGame Used Correctly
-Disable resizing
+ - Disable resizing 
 More Settings
-Character Starts Centered Properly
-Add Frame Handling (better navigation, and for animation)
-Make SearchButton More Noticeable
+ - Character Starts Centered Properly
+Add Close Dialog
 Not Just searches in cities (change to Landmarks)
+ - Make SearchButton More Noticeable
+Add Frame Handling (better navigation, and for animation)
