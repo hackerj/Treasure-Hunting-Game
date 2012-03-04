@@ -15,17 +15,19 @@ TODO:
 ---------------
 SVN Copy Trunk into Alpha 0.2 First!
 
-Bounds Checking on Map
 Sound
 Save and Load
 Story
 Graphics (more overlays, better background/background swaps)
-Update Score
-Resume Game Vs. NewGame Used Correctly
- - Disable resizing 
-More Settings
- - Character Starts Centered Properly
-Add Close Dialog
-Not Just searches in cities (change to Landmarks)
- - Make SearchButton More Noticeable
 Add Frame Handling (better navigation, and for animation)
+Not Just searches in cities (change to Landmarks)
+More Settings
+
+ ? Resume Game Vs. NewGame Used Correctly
+
+ - Bounds Checking on Map
+ - Disable resizing 
+ - Character Starts Centered Properly
+ - Add Close Dialog
+ - Make SearchButton More Noticeable
+ - Update Score
