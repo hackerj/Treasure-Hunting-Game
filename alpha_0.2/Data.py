@@ -92,13 +92,13 @@ class Data(object):
         self.addLoc((450, -700), 'city', pViewImag = 'city2.png', 
                      mViewImag = 'city.png', itemName = 'city2')
                      
-        #Add Lat/Long overlay
-        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
-                    mViewImag = 'latOverlay.png', itemName = 'latLongOverlay')
-                    
         #Add Color overlay
         self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
                     mViewImag = 'colorOverlay.png', itemName = 'colorOverlay')
+                     
+        #Add Lat/Long overlay
+        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
+                    mViewImag = 'latOverlay.png', itemName = 'latLongOverlay')
                     
         #Add Legend overlay
         self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
