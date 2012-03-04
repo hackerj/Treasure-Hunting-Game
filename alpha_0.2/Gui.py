@@ -192,6 +192,8 @@ class GuiMain(object):
         self.scoreLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.scoreLabel.setObjectName(_fromUtf8("scoreLabel"))
         self.stackedWidget.addWidget(self.mainPage)
+        
+        #Help page
         self.helpPage = QtGui.QWidget()
         self.helpPage.setObjectName(_fromUtf8("helpPage"))
         self.HelpLabel = QtGui.QLabel(self.helpPage)
@@ -343,6 +345,26 @@ class GuiMain(object):
         self.doneButton3.setText(QtGui.QApplication.translate("MainWindow", "Done", None, QtGui.QApplication.UnicodeUTF8))
         self.doneButton3.setObjectName(_fromUtf8("doneButton3"))
         self.stackedWidget.addWidget(self.creditsPage)
+        
+        #Story Screen
+        self.storyPage = QtGui.QWidget()
+        self.storyPage.setObjectName(_fromUtf8("storyPage"))
+        self.storyLabel = QtGui.QLabel(self.storyPage)
+        self.storyLabel.setStyleSheet(self.fg)
+        self.storyLabel.setGeometry(QtCore.QRect(100, 50, 600, 400))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Century Schoolbook L"))
+        font.setPointSize(36)
+        self.storyLabel.setFont(font)
+        self.storyLabel.setText(QtGui.QApplication.translate("MainWindow", "Story goes here. ", None, QtGui.QApplication.UnicodeUTF8))
+        self.storyLabel.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.storyLabel.setObjectName(_fromUtf8("storyLabel"))
+        self.nextButton = QtGui.QPushButton(self.storyPage)
+        self.nextButton.setGeometry(QtCore.QRect(600, 520, 161, 61))
+        self.nextButton.setText(QtGui.QApplication.translate("MainWindow", "Next", None, QtGui.QApplication.UnicodeUTF8))
+        self.nextButton.setObjectName(_fromUtf8("nextButton"))
+        self.stackedWidget.addWidget(self.storyPage)
+        
         self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
@@ -409,6 +431,7 @@ class GuiMain(object):
         self.colorCheck.stateChanged.connect(self.colorize)
         self.legendCheck.stateChanged.connect(self.legend)
         QtCore.QObject.connect(self.searchButton, QtCore.SIGNAL(_fromUtf8("released()")), self.doSearch)
+        QtCore.QObject.connect(self.nextButton, QtCore.SIGNAL(_fromUtf8("released()")), self.storyButton)
         self.volumeSlider.sliderMoved.connect(self.setVol)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -451,6 +474,10 @@ class GuiMain(object):
             self.fname.close()
     
     def newGame(self):
+        self.stackedWidget.setCurrentIndex(5)
+        self.location = 5
+        
+    def storyButton(self):
         self.stackedWidget.setCurrentIndex(2)
         self.location = 2
         
