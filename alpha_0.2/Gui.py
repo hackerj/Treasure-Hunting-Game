@@ -49,7 +49,12 @@ class GuiMain(object):
 
         #Test Experimental Code
         self.background = QtGui.QLabel(MainWindow)
-        self.background.setPixmap(QtGui.QPixmap(normpath("images/gameMenu2.png")))
+        
+        
+        self.backgroundPixmapMenu = QtGui.QPixmap(normpath("images/gameMenu2.png"))
+        self.backgroundPixmapSettings = QtGui.QPixmap(normpath("images/gameMenuSettings2.png"))
+        self.background.setPixmap(self.backgroundPixmapMenu)       
+        
         self.background.setGeometry(QtCore.QRect(0, 0, 818, 665))
         
         self.fg = "QLabel {color:black}"
@@ -440,16 +445,24 @@ class GuiMain(object):
 
     #Custom signals are here        
     def setSettings(self):
+        self.background.setPixmap(self.backgroundPixmapSettings)    
         self.stackedWidget.setCurrentIndex(1)
         
     def setInstructions(self):
+        self.background.setPixmap(self.backgroundPixmapSettings)    
         self.stackedWidget.setCurrentIndex(3)
         
     def setCredits(self):
+        self.background.setPixmap(self.backgroundPixmapSettings)       
         self.stackedWidget.setCurrentIndex(4)
         
     def goBack(self):
         self.stackedWidget.setCurrentIndex(self.location)
+        if self.location == 0:
+            self.background.setPixmap(self.backgroundPixmapMenu)
+        else:
+            None
+            #Should be something here latter.
         
     def load_file_dialog(self):
         fd = QtGui.QFileDialog()
@@ -474,6 +487,7 @@ class GuiMain(object):
             self.fname.close()
     
     def newGame(self):
+        self.background.setPixmap(self.backgroundPixmapSettings)    
         self.stackedWidget.setCurrentIndex(5)
         self.location = 5
         
@@ -483,8 +497,10 @@ class GuiMain(object):
         
     def setMain(self):
         self.save_file_dialog()
+        self.background.setPixmap(self.backgroundPixmapMenu)
         self.stackedWidget.setCurrentIndex(0)
-        self.location = 0
+        self.location = 0        
+           
         
     def latLong(self):
         if self.latLongCheck.isChecked():

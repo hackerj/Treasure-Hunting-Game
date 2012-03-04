@@ -13,20 +13,25 @@ run Game.py to start game with debugging
 ---------------
 TODO:
 ---------------
-SVN Copy Trunk into Alpha 0.2 First!
-
-Sound
-Save and Load
-Story
-Graphics (more overlays, better background/background swaps)
 Add Frame Handling (better navigation, and for animation)
 Not Just searches in cities (change to Landmarks)
-More Settings
 
- ? Resume Game Vs. NewGame Used Correctly
+Save and Load
+Resume Game Vs. NewGame Used Correctly
 
- - Bounds Checking on Map
- - Disable resizing 
+Story
+
+Graphics (more overlays, better background/background swaps)
+----------------
+Change Log
+----------------
+
+Map Master 0.2
+
+ - Betteer Graphics
+ - Added Sound Support
+ - Added Bounds Checking on Map
+ - Disable resizing because it is not a feature at the momment. 
  - Character Starts Centered Properly
  - Add Close Dialog
  - Make SearchButton More Noticeable
