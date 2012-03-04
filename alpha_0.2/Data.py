@@ -20,7 +20,10 @@ class Data(object):
         self.overlays = {}     # a dictionary of overlays
 
         # Size of the world for bounds checking
-        #self.maxX = self.pViewObj.pixmap().width()/2
+        self.maxX = 0
+        self.minX = 0
+        self.maxY = 0
+        self.minY = 0
         
         self.character =  None # A special Loc for our character
         self.charSpeed = 10
@@ -42,6 +45,12 @@ class Data(object):
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
         self.view.guiMain.personView.centerOn(self.character.pViewObj); # Center on the character
+
+        # Set boundaries
+        self.maxX = 1768
+        self.minX = -2024
+        self.maxY = 2024
+        self.minY = -2024
         
         #Hack to get overlays to work
         self.overlays['latLongOverlay'].mViewObj.setVisible(False)
@@ -181,11 +190,7 @@ class Loc(object):
     def isValidMove(self, data, xDist, yDist):
         checkX = self.x + xDist
         checkY = self.y + yDist
-        maxX = 1000
-        minX = -1000
-        maxY = 1000
-        minY = -1000
-        if (checkX > maxX or checkX < minX or checkY > maxY or checkY < minY):
+        if (checkX > data.maxX or checkX < data.minX or checkY > data.maxY or checkY < data.minY):
             return False
         else:
             return True
