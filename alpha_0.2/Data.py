@@ -18,6 +18,9 @@ class Data(object):
         self.debug = debug
         self.places = []       # graphics objects (non cities)
         self.overlays = {}     # a dictionary of overlays
+
+        # Size of the world for bounds checking
+        #self.maxX = self.pViewObj.pixmap().width()/2
         
         self.character =  None # A special Loc for our character
         self.charSpeed = 10
@@ -38,6 +41,7 @@ class Data(object):
         self._temperaryLoadSystem() # Load data before init view
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
+        self.view.guiMain.personView.centerOn(self.character.pViewObj); # Center on the character
         
         #Hack to get overlays to work
         self.overlays['latLongOverlay'].mViewObj.setVisible(False)
@@ -167,11 +171,25 @@ class Loc(object):
         elif self.mViewImag: str += self.mViewImag
         return str
 
-    def translate(self, data, xDist,yDist):
-        self.x += xDist
-        self.y += yDist
-        self.updatePViewObj()
-        self.updateMViewObj(data.mapScale)
+    def translate(self, data, xDist, yDist):
+        if (self.isValidMove(data, xDist, yDist)):
+            self.x += xDist
+            self.y += yDist
+            self.updatePViewObj()
+            self.updateMViewObj(data.mapScale)
+
+    def isValidMove(self, data, xDist, yDist):
+        checkX = self.x + xDist
+        checkY = self.y + yDist
+        maxX = 1000
+        minX = -1000
+        maxY = 1000
+        minY = -1000
+        if (checkX > maxX or checkX < minX or checkY > maxY or checkY < minY):
+            return False
+        else:
+            return True
+        
     
     def getCenter(self):
         #print dir(self.pViewObj.pixmap)
