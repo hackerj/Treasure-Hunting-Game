@@ -14,7 +14,7 @@ class Sounds(object):
         #mixer.pre_init(44100, -16, 2, 1024)
         mixer.init()
         self.menuSound = normpath("sounds/theme.mp3")
-        self.gameSound = normpath("sounds/gameTheme.wav")
+        self.gameSound = normpath("sounds/gameTheme.mp3")
         self.currSound = self.menuSound
         mixer.music.load(self.menuSound)
         mixer.music.play(-1)
@@ -28,7 +28,7 @@ class Sounds(object):
         
     #Change songs (only has songs for menu and game)
     def switchSongs(self, songnum):
-        mixer.music.fadeout(1000)
+        mixer.music.fadeout(500)
         if songnum == 0:
             self.currSound = self.menuSound
         elif songnum == 2:

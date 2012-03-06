@@ -242,6 +242,7 @@ class Loc(object):
         self.mViewObj.setY(newy * mapScale)
             
 class Clue(object):
+    """Definition of a clue"""
     def __init__(self, targetLandmark, text):
         self.text = text
         self.targetLandmark = targetLandmark
