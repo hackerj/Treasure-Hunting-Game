@@ -111,15 +111,15 @@ class Data(object):
         # Clue 3
         self.addClue('city1',
                      "For this final clue\n"
-                     "Look to the city most southernly")
+                     "Look to the capital city")
         # Clue 2
         self.addClue('city0',
                      "Check 37.8 deg latitude\n"
                      "(Distance from Equator)")
         # Clue 1     
         self.addClue('city2', 
-                     "Search for the second clue \n"
-                     "in the northernmost city")
+                     "Search for the next clue \n"
+                     "in the city in the blue country")
 
                              
     def loadDataFromUserFile(self, path):
