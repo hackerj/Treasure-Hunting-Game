@@ -2,7 +2,7 @@
 # Map Master Game
 # ---------------
 # Authors: MI Maps Team, CS121-SoftwareDevelopment, Harvey Mudd College
-# Version: 0.1 using PyQt4.9
+# Version: 0.2 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from Events import movementEvent
@@ -11,7 +11,7 @@ from PyQt4.QtGui import QGraphicsView, QGraphicsScene
 
 class ViewGraphics(QGraphicsView):
     def __init__(self, parent=None):
-        "QGraphicsView widget which will show where the player is located."
+        """QGraphicsView widget which will show where the player is located."""
         
         #Initialize the abstracted class instance
         super(ViewGraphics, self).__init__(parent)

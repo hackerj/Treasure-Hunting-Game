@@ -2,7 +2,7 @@
 # Map Master Game
 # ---------------
 # Authors: MI Maps Team, CS121-SoftwareDevelopment, Harvey Mudd College
-# Version: 0.1 using PyQt4.9
+# Version: 0.2 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from random import randint #Only temporary
@@ -14,7 +14,7 @@ class Data(object):
     LANDMARK_RADIUS = 256
 
     def __init__(self, debug = True):
-        "Initialize with defaults"
+        """Initialize with defaults"""
         self.debug = debug
         self.places = []       # graphics objects (non cities)
         self.overlays = {}     # a dictionary of overlays
@@ -44,7 +44,7 @@ class Data(object):
         self.loadDataInitial()
 
     def loadDataInitial(self):
-        "Initialize with heap objects"
+        """Initialize with heap objects"""
         self._temperaryLoadSystem() # Load data before init view
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
@@ -65,7 +65,7 @@ class Data(object):
         searchLandmark(self)
 
     def _temperaryLoadSystem(self):
-        "Used by loadData Initial until we create a save and load system."
+        """Used by loadDataInitial until we create a save and load system."""
         # Add Background
         for i in xrange(-2,2):
             for j in xrange(-2,2):
@@ -130,8 +130,8 @@ class Data(object):
     
     def addLoc(self, position, objType = None,
                 mViewImag=None, pViewImag = None, itemName = None):
-        "Helper Function used when loading objects  into data for use in the"
-        "into the person and map view."
+        """Helper Function used when loading objects into data for use in the
+        person and map view."""
         
         if mViewImag:
             mViewImagPath = normpath("images/"+mViewImag)
@@ -165,7 +165,7 @@ class Loc(object):
     def __init__(self, position, objType=None,
                  pViewImag = None, mViewImag = None,
                  pViewText = None, mViewText = None):
-        "Data container for objects appearing in the person and map views"
+        """Data container for objects appearing in the person and map views"""
 
         self.x = position[0]
         self.y = position[1]
@@ -182,7 +182,7 @@ class Loc(object):
         self.mViewObj = None
         
     def __repr__(self):
-        "Print some info about object for debuging."
+        """Print some info about object for debugging."""
         str = ''
         if self.objType: str += self.objType
         if self.pViewImag: str += self.pViewImag
