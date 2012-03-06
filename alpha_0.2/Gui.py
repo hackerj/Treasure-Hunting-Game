@@ -2,17 +2,8 @@
 # Map Master Game
 # ---------------
 # Authors: MI Maps Team, CS121-SoftwareDevelopment, Harvey Mudd College
-# Version: 0.1 using PyQt4.9
+# Version: 0.2 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
-
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'Gui.ui'
-#
-# Created: Wed Feb 22 19:13:47 2012
-#      by: PyQt4 UI code generator 4.8.5
-#
-# WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui       #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
@@ -21,6 +12,7 @@ from PyQt4.QtGui import QPixmap
 from Events import searchLandmark
 from os.path import normpath
 from pygame import mixer
+from Sounds import Sounds
 
 #Specify character encoding (8 Bit Unicode)
 try:
@@ -47,7 +39,7 @@ class GuiMain(object):
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("icon_medium.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
 
-        #Test Experimental Code
+        #Set window backgrounds
         self.background = QtGui.QLabel(MainWindow)
         
         
@@ -57,6 +49,7 @@ class GuiMain(object):
         
         self.background.setGeometry(QtCore.QRect(0, 0, 818, 665))
         
+        #Stylesheet settings for labels and buttons
         self.fg = "QLabel {color:black}"
         self.fgb = "QPushButton {color:black}"
 
@@ -67,8 +60,9 @@ class GuiMain(object):
         self.stackedWidget = QtGui.QStackedWidget(self.centralwidget)
         self.stackedWidget.setEnabled(True)
         self.stackedWidget.setObjectName(_fromUtf8("stackedWidget"))
-        self.menuPage = QtGui.QWidget()
         
+        #Main Menu page
+        self.menuPage = QtGui.QWidget()
         self.menuPage.setObjectName(_fromUtf8("menuPage"))
         self.startButton = QtGui.QPushButton(self.menuPage)
         self.startButton.setStyleSheet(self.fgb)
@@ -96,6 +90,8 @@ class GuiMain(object):
         self.instrButton.setText(QtGui.QApplication.translate("MainWindow", "Instructions", None, QtGui.QApplication.UnicodeUTF8))
         self.instrButton.setObjectName(_fromUtf8("instrButton"))
         self.stackedWidget.addWidget(self.menuPage)
+        
+        #Settings page
         self.settingsPage = QtGui.QWidget()
         self.settingsPage.setObjectName(_fromUtf8("settingsPage"))
         self.volumeSlider = QtGui.QSlider(self.settingsPage)
@@ -143,6 +139,10 @@ class GuiMain(object):
         self.doneButton.setText(QtGui.QApplication.translate("MainWindow", "Done", None, QtGui.QApplication.UnicodeUTF8))
         self.doneButton.setObjectName(_fromUtf8("doneButton"))
         self.stackedWidget.addWidget(self.settingsPage)
+        
+        self.soundManager = Sounds(self.volumeSlider.sliderPosition())
+        
+        #Main Game page
         self.mainPage = QtGui.QWidget()
         self.mainPage.setObjectName(_fromUtf8("mainPage"))
         
@@ -165,6 +165,8 @@ class GuiMain(object):
         font.setPointSize(20)
         self.clueView.setFont(font)
         self.clueView.setStyleSheet(self.fg)
+        
+        #Map Toggles
         self.latLongCheck = QtGui.QCheckBox(self.mainPage)
         self.latLongCheck.setGeometry(QtCore.QRect(420, 510, 97, 41))
         self.latLongCheck.setText(QtGui.QApplication.translate("MainWindow", "Latitude/ \n"
@@ -185,6 +187,8 @@ class GuiMain(object):
         self.searchButton.setGeometry(QtCore.QRect(420, 560, 211, 41))
         self.searchButton.setText(QtGui.QApplication.translate("MainWindow", "Search", None, QtGui.QApplication.UnicodeUTF8))
         self.searchButton.setObjectName(_fromUtf8("searchButton"))
+        
+        #Score pieces
         self.scoreBox = QtGui.QLabel(self.mainPage)
         self.scoreBox.setStyleSheet(self.fg)
         self.scoreBox.setGeometry(QtCore.QRect(720, 560, 71, 41))
@@ -316,6 +320,8 @@ class GuiMain(object):
         self.doneButton2.setText(QtGui.QApplication.translate("MainWindow", "Done", None, QtGui.QApplication.UnicodeUTF8))
         self.doneButton2.setObjectName(_fromUtf8("doneButton2"))
         self.stackedWidget.addWidget(self.helpPage)
+        
+        #Credits page
         self.creditsPage = QtGui.QWidget()
         self.creditsPage.setObjectName(_fromUtf8("creditsPage"))
         self.creditsLabel = QtGui.QLabel(self.creditsPage)
@@ -351,7 +357,7 @@ class GuiMain(object):
         self.doneButton3.setObjectName(_fromUtf8("doneButton3"))
         self.stackedWidget.addWidget(self.creditsPage)
         
-        #Story Screen
+        #Story page
         self.storyPage = QtGui.QWidget()
         self.storyPage.setObjectName(_fromUtf8("storyPage"))
         self.storyLabel = QtGui.QLabel(self.storyPage)
@@ -372,6 +378,8 @@ class GuiMain(object):
         
         self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
+        
+        #Menu bar
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 818, 25))
         self.menubar.setObjectName(_fromUtf8("menubar"))
@@ -405,14 +413,6 @@ class GuiMain(object):
         self.menuMenu.addAction(self.actionQuit)
         self.menubar.addAction(self.menuMenu.menuAction())
         
-        #Experimental audio (SHOULD NOT BE HERE)
-        mixer.pre_init(44100,-16,2,1024)
-        mixer.init()
-        self.menuSound = mixer.Sound(normpath("sounds/theme.wav"))
-        self.menuSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)
-        self.menuSound.play(-1)
-        self.gameSound = mixer.Sound(normpath("sounds/gameTheme.wav"))
-        
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(0)
@@ -420,7 +420,6 @@ class GuiMain(object):
 
         #These are the slots and signals to connect buttons to other functions
         self.location = 0
-        self.currSound = self.menuSound
         QtCore.QObject.connect(self.actionQuit, QtCore.SIGNAL(_fromUtf8("triggered()")), MainWindow.close)
         QtCore.QObject.connect(self.quitButton, QtCore.SIGNAL(_fromUtf8("released()")), MainWindow.close)
         QtCore.QObject.connect(self.settingsButton, QtCore.SIGNAL(_fromUtf8("released()")), self.setSettings)
@@ -465,7 +464,7 @@ class GuiMain(object):
             self.background.setPixmap(self.backgroundPixmapMenu)
         else:
             None
-            #Should be something here latter.
+            #Should be something here later.
         
     def load_file_dialog(self):
         fd = QtGui.QFileDialog()
@@ -497,20 +496,14 @@ class GuiMain(object):
     def storyButton(self):
         self.stackedWidget.setCurrentIndex(2)
         self.location = 2
-        self.menuSound.fadeout(500)
-        self.gameSound.play(loops=-1, fade_ms=500)
-        self.currSound = self.gameSound
-        self.currSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)
+        self.soundManager.switchSongs(self.location)
         
     def setMain(self):
         self.save_file_dialog()
         self.background.setPixmap(self.backgroundPixmapMenu)
         self.stackedWidget.setCurrentIndex(0)
         self.location = 0
-        self.gameSound.fadeout(500)
-        self.menuSound.play(loops=-1, fade_ms=500)
-        self.currSound = self.menuSound
-        self.currSound.set_volume(float(self.volumeSlider.sliderPosition())/100.0)        
+        self.soundManager.switchSongs(self.location)      
            
         
     def latLong(self):
@@ -535,8 +528,7 @@ class GuiMain(object):
         self.data.overlays['legendOverlay'].mViewObj.setVisible(self.legendCheck.isChecked())
     
     def setVol(self):
-        num = self.volumeSlider.sliderPosition()
-        self.currSound.set_volume(float(num)/100.0)
+        self.soundManager.setVolume(self.volumeSlider.sliderPosition())
     
     def doSearch(self):
         searchLandmark(self.data)
