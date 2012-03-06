@@ -16,32 +16,37 @@ class Data(object):
     def __init__(self, debug = True):
         """Initialize with defaults"""
         self.debug = debug
-        self.places = []       # graphics objects (non cities)
-        self.overlays = {}     # a dictionary of overlays
+        self.places = []    # graphics objects (non cities)
+        self.overlays = {}  # a dictionary of overlays
 
-        # Size of the world for bounds checking
-        self.maxX = 0
-        self.minX = 0
-        self.maxY = 0
-        self.minY = 0
+        self.maxX = self.minX = 0 # Size of the world for bounds checking
+        self.maxY = self.minY = 0 # Size of the world for bounds checking
         
-        self.character =  None # A special Loc for our character
-        self.charSpeed = 10
+        self.character =  None    # A special Loc for our character
+        self.charVelocity = (0,0) # Gives the offset to use every frame
+        self.charSpeed = 10       # Now based on keyboard should be pixles per second.
         
         self.landmarks = {}       # dictionary of cities.
-        self.currLandmark = None   # City with current Clue
+        self.currLandmark = None  # City with current Clue
         
         self.currClue = None   # Current Clue
         self.clueStack = []    # A list of clues
         
-        self.stepCount = 0    # Step counter for erasing updates
+        self.stepCount = 0     # Step counter for erasing updates
 
         self.score = 0
         
         self.view = None       # Container for PyQt specific data and widgets
         self.mapScale = 0.1
+        
+        
+        self.timer = None      # Place for Qtimer object
+        
+        self.framerate = 60    # Number of frames per second.
+        self.keys = None       # Keeping track of directional keys
 
         self.loadDataInitial()
+        
 
     def loadDataInitial(self):
         """Initialize with heap objects"""
@@ -50,7 +55,8 @@ class Data(object):
         loadGraphics(self)          # Initialize graphics
         self.view.guiMain.personView.centerOn(self.character.pViewObj); # Center on the character
 
-        # Set boundaries
+        # Set boundaries (Hard Coded values at the mommment perhaps 
+        # implement automatic bounds checking later)
         self.maxX = 1768
         self.minX = -2024
         self.maxY = 2024
@@ -63,13 +69,16 @@ class Data(object):
         
         #Initial search yields first clue.
         searchLandmark(self)
+        
+        
 
     def _temperaryLoadSystem(self):
         """Used by loadDataInitial until we create a save and load system."""
-        # Add Background
+        
+        # Add Background (5x5)
         for i in xrange(-2,2):
             for j in xrange(-2,2):
-                self.addLoc((i*1024,j*1024),'bg',pViewImag= 'grasstexture2.png')
+                self.addLoc((i*1024,j*1024),'bg',pViewImag= 'grasstexture2.png')  #Should replace magic value.
         
         self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'bg',
                     mViewImag = 'mapBackground.png')
@@ -159,7 +168,7 @@ class Data(object):
     def addClue(self, landmark, text):
         clue = Clue(landmark, text)
         self.clueStack.append(clue)
-
+    
  
 class Loc(object):
     def __init__(self, position, objType=None,
@@ -246,3 +255,4 @@ class Clue(object):
     def __init__(self, targetLandmark, text):
         self.text = text
         self.targetLandmark = targetLandmark
+        

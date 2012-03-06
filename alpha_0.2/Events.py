@@ -32,6 +32,11 @@ def movementEvent(data, event):
 
     data.view.guiMain.personView.centerOn(data.character.pViewObj);
 
+    
+def keyboardEvent(data, event):
+    key = event.key()
+    
+    
 def loadGraphics(data):
     if data.debug:
         print "Loading Graphics"

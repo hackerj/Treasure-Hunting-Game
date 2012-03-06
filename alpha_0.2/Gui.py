@@ -11,7 +11,6 @@ from os.path import normpath
 from PyQt4.QtGui import QPixmap
 from Events import searchLandmark
 from os.path import normpath
-from pygame import mixer
 from Sounds import Sounds
 
 #Specify character encoding (8 Bit Unicode)

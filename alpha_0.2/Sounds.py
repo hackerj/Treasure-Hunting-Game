@@ -5,7 +5,7 @@
 # Version: 0.2 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from pygame import mixer
+from pygame import mixer, _view
 from os.path import normpath
 
 class Sounds(object):
