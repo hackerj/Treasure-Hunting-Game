@@ -7,6 +7,9 @@
 
 from pygame import mixer
 from os.path import normpath
+from platform import system
+if system() == 'Windows':
+    from pygame import _view
 
 class Sounds(object):
     """This module handle sound (sets volume and switches sound)"""
@@ -38,3 +41,6 @@ class Sounds(object):
         mixer.music.load(self.currSound)
         mixer.music.play(-1)
         self.setVolume(self.volumeLevel)
+        
+    def stopSounds(self):
+        mixer.music.stop()

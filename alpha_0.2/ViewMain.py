@@ -30,9 +30,11 @@ class WidMain(QMainWindow):
         ret = reply.exec_()
         
         if ret == QMessageBox.Discard:
+            self.data.view.guiMain.soundManager.stopSounds()
             event.accept()
         elif ret == QMessageBox.Cancel:
             event.ignore()
         else:
             self.data.view.guiMain.save_file_dialog()
+            self.data.view.guiMain.soundManager.stopSounds()
             event.accept()
