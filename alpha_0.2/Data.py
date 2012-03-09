@@ -15,6 +15,7 @@ class Data(object):
 
     def __init__(self, debug = True):
         """Initialize with defaults"""
+        self.gameStatus = 1
         self.debug = debug
         self.places = []    # graphics objects (non cities)
         self.overlays = {}  # a dictionary of overlays
@@ -207,7 +208,7 @@ class Loc(object):
 
             # Update the step count to erase outdated messages
             data.stepCount += 1
-            if (data.stepCount > 5 and data.clueStack):
+            if (data.stepCount > 5 and data.gameStatus):
                 data.view.guiMain.clueView.setText(data.currClue.text)
                 data.stepCount = 0
 

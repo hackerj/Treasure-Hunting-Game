@@ -8,8 +8,9 @@
 from pygame import mixer
 from os.path import normpath
 from platform import system
-if system() == 'Windows':
-    from pygame import _view
+#if system() == 'Windows':
+#    print system()
+#    from pygame import _view
 
 class Sounds(object):
     """This module handle sound (sets volume and switches sound)"""

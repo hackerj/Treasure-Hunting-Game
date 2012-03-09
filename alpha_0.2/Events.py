@@ -76,10 +76,12 @@ def loadPNG(data, loc):
 def searchLandmark(data):
     if not data.currLandmark:
         data.currLandmark = data.character
+
+    dist = getDistance(data, data.currLandmark)
     
-    if not getDistance(data, data.currLandmark) < data.LANDMARK_RADIUS:
-        data.view.guiMain.clueView.setText("No clue here, must be \n somewhere else")
-        
+    if not dist < data.LANDMARK_RADIUS:
+        if data.gameStatus:
+            data.view.guiMain.clueView.setText("No clue here, must be \n somewhere else")
         return False
     
     if data.clueStack:            
@@ -95,9 +97,11 @@ def searchLandmark(data):
         data.view.guiMain.scoreBox.setText((str)(data.score))
         return True
     
+    
     #else
     data.view.guiMain.clueView.setText(" YOU WON!\n"
                                        "But the game has just begun")
+    data.gameStatus = 0
     return True
         
 def getDistance(data,landmark):

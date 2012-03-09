@@ -13,41 +13,56 @@
 
 from distutils.core import setup
 import py2exe
-from os.path import walk
+from os.path import walk, normpath
+
+buildLoc = normpath("../../builds/Mapmaster02")
 
 fileList = []
-
 fileList += [('imageformats',
              ['C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qico4.dll',
               'C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qmng4.dll',
               ])]
-
 fileList += [("", ["C:\Python27\Lib\site-packages\pygame\SDL_ttf.dll",
                    "C:\Python27\Lib\site-packages\pygame\SDL_mixer.dll",
                    "C:\Python27\Lib\site-packages\pygame\libogg-0.dll"]),]
 
+fileList += [("", ["COPYING.txt", "README","icon_medium.ico"])]
 
-def addFile(_ , dirname, filenames):
+def addFileRoot(a , dirname, filenames):
     global fileList
+    tempList = []
     for name in filenames:
-        print dirname, name
-        fileList += [(dirname, name)]
+        print name
+        path = normpath( "./" + dirname + "/" + name)
+        tempList.append(path)
+    fileList += [("", tempList)]
 
-#walk('images', addFile, None)  #Not working and I don't know why
-#walk('sounds', addFile, None)
+def addFile(a , dirname, filenames):
+    global fileList
+    tempList = []
+    for name in filenames:
+        print name
+        path = normpath( "./" + dirname + "/" + name)
+        tempList.append(path)
+    fileList += [(dirname, tempList)]
 
+walk('images', addFile, None)
+walk('sounds', addFile, None)
+walk('dlls', addFileRoot, None)
 
 includes = ["sip"]
 excludes = ['_gtkagg', '_tkagg', 'bsddb', 'curses', 'email', 'pywin.debugger',
             'pywin.debugger.dbgcon', 'pywin.dialogs', 'tcl','numpy'
             'Tkconstants', 'Tkinter']
 
-print fileList
+#print fileList
 
-setup(windows=[{"script" : "MapMaster.pyw"}],
+setup(windows=[{"script" : "MapMaster.pyw",
+               "icon_resources" : [(1, normpath("./icon_medium.ico"))]}],
       data_files = fileList,
       options = {"py2exe" : {"includes"   : includes,
-                             "excludes"   : excludes,
+                             "excludes"   : [],
                              "optimize"   : 2,
                              "compressed" : 2,
-                             "dist_dir"   : "dist"}})
+                             'bundle_files': 1, 
+                             "dist_dir"   : buildLoc}})
