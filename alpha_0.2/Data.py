@@ -128,8 +128,8 @@ class Data(object):
                      "(Distance from Equator)")
         # Clue 1     
         self.addClue('city2', 
-                     "Search for the next clue \n"
-                     "in the city in the blue country")
+                     "Search for the first clue \n"
+                     "in the northern most city")
 
                              
     def loadDataFromUserFile(self, path):

@@ -22,11 +22,15 @@ fileList += [('imageformats',
              ['C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qico4.dll',
               'C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qmng4.dll',
               ])]
+
 fileList += [("", ["C:\Python27\Lib\site-packages\pygame\SDL_ttf.dll",
                    "C:\Python27\Lib\site-packages\pygame\SDL_mixer.dll",
                    "C:\Python27\Lib\site-packages\pygame\libogg-0.dll"]),]
 
 fileList += [("", ["COPYING.txt", "README","icon_medium.ico"])]
+
+fileList += [("saves", ["saves\save1.save"])]
+
 
 def addFileRoot(a , dirname, filenames):
     global fileList
