@@ -34,9 +34,7 @@ class GuiMain(object):
         MainWindow.setFixedWidth(818)
         
         MainWindow.setWindowTitle("Map Master: Search for the Lost City")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("icon_medium.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        MainWindow.setWindowIcon(icon)
+        MainWindow.setWindowIcon(QtGui.QIcon("icon_medium.ico"))
 
         #Set window backgrounds
         self.background = QtGui.QLabel(MainWindow)
