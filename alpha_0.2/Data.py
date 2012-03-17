@@ -9,6 +9,7 @@ from random import randint #Only temporary
 from View import View      #Everything Graphics Related
 from Events import loadGraphics, searchLandmark
 from os.path import normpath
+from newGameData import *
 
 class Data(object):
     LANDMARK_RADIUS = 256
@@ -51,7 +52,7 @@ class Data(object):
 
     def loadDataInitial(self):
         """Initialize with heap objects"""
-        self._temperaryLoadSystem() # Load data before init view
+        self._initialNewGame() # Load data before init view
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
         self.view.guiMain.personView.centerOn(self.character.pViewObj); # Center on the character
@@ -73,68 +74,65 @@ class Data(object):
         
         
 
-    def _temperaryLoadSystem(self):
-        """Used by loadDataInitial until we create a save and load system."""
+    def _initialNewGame(self):
+        """Load data from New Game. Will have additional informations for saved game"""
         
         # Add Background (5x5)
         for i in xrange(-2,2):
             for j in xrange(-2,2):
                 self.addLoc((i*1024,j*1024),'bg',pViewImag= 'grasstexture2.png')  #Should replace magic value.
-        
-        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'bg',
-                    mViewImag = 'mapBackground.png')
-        
-        # Add Trees
-        treeList = [(200,158), (-800,45),(120,80), (310,470), 
-                    (220, -400), (100,500)]
-        
-        for position in treeList:
-            self.addLoc(position, 'tree', pViewImag = 'Forest3.png', 
-                        mViewImag = 'tree.png')
-                     
-        # Add Cities
-        self.addLoc((-350, 100), 'landmark', pViewImag = 'city2.png',
-                     mViewImag = 'city.png', itemName = 'city0')
-        
-        self.addLoc((-450, 910), 'landmark', pViewImag = 'city2.png', 
-                     mViewImag = 'capital.png', itemName = 'city1')
-                     
-        self.addLoc((450, -700), 'landmark', pViewImag = 'city2.png', 
-                     mViewImag = 'city.png', itemName = 'city2')
-                     
-        #Add Color overlay
-        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
-                    mViewImag = 'colorOverlay.png', itemName = 'colorOverlay')
-                     
-        #Add Lat/Long overlay
-        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
-                    mViewImag = 'latOverlay.png', itemName = 'latLongOverlay')
-                    
-        #Add Legend overlay
-        self.addLoc((-390/2/self.mapScale,-500/2/self.mapScale), 'overlay',
-                    mViewImag = 'legendOverlay.png', itemName = 'legendOverlay')
-        
-        # Add Character
-        self.addLoc((0,0),'char',pViewImag='circle.png', mViewImag='circle.png')
-        
-        # Add Clues:
-        # Clue 3
-        self.addClue('city1',
-                     "For this final clue\n"
-                     "Look to the capital city")
-        # Clue 2
-        self.addClue('city0',
-                     "Check 37.8 deg latitude\n"
-                     "(Distance from Equator)")
-        # Clue 1     
-        self.addClue('city2', 
-                     "Search for the first clue \n"
-                     "in the northern most city")
 
-                             
-    def loadDataFromUserFile(self, path):
-        None #Not Implemented!
+	# Read Object data from file
+        for keys in commands.keys():
+            if keys == 'addloc':
+                for i in range(len(commands['addloc'])):
+                    if len(commands[keys][i]) < 2 :
+                           print "TypeError: ", keys," ", i, " takes at least 2 arguments"
+                           pass
+                    else:
+                        self.loadObj(commands[keys][i])
+ 
+	    if keys == 'addClue':
+		for i in range(len(commands[keys])):
+		    if len(commands[keys][i]) != 2 :
+		            print "TypeError: ", keys," ", i, " takes 2 arguments"
+		            pass
+		    else:
+                        landmark = commands[keys][i]['landmark']
+                        text = commands[keys][i]['text']
+                        self.addClue(landmark,text)
+       
+	
+    def loadObj(self, obj, pos= None, pViewImage = None,mViewImage = None, itemName = None):
+        """Interprete the data from file, could be cleaned up and combined with addLoc"""
+	
+        scale = (-390/2/self.mapScale,-500/2/self.mapScale)
+        objType = obj['objType']
 
+        if (objType == 'tree'):
+            pViewImage = 'Forest3.png'
+            mViewImage = 'tree.png'
+
+        if (objType == 'overlay' or objType == 'bg'):
+            pos = scale
+
+        if 'pos' in obj:
+            pos = obj['pos']
+
+        if 'pViewImage' in obj:
+            pViewImage = obj['pViewImage']            
+
+        if 'mViewImage' in obj:
+            mViewImage = obj['mViewImage']
+                
+        if 'itemName' in obj:
+            itemName = obj ['itemName']
+
+        self.addLoc(pos, objType,mViewImage, pViewImage, itemName)          
+            
+        
+    def loadData(self,path):
+    	None #Not Implemented!
     def saveData(self, path):
         None #Not Implemented!
     
@@ -169,7 +167,7 @@ class Data(object):
     def addClue(self, landmark, text):
         clue = Clue(landmark, text)
         self.clueStack.append(clue)
-    
+
  
 class Loc(object):
     def __init__(self, position, objType=None,
