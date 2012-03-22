@@ -8,8 +8,6 @@
 from sys import exit
 from Data import Data #Toplevel data class
 
-
-
 class Game(object):
     def __init__(self, debug = True):
         """Start Game"""
