@@ -70,6 +70,7 @@ def updateCharacter(data):
     x = data.charVelocityX/data.framerate
     y = data.charVelocityY/data.framerate  
     data.character.translate(data, x,y)
+    data.view.guiMain.personView.centerOn(data.character.pViewObj);
     
 def loadGraphics(data):
     if data.debug:
