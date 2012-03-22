@@ -5,7 +5,6 @@
 # Version: 0.2 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from Events import movementEvent
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import QGraphicsView, QGraphicsScene
 

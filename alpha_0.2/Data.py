@@ -7,7 +7,7 @@
 
 from random import randint #Only temporary
 from View import View      #Everything Graphics Related
-from Events import loadGraphics, searchLandmark
+from Events import loadGraphics, searchLandmark, initFrames, frameupdate
 from os.path import normpath
 from newGameData import *
 
@@ -25,8 +25,9 @@ class Data(object):
         self.maxY = self.minY = 0 # Size of the world for bounds checking
         
         self.character =  None    # A special Loc for our character
-        self.charVelocity = (0,0) # Gives the offset to use every frame
-        self.charSpeed = 10       # Now based on keyboard should be pixles per second.
+        self.charVelocityX = 0 # Gives the X offset to use every frame
+        self.charVelocityY = 0 # Gives the Y offset to use every frame
+        self.charSpeed = 100       # Now based on keyboard should be pixles per second.
         
         self.landmarks = {}       # dictionary of cities.
         self.currLandmark = None  # City with current Clue
@@ -41,14 +42,15 @@ class Data(object):
         self.view = None       # Container for PyQt specific data and widgets
         self.mapScale = 0.1
         
-        
         self.timer = None      # Place for Qtimer object
         
-        self.framerate = 60    # Number of frames per second.
+        self.framerate = 25    # Number of frames per second.
         self.keys = None       # Keeping track of directional keys
 
         self.loadDataInitial()
-        
+    
+    def frame(self):
+        frameupdate(self)
 
     def loadDataInitial(self):
         """Initialize with heap objects"""
@@ -72,7 +74,8 @@ class Data(object):
         #Initial search yields first clue.
         searchLandmark(self)
         
-        
+        #Initialize frames
+        initFrames(self)
 
     def _initialNewGame(self):
         """Load data from New Game. Will have additional informations for saved game"""
@@ -101,9 +104,9 @@ class Data(object):
                         landmark = commands[keys][i]['landmark']
                         text = commands[keys][i]['text']
                         self.addClue(landmark,text)
-       
-	
-    def loadObj(self, obj, pos= None, pViewImage = None,mViewImage = None, itemName = None):
+
+    def loadObj(self, obj, pos= None, pViewImage = None,mViewImage = None, \
+        itemName = None):
         """Interprete the data from file, could be cleaned up and combined with addLoc"""
 	
         scale = (-390/2/self.mapScale,-500/2/self.mapScale)
@@ -129,10 +132,10 @@ class Data(object):
             itemName = obj ['itemName']
 
         self.addLoc(pos, objType,mViewImage, pViewImage, itemName)          
-            
-        
+                   
     def loadData(self,path):
     	None #Not Implemented!
+
     def saveData(self, path):
         None #Not Implemented!
     

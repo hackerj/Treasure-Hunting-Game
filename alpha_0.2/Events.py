@@ -5,37 +5,71 @@
 # Version: 0.2 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import QPixmap
+from PyQt4.QtCore import QTimer, SIGNAL, QObject
+from PyQt4.QtCore import Qt
 
-def movementEvent(data, event):
+def initFrames(data):
+    data.timer = QTimer()
+    QObject.connect(data.timer, SIGNAL("timeout()"), data.frame)
+    frameTime = 1000/data.framerate
+    data.timer.start(frameTime)
+    
+def keyPress(data, event):
     key = event.key()
     s = data.charSpeed
 
-    if key == QtCore.Qt.Key_W or key == QtCore.Qt.Key_Up:
-        data.character.translate(data, 0,-s) #Forward
+    if key == Qt.Key_W or key == Qt.Key_Up:
+        data.charVelocityY = -s #Forward
 
-    elif key == QtCore.Qt.Key_S or key == QtCore.Qt.Key_Down:
-        data.character.translate(data, 0, s) #Backward
+    elif key == Qt.Key_S or key == Qt.Key_Down:
+        data.charVelocityY = s #Backward
 
-    elif key == QtCore.Qt.Key_A or key == QtCore.Qt.Key_Left:
-        data.character.translate(data, -s,0) #Left
+    elif key == Qt.Key_A or key == Qt.Key_Left:
+        data.charVelocityX = -s #Left
 
-    elif key == QtCore.Qt.Key_D or key == QtCore.Qt.Key_Right:
-        data.character.translate(data, s,0) #Right
+    elif key == Qt.Key_D or key == Qt.Key_Right:
+        data.charVelocityX = s #Right
 
-    elif key == QtCore.Qt.Key_Space or key == QtCore.Qt.Key_Enter or key == QtCore.Qt.Key_Return:
-        searchLandmark(data) #Searches with space bar
+    elif key == Qt.Key_Space or key == Qt.Key_Enter or key == Qt.Key_Return:
+        searchLandmark(data) #Searches
 
     else:
-        print 'You pressed', event.text()
+        if data.debug:
+            print 'You pressed', event.text()
 
     data.view.guiMain.personView.centerOn(data.character.pViewObj);
-
-    
-def keyboardEvent(data, event):
+ 
+def keyRelease(data, event):
     key = event.key()
+    s = data.charSpeed
+
+    if key == Qt.Key_W or key == Qt.Key_Up:
+        data.charVelocityY = 0 #Forward
+
+    elif key == Qt.Key_S or key == Qt.Key_Down:
+        data.charVelocityY = 0 #Backward
+
+    elif key == Qt.Key_A or key == Qt.Key_Left:
+        data.charVelocityX = 0 #Left
+
+    elif key == Qt.Key_D or key == Qt.Key_Right:
+        data.charVelocityX = 0 #Right
+
+    else:
+        if data.debug:
+            print 'You released', event.text()
+
+    data.view.guiMain.personView.centerOn(data.character.pViewObj);
     
+    
+def frameupdate(data):
+    updateCharacter(data)
+    
+def updateCharacter(data):
+    x = data.charVelocityX/data.framerate
+    y = data.charVelocityY/data.framerate  
+    data.character.translate(data, x,y)
     
 def loadGraphics(data):
     if data.debug:

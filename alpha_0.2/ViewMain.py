@@ -6,7 +6,7 @@
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from PyQt4.QtGui import QMainWindow, QMessageBox
-from Events import movementEvent
+from Events import keyPress, keyRelease
 
 class WidMain(QMainWindow):
     def __init__(self, data, parent=None):
@@ -18,8 +18,13 @@ class WidMain(QMainWindow):
         
     def keyPressEvent(self, event):
         """Get keyboard events no matter what widget has focus"""
-        movementEvent(self.data, event)
-        
+        keyPress(self.data, event)
+    
+    def keyReleaseEvent(self, event):
+        """Get keyboard events no matter what widget has focus"""
+        keyRelease(self.data, event)
+    
+    
     def closeEvent(self,event):
         quit_msg = "Are you sure you want to quit?"
         reply = QMessageBox()
