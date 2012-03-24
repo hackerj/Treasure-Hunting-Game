@@ -1,0 +1,11 @@
+
+Command obj x y pView mView itemname
+addLoc tree 200 158
+addLoc tree -800 45 
+addLoc tree 120 80 
+addLoc tree 310 470 
+addLoc tree 220 -400 
+addLoc tree 100 500 
+addLoc landmark -350 100 city2 city city
+addLoc landmark -450 910 city2 capital  city1
+addLoc landmark -350 100 city2 city city
