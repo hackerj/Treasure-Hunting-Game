@@ -10,7 +10,7 @@ commands = {
          
          #overlay
          {'objType':'overlay', 'mViewImage':'colorOverlay.png', 'itemName': 'colorOverlay'},
-         {'objType':'overlay', 'mViewImage':'latOverlay.png', 'itemName': 'latLongOverlay'},
+         {'objType':'overlay', 'mViewImage':'latLongOverlay.png', 'itemName': 'latLongOverlay'},
          {'objType':'overlay', 'mViewImage':'legendOverlay.png', 'itemName': 'legendOverlay'},
          
          
