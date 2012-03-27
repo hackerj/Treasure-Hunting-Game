@@ -8,19 +8,20 @@
 from PyQt4 import QtCore              #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
 from os.path import normpath
+from os.path import isfile
 from PyQt4.QtGui import QPixmap, QIcon, QWidget, QLabel, QStackedWidget, \
     QGridLayout, QPushButton, QApplication, QSlider, QFont, QCheckBox, \
     QMenuBar, QMenu, QAction, QFileDialog, QMainWindow
 from Events import searchLandmark
-from os.path import normpath
 from Sounds import Sounds
+
 
 #Toplevel Widget Class for Game Window
 class GuiMain(object):
     def __init__(self, data):
         
         self.data = data
-        
+        self.loadSave = False
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         
@@ -334,7 +335,8 @@ class GuiMain(object):
         font.setFamily("Century Schoolbook L")
         font.setPointSize(20)
         self.credits.setFont(font)
-        self.credits.setText(QApplication.translate("MainWindow", "Gary Lent\n"
+        self.credits.setText(QApplication.translate("MainWindow", 
+        "Gary Lent\n"
         "Grant Stafford\n"
         "Jessie Liu\n"
         "Peter Andrien\n"
@@ -462,12 +464,10 @@ class GuiMain(object):
     def load_file_dialog(self):
         fd = QFileDialog()
         self.filename = fd.getOpenFileName(None, "Load Saved Game", "saves", "MapMaster Save files (*.save)")
-        from os.path import isfile
         if isfile(self.filename):
-            self.fname = open(self.filename)
-            self.loadData = self.fname.read()
-            print self.loadData
-            self.fname.close()
+            self.loadSaved = True
+            self.newGame()
+            
             
     def save_file_dialog(self):
         filename = QFileDialog.getSaveFileName(None,"Save Game", "saves", "MapMaster Save files (*.save)")
@@ -490,7 +490,7 @@ class GuiMain(object):
         self.stackedWidget.setCurrentIndex(2)
         self.location = 2
         self.soundManager.switchSongs(self.location)
-        
+       
     def setMain(self):
         self.save_file_dialog()
         self.background.setPixmap(self.backgroundPixmapMenu)

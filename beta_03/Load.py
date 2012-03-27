@@ -9,7 +9,12 @@ from os.path import *
 from Loc import Loc, Clue
 
 
-def loadNewGame(data,filename):
+commands = {"addLoc", "addClue"}
+types = {"char", "bg","tree", "overlay", "landmark"} #obj types, for debugging
+mViews = {"None", "colorOverlay", "latLongOverlay", "legendOverlay", "city", "capital", "circle", "mapBackground"}
+pViews = {"None", "city2", "circle"}
+
+def loadNewGame(data,filename, loadSaved):
     """ load Data from file and check for existences
     """
     
@@ -36,8 +41,10 @@ def loadNewGame(data,filename):
             print "Line ", n, " is invalid!"
         nextLine = filedata.readline()
         n+=1  
-         
+    
     filedata.close()
+    if (loadSaved):
+         loadSavedGame(data,"Jessie.save")
     
 def addObj(data, obj, pos= None, pViewImag =None, 
            mViewImag = None, itemName = None):
@@ -86,10 +93,7 @@ def addObj(data, obj, pos= None, pViewImag =None,
     
 def isValidInput(data,obj):
     """Check to see whether input is valid"""
-    commands = {"addLoc", "addClue"}
-    types = {"char", "bg","tree", "overlay", "landmark"} #obj types, for debugging
-    mViews = {"None", "colorOverlay", "latLongOverlay", "legendOverlay", "city", "capital", "circle", "mapBackground"}
-    pViews = {"None", "city2", "circle"}
+
     if (len(obj) == 7 and obj[0] in commands):
         objType = obj[1]
         posx = obj[2]
@@ -140,4 +144,41 @@ def addClue(data,obj):
     clue = Clue(landmark,text)    
     data.clueStack.append(clue)
 
+def loadSavedGame(data,filename):
+    """Load data from saved file"""
+    print "load from file"
+    savedData = open(filename)    
+    nextLine = savedData.readline()
+    x = 0
+    y = 0
+    while (nextLine):
+        line = nextLine.split()
+        if (len(line) == 4 and loadIsValid(line)):
+            x = int(line[0])
+            y = int(line[1])
+            numClues = int(line[2])
+            data.clueStack = data.clueStack[:numClues]
+            data.score = int(line[3])     
         
+        nextLine = savedData.readline()
+        
+        char = Loc((x,y),"char","images/circle.png", "images/circle.png" )
+        data.character = char
+    savedData.close()
+ 
+def loadIsValid(obj):
+    """Check that the input is valid for loading saved game"""
+           
+    posx = obj[0]
+    posy = obj[1]
+    numClue = obj[2]
+    score = obj[3]
+
+    try:
+        int(posx) and int(posy) and int(numClue) and int(score)
+    except:
+        print "Invalid position input"
+        return False
+    return True
+
+       

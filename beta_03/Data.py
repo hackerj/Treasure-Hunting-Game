@@ -12,10 +12,11 @@ from Load import *
 from Loc import Loc, Clue
 from Save import Save
 
+
 class Data(object):
     LANDMARK_RADIUS = 256
  
-    def __init__(self, debug = True):
+    def __init__(self,debug = True):
         """Initialize with defaults"""
         self.gameStatus = 1
         self.debug = debug
@@ -48,19 +49,23 @@ class Data(object):
         self.framerate = 25    # Number of frames per second.
         self.keys = None       # Keeping track of directional keys
 
-        self.loadDataInitial()
-        save(self)
+        self.playName = None   # Allows player to enter their names
+        
+        self.loadDataInitial()        
+
+        
     def frame(self):
         frameupdate(self)
 
     def loadDataInitial(self):
         """Initialize with heap objects"""
         
-        loadNewGame(self,  "load.txt")  # Initialize data from file, magic number for now
+        loadNewGame(self, "load.txt", True)  # Initialize data from file
+        
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
         self.view.guiMain.personView.centerOn(self.character.pViewObj); # Center on the character
-
+      
         # Set boundaries (Hard Coded values at the mommment perhaps 
         # implement automatic bounds checking later)
         self.maxX = 1768
@@ -79,10 +84,10 @@ class Data(object):
         
         #Initialize frames
         initFrames(self)
-
-    def saveFile(self, filename):
-        saveObjs = Save(self)
-    
-
-    
+        
+    def saveFile(self,filename):
+        """Enable players to save progress in the middle of the game"""    
+        saveObjs = Save(self, filename)
+        
+                        
            

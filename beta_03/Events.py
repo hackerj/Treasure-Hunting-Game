@@ -125,6 +125,8 @@ def searchLandmark(data):
         #updateScore
         data.score += 100
         data.view.guiMain.scoreBox.setText((str)(data.score))
+        
+        
         return True
     
     
