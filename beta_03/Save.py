@@ -26,7 +26,7 @@ class Save(object):
 
 def writeToFile(data,filename):
     """Save games to file, player is able to resume the game next time"""
-    posx =     
+    posx = None #None is a place holder because I have no clue what this does
     
     
         
