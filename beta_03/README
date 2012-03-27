@@ -13,6 +13,8 @@ TODO:
  - Include Save and Load in trunk.
  - Resume Game and NewGame Used Correctly
  - More Story / Game Interaction
+ - Ticket out bugs.
+ - Add simple automated testing system.
 
 ----------------
 Change Log
