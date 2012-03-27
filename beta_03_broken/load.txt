@@ -1,0 +1,21 @@
+
+Command obj x    y  pView mView itemname
+addLoc char 0 0 circle circle None
+addLoc bg None None None mapBackground None
+addLoc tree 200 158 None None None
+addLoc tree -800 45 None None None
+addLoc tree 120 80 None None None
+addLoc tree 310 470 None None None
+addLoc tree 220 -400 None None None
+addLoc tree 100 500 None None None
+addLoc landmark -350 100 city2 city city0
+addLoc landmark -450 910 city2 capital  city1
+addLoc landmark 450 -700 city2 city city2
+addLoc overlay None None None colorOverlay colorOverlay
+addLoc overlay None None None latLongOverlay latLongOverlay
+addLoc overlay None None None legendOverlay legendOverlay
+
+Command landmark text
+addClue city1 ; For this final clue \n Look to the city most southernly ;
+addClue city0 ; Check 37.8 deg latitude \n (Distance from Equator) ;
+addClue city2 ; Search for the second clue \n in the northernmost city ;
