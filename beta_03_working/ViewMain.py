@@ -10,7 +10,7 @@ from Events import keyPress, keyRelease
 
 class WidMain(QMainWindow):
     def __init__(self, data, parent=None):
-        #Initialize the abstracted class instance
+        """Initialize the abstracted class instance"""
         super(WidMain, self).__init__(parent)
         
         #Initialize data
@@ -25,23 +25,23 @@ class WidMain(QMainWindow):
         keyRelease(self.data, event)
     
     
-    def closeEvent(self,event):
+    def closeEvent(self, event):
+        """Remapping the close event to a message box"""
         quit_msg = "Are you sure you want to quit?"
         reply = QMessageBox()
         reply.setWindowTitle("Quit Game")
         reply.setText(quit_msg)
-        reply.setStandardButtons(QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
+        reply.setStandardButtons(
+            QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
         reply.setDefaultButton(QMessageBox.Save)
         ret = reply.exec_()
         
         if ret == QMessageBox.Discard:
-            self.data.view.guiMain.soundManager.stopSounds()
             print "Accepting close event"
             event.accept()
         elif ret == QMessageBox.Cancel:
             event.ignore()
         else:
             self.data.view.guiMain.save_file_dialog()
-            self.data.view.guiMain.soundManager.stopSounds()
             print "Accepting close event"
             event.accept()

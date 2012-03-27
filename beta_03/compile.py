@@ -19,8 +19,10 @@ buildLoc = normpath("../../builds/Mapmaster02")
 
 fileList = []
 fileList += [('imageformats',
-             ['C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qico4.dll',
-              'C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qmng4.dll',
+             ['C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats'
+              '\qico4.dll',
+              'C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats'
+              '\qmng4.dll',
               ])]
 
 fileList += [("", ["C:\Python27\Lib\site-packages\pygame\SDL_ttf.dll",

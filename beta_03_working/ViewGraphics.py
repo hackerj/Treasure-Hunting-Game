@@ -5,18 +5,17 @@
 # Version: 0.3 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from PyQt4 import QtCore, QtGui
+from PyQt4 import QtCore
 from PyQt4.QtGui import QGraphicsView, QGraphicsScene
 
 class ViewGraphics(QGraphicsView):
+    """QGraphicsView widget which will show where the player is located."""
     def __init__(self, parent=None):
-        """QGraphicsView widget which will show where the player is located."""
-        
-        #Initialize the abstracted class instance
+        """Initialize the abstracted class instance"""
         super(ViewGraphics, self).__init__(parent)
 
         #Create Containter to store graphicObjectsaaaaa
-        self.scene = QtGui.QGraphicsScene()
+        self.scene = QGraphicsScene()
         self.setScene(self.scene)
 
         #View Settings (Fix Scroll Bars)
@@ -24,8 +23,12 @@ class ViewGraphics(QGraphicsView):
         self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         
     def wheelEvent(self, event):
+        """Ignore wheel events"""
+        print "Ignoring wheel"
         event.ignore()
         
     def keyPressEvent(self, event):
+        """Ignore keypress events"""
+        print "Ignoring keypress"
         event.ignore()
             

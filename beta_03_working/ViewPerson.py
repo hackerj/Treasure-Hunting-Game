@@ -5,21 +5,20 @@
 # Version: 0.3 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from Events import movementEvent
-from PyQt4 import QtCore, QtGui
+from PyQt4 import QtCore
 from PyQt4.QtGui import QGraphicsView, \
                         QGraphicsScene, \
                         QPixmap
 
 class ViewPerson(QGraphicsView):
+    """QGraphicsView widget which will show where the player is located."""
     def __init__(self, data, parent=None):
-        """QGraphicsView widget which will show where the player is located."""
         
-        #Initialize the abstracted class instance
+        """Initialize the abstracted class instance"""
         super(ViewPerson, self).__init__(parent)
 
         #Create Containter to store graphicObjectsaaaaa
-        self.scene = QtGui.QGraphicsScene()
+        self.scene = QGraphicsScene()
         self.setScene(self.scene)
 
         #View Settings (Fix Scroll Bars)
@@ -32,6 +31,7 @@ class ViewPerson(QGraphicsView):
         self.initUI()         #LoadObjects
 
     def initUI(self):
+        """Load places and character"""
         #Load Places from Loc Object List
         for loc in self.data.places:
             self.loadGraphic(loc)
@@ -40,6 +40,7 @@ class ViewPerson(QGraphicsView):
         self.loadGraphic(self.data.character)
 
     def loadGraphic(self, loc):
+        """Loads graphics"""
         obj = self.scene.addPixmap(QPixmap(loc.image))
         loc.pViewObj = obj
         obj.setX(loc.x)

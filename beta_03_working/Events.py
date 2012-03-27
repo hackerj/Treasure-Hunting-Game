@@ -41,7 +41,6 @@ def keyPress(data, event):
 def keyRelease(data, event):
     key = event.key()
 
-
     if key == Qt.Key_W or key == Qt.Key_Up:
         data.charVelocityY = 0 #Forward
 

@@ -27,7 +27,7 @@ class Data(object):
         self.character =  None    # A special Loc for our character
         self.charVelocityX = 0 # Gives the X offset to use every frame
         self.charVelocityY = 0 # Gives the Y offset to use every frame
-        self.charSpeed = 200       # Now based on keyboard should be pixles per second.
+        self.charSpeed = 200   # Pixels per second.
         
         self.landmarks = {}       # dictionary of cities.
         self.currLandmark = None  # City with current Clue
@@ -57,7 +57,8 @@ class Data(object):
         self._initialNewGame() # Load data before init view
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
-        self.view.guiMain.personView.centerOn(self.character.pViewObj); # Center on the character
+         # Center on the character
+        self.view.guiMain.personView.centerOn(self.character.pViewObj)
 
         # Set boundaries (Hard Coded values at the mommment perhaps 
         # implement automatic bounds checking later)
@@ -78,19 +79,22 @@ class Data(object):
         initFrames(self)
 
     def _initialNewGame(self):
-        """Load data from New Game. Will have additional informations for saved game"""
+        """Load data from New Game. Will have additional informations for 
+        saved game"""
         
         # Add Background (5x5)
         for i in xrange(-2,2):
             for j in xrange(-2,2):
-                self.addLoc((i*1024,j*1024),'bg',pViewImag= 'grasstexture2.png')  #Should replace magic value.
+                #Should replace magic value.
+                self.addLoc((i*1024,j*1024),'bg',pViewImag= 'grasstexture2.png')
 
 	# Read Object data from file
         for keys in commands.keys():
             if keys == 'addloc':
                 for i in range(len(commands['addloc'])):
                     if len(commands[keys][i]) < 2 :
-                           print "TypeError: ", keys," ", i, " takes at least 2 arguments"
+                           print "TypeError: ", keys," ", 
+                           i, " takes at least 2 arguments"
                            pass
                     else:
                         self.loadObj(commands[keys][i])
@@ -107,7 +111,8 @@ class Data(object):
 
     def loadObj(self, obj, pos= None, pViewImage = None,mViewImage = None, \
         itemName = None):
-        """Interprete the data from file, could be cleaned up and combined with addLoc"""
+        """Interpret the data from file, could be cleaned up and combined 
+        with addLoc"""
 	
         scale = (-390/2/self.mapScale,-500/2/self.mapScale)
         objType = obj['objType']
@@ -152,7 +157,8 @@ class Data(object):
             pViewImagPath = normpath("images/"+pViewImag)
         else: pViewImagPath = None
         
-        locObj = Loc(position, objType, mViewImag = mViewImagPath, pViewImag = pViewImagPath)
+        locObj = Loc(position, objType, mViewImag = mViewImagPath, 
+                     pViewImag = pViewImagPath)
         
         if objType == 'char':
             self.character = locObj
@@ -216,7 +222,8 @@ class Loc(object):
     def isValidMove(self, data, xDist, yDist):
         checkX = self.x + xDist
         checkY = self.y + yDist
-        if (checkX > data.maxX or checkX < data.minX or checkY > data.maxY or checkY < data.minY):
+        if (checkX > data.maxX or checkX < data.minX or checkY > data.maxY 
+                               or checkY < data.minY):
             return False
         else:
             return True
@@ -225,7 +232,8 @@ class Loc(object):
     def getCenter(self):
         #print dir(self.pViewObj.pixmap)
         
-        return self.x + self.pViewObj.pixmap().width()/2, self.y + self.pViewObj.pixmap().height()/2
+        return self.x + self.pViewObj.pixmap().width()/2, \
+               self.y + self.pViewObj.pixmap().height()/2
 
         try:
             self.x + self.pViewObj.width()/2, \

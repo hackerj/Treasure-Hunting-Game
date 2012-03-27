@@ -5,12 +5,13 @@
 # Version: 0.3 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from sys import argv, exit               #Get command line arguments
+from sys import argv                     #Get command line arguments
 from PyQt4.QtGui import QApplication     #PyQt Application Window
 from ViewMain import WidMain             #Toplevel Widget
 from Gui import GuiMain as GuiMain       #Gui for Toplevel Widget
 
 class View(object):
+    """View superclass"""
     def __init__(self, data):
         """Init Window and Gui"""
         self.app = QApplication(argv)      #Create Window

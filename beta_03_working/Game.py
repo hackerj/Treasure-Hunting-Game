@@ -9,6 +9,7 @@ from sys import exit
 from Data import Data #Toplevel data class
 
 class Game(object):
+    """The overall game object"""
     def __init__(self, debug = True):
         """Start Game"""
         data = Data(debug)          #Load Data and View
@@ -17,8 +18,10 @@ class Game(object):
         exit(data.view.app.exec_()) #Mainloop is finished. Close Window
         
 def testGame():
+    """Runs the game with debug on"""
     print 'Starting Game'
-    gameInstance = Game(debug = True)
+    #gameInstance = Game(debug = True)
+    Game(debug = True)
 
 if __name__ == '__main__':
     testGame()

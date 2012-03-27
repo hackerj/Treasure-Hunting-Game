@@ -7,10 +7,6 @@
 
 from pygame import mixer
 from os.path import normpath
-from platform import system
-#if system() == 'Windows':
-#    print system()
-#    from pygame import _view
 
 class Sounds(object):
     """This module handle sound (sets volume and switches sound)"""
@@ -25,13 +21,13 @@ class Sounds(object):
         self.volumeLevel = initialSlider
         self.setVolume(self.volumeLevel)
         
-    #Set volume (only works on music right now)
     def setVolume(self, slider):
+        """Set volume (only works on music right now)"""
         mixer.music.set_volume((float(slider))/100.0)
         self.volumeLevel = slider
         
-    #Change songs (only has songs for menu and game)
     def switchSongs(self, songnum):
+        """Change songs (only has songs for menu and game)"""
         mixer.music.fadeout(500)
         if songnum == 0:
             self.currSound = self.menuSound
@@ -42,6 +38,3 @@ class Sounds(object):
         mixer.music.load(self.currSound)
         mixer.music.play(-1)
         self.setVolume(self.volumeLevel)
-        
-    def stopSounds(self):
-        mixer.music.stop()
