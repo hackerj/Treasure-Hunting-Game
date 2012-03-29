@@ -24,11 +24,9 @@ class ViewGraphics(QGraphicsView):
         
     def wheelEvent(self, event):
         """Ignore wheel events"""
-        print "Ignoring wheel"
         event.ignore()
         
     def keyPressEvent(self, event):
         """Ignore keypress events"""
-        print "Ignoring keypress"
         event.ignore()
             
