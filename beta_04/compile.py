@@ -3,9 +3,9 @@
 from os import popen3
 
 def main():
-    fi,fo,fe = popen3("dirs")
+    fi,fo,fe = popen3("dir")
     for i in fe.readlines():
-     print "error> ",i
+        print "error> ",i
     for i in fo.readlines():
         print 'stdout> ',i,
 
