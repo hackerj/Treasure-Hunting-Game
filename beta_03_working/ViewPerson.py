@@ -1,3 +1,4 @@
+"""ViewPerson class"""
 # ---------------
 # Map Master Game
 # ---------------
@@ -5,10 +6,9 @@
 # Version: 0.3 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from PyQt4 import QtCore
+from PyQt4 import QtGui, QtCore
 from PyQt4.QtGui import QGraphicsView, \
-                        QGraphicsScene, \
-                        QPixmap
+                        QGraphicsScene
 
 class ViewPerson(QGraphicsView):
     """QGraphicsView widget which will show where the player is located."""
@@ -41,7 +41,7 @@ class ViewPerson(QGraphicsView):
 
     def loadGraphic(self, loc):
         """Loads graphics"""
-        obj = self.scene.addPixmap(QPixmap(loc.image))
+        obj = self.scene.addPixmap(QtGui.QPixmap(loc.image))
         loc.pViewObj = obj
         obj.setX(loc.x)
         obj.setY(loc.y)

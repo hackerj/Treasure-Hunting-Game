@@ -5,7 +5,7 @@
 # Version: 0.3 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from PyQt4 import QtCore              #All of QT
+from PyQt4 import QtGui, QtCore              #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
 from os.path import normpath, isfile
 from PyQt4.QtGui import QPixmap, QIcon, QWidget, QLabel, QStackedWidget, \
