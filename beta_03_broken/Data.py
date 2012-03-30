@@ -10,7 +10,7 @@ from View import View      #Everything Graphics Related
 from Events import loadGraphics, searchLandmark, initFrames, frameupdate
 from Load import *
 from Loc import Loc, Clue
-from Save import Save
+
 
 
 class Data(object):

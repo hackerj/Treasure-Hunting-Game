@@ -17,19 +17,19 @@ def initFrames(data):
     
 def keyPress(data, event):
     key = event.key()
-    sp  = data.charSpeed
+    s = data.charSpeed
 
     if key == Qt.Key_W or key == Qt.Key_Up:
-        data.charVelocityY = -sp #Forward
+        data.charVelocityY = -s #Forward
 
     elif key == Qt.Key_S or key == Qt.Key_Down:
-        data.charVelocityY = sp #Backward
+        data.charVelocityY = s #Backward
 
     elif key == Qt.Key_A or key == Qt.Key_Left:
-        data.charVelocityX = -sp #Left
+        data.charVelocityX = -s #Left
 
     elif key == Qt.Key_D or key == Qt.Key_Right:
-        data.charVelocityX = sp #Right
+        data.charVelocityX = s #Right
 
     elif key == Qt.Key_Space or key == Qt.Key_Enter or key == Qt.Key_Return:
         searchLandmark(data) #Searches
@@ -40,7 +40,7 @@ def keyPress(data, event):
  
 def keyRelease(data, event):
     key = event.key()
-
+    s = data.charSpeed
 
     if key == Qt.Key_W or key == Qt.Key_Up:
         data.charVelocityY = 0 #Forward
@@ -62,17 +62,17 @@ def frameupdate(data):
     updateCharacter(data)
     
 def updateCharacter(data):
-    xLoc = data.charVelocityX/data.framerate
-    yLoc = data.charVelocityY/data.framerate  
-    data.character.translate(data, xLoc, yLoc)
-    data.view.guiMain.personView.centerOn(data.character.pViewObj)
+    x = data.charVelocityX/data.framerate
+    y = data.charVelocityY/data.framerate  
+    data.character.translate(data, x,y)
+    data.view.guiMain.personView.centerOn(data.character.pViewObj);
     
 def loadGraphics(data):
     if data.debug:
         print "Loading Graphics"
     
     for loc in data.places:
-        loadPNG(data, loc)
+                loadPNG(data, loc)
             
     #Load Character
     loadPNG(data, data.character)
@@ -80,8 +80,7 @@ def loadGraphics(data):
 def loadPNG(data, loc):
 
     if loc.pViewImag:
-        obj = data.view.guiMain.personView.scene.addPixmap(
-					QPixmap(loc.pViewImag))
+        obj = data.view.guiMain.personView.scene.addPixmap(QPixmap(loc.pViewImag))
         loc.pViewObj = obj
         loc.updatePViewObj()
     
@@ -112,8 +111,7 @@ def searchLandmark(data):
     
     if not dist < data.LANDMARK_RADIUS:
         if data.gameStatus:
-            data.view.guiMain.clueView.setText(
-			"No clue here, must be \n somewhere else")
+            data.view.guiMain.clueView.setText("No clue here, must be \n somewhere else")
         return False
     
     if data.clueStack:            
@@ -138,8 +136,10 @@ def searchLandmark(data):
     data.gameStatus = 0
     return True
         
-def getDistance(data, landmark):
+def getDistance(data,landmark):
     charX, charY = data.character.getCenter()
     lmX, lmY = landmark.getCenter()
     
     return ((charX - lmX)**2 + (charY - lmY)**2)**0.5
+    
+

@@ -44,7 +44,7 @@ def loadNewGame(data,filename, loadSaved):
     
     filedata.close()
     if (loadSaved):
-         loadSavedGame(data,"Jessie.save")
+         loadSavedGame(data,"saves/hi.save")
     
 def addObj(data, obj, pos= None, pViewImag =None, 
            mViewImag = None, itemName = None):

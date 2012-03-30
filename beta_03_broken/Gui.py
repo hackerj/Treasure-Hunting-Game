@@ -5,7 +5,7 @@
 # Version: 0.3 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
-from PyQt4 import QtCore              #All of QT
+from PyQt4 import QtCore, QtGui              #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
 from os.path import normpath
 from os.path import isfile
@@ -14,6 +14,7 @@ from PyQt4.QtGui import QPixmap, QIcon, QWidget, QLabel, QStackedWidget, \
     QMenuBar, QMenu, QAction, QFileDialog, QMainWindow
 from Events import searchLandmark
 from Sounds import Sounds
+from Load import *
 
 
 #Toplevel Widget Class for Game Window
@@ -466,27 +467,41 @@ class GuiMain(object):
         self.filename = fd.getOpenFileName(None, "Load Saved Game", "saves", "MapMaster Save files (*.save)")
         if isfile(self.filename):
             self.loadSaved = True
-            self.newGame()
+            self.stackedWidget.setCurrentIndex(2)
+            self.location = 2
+            self.soundManager.switchSongs(self.location)
             
             
     def save_file_dialog(self):
-        filename = QFileDialog.getSaveFileName(None,"Save Game", "saves", "MapMaster Save files (*.save)")
+        filename = QtGui.QFileDialog.getSaveFileName(None,"Save Game", "saves", "MapMaster Save files (*.save)")
         if filename == "":
             print "No file specified!"
         else:
+           
             if ".save" in filename:
                 self.fname = open(filename, "w")
             else:
                 self.fname = open(filename + ".save",'w')
-            self.fname.write("Hello")
+                
+            score = str(self.data.score)
+            numClues = str(len(self.data.clueStack))
+            charX, charY = self.data.character.getCenter()
+            whiteSpace = "       "
+            toWriteList = whiteSpace + str(charX) + whiteSpace + str(charY) + whiteSpace + numClues + whiteSpace + score
+            self.fname.write(toWriteList)     
             self.fname.close()
+            
     
+        
+       
     def newGame(self):
-        self.background.setPixmap(self.backgroundPixmapSettings)    
+        self.background.setPixmap(self.backgroundPixmapSettings)
+        self.filename = None    
         self.stackedWidget.setCurrentIndex(5)
         self.location = 5
         
     def storyButton(self):
+    
         self.stackedWidget.setCurrentIndex(2)
         self.location = 2
         self.soundManager.switchSongs(self.location)
