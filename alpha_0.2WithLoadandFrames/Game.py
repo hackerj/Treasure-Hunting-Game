@@ -6,7 +6,7 @@
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from sys import exit
-from Data import Data #Toplevel data class
+from Data import * #Toplevel data class
 
 class Game(object):
     def __init__(self, debug = True):

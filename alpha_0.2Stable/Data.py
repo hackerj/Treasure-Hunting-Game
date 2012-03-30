@@ -188,7 +188,7 @@ class Loc(object):
 
         #Map View Data
         self.mViewImag = mViewImag
-        self.mViewText = pViewText
+        self.mViewText = mViewText
         self.mViewObj = None
         
     def __repr__(self):
