@@ -1,0 +1,15 @@
+------------------------
+Code Refactoring Beta 04
+------------------------
+
+Changes to existing Classes
+    The Data class will be removed and data members and methods redistributed where logical.
+    A new Event Class will be added to replace the collection of functions in events.py.
+    The Game Class will be repurposed the way it was originally intended to hold one instance of the game instead of everything.
+    Correct division between game instance code and GUI code will be instituted to allow for proper save and load, functionality.
+    The contents of GUI.py will be moved to be methods of ViewMain.py
+    
+New Classes
+    Timer Management will be moved to a new class that will handle any delayed function calls.
+    A Mapmaster-debug.py file will be added to replace game.py as the top level program with debugging and Mapmaster.pyw will remain the top level program without debugging.
+
