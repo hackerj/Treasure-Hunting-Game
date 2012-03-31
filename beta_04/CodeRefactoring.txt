@@ -12,4 +12,6 @@ Changes to existing Classes
 New Classes
     Timer Management will be moved to a new class that will handle any delayed function calls.
     A Mapmaster-debug.py file will be added to replace game.py as the top level program with debugging and Mapmaster.pyw will remain the top level program without debugging.
+    Rename compile.py too compile_help.py and add a compile.py file to help with compiling.
+    
 
