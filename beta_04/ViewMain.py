@@ -154,7 +154,7 @@ class ViewMain(QMainWindow):
         #keyRelease(self.data, event)
         print('Implement keyReleaseEvent')
     
-'''    def closeEvent(self, event):
+    def closeEvent(self, event):
         """Remapping the close event to a message box"""
         quit_msg = "Are you sure you want to quit?"
         reply = QMessageBox()
@@ -171,7 +171,7 @@ class ViewMain(QMainWindow):
         elif ret == QMessageBox.Cancel:
             event.ignore()
         else:
-            self.data.view.guiMain.save_file_dialog()
+            self.saveFileDialog()
             print "Accepting close event"
             event.accept()
-'''
+
