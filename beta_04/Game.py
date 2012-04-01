@@ -24,7 +24,7 @@ class Game(QObject):
         """Game Instance Responable For all non visual work"""
         
         #Init Time Inputs
-        self.timer = Places()
+        self.timer = Timer()
         
         #Manage Character
         self.character = Character()
@@ -38,12 +38,16 @@ class Game(QObject):
         #Keep the score for the game.
         self.score = 0
         
-    def initNew(self):
+    def new(self):
         """Load new game from file"""
         None
 
-    def initSaved(self):
+    def load(self):
         """Load existing game from file"""
+        None
+    
+    def save(self):
+        """Save to file"""
         None
     
     def endGame(self):

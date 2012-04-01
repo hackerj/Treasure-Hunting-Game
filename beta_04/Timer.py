@@ -12,18 +12,23 @@ from PyQt4.QtCore import QTimer, QTime
 class GameTimers(object):
     """
     Class to create and manage time related inputs
-    """    
-    def __init__(self):
-        "Create Lists to store objects and init time related data members"
-        self.timeMeasureList = [] #List of Qtime Objects
-        self.delayExecList = [] #List of Qtimer Objects
-
-        self.framerate = 25 #universal frame rate for the game.
-
-    def addTimeMeasureObject(self):
-        None
-
-    def addDelayExecObject(self):
-        None
+    """
+    FRAMERATE = 25
     
+    def __init__(self):
+        """Init QTimers and QTime objects"""
+        #Measure Time
+        self.clueTime = None
+        self.gameTime = None
+
+        #Send Signals after Delay
+        self.frameTimer = None        
+        self.clueTroubleTimer = None
+        self.messageFade = None
+        self.searchProgress = None
         
+    def launch(self):
+        """Start sending signals to the game using Timers"""
+        None
+        
+    
