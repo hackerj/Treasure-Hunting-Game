@@ -6,7 +6,7 @@
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog
-from PyQt4.QtCore import connect
+#from PyQt4.QtCore import QObject
 from Globals import *
 
 class ViewMain(QMainWindow):
@@ -71,11 +71,11 @@ class ViewMain(QMainWindow):
         fd = QFileDialog()
         filename = fd.getOpenFileName(None, "Load Saved Game",
                                       "saves", "MapMaster Save files (*.save)")
-            if isfile(filename):
-                self.gui.loadSaved = True
-                self.gui.stackedWidget.setCurrentIndex(2)
-                self.gui.location = 2
-                self.gui.soundManager.switchSongs(self.location)
+        if isfile(filename):
+            self.gui.loadSaved = True
+            self.gui.stackedWidget.setCurrentIndex(2)
+            self.gui.location = 2
+            self.gui.soundManager.switchSongs(self.location)
                 
     def saveFileDialog(self):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
@@ -89,9 +89,9 @@ class ViewMain(QMainWindow):
                 fname = open(filename + ".save", "w")
             score = `self.gui.data.score`
             numClues = `len(self.gui.data.clueStack)`
-            charX, charY = `self.gui.data.character.getCenter()
-            toWriteList = '\t' + `charX` + '\t' + `charY` + '\t'
-                        + numClues + '\t' + score
+            charX, charY = self.gui.data.character.getCenter()
+            toWriteList = '\t' + `charX` + '\t' + `charY` + '\t' + \
+                        numClues + '\t' + score
                         
     def newGame(self):
         self.gui.background.setPixmap(self.backgroundPixmapSettings)

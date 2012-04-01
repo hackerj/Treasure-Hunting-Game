@@ -7,7 +7,7 @@ Version: 0.3 using PyQt4.9
 Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
-from QtCore import QTimer, QTime
+from PyQt4.QtCore import QTimer, QTime
 
 class GameTimers(object):
     """

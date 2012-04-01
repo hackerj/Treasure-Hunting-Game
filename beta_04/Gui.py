@@ -40,7 +40,7 @@ class Gui(object):
         self.background.setGeometry(QtCore.QRect(0, 0, 818, 665))
         
         font = QFont()
-        font.setFamily("Century Schoolbook L")
+        font.setFamily("Century Schoolbook")
         
         
         #Stylesheet settings for labels and buttons
