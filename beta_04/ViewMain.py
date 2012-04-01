@@ -19,11 +19,12 @@ class ViewMain(QMainWindow):
         #Init Data Members
         self.gui  = Gui(self)
         self.game = None
+        self.connectGui()
         
 ########################################
 ### Signals and slots connected here ###
 ########################################
-
+    def connectGui(self):
         self.gui.actionQuit.triggered.connect(self.close)
         self.gui.quitButton.released.connect(self.close)
         self.gui.settingsButton.released.connect(self.setSettings)
