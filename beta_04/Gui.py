@@ -8,6 +8,7 @@
 from PyQt4 import QtGui, QtCore              #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
 from os.path import normpath
+from sys import platform
 from PyQt4.QtGui import QPixmap, QIcon, QWidget, QLabel, QStackedWidget, \
     QGridLayout, QPushButton, QApplication, QSlider, QFont, QCheckBox, \
     QMenuBar, QMenu, QAction, QMainWindow
@@ -40,7 +41,10 @@ class Gui(object):
         self.background.setGeometry(QtCore.QRect(0, 0, 818, 665))
         
         font = QFont()
-        font.setFamily("Century Schoolbook")
+        if "linux" in platform:
+            font.setFamily("Century Schoolbook L")
+        else:
+            font.setFamily("Century Schoolbook")
         
         
         #Stylesheet settings for labels and buttons
