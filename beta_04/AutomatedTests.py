@@ -13,9 +13,9 @@ class ClassInstantiation(unittest.TestCase):
         import ViewMain
         
     def test_InstanceClass(self):
+        from Gui import Gui
         Gui()
         
-
 if __name__ == '__main__':
     try:
         x = unittest.main()

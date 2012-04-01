@@ -25,6 +25,7 @@ class ViewMain(QMainWindow):
 ### Signals and slots connected here ###
 ########################################
     def connectGui(self):
+        """Connect signals for Gui"""
         self.gui.actionQuit.triggered.connect(self.close)
         self.gui.quitButton.released.connect(self.close)
         self.gui.settingsButton.released.connect(self.setSettings)
@@ -47,7 +48,7 @@ class ViewMain(QMainWindow):
         self.gui.volumeSlider.sliderMoved.connect(self.setVol)
 
 ########################################
-##### Custom signals defined here ######
+###### Custom slots defined here #######
 ########################################
 
 # SET INDICES AS VARIABLES!!!

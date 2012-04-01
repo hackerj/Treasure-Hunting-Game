@@ -16,7 +16,6 @@ from PyQt4.QtGui import QPixmap, QIcon, QWidget, QLabel, QStackedWidget, \
     QMenuBar, QMenu, QAction, QMainWindow
 from Sounds import Sounds
 
-
 #Toplevel Widget Class for Game Window
 class Gui(object):
 
