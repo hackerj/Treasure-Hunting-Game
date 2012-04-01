@@ -7,11 +7,10 @@
 
 from PyQt4 import QtGui, QtCore              #All of QT
 from ViewGraphics import ViewGraphics #Person View Class
-from os.path import normpath, isfile
+from os.path import normpath
 from PyQt4.QtGui import QPixmap, QIcon, QWidget, QLabel, QStackedWidget, \
     QGridLayout, QPushButton, QApplication, QSlider, QFont, QCheckBox, \
-    QMenuBar, QMenu, QAction, QFileDialog, QMainWindow
-from Events import searchLandmark
+    QMenuBar, QMenu, QAction, QMainWindow
 from Sounds import Sounds
 
 
@@ -40,6 +39,10 @@ class Gui(object):
         
         self.background.setGeometry(QtCore.QRect(0, 0, 818, 665))
         
+        font = QFont()
+        font.setFamily("Century Schoolbook L")
+        
+        
         #Stylesheet settings for labels and buttons
         self.fg = "QLabel {color:black}"
         self.fgb = "QPushButton {color:black}"
@@ -61,30 +64,36 @@ class Gui(object):
         self.startButton.setText(QApplication.translate("MainWindow", 
                                  "Start Game", None, QApplication.UnicodeUTF8))
         self.startButton.setObjectName("startButton")
+        font.setPointSize(15)
+        self.startButton.setFont(font)
         self.loadButton = QPushButton(self.menuPage)
         self.loadButton.setStyleSheet(self.fgb)
         self.loadButton.setGeometry(QtCore.QRect(600, 280, 180, 60))
         self.loadButton.setText(QApplication.translate("MainWindow", 
                                 "Load Game", None, QApplication.UnicodeUTF8))
         self.loadButton.setObjectName("loadButton")
+        self.loadButton.setFont(font)
         self.settingsButton = QPushButton(self.menuPage)
         self.settingsButton.setStyleSheet(self.fgb)
         self.settingsButton.setGeometry(QtCore.QRect(600, 440, 180, 60))
         self.settingsButton.setText(QApplication.translate("MainWindow", 
                                    "Settings", None, QApplication.UnicodeUTF8))
         self.settingsButton.setObjectName("settingsButton")
+        self.settingsButton.setFont(font)
         self.quitButton = QPushButton(self.menuPage)
         self.quitButton.setStyleSheet(self.fgb)
         self.quitButton.setGeometry(QtCore.QRect(600, 520, 180, 60))
         self.quitButton.setText(QApplication.translate("MainWindow", 
                                 "Quit", None, QApplication.UnicodeUTF8))
         self.quitButton.setObjectName("quitButton")
+        self.quitButton.setFont(font)
         self.instrButton = QPushButton(self.menuPage)
         self.instrButton.setStyleSheet(self.fgb)
         self.instrButton.setGeometry(QtCore.QRect(600, 360, 180, 60))
         self.instrButton.setText(QApplication.translate("MainWindow", 
                                "Instructions", None, QApplication.UnicodeUTF8))
         self.instrButton.setObjectName("instrButton")
+        self.instrButton.setFont(font)
         self.stackedWidget.addWidget(self.menuPage)
         
         #Settings page
@@ -97,8 +106,6 @@ class Gui(object):
         self.volumeSlider.setObjectName("volumeSlider")
         self.soundLabel = QLabel(self.settingsPage)
         self.soundLabel.setGeometry(QtCore.QRect(340, 160, 120, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
         font.setPointSize(20)
         self.soundLabel.setFont(font)
         self.soundLabel.setStyleSheet(self.fg)
@@ -123,8 +130,6 @@ class Gui(object):
         
         self.settingsLabel = QLabel(self.settingsPage)
         self.settingsLabel.setGeometry(QtCore.QRect(260, 30, 280, 60))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
         font.setPointSize(36)
         self.settingsLabel.setFont(font)
         self.settingsLabel.setStyleSheet(self.fg)
@@ -138,9 +143,11 @@ class Gui(object):
         self.doneButton.setText(QApplication.translate("MainWindow", 
                                 "Done", None, QApplication.UnicodeUTF8))
         self.doneButton.setObjectName("doneButton")
+        font.setPointSize(15)
+        self.doneButton.setFont(font)
         self.stackedWidget.addWidget(self.settingsPage)
         
-        self.soundManager = Sounds(self.volumeSlider.sliderPosition())
+        #self.soundManager = Sounds(self.volumeSlider.sliderPosition())
         
         #Main Game page
         self.mainPage = QWidget()
@@ -160,52 +167,60 @@ class Gui(object):
         self.clueView = QLabel(self.mainPage)
         self.clueView.setGeometry(QtCore.QRect(0, 510, 390, 91))
         self.clueView.setObjectName("clueView")
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
         font.setPointSize(20)
         self.clueView.setFont(font)
         self.clueView.setStyleSheet(self.fg)
         
         #Map Toggles
         self.latLongCheck = QCheckBox(self.mainPage)
-        self.latLongCheck.setGeometry(QtCore.QRect(420, 510, 97, 41))
+        self.latLongCheck.setGeometry(QtCore.QRect(420, 510, 103, 41))
         self.latLongCheck.setText(QApplication.translate("MainWindow", 
                                   "Latitude/ \n"
-        "Longitude", None, QApplication.UnicodeUTF8))
+                                  "Longitude", None, QApplication.UnicodeUTF8))
         self.latLongCheck.setObjectName("latLongCheck")
+        font.setPointSize(12)
+        self.latLongCheck.setFont(font)
 
         self.colorCheck = QCheckBox(self.mainPage)
         self.colorCheck.setGeometry(QtCore.QRect(560, 510, 97, 41))
         self.colorCheck.setText(QApplication.translate("MainWindow", 
                                 "Color\n"
-        "Coding", None, QApplication.UnicodeUTF8))
+                                "Coding", None, QApplication.UnicodeUTF8))
         self.colorCheck.setObjectName("colorCheck")
+        self.colorCheck.setFont(font)
+        
         self.legendCheck = QCheckBox(self.mainPage)
         self.legendCheck.setGeometry(QtCore.QRect(680, 520, 97, 22))
         self.legendCheck.setText(QApplication.translate("MainWindow", 
                                  "Legend", None, QApplication.UnicodeUTF8))
         self.legendCheck.setObjectName("legendCheck")
+        font.setPointSize(12)
+        self.legendCheck.setFont(font)
         self.searchButton = QPushButton(self.mainPage)
         self.searchButton.setStyleSheet(self.fgb)
-        self.searchButton.setGeometry(QtCore.QRect(420, 560, 211, 41))
+        self.searchButton.setGeometry(QtCore.QRect(420, 560, 211, 55))
         self.searchButton.setText(QApplication.translate("MainWindow", 
                                   "Search", None, QApplication.UnicodeUTF8))
         self.searchButton.setObjectName("searchButton")
+        font.setPointSize(15)
+        self.searchButton.setFont(font)
         
         #Score pieces
         self.scoreBox = QLabel(self.mainPage)
         self.scoreBox.setStyleSheet(self.fg)
-        self.scoreBox.setGeometry(QtCore.QRect(720, 560, 71, 41))
+        self.scoreBox.setGeometry(QtCore.QRect(720, 570, 71, 41))
         self.scoreBox.setObjectName("scoreBox")
         self.scoreBox.setText(QApplication.translate("MainWindow", 
                               "0", None, QApplication.UnicodeUTF8))
+        self.scoreBox.setFont(font)
         self.scoreLabel = QLabel(self.mainPage)
         self.scoreLabel.setStyleSheet(self.fg)
-        self.scoreLabel.setGeometry(QtCore.QRect(660, 570, 51, 17))
+        self.scoreLabel.setGeometry(QtCore.QRect(650, 580, 70, 17))
         self.scoreLabel.setText(QApplication.translate("MainWindow", 
                                 "Score:", None, QApplication.UnicodeUTF8))
         self.scoreLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.scoreLabel.setObjectName("scoreLabel")
+        self.scoreLabel.setFont(font)
         self.stackedWidget.addWidget(self.mainPage)
         
         #Help page
@@ -214,8 +229,6 @@ class Gui(object):
         self.HelpLabel = QLabel(self.helpPage)
         self.HelpLabel.setStyleSheet(self.fg)
         self.HelpLabel.setGeometry(QtCore.QRect(260, 30, 280, 60))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
         font.setPointSize(36)
         self.HelpLabel.setFont(font)
         self.HelpLabel.setText(QApplication.translate("MainWindow", 
@@ -225,8 +238,6 @@ class Gui(object):
         self.wInstr = QLabel(self.helpPage)
         self.wInstr.setStyleSheet(self.fg)
         self.wInstr.setGeometry(QtCore.QRect(200, 150, 40, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
         font.setPointSize(20)
         self.wInstr.setFont(font)
         self.wInstr.setText(QApplication.translate("MainWindow", 
@@ -236,9 +247,6 @@ class Gui(object):
         self.sInstr = QLabel(self.helpPage)
         self.sInstr.setStyleSheet(self.fg)
         self.sInstr.setGeometry(QtCore.QRect(200, 200, 40, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
-        font.setPointSize(20)
         self.sInstr.setFont(font)
         self.sInstr.setText(QApplication.translate("MainWindow", 
                             "S", None, QApplication.UnicodeUTF8))
@@ -247,9 +255,6 @@ class Gui(object):
         self.aInstr = QLabel(self.helpPage)
         self.aInstr.setStyleSheet(self.fg)
         self.aInstr.setGeometry(QtCore.QRect(200, 250, 40, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
-        font.setPointSize(20)
         self.aInstr.setFont(font)
         self.aInstr.setText(QApplication.translate("MainWindow", 
                             "A", None, QApplication.UnicodeUTF8))
@@ -258,9 +263,6 @@ class Gui(object):
         self.dInstr = QLabel(self.helpPage)
         self.dInstr.setStyleSheet(self.fg)
         self.dInstr.setGeometry(QtCore.QRect(200, 300, 40, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
-        font.setPointSize(20)
         self.dInstr.setFont(font)
         self.dInstr.setText(QApplication.translate("MainWindow", 
                             "D", None, QApplication.UnicodeUTF8))
@@ -269,9 +271,6 @@ class Gui(object):
         self.wInstr2 = QLabel(self.helpPage)
         self.wInstr2.setStyleSheet(self.fg)
         self.wInstr2.setGeometry(QtCore.QRect(400, 150, 180, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
-        font.setPointSize(20)
         self.wInstr2.setFont(font)
         self.wInstr2.setText(QApplication.translate("MainWindow", 
                             "Move North", None, QApplication.UnicodeUTF8))
@@ -280,9 +279,6 @@ class Gui(object):
         self.sInstr2 = QLabel(self.helpPage)
         self.sInstr2.setStyleSheet(self.fg)
         self.sInstr2.setGeometry(QtCore.QRect(400, 200, 180, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
-        font.setPointSize(20)
         self.sInstr2.setFont(font)
         self.sInstr2.setText(QApplication.translate("MainWindow", 
                             "Move South", None, QApplication.UnicodeUTF8))
@@ -291,9 +287,6 @@ class Gui(object):
         self.aInstr2 = QLabel(self.helpPage)
         self.aInstr2.setStyleSheet(self.fg)
         self.aInstr2.setGeometry(QtCore.QRect(400, 250, 180, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
-        font.setPointSize(20)
         self.aInstr2.setFont(font)
         self.aInstr2.setText(QApplication.translate("MainWindow", 
                             "Move West", None, QApplication.UnicodeUTF8))
@@ -302,9 +295,6 @@ class Gui(object):
         self.dInstr2 = QLabel(self.helpPage)
         self.dInstr2.setStyleSheet(self.fg)
         self.dInstr2.setGeometry(QtCore.QRect(400, 300, 180, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
-        font.setPointSize(20)
         self.dInstr2.setFont(font)
         self.dInstr2.setText(QApplication.translate("MainWindow", 
                             "Move East", None, QApplication.UnicodeUTF8))
@@ -320,11 +310,11 @@ class Gui(object):
         self.searchInstr.setDefault(False)
         self.searchInstr.setFlat(False)
         self.searchInstr.setObjectName("searchInstr")
+        font.setPointSize(15)
+        self.searchInstr.setFont(font)
         self.dInstr2_2 = QLabel(self.helpPage)
         self.dInstr2_2.setStyleSheet(self.fg)
         self.dInstr2_2.setGeometry(QtCore.QRect(380, 350, 211, 30))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
         font.setPointSize(20)
         self.dInstr2_2.setFont(font)
         self.dInstr2_2.setText(QApplication.translate("MainWindow", 
@@ -337,6 +327,8 @@ class Gui(object):
         self.doneButton2.setText(QApplication.translate("MainWindow", 
                                  "Done", None, QApplication.UnicodeUTF8))
         self.doneButton2.setObjectName("doneButton2")
+        font.setPointSize(15)
+        self.doneButton2.setFont(font)
         self.stackedWidget.addWidget(self.helpPage)
         
         #Credits page
@@ -345,8 +337,6 @@ class Gui(object):
         self.creditsLabel = QLabel(self.creditsPage)
         self.creditsLabel.setStyleSheet(self.fg)
         self.creditsLabel.setGeometry(QtCore.QRect(260, 30, 280, 60))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
         font.setPointSize(36)
         self.creditsLabel.setFont(font)
         self.creditsLabel.setText(QApplication.translate("MainWindow", 
@@ -356,8 +346,6 @@ class Gui(object):
         self.credits = QLabel(self.creditsPage)
         self.credits.setStyleSheet(self.fg)
         self.credits.setGeometry(QtCore.QRect(180, 150, 500, 400))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
         font.setPointSize(20)
         self.credits.setFont(font)
         self.credits.setText(QApplication.translate("MainWindow", 
@@ -377,6 +365,8 @@ class Gui(object):
         self.doneButton3.setText(QApplication.translate("MainWindow", 
                                 "Done", None, QApplication.UnicodeUTF8))
         self.doneButton3.setObjectName("doneButton3")
+        font.setPointSize(15)
+        self.doneButton3.setFont(font)
         self.stackedWidget.addWidget(self.creditsPage)
         
         #Story page
@@ -385,8 +375,6 @@ class Gui(object):
         self.storyLabel = QLabel(self.storyPage)
         self.storyLabel.setStyleSheet(self.fg)
         self.storyLabel.setGeometry(QtCore.QRect(100, 50, 600, 400))
-        font = QFont()
-        font.setFamily("Century Schoolbook L")
         font.setPointSize(25)
         self.storyLabel.setFont(font)
         self.storyLabel.setText(QApplication.translate("MainWindow", 
@@ -403,6 +391,9 @@ class Gui(object):
         self.nextButton.setText(QApplication.translate("MainWindow", 
                                 "Next", None, QApplication.UnicodeUTF8))
         self.nextButton.setObjectName("nextButton")
+        self.nextButton.setStyleSheet(self.fgb)
+        font.setPointSize(15)
+        self.nextButton.setFont(font)
         self.stackedWidget.addWidget(self.storyPage)
         
         self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
@@ -463,7 +454,6 @@ if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
+    ui = Gui(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
