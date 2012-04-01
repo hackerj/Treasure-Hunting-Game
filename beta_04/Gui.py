@@ -227,6 +227,9 @@ class Gui(object):
         self.scoreLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.scoreLabel.setObjectName("scoreLabel")
         self.scoreLabel.setFont(font)
+        self.popupLabel = QLabel(self.mainPage)
+        self.popupLabel.setGeometry(QtCore.QRect(25, 25, 750, 450))
+        self.popupLabel.setObjectName("popupLabel")
         self.stackedWidget.addWidget(self.mainPage)
         
         #Help page
