@@ -12,11 +12,11 @@ from PyQt4.QtCore import QObject
 class Places(QObject):
     def __init__(self):
         #Over Simplified Clue managment.
-        self.locList = []
+        self.locList = {}
         
         #Clue object are represented as dictionaries.
         
-    def createLoc(self):
+    def createLoc(self, name):
         None
         
     def delLoc(self, position):
@@ -24,4 +24,5 @@ class Places(QObject):
                 
     def loadData(self):
         None
+        
         

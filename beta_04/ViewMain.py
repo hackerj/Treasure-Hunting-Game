@@ -20,6 +20,7 @@ class ViewMain(QMainWindow):
         self.gui  = Gui(self)
         self.game = None
         self.connectGui()
+        self.messageFade = None
         
 ########################################
 ### Signals and slots connected here ###

@@ -11,7 +11,7 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 from PyQt4.QtCore import QObject, pyqtSignal
 
 #Game takes inputs based on time.
-from Timer import Timer             #Provides Time Driven Inputs to Game
+from PyQt4.QtCore import QTimer, QTime #Provides Time Driven Inputs to Game
 
 #Game is divided into three parts.
 from Character import Character     #Represents Player
@@ -23,8 +23,9 @@ class Game(QObject):
     def __init__(self):
         """Game Instance Responable For all non visual work"""
         
-        #Init Time Inputs
-        self.timer = Timer()
+        #Keep track of how long we have been playing.
+        self.gameTime = None
+        self.frameTimer = None        
         
         #Manage Character
         self.character = Character()
@@ -34,9 +35,6 @@ class Game(QObject):
         
         #Manage World
         self.places = Places()
-        
-        #Keep the score for the game.
-        self.score = 0
         
     def new(self):
         """Load new game from file"""
@@ -52,5 +50,9 @@ class Game(QObject):
     
     def endGame(self):
         """Make things tidy for another game instance"""
-        None     
+        None
     
+    def launch(self):
+        """Start sending signals to the game using Timers"""
+        None
+            
