@@ -34,7 +34,6 @@ class ClassInstantiation(unittest.TestCase):
         from Character import Character
         char = Character((1,1), "Character", "Character")
         
-    
     def test_places(self):
         from Places import Places
         places = Places()

@@ -15,11 +15,11 @@ class Character(Loc):
     SPEED = 200
     
     def __init__(self, center = (0,0), name = '', objType=None):
-        super(ViewGraphics, self).__init__(center = (0,0), name = '', objType=None)
+        super(Character, self).__init__(center = (0,0), name = '', objType=None)
         
         self.charVelocityX = 0     # Gives the X offset to use every frame
         self.charVelocityY = 0     # Gives the Y offset to use every frame
-        self.charSpeed     = SPEED # Pixels per second.
+        self.charSpeed     = self.SPEED # Pixels per second.
         self.updateSignal = None
         
     def translate(self, xDist, yDist):
