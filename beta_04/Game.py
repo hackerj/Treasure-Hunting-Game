@@ -77,7 +77,8 @@ class Game(QObject):
         self.places.addLoc( Loc())
         
     def keyPress(self, event):
-        
+        key = event.key()
+        self.character.keyPress(key)
         
     def keyRelease(self, event):
         None

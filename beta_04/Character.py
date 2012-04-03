@@ -31,17 +31,20 @@ class Character(Loc):
             # FIXME Trigger signal passing the new center
 
     def isValidMove(self, xDist, yDist):
+        """Stop Character From walking off the edge of the map"""
+        
         debug("isVaidMove not implemented!")
         return True
         
     def frameUpdate(self, framerate):
         """update character position for the new frame"""
+        
         xLoc = self.charVelocityX/framerate
         yLoc = self.charVelocityY/framerate
         self.translate(data, xLoc, yLoc)
     
-    def keyPress(self, event)
-        key = event.key()
+    def keyPress(self, key):
+        """Change Velocity based on key press"""
         
         if key == Qt.Key_W or key == Qt.Key_Up:
             self.charVelocityY = -SPEED #Forward
@@ -55,17 +58,17 @@ class Character(Loc):
         elif key == Qt.Key_D or key == Qt.Key_Right:
             self.charVelocityX = SPEED #Right
     
-    def keyRelease(self, event)
+    def keyRelease(self, key):
+        """Change Velocity based on key release"""
+        
         if key == Qt.Key_W or key == Qt.Key_Up:
-        data.charVelocityY = 0 #Forward
+            self.charVelocityY = 0 #Forward
 
         elif key == Qt.Key_S or key == Qt.Key_Down:
-            data.charVelocityY = 0 #Backward
+            self.charVelocityY = 0 #Backward
 
         elif key == Qt.Key_A or key == Qt.Key_Left:
-            data.charVelocityX = 0 #Left
+            self.charVelocityX = 0 #Left
 
         elif key == Qt.Key_D or key == Qt.Key_Right:
-            data.charVelocityX = 0 #Right
-
-        
+            self.charVelocityX = 0 #Right
