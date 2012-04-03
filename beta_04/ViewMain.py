@@ -12,15 +12,22 @@ from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog
 from Globals import *
 
 class ViewMain(QMainWindow):
+
+    # Declare Constants for images associated with graphics object types
+    # here.
+    
     def __init__(self, parent=None):
         """Initialize the abstracted class instance"""
         super(WidMain, self).__init__(parent)
 
-        #Init Data Members
+        # Init Data Members
         self.gui  = Gui(self)
         self.game = None
         self.connectGui()
         self.messageFade = None
+
+        # Lisf of Graphics Objects
+        self.graphicsObjects = []
         
 ########################################
 ### Signals and slots connected here ###
@@ -102,6 +109,7 @@ class ViewMain(QMainWindow):
         self.gui.background.setPixmap(self.backgroundPixmapSettings)
         self.gui.stackedWidget.setCurrentIndex(5)
         self.gui.location = 5
+        # Need to be extened to create instance of game.
         
     def storyButton(self):
         self.gui.stackedWidget.setCurrentIndex(2)
@@ -180,3 +188,7 @@ class ViewMain(QMainWindow):
             print "Accepting close event"
             event.accept()
 
+    def addGraphicsObject(self, lotsOfArgs):
+        """Add graphics object to the person veiw and map view properly and
+        leave a 
+        

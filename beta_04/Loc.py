@@ -20,7 +20,7 @@ class Loc(QObject):
         #Signal Here
         
     def __repr__(self):
-        return "QGraphicsObject at "+`self.x`+","+`self.y`+ \
+        return "Loc Object at "+`self.x`+","+`self.y`+ \
                " of type " + `self.objType`
     
     def getCenter(self):
