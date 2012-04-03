@@ -11,7 +11,7 @@ class ClassInstantiation(unittest.TestCase):
         import Loc
         import Places
         import Sounds
-        import Story
+        #import Story
         import Timer
         import ViewGraphics
         import ViewMain

@@ -62,7 +62,7 @@ class Game(QObject):
         """Start sending signals to the game using Timers"""
         self.gameTime.start()
         self.frameTimer.start(ONE_SECOND/FRAME_RATE)
-        self.frameTimer.timeout.connect(self.story.frameTime)
+        self.frameTimer.timeout.connect(self.frameUpdate)
     
     def temporaryLoadSys(self):
         """For testing game independed of normal save and load 
@@ -75,5 +75,17 @@ class Game(QObject):
         self.character = Character((0,0), "Character", "Character")
     
         self.places.addLoc( Loc())
+        
+    def keyPress(self, event):
+        
+        
+    def keyRelease(self, event):
+        None
+        
+    def frameUpdate(self):
+        self.story.frameTime()
+        self.character.frameUpdate(FRAME_RATE)
+        
+        
         
         
