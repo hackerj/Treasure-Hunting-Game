@@ -43,10 +43,6 @@ class Sounds(object):
             self.currSound = newSound
             self.playCurrMusic()
             
-        else:
-            print newSound
-            print self.currSound
-            
     def playCurrMusic(self):
         mixer.music.load(self.currSound)
         mixer.music.play(-1)
