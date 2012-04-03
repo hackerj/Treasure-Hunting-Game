@@ -18,8 +18,10 @@ class Story(QObject):
     
     # Declare Constants to avoid Magic Values
     LANDMARK_RADIUS = 256
+    FRAME_RATE = 0
+    CLUE_TROUBLE = FRAME_RATE * 60 * 5
     
-    def __init__(self):
+    def __init__(self, frameRate):
         #Over Simplified Clue managment.
         #Clue object are represented as dictionaries.
         self._cluelist = []
@@ -32,29 +34,49 @@ class Story(QObject):
         self.status = 1
         
         #Measure Time
-        self.clueTime = None
-        self.clueTroubleTimer = None
-        self.searchProgress = None
+        self.clueTime = 0
+        self.clueTimeEnable = True
         self.messageFade = None
         self.timerCounter = 0
         self.timerEnable = False
+        FRAME_RATE = frameRate
+        self.searchTime = pyqtSignal(float)
+        self.clueTrouble = pyqtSignal()
         
+    # Emits clueTrouble if the player has been stuck on a clue for 5 min
     def frameTime(self):
         if self.timerEnable:
             self.timerCounter += 1
+        if self.clueTimeEnable:
+            self.clueTime += 1
+        if self.clueTime >= CLUE_TROUBLE
+            self.clueTrouble.emit()
+            self.clueTime = 0
         
-    def foundClue(self):
-        None
-        
+    # Emits searchTime(float). The float is between 0 and 1.
     def searchForClue(self, position):
         if not self.currClue:
             self.currClue['position'] = position
         dist = getDistance(position)
-        searchTime = pyqtSignal(float)
-        while self.timerCounter < 
+        self.timerEnable = True
+        self.clueTimeEnable = False
+        while self.timerCounter <= FRAME_RATE*5:
+            self.searchTime.emit(float(self.timerCounter)/(FRAME_RATE*5))
+        self.timerEnable = False
+        self.clueTimeEnable = True
+        self.timerCounter = 0
         if not dist < LANDMARK_RADIUS:
             if self.status:
-                
+                return ('ClueFailed',
+                        "No clue here, must be \n somewhere else")
+        if self.clueStack:
+            self.currClue = self.clueStack.pop()
+            self.score += 100
+            return ('ClueFound', 
+                    currClue['text'])
+        else:
+            self.gameStatus = 0
+            return ('GameOver', "YOU WON!\nBut the game has just begun")
         
     def getDistance(self, position):
         charX, charY = position
@@ -62,12 +84,8 @@ class Story(QObject):
         return ((charX-clueX)**2 + (charY-clueY)**2)**0.5
         
     def troubleFindingClue(self):
-        None
+        return self.currClue['hint']
         
     def loadData(self):
-        None
-    
-    def launch(self):
-        """Start sending signals to the game using Timers"""
         None
         
