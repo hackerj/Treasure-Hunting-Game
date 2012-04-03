@@ -52,7 +52,7 @@ class Story(QObject):
     def searchForClue(self, position, framerate):
         if not self.currClue:
             self.currClue['position'] = position
-        dist = getDistance(position)
+        dist = self.getDistance(position)
         self.timerEnable = True
         self.clueTimeEnable = False
         while self.timerCounter <= framerate*5:
@@ -75,7 +75,7 @@ class Story(QObject):
         
     def getDistance(self, position):
         charX, charY = position
-        clueX, clueY = currClue['position']
+        clueX, clueY = self.currClue['position']
         return ((charX-clueX)**2 + (charY-clueY)**2)**0.5
         
     def troubleFindingClue(self):

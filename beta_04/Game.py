@@ -13,10 +13,14 @@ from PyQt4.QtCore import QObject, pyqtSignal
 # Game takes inputs based on time.
 from PyQt4.QtCore import QTimer, QTime #Provides Time Driven Inputs to Game
 
+from Globals import *
+
 # Game is divided into three parts.
 from Character import Character     # Represents Player
 from Story import Story             # Manages Clues and serves Actions
 from Places import Places           # Manages Location Objects
+from Loc import Loc                 # Location Objects
+
 
 class Game(QObject):
     """Container to hold one new or loaded game instance"""
@@ -33,7 +37,7 @@ class Game(QObject):
         self.character = None
         
         # Manage Game Progression
-        self.story = Story(
+        self.story = Story()
         
         # Manage World
         self.places = Places()

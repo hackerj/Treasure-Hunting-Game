@@ -9,13 +9,16 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap
 from Globals import *
-from os.path import normpath
+from os.path import normpath, isfile
 from Gui import Gui
+from Game import Game
 
 class ViewMain(QMainWindow):
     """This Class Provides the Graphical Interface for Game"""
 
     # Use Constants To Avoid Magic Numbers
+    FRAME_RATE = 25 # Frames per second.
+    
     # Declare stack widget names
     MAIN_PAGE = 0
     SETTINGS_PAGE = 1
@@ -127,14 +130,17 @@ class ViewMain(QMainWindow):
     def newGame(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         self.setStackWidgetIndex(self.STORY_PAGE)
-        #self.game = Game()
-        # Need to be extened to create instance of game.
+        
         self.overlays['latLongOverlay'] = self.addOverlay(
                         normpath("images/latOverlay.png"))
         self.overlays['colorOverlay'] = self.addOverlay(
                         normpath("images/colorOverlay.png"))
         self.overlays['legendOverlay'] = self.addOverlay(
                         normpath("images/legendOverlay.png"))
+        
+        # Create game instance and start the game
+        self.game = Game()
+        self.game.new()
         
     def storyButton(self):
         self.setStackWidgetIndex(self.GAME_PAGE)
@@ -182,7 +188,8 @@ class ViewMain(QMainWindow):
         self.gui.soundManager.setVolume(self.gui.volumeSlider.sliderPosition())
         
     def doSearch(self):
-        self.game.story.searchForClue(self.game.character.getCenter())
+        self.game.story.searchForClue(self.game.character.getCenter(), 
+                                      self.FRAME_RATE)
     
 ########################################
 ####### Other methods are here #########
