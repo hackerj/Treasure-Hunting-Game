@@ -80,6 +80,7 @@ class Game(QObject):
         key = event.key()
         self.character.keyPress(key)
         
+        
     def keyRelease(self, event):
         None
         
