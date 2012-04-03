@@ -29,12 +29,15 @@ class ClassInstantiation(unittest.TestCase):
         self.assertEqual(loc_complex.objType, "city")
         self.assertEqual(loc_complex.x, 5)
         self.assertEqual(loc_complex.y, 7)
+
+    def test_character(self):
+        from Character import Character
+        char = Character((1,1), "Character", "Character")
         
+    
     def test_places(self):
         from Places import Places
         places = Places()
-
-    def 
 
     def test_Game(self):
         from Game import Game

@@ -11,10 +11,14 @@ from PyQt4.QtCore import QObject
 
 #Game takes inputs based on time.
 from PyQt4.QtCore import QTimer, QTime #Provides Time Driven Inputs to Game
+from Globals import *
 
 class Story(QObject):
+    """Manage what happens in the game"""
+    
+    # Declare Constants to avoid Magic Values
     LANDMARK_RADIUS = 256
-    ONE_SECOND = 1000
+    
     def __init__(self):
         #Over Simplified Clue managment.
         #Clue object are represented as dictionaries.
