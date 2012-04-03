@@ -39,7 +39,7 @@ class Game(QObject):
     def new(self):
         """Load new game from file"""
         # FIXME load sys here
-        self.temporaryLoadSys() 
+        self.temporaryLoadSys()
         None
 
     def load(self):
@@ -62,7 +62,10 @@ class Game(QObject):
         None
     
     def temporaryLoadSys(self):
+        """
+        debug("loading charcter")
         self.character = Character((0,0), "Character", "Character")
+    
         self.places.addLoc( Loc())
         
         

@@ -14,8 +14,8 @@ class Character(Loc):
     """Inherit from Location Objects and add functionality for"""
     SPEED = 200
     
-    def __init__(self, position, objType=None):
-        super(ViewGraphics, self).__init__(self, position, objType)
+    def __init__(self, center = (0,0), name = '', objType=None):
+        super(ViewGraphics, self).__init__(center = (0,0), name = '', objType=None)
         
         self.charVelocityX = 0     # Gives the X offset to use every frame
         self.charVelocityY = 0     # Gives the Y offset to use every frame
