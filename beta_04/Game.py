@@ -62,5 +62,10 @@ class Game(QObject):
         None
     
     def temporaryLoadSys(self):
-        self.character = Character((0,0), "Character")
+        self.character = Character((0,0), "Character", "Character")
+        self.places = Places()
+        self.story = Story()
+        
+        self.places.addLoc( Loc())
+        
         
