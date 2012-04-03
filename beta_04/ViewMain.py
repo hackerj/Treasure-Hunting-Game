@@ -40,6 +40,9 @@ class ViewMain(QMainWindow):
         # Overlays
         self.overlays = {}
         
+        self.currStackIndex = self.MAIN_PAGE
+        self.gui.soundManager.playCurrMusic()
+        
 ########################################
 ### Signals and slots connected here ###
 ########################################
@@ -81,19 +84,16 @@ class ViewMain(QMainWindow):
 ########################################
 
     def setSettings(self):
-        self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(self.SETTINGS_PAGE)
+        self.setStackWidgetIndex(self.SETTINGS_PAGE)
         
     def setInstructions(self):
-        self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(self.INSTRUCTIONS_PAGE)
+        self.setStackWidgetIndex(self.INSTRUCTIONS_PAGE)
 
     def setCredits(self):
-        self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(self.CREDITS_PAGE)
+        self.setStackWidgetIndex(self.CREDITS_PAGE)
         
     def goBack(self):
-        self.gui.stackedWidget.setCurrentIndex(self.gui.stackIndex)
+        self.setStackWidgetIndex(self.gui.stackIndex)
         if self.gui.stackIndex == self.GAME_PAGE:
             self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
         else:
@@ -106,9 +106,7 @@ class ViewMain(QMainWindow):
                                       "saves", "MapMaster Save files (*.save)")
         if isfile(filename):
             self.gui.loadSaved = True
-            self.gui.stackedWidget.setCurrentIndex(GAME_PAGE)
-            self.gui.location = GAME_PAGE
-            self.gui.soundManager.switchSongs(self.location)
+            self.setStackWidgetIndex(self.GAME_PAGE)
                 
     def saveFileDialog(self):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
@@ -128,8 +126,7 @@ class ViewMain(QMainWindow):
                         
     def newGame(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(self.STORY_PAGE)
-        self.gui.location = self.STORY_PAGE
+        self.setStackWidgetIndex(self.STORY_PAGE)
         #self.game = Game()
         # Need to be extened to create instance of game.
         self.overlays['latLongOverlay'] = self.addOverlay(
@@ -140,17 +137,23 @@ class ViewMain(QMainWindow):
                         normpath("images/legendOverlay.png"))
         
     def storyButton(self):
-        self.gui.stackedWidget.setCurrentIndex(self.GAME_PAGE)
-        self.gui.location = self.GAME_PAGE
-        self.gui.soundManager.switchSongs(self.location)
+        self.setStackWidgetIndex(self.GAME_PAGE)
         
     def setMain(self):
         self.saveFileDialog()
         self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
-        self.gui.stackedWidget.setCurrentIndex(MAIN_PAGE)
-        self.gui.location = MAIN_PAGE
-        self.gui.soundManager.switchSongs(self.location)
+        self.setStackWidgetIndex(self.MAIN_PAGE)
         
+    def setStackWidgetIndex(self, index):
+        if index == self.MAIN_PAGE:
+            self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
+        else:
+            self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
+    
+        self.gui.stackedWidget.setCurrentIndex(index)
+        self.currStackIndex = index
+        self.gui.soundManager.switchSongs(index)
+    
     def latLong(self):
         if self.gui.latLongCheck.isChecked():
             debug("Lat/long overlay on")

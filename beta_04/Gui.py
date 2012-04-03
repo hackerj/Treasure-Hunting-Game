@@ -152,7 +152,7 @@ class Gui(object):
         self.doneButton.setFont(font)
         self.stackedWidget.addWidget(self.settingsPage)
         
-        #self.soundManager = Sounds(self.volumeSlider.sliderPosition())
+        self.soundManager = Sounds(self.volumeSlider.sliderPosition())
         
         #Main Game page
         self.mainPage = QWidget()

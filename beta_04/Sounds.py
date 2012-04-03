@@ -30,13 +30,25 @@ class Sounds(object):
         
     def switchSongs(self, songnum):
         """Change songs (only has songs for menu and game)"""
-        mixer.music.fadeout(500)
+        
         if songnum == 0:
-            self.currSound = self.menuSound
+            newSound = self.menuSound
         elif songnum == 2:
-            self.currSound = self.gameSound
+            newSound = self.gameSound
         else:
-            self.currSound = self.menuSound
+            newSound = self.menuSound
+
+        if self.currSound != newSound:
+            mixer.music.fadeout(500)
+            self.currSound = newSound
+            self.playCurrMusic()
+            
+        else:
+            print newSound
+            print self.currSound
+            
+    def playCurrMusic(self):
         mixer.music.load(self.currSound)
         mixer.music.play(-1)
         self.setVolume(self.volumeLevel)
+        
