@@ -33,7 +33,7 @@ class Game(QObject):
         self.character = None
         
         # Manage Game Progression
-        self.story = Story()
+        self.story = Story(FRAME_RATE)
         
         # Manage World
         self.places = Places()
@@ -61,6 +61,7 @@ class Game(QObject):
     def launch(self):
         """Start sending signals to the game using Timers"""
         self.gameTime.start()
+        self.frameTimer.start(ONE_SECOND/FRAME_RATE)
         self.frameTimer.timeout.connect(self.story.frameTime)
     
     def temporaryLoadSys(self):

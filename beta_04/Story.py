@@ -7,7 +7,7 @@
  Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
-from PyQt4.QtCore import QObject
+from PyQt4.QtCore import QObject, pyqtSignal
 
 #Game takes inputs based on time.
 from PyQt4.QtCore import QTimer, QTime #Provides Time Driven Inputs to Game
@@ -36,6 +36,12 @@ class Story(QObject):
         self.clueTroubleTimer = None
         self.searchProgress = None
         self.messageFade = None
+        self.timerCounter = 0
+        self.timerEnable = False
+        
+    def frameTime(self):
+        if self.timerEnable:
+            self.timerCounter += 1
         
     def foundClue(self):
         None
@@ -44,9 +50,10 @@ class Story(QObject):
         if not self.currClue:
             self.currClue['position'] = position
         dist = getDistance(position)
-        
+        searchTime = pyqtSignal(float)
+        while self.timerCounter < 
         if not dist < LANDMARK_RADIUS:
-            if status:
+            if self.status:
                 
         
     def getDistance(self, position):
