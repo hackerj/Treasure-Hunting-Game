@@ -13,6 +13,15 @@ from Globals import *
 
 class ViewMain(QMainWindow):
 
+    # Declare stack widget names here
+    MAIN_PAGE = 0
+    SETTINGS_PAGE = 1
+    GAME_PAGE = 2
+    INSTRUCTIONS_PAGE = 3
+    CREDITS_PAGE = 4
+    STORY_PAGE = 5
+    
+    
     # Declare Constants for images associated with graphics object types
     # here.
     
@@ -26,8 +35,11 @@ class ViewMain(QMainWindow):
         self.connectGui()
         self.messageFade = None
 
-        # Lisf of Graphics Objects
+        # List of Graphics Objects
         self.graphicsObjects = []
+        
+        # Overlays
+        self.overlays = {}
         
 ########################################
 ### Signals and slots connected here ###
@@ -62,18 +74,19 @@ class ViewMain(QMainWindow):
 # SET INDICES AS VARIABLES!!!
     def setSettings(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(1)
+        self.gui.stackedWidget.setCurrentIndex(SETTINGS_PAGE)
         
     def setInstructions(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(3)
+        self.gui.stackedWidget.setCurrentIndex(INSTRUCTIONS_PAGE)
 
     def setCredits(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
+        self.gui.stackedWidget.setCurrentIndex(CREDITS_PAGE)
         
     def goBack(self):
         self.gui.stackedWidget.setCurrentIndex(self.gui.stackIndex)
-        if self.gui.stackIndex == 0:
+        if self.gui.stackIndex == GAME_PAGE:
             self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
         else:
             None
@@ -85,8 +98,8 @@ class ViewMain(QMainWindow):
                                       "saves", "MapMaster Save files (*.save)")
         if isfile(filename):
             self.gui.loadSaved = True
-            self.gui.stackedWidget.setCurrentIndex(2)
-            self.gui.location = 2
+            self.gui.stackedWidget.setCurrentIndex(GAME_PAGE)
+            self.gui.location = GAME_PAGE
             self.gui.soundManager.switchSongs(self.location)
                 
     def saveFileDialog(self):
@@ -107,20 +120,21 @@ class ViewMain(QMainWindow):
                         
     def newGame(self):
         self.gui.background.setPixmap(self.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(5)
-        self.gui.location = 5
+        self.gui.stackedWidget.setCurrentIndex(STORY_PAGE)
+        self.gui.location = STORY_PAGE
+        #self.game = Game()
         # Need to be extened to create instance of game.
         
     def storyButton(self):
-        self.gui.stackedWidget.setCurrentIndex(2)
-        self.gui.location = 2
+        self.gui.stackedWidget.setCurrentIndex(GAME_PAGE)
+        self.gui.location = GAME_PAGE
         self.gui.soundManager.switchSongs(self.location)
         
     def setMain(self):
         self.saveFileDialog()
         self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
-        self.gui.stackedWidget.setCurrentIndex(0)
-        self.gui.location = 0
+        self.gui.stackedWidget.setCurrentIndex(MAIN_PAGE)
+        self.gui.location = MAIN_PAGE
         self.gui.soundManager.switchSongs(self.location)
         
     def latLong(self):
@@ -140,7 +154,7 @@ class ViewMain(QMainWindow):
                                         self.gui.colorCheck.isChecked())
                                         
     def legend(self):
-        if self.legendCheck.isChecked():
+        if self.gui.legendCheck.isChecked():
             debug("Legend overlay on")
         else:
             debug("Legend overlay off")
@@ -151,10 +165,10 @@ class ViewMain(QMainWindow):
         self.gui.soundManager.setVolume(self.gui.volumeSlider.sliderPosition())
         
     def doSearch(self):
-        self.game.events.searchLandmark()
+        self.game.story.searchForClue(self.game.character.getCenter())
     
 ########################################
-######### Old methods are here #########
+####### Other methods are here #########
 ########################################
         
     def keyPressEvent(self, event):
@@ -190,5 +204,5 @@ class ViewMain(QMainWindow):
 
     def addGraphicsObject(self, lotsOfArgs):
         """Add graphics object to the person veiw and map view properly and
-        leave a 
+        leave a graphics object in ViewMain to handle it. """
         
