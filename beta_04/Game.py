@@ -21,7 +21,7 @@ from Places import Places           #Manages Location Objects
 class Game(QObject):
     """Container to hold one new or loaded game instance"""
     def __init__(self):
-        """Game Instance Responable For all non visual work"""
+        """Game Instance responsible For all non visual work"""
         
         #Keep track of how long we have been playing.
         self.gameTime = None
@@ -59,13 +59,13 @@ class Game(QObject):
     
     def launch(self):
         """Start sending signals to the game using Timers"""
-        None
+        self.frameTimer.timeout.connect(self.story.frameTime)
     
     def temporaryLoadSys(self):
         """
         debug("loading charcter")
         self.character = Character((0,0), "Character", "Character")
     
-        self.places.addLoc( Loc())
+        self.places.addLoc( Loc())"""
         
         

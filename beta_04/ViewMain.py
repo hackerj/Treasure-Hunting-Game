@@ -67,6 +67,15 @@ class ViewMain(QMainWindow):
         self.gui.searchButton.released.connect(self.doSearch)
         self.gui.nextButton.released.connect(self.storyButton)
         self.gui.volumeSlider.sliderMoved.connect(self.setVol)
+        
+    def connectGame(self):
+        # character (emits when updates) , emits newpos
+        # places (emits when loc added), emits loc and signal
+        # - viewMain connects that signal between the location obj and 
+        # - the graphics obj
+        # story (emits when working on a clue for too long), emits nothing
+        # story (emits signal updating search progress), emits 0-1
+        # story (emits signal for message fade), emits 1-0
 
 ########################################
 ###### Custom slots defined here #######

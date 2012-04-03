@@ -13,14 +13,19 @@ from PyQt4.QtCore import QObject
 from PyQt4.QtCore import QTimer, QTime #Provides Time Driven Inputs to Game
 
 class Story(QObject):
+    LANDMARK_RADIUS = 256
+    ONE_SECOND = 1000
     def __init__(self):
         #Over Simplified Clue managment.
         #Clue object are represented as dictionaries.
         self._cluelist = []
-        self.curClue = None
+        self.currClue = {}
         
         #Keep the score for the game.
         self.score = 0
+        
+        #Is the game running or over?
+        self.status = 1
         
         #Measure Time
         self.clueTime = None
@@ -32,7 +37,18 @@ class Story(QObject):
         None
         
     def searchForClue(self, position):
-        None
+        if not self.currClue:
+            self.currClue['position'] = position
+        dist = getDistance(position)
+        
+        if not dist < LANDMARK_RADIUS:
+            if status:
+                
+        
+    def getDistance(self, position):
+        charX, charY = position
+        clueX, clueY = currClue['position']
+        return ((charX-clueX)**2 + (charY-clueY)**2)**0.5
         
     def troubleFindingClue(self):
         None
