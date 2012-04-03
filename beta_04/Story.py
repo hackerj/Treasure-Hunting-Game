@@ -49,7 +49,7 @@ class Story(QObject):
             self.timerCounter += 1
         if self.clueTimeEnable:
             self.clueTime += 1
-        if self.clueTime >= CLUE_TROUBLE
+        if self.clueTime >= CLUE_TROUBLE:
             self.clueTrouble.emit()
             self.clueTime = 0
         
