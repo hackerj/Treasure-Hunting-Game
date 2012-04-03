@@ -25,5 +25,8 @@ class Graphic(QObject):
         return "QGraphicsObject at "+`self.x`+","+`self.y`+ \
                " of type " + `self.objType`
     
-    def Update():
+    def creatInitial(self):
+        None
+    
+    def update(self):
         None

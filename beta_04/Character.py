@@ -25,6 +25,7 @@ class Character(Loc):
         if (self.isValidMove( xDist, yDist)):
             self.x += xDist
             self.y += yDist
+            # Trigger signal passing x, y
 
     def isValidMove(self, data, xDist, yDist):
         debug("isVaidMove not implemented!")
