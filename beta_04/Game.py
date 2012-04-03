@@ -28,7 +28,7 @@ class Game(QObject):
         self.frameTimer = None        
         
         #Manage Character
-        self.character = Character()
+        self.character = None
         
         #Manage Game Progression
         self.story = Story()
@@ -38,21 +38,29 @@ class Game(QObject):
         
     def new(self):
         """Load new game from file"""
+        # FIXME load sys here
+        self.temporaryLoadSys() 
         None
 
     def load(self):
         """Load existing game from file"""
+        # FIXME load sys here 
         None
     
     def save(self):
         """Save to file"""
+        # FIXME save sys here
         None
     
     def endGame(self):
         """Make things tidy for another game instance"""
+        
         None
     
     def launch(self):
         """Start sending signals to the game using Timers"""
         None
-            
+    
+    def temporaryLoadSys(self):
+        self.character = Character((0,0), "Character")
+        

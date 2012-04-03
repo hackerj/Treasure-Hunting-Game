@@ -10,7 +10,7 @@
 from PyQt4.QtCore import QObject
 
 class Loc(QObject):
-    def __init__(self, center, name = '', objType=None):
+    def __init__(self, center = (0,0), name = '', objType=None):
         """Data container for objects appearing in the person and map views"""
 
         self.name = name

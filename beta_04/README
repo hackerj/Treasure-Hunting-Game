@@ -8,15 +8,19 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 ---------------
 TODO:
 ---------------
+ (See BugList on Trac for bugs)
+ 
  - Include searches in landmarks other than cities.
- - Include Save and Load in trunk.
  - Resume Game and NewGame Used Correctly
  - More Story / Game Interaction
- - Ticket out bugs.
 
 ----------------
 Change Log
 ----------------
+
+Map Master 0.4
+ - Code Overhaul
+ - Now uses custom signals and slots
 
 Map Master 0.3
  - Improved Frame Handling for better navigation, and animation support.

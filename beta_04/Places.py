@@ -8,21 +8,31 @@
 """
 
 from PyQt4.QtCore import QObject
+from Globals import *
 
 class Places(QObject):
+    """Dictionary of Location Objects with name collision Checking"""
+    
     def __init__(self):
-        #Over Simplified Clue managment.
+        """Internaly Places is represented as a dictonary"""
+        
         self.locList = {}
+        self.signal_addSignal = None # FIXME signal added here 
         
-        #Clue object are represented as dictionaries.
+    def addLoc(self, Loc):
+        """Add Location to Places"""
         
-    def createLoc(self, name):
-        None
+        # Check For name Collision
+        if Loc.name == "" or self.locList.has_key(Loc.name):
+            debug("Name collision for ",Loc.name)
+            return False
         
-    def delLoc(self, position):
-        None
+        self.locList[Loc.name] = Loc        
+        # FIXME signal 
+        return True
                 
-    def loadData(self):
-        None
+    def getLoc(self, name):
+        """Retrive Location from Places"""
         
+        return self.locList[name]        
         

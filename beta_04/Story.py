@@ -17,7 +17,7 @@ class Story(QObject):
         #Over Simplified Clue managment.
         #Clue object are represented as dictionaries.
         self._cluelist = []
-        self.curClue
+        self.curClue = None
         
         #Keep the score for the game.
         self.score = 0
@@ -26,6 +26,7 @@ class Story(QObject):
         self.clueTime = None
         self.clueTroubleTimer = None
         self.searchProgress = None
+        self.messageFade = None
         
     def foundClue(self):
         None
