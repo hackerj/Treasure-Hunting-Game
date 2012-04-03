@@ -7,14 +7,16 @@ Version: 0.4 using PyQt4.9
 Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
-from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog
-#from PyQt4.QtCore import QObject
+from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap
 from Globals import *
 from os.path import normpath
+from Gui import Gui
 
 class ViewMain(QMainWindow):
+    """This Class Provides the Graphical Interface for Game"""
 
-    # Declare stack widget names here
+    # Use Constants To Avoid Magic Numbers
+    # Declare stack widget names
     MAIN_PAGE = 0
     SETTINGS_PAGE = 1
     GAME_PAGE = 2
@@ -22,13 +24,9 @@ class ViewMain(QMainWindow):
     CREDITS_PAGE = 4
     STORY_PAGE = 5
     
-    
-    # Declare Constants for images associated with graphics object types
-    # here.
-    
     def __init__(self, parent=None):
         """Initialize the abstracted class instance"""
-        super(WidMain, self).__init__(parent)
+        super(ViewMain, self).__init__(parent)
 
         # Init Data Members
         self.gui  = Gui(self)
@@ -76,6 +74,7 @@ class ViewMain(QMainWindow):
         # story (emits when working on a clue for too long), emits nothing
         # story (emits signal updating search progress), emits 0-1
         # story (emits signal for message fade), emits 1-0
+        None
 
 ########################################
 ###### Custom slots defined here #######
@@ -83,19 +82,19 @@ class ViewMain(QMainWindow):
 
     def setSettings(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(SETTINGS_PAGE)
+        self.gui.stackedWidget.setCurrentIndex(self.SETTINGS_PAGE)
         
     def setInstructions(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(INSTRUCTIONS_PAGE)
+        self.gui.stackedWidget.setCurrentIndex(self.INSTRUCTIONS_PAGE)
 
     def setCredits(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(CREDITS_PAGE)
+        self.gui.stackedWidget.setCurrentIndex(self.CREDITS_PAGE)
         
     def goBack(self):
         self.gui.stackedWidget.setCurrentIndex(self.gui.stackIndex)
-        if self.gui.stackIndex == GAME_PAGE:
+        if self.gui.stackIndex == self.GAME_PAGE:
             self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
         else:
             None
@@ -128,9 +127,9 @@ class ViewMain(QMainWindow):
                         numClues + '\t' + score
                         
     def newGame(self):
-        self.gui.background.setPixmap(self.backgroundPixmapSettings)
-        self.gui.stackedWidget.setCurrentIndex(STORY_PAGE)
-        self.gui.location = STORY_PAGE
+        self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
+        self.gui.stackedWidget.setCurrentIndex(self.STORY_PAGE)
+        self.gui.location = self.STORY_PAGE
         #self.game = Game()
         # Need to be extened to create instance of game.
         self.overlays['latLongOverlay'] = self.addOverlay(
@@ -141,8 +140,8 @@ class ViewMain(QMainWindow):
                         normpath("images/legendOverlay.png"))
         
     def storyButton(self):
-        self.gui.stackedWidget.setCurrentIndex(GAME_PAGE)
-        self.gui.location = GAME_PAGE
+        self.gui.stackedWidget.setCurrentIndex(self.GAME_PAGE)
+        self.gui.location = self.GAME_PAGE
         self.gui.soundManager.switchSongs(self.location)
         
     def setMain(self):

@@ -7,10 +7,7 @@
  Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
-from PyQt4.QtCore import QObject, pyqtSignal
-
-#Game takes inputs based on time.
-from PyQt4.QtCore import QTimer, QTime #Provides Time Driven Inputs to Game
+from PyQt4.QtCore import QObject, pyqtSignal, QTimer
 from Globals import *
 
 class Story(QObject):
@@ -18,10 +15,9 @@ class Story(QObject):
     
     # Declare Constants to avoid Magic Values
     LANDMARK_RADIUS = 256
-    FRAME_RATE = 0
-    CLUE_TROUBLE = FRAME_RATE * 60 * 5
+    CLUE_TROUBLE = 1000 * 60 * 5
     
-    def __init__(self, frameRate):
+    def __init__(self):
         #Over Simplified Clue managment.
         #Clue object are represented as dictionaries.
         self._cluelist = []
@@ -39,7 +35,6 @@ class Story(QObject):
         self.messageFade = None
         self.timerCounter = 0
         self.timerEnable = False
-        FRAME_RATE = frameRate
         self.searchTime = pyqtSignal(float)
         self.clueTrouble = pyqtSignal()
         
@@ -54,14 +49,14 @@ class Story(QObject):
             self.clueTime = 0
         
     # Emits searchTime(float). The float is between 0 and 1.
-    def searchForClue(self, position):
+    def searchForClue(self, position, framerate):
         if not self.currClue:
             self.currClue['position'] = position
         dist = getDistance(position)
         self.timerEnable = True
         self.clueTimeEnable = False
-        while self.timerCounter <= FRAME_RATE*5:
-            self.searchTime.emit(float(self.timerCounter)/(FRAME_RATE*5))
+        while self.timerCounter <= framerate*5:
+            self.searchTime.emit(float(self.timerCounter)/(framerate*5))
         self.timerEnable = False
         self.clueTimeEnable = True
         self.timerCounter = 0

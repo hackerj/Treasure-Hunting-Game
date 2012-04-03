@@ -33,7 +33,7 @@ class Game(QObject):
         self.character = None
         
         # Manage Game Progression
-        self.story = Story(FRAME_RATE)
+        self.story = Story(
         
         # Manage World
         self.places = Places()
