@@ -10,6 +10,7 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog
 #from PyQt4.QtCore import QObject
 from Globals import *
+from os.path import normpath
 
 class ViewMain(QMainWindow):
 
@@ -71,7 +72,6 @@ class ViewMain(QMainWindow):
 ###### Custom slots defined here #######
 ########################################
 
-# SET INDICES AS VARIABLES!!!
     def setSettings(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         self.gui.stackedWidget.setCurrentIndex(SETTINGS_PAGE)
@@ -124,6 +124,12 @@ class ViewMain(QMainWindow):
         self.gui.location = STORY_PAGE
         #self.game = Game()
         # Need to be extened to create instance of game.
+        self.overlays['latLongOverlay'] = self.addOverlay(
+                        normpath("images/latOverlay.png"))
+        self.overlays['colorOverlay'] = self.addOverlay(
+                        normpath("images/colorOverlay.png"))
+        self.overlays['legendOverlay'] = self.addOverlay(
+                        normpath("images/legendOverlay.png"))
         
     def storyButton(self):
         self.gui.stackedWidget.setCurrentIndex(GAME_PAGE)
@@ -142,7 +148,7 @@ class ViewMain(QMainWindow):
             debug("Lat/long overlay on")
         else:
             debug("Lat/long overlay off")
-        self.gui.data.overlays['latLongOverlay'].mViewObj.setVisible(
+        self.overlays['latLongOverlay'].setVisible(
                                         self.gui.latLongCheck.isChecked())
     
     def colorize(self):
@@ -150,7 +156,7 @@ class ViewMain(QMainWindow):
             debug("Color overlay on")
         else:
             debug("Color overlay off")
-        self.gui.data.overlays['colorOverlay'].mViewObj.setVisible(
+        self.overlays['colorOverlay'].setVisible(
                                         self.gui.colorCheck.isChecked())
                                         
     def legend(self):
@@ -158,7 +164,7 @@ class ViewMain(QMainWindow):
             debug("Legend overlay on")
         else:
             debug("Legend overlay off")
-        self.gui.data.overlays['legendOverlay'].mViewObj.setVisible(
+        self.overlays['legendOverlay'].setVisible(
                                         self.gui.legendCheck.isChecked())
 
     def setVol(self):
@@ -206,3 +212,7 @@ class ViewMain(QMainWindow):
         """Add graphics object to the person veiw and map view properly and
         leave a graphics object in ViewMain to handle it. """
         
+    def addOverlay(self, filename):
+        obj = self.gui.mapView.scene.addPixmap(QPixmap(filename))
+        obj.setVisible(False)
+        return obj
