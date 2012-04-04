@@ -16,11 +16,11 @@ class Story(QObject):
     # Declare Constants to avoid Magic Values
     LANDMARK_RADIUS = 256
     CLUE_TROUBLE = 1000 * 60 * 5
-    
+
     def __init__(self):
         #Over Simplified Clue managment.
         #Clue object are represented as dictionaries.
-        self._cluelist = []
+        self._clueList = []
         self.currClue = {}
         
         #Keep the score for the game.
@@ -74,6 +74,7 @@ class Story(QObject):
             return ('GameOver', "YOU WON!\nBut the game has just begun")
         
     def getDistance(self, position):
+        """Calculate the distance between character's location and the clue"""
         charX, charY = position
         clueX, clueY = self.currClue['position']
         return ((charX-clueX)**2 + (charY-clueY)**2)**0.5
@@ -81,6 +82,31 @@ class Story(QObject):
     def troubleFindingClue(self):
         return self.currClue['hint']
         
-    def loadData(self):
-        None
+    def loadData(self, filename = "saves/story.clue"):
+        """load clues from file"""
+        
+        CLUE_COMMANDS = {"addClue"}
+        filedata = open(filename)
+        n = 0
+        nextLine = filedata.readline()
+        while (nextLine):
+            loadClues = nextLine.split('\t')
+            if (len(loadClues)>2):
+                objCommand = loadClues[0]
+                if (objCommand in CLUE_COMMANDS):
+                    clues = filter(lambda x: x!="", loadClues)
+                    self.addClues(clues)
+            nextLine = filedata.readline()
+            
+        
+    def addClues(self,obj):
+        """add new clues to the clueStack"""    
+        
+        clue = {}
+        clue['landmark'] = obj[1]
+        clue['text'] = obj[2].replace('\\n ', '\n') # ensure proper formate
+        clue['hints'] = obj[3].replace('\\n ', '\n')
+        self._clueList.append(clue)
+        
+        
         

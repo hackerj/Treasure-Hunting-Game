@@ -78,7 +78,7 @@ class Game(QObject):
         debug("loading charcter")
         self.character = Character((0,0), "Character", "Character")
     
-        self.places.addLoc( Loc())
+        self.places.addLoc(Loc())
         
     def keyPress(self, event):
         key = event.key()
