@@ -17,7 +17,6 @@ class ViewMain(QMainWindow):
     """This Class Provides the Graphical Interface for Game"""
 
     # Use Constants To Avoid Magic Numbers
-    FRAME_RATE = 25 # Frames per second.
     
     # Declare stack widget names
     MAIN_PAGE = 0
@@ -188,8 +187,7 @@ class ViewMain(QMainWindow):
         self.gui.soundManager.setVolume(self.gui.volumeSlider.sliderPosition())
         
     def doSearch(self):
-        self.game.story.searchForClue(self.game.character.getCenter(), 
-                                      self.FRAME_RATE)
+        self.game.story.searchForClue(self.game.character.getCenter())
     
 ########################################
 ####### Other methods are here #########

@@ -16,13 +16,21 @@ class Story(QObject):
     # Declare Constants to avoid Magic Values
     LANDMARK_RADIUS = 256
     CLUE_TROUBLE = 1000 * 60 * 5
+    LOAD_TIME = 5   #seconds
+    
+    loadBar = pyqtSignal(int, int)
+    searchTime = pyqtSignal()
+    clueTrouble = pyqtSignal()
 
-    def __init__(self):
+    def __init__(self, frameRate):
+        super(QObject, self).__init__()
         #Over Simplified Clue managment.
         #Clue object are represented as dictionaries.
         self._clueList = []
         self.currClue = {}
         self.loadData() #initial clues from file
+        
+        self.currAction = ('','')
         
         #Keep the score for the game.
         self.score = 0
@@ -36,45 +44,53 @@ class Story(QObject):
         self.messageFade = None
         self.timerCounter = 0
         self.timerEnable = False
-        self.searchTime = pyqtSignal(float)
-        self.clueTrouble = pyqtSignal()
+        self.FRAME_RATE = frameRate
+        self.SEARCH_FRAME_COUNT = self.FRAME_RATE * self.LOAD_TIME
         
-        
+        self.searchTime.connect(self.searchResults)
         
     # Emits clueTrouble if the player has been stuck on a clue for 5 min
     def frameTime(self):
         if self.timerEnable:
             self.timerCounter += 1
+            self.loadBar.emit(self.timerCounter, self.SEARCH_FRAME_COUNT)
+            debug ("Story timer increased, now " + `self.timerCounter`)
+            if self.timerCounter == self.SEARCH_FRAME_COUNT:
+                debug("Emitting searchTime")
+                self.searchTime.emit()
+                self.timerEnable = False
+                self.timerCounter = 0
         if self.clueTimeEnable:
             self.clueTime += 1
-        if self.clueTime >= CLUE_TROUBLE:
+        if self.clueTime >= self.CLUE_TROUBLE:
             self.clueTrouble.emit()
+            debug("Emitting clueTrouble")
             self.clueTime = 0
         
-    # Emits searchTime(float). The float is between 0 and 1.
-    def searchForClue(self, position, framerate):
+    def searchForClue(self, position):
         if not self.currClue:
             self.currClue['position'] = position
         dist = self.getDistance(position)
         self.timerEnable = True
+        debug("Timer now enabled")
         self.clueTimeEnable = False
-        while self.timerCounter <= framerate*5:
-            self.searchTime.emit(float(self.timerCounter)/(framerate*5))
-        self.timerEnable = False
-        self.clueTimeEnable = True
-        self.timerCounter = 0
-        if not dist < LANDMARK_RADIUS:
+        if not dist < self.LANDMARK_RADIUS:
             if self.status:
-                return ('ClueFailed',
+                self.currAction =  ('ClueFailed',
                         "No clue here, must be \n somewhere else")
-        if self.clueStack:
-            self.currClue = self.clueStack.pop()
+        if self._clueList:
+            self.currClue = self._clueList.pop()
             self.score += 100
-            return ('ClueFound', 
-                    currClue['text'])
+            self.currAction =  ('ClueFound', 
+                    self.currClue['text'])
         else:
             self.gameStatus = 0
-            return ('GameOver', "YOU WON!\nBut the game has just begun")
+            self.currAction = ('GameOver', 
+                        "YOU WON!\nBut the game has just begun")
+        
+    def searchResults(self):
+        self.clueTimeEnable = True
+        return self.currAction
         
     def getDistance(self, position):
         """Calculate the distance between character's location and the clue"""
