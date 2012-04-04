@@ -22,6 +22,7 @@ class Story(QObject):
         #Clue object are represented as dictionaries.
         self._clueList = []
         self.currClue = {}
+        self.loadData() #initial clues from file
         
         #Keep the score for the game.
         self.score = 0
@@ -38,7 +39,7 @@ class Story(QObject):
         self.searchTime = pyqtSignal(float)
         self.clueTrouble = pyqtSignal()
         
-        self.loadData() #initial clues from file
+        
         
     # Emits clueTrouble if the player has been stuck on a clue for 5 min
     def frameTime(self):
