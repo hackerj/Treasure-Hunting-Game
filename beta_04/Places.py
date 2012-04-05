@@ -18,6 +18,11 @@ class Places(QObject):
         """Internaly Places is represented as a dictonary"""
         
         self.locList = {}
+    
+    def loadLoc(self, filename = "saves/load.loc")
+    
+    
+    
         
     def addLoc(self, Loc):
         """Add Location to Places and check for name collisions"""

@@ -29,7 +29,7 @@ class Data(object):
         self.character =  None    # A special Loc for our character
         self.charVelocityX = 0 # Gives the X offset to use every frame
         self.charVelocityY = 0 # Gives the Y offset to use every frame
-        self.charSpeed = 200       # Now based on keyboard should be pixles per second.
+        self.charSpeed = 1000       # Now based on keyboard should be pixles per second.
         
         self.landmarks = {}       # dictionary of cities.
         self.currLandmark = None  # City with current Clue
@@ -64,7 +64,7 @@ class Data(object):
         self.view = View(self)      # Initialize view
         loadGraphics(self)          # Initialize graphics
         self.view.guiMain.personView.centerOn(self.character.pViewObj); # Center on the character
-      
+        self.view.guiMain.mapView.centerOn(self.character.mViewObj)
         # Set boundaries (Hard Coded values at the mommment perhaps 
         # implement automatic bounds checking later)
         self.maxX = 1768

@@ -27,7 +27,7 @@ class Data(object):
         self.character =  None    # A special Loc for our character
         self.charVelocityX = 0 # Gives the X offset to use every frame
         self.charVelocityY = 0 # Gives the Y offset to use every frame
-        self.charSpeed = 200   # Pixels per second.
+        self.charSpeed = 1000   # Pixels per second.
         
         self.landmarks = {}       # dictionary of cities.
         self.currLandmark = None  # City with current Clue

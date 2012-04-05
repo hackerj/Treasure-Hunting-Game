@@ -2,13 +2,17 @@
 # Map Master Game
 # ---------------
 # Authors: MI Maps Team, CS121-SoftwareDevelopment, Harvey Mudd College
-# Version: 0.3 using PyQt4.9
+# Version: 0.4 using PyQt4.9
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from os.path import *
+<<<<<<< .mine
+from Places import Places
+from Graphics import Graphics
+=======
 from Loc import Loc
 # Clues now have type dictionary
-
+>>>>>>> .r208
 
 commands = {"addLoc", "addClue"}
 types = {"char", "bg","tree", "overlay", "landmark"} #obj types, for debugging
@@ -36,16 +40,12 @@ def loadNewGame(data,filename, loadSaved):
             objCommand = obj[0]
             if (objCommand == "addLoc" and isValidInput(data,obj)):
                 addObj(data,obj)
-            if (objCommand == "addClue"):
-                addClue(data,obj)
         else:
             print "Line ", n, " is invalid!"
         nextLine = filedata.readline()
         n+=1  
     
     filedata.close()
-    if (loadSaved):
-         loadSavedGame(data,"saves/hi.save")
     
 def addObj(data, obj, pos= None, pViewImag =None, 
            mViewImag = None, itemName = None):
