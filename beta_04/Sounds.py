@@ -16,7 +16,8 @@ class Sounds(object):
     
     def __init__(self, volume):
         #mixer.pre_init(44100, -16, 2, 1024)
-
+        mixer.init()
+        
         self.menuSound = normpath("sounds/theme.mp3")
         self.gameSound = normpath("sounds/gameTheme.mp3")
         self.currSound = self.menuSound
@@ -25,7 +26,7 @@ class Sounds(object):
         self.volumeLevel = volume
         self.setVolume(self.volumeLevel)
 
-        mixer.init()
+        
         mixer.music.load(self.menuSound)
 
         
