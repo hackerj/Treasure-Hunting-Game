@@ -72,3 +72,4 @@ class Character(Loc):
 
         elif key == Qt.Key_D or key == Qt.Key_Right:
             self.charVelocityX = 0 #Right
+            

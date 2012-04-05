@@ -124,7 +124,7 @@ class Story(QObject):
         clue = {}
         clue['landmark'] = obj[1]
         clue['text'] = obj[2].replace('\\n ', '\n') # ensure proper formate
-        clue['hints'] = obj[3].replace('\\n ', '\n')
+        clue['hint'] = obj[3].replace('\\n ', '\n')
         self._clueList.append(clue)
         
         
