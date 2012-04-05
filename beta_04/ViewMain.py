@@ -195,11 +195,13 @@ class ViewMain(QMainWindow):
         
     def keyPressEvent(self, event):
         """Get keyboard events no matter what widget has focus"""
-        self.game.keyPress(event)
+        if self.game:
+            self.game.keyPress(event)
     
     def keyReleaseEvent(self, event):
         """Get keyboard events no matter what widget has focus"""
-        self.game.keyRelease(event)
+        if self.game:
+            self.game.keyRelease(event)
     
     def closeEvent(self, event):
         """Remapping the close event to a message box"""

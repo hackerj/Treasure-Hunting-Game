@@ -20,20 +20,27 @@ class Places(QObject):
         self.locList = {}
         
     def addLoc(self, Loc):
-        """Add Location to Places"""
+        """Add Location to Places and check for name collisions"""
         
-        # Check For name Collision
-        if Loc.name == "" or self.locList.has_key(Loc.name):
+        if Loc.name == "":
+            Loc.name = 'staticItem'+`self.newId`
+            self.newId += 1
+            return self.addLoc(Loc) # Do we actually want to store these?
+
+        elif self.locList.has_key(Loc.name):
             debug("Name collision for ", Loc.name)
             return False
         
         self.locList[Loc.name] = Loc        
         self.passLoc.emit(Loc.name, Loc.x, Loc.y, Loc.objType)
         debug("Emitting location: " + Loc.name + '' + `(Loc.x, Loc.y)`)
-        return True
+        return Loc.name
                 
     def getLoc(self, name):
         """Retrive Location from Places"""
         
-        return self.locList[name]        
-        
+        return self.locList[name]
+
+    def getLocsNear(self, x, y):
+        """Find Location Objects Need Position"""
+        None

@@ -60,6 +60,7 @@ class Game(QObject):
     
     def endGame(self):
         """Make things tidy for another game instance"""
+        # Signal that we have won the game and should
         None
     
     def launch(self):
@@ -74,7 +75,9 @@ class Game(QObject):
         
         self.gameTime = QTime()
         self.frameTimer = QTimer() # Create Frame Timer
-        
+
+        self.places.addLoc( Loc((20,20), "Tree1", "Trees"))
+                
         debug("loading charcter")
         self.character = Character((0,0), "Character", "Character")
     
