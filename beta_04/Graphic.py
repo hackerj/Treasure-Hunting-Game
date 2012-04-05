@@ -10,7 +10,7 @@
 from PyQt4.QtCore import QObject
 
 class Graphic(QObject):
-    def __init__(self, center, name = '', objType=None):
+    def __init__(self, center = (0,0), name = '', objType=None):
         """Data container for graphics equivalent of location objects"""
 
         self.PviewObject = None

@@ -6,7 +6,8 @@
 # Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from os.path import *
-from Loc import Loc, Clue
+from Loc import Loc
+# Clues now have type dictionary
 
 
 commands = {"addLoc", "addClue"}

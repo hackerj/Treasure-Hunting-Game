@@ -3,34 +3,48 @@ import unittest
 class ClassInstantiation(unittest.TestCase):
     "Basics tests to catch the obvious stuff."
     
-    def test_fileLoad(self):
+    def test_otherImports(self):
         #print "Automated Tests For Mapmaster Game:\n"
+
         import Globals
-        import Graphic
         import Gui
-        import Loc
-        import Places
+        import Load
+        
         import Sounds
         import Story
-        import Timer
         import ViewGraphics
         import ViewMain
+        
+        #Already Tested
+        #import Character 
+        #import Game
+        #import Graphic
+        #import Loc
+        #import Places
+
+    def test_character(self):
+        from Character import Character
+        char = Character((1,1), "Character", "Character")
+
+    def test_Game(self):
+        from Game import Game
+        game = Game()
+
+    def test_Graphic(self):
+        from Graphic import Graphic
+        graphic = Graphic()
         
     def test_loc(self):
         from Loc import Loc
         loc_default = Loc()
 
-    def test_character(self):
-        from Character import Character
-        char = Character((1,1), "Character", "Character")
-        
     def test_places(self):
         from Places import Places
         places = Places()
 
-    def test_Game(self):
-        from Game import Game
-        game = Game()
+    def test_sounds(self):
+        from Sounds import Sounds
+        sounds = Sounds()
 
 ##    def test_Gui(self):
 ##        from Gui import Gui
@@ -46,15 +60,20 @@ class ClassInstantiation(unittest.TestCase):
 class GameTests(unittest.TestCase):
 
     def test_LocDefault(self):
+        """Check if default locations initialize properly"""
         from Loc import Loc
         loc_default = Loc()
+
         self.assertEqual(loc_default.name, '')
         self.assertEqual(loc_default.objType, None)
         self.assertEqual(loc_default.x, 0)
         self.assertEqual(loc_default.y, 0)       
 
     def test_LocComplex(self):
+        """Check if locations store information correctly"""
+        from Loc import Loc
         loc_complex = Loc((5,7), "city name", "city")
+        
         self.assertEqual(loc_complex.name, "city name")
         self.assertEqual(loc_complex.objType, "city")
         self.assertEqual(loc_complex.x, 5)

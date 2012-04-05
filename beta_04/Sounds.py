@@ -9,24 +9,31 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
 from pygame import mixer
 from os.path import normpath
+from Globals import *
 
 class Sounds(object):
     """This module handle sound (sets volume and switches sound)"""
-    def __init__(self, initialSlider):
+    
+    def __init__(self, volume):
         #mixer.pre_init(44100, -16, 2, 1024)
-        mixer.init()
+
         self.menuSound = normpath("sounds/theme.mp3")
         self.gameSound = normpath("sounds/gameTheme.mp3")
         self.currSound = self.menuSound
-        mixer.music.load(self.menuSound)
-        #mixer.music.play(-1)  #Starts the music playing
-        self.volumeLevel = initialSlider
+
+        
+        self.volumeLevel = volume
         self.setVolume(self.volumeLevel)
+
+        mixer.init()
+        mixer.music.load(self.menuSound)
+
         
     def setVolume(self, slider):
         """Set volume (only works on music right now)"""
         mixer.music.set_volume((float(slider))/100.0)
         self.volumeLevel = slider
+        debug(self.volumeLevel)
         
     def switchSongs(self, songnum):
         """Change songs (only has songs for menu and game)"""

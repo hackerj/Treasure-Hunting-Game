@@ -11,7 +11,7 @@ import sys
 from PyQt4.QtGui import QMainWindow, QApplication, QCloseEvent
 
 def main():
-    
+    """Create an instance of the game"""
     app = QApplication(sys.argv)
     MainWindow = ViewMain()
     MainWindow.show()

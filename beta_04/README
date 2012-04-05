@@ -13,6 +13,8 @@ TODO:
  - Include searches in landmarks other than cities.
  - Resume Game and NewGame Used Correctly
  - More Story / Game Interaction
+ - Rename "Sounds.py" to "Music.py"
+ - Move Game to subfolder and create module.
 
 ----------------
 Change Log
