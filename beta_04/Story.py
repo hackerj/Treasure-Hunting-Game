@@ -123,8 +123,11 @@ class Story(QObject):
         
         clue = {}
         clue['landmark'] = obj[1]
-        clue['text'] = obj[2].replace('\\n ', '\n') # ensure proper formate
-        clue['hint'] = obj[3].replace('\\n ', '\n')
+        posx = int(obj[2])
+        posy = int(obj[3])
+        clue['position'] = (posx, posy)
+        clue['text'] = obj[4].replace('\\n ', '\n') # ensure proper formate
+        clue['hint'] = obj[5].replace('\\n ', '\n')
         self._clueList.append(clue)
         
         

@@ -19,7 +19,8 @@ class Places(QObject):
         
         self.locList = {}
     
-    def loadLoc(self, filename = "saves/load.loc")
+    def loadLoc(self, filename = "saves/places.loc"):
+        """Load location objects from file"""
     
     
     
