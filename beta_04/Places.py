@@ -9,6 +9,7 @@
 
 from PyQt4.QtCore import QObject, pyqtSignal
 from Globals import *
+from Loc import Loc
 
 class Places(QObject):
     """Dictionary of Location Objects with name collision Checking"""
@@ -18,13 +19,50 @@ class Places(QObject):
         """Internaly Places is represented as a dictonary"""
         
         self.locList = {}
-    
+ 
+ 
     def loadLoc(self, filename = "saves/places.loc"):
         """Load location objects from file"""
-    
-    
-    
+        locData = open(filename)
+        n = 0
+        nextLine = locData.readline()
+        while (nextLine):
+            obj = nextLine.split()
         
+            if (len(obj)>2):
+                objCommand = obj[0]
+                if (objCommand == "addLoc" and self.isValidLoc(obj)):
+                    objType = obj[1]
+                    posx = int(obj[2])
+                    posy = int(obj[3])
+                    pos = (posx, posy)
+                    itemName = obj[4]
+                    locObject = Loc(pos, itemName, objType)
+                    self.addLoc(locObject)
+            else:
+                debug( "Line ", n, " is invalid!")
+            nextLine = locData.readline()
+            n+=1
+
+        locData.close()
+    
+    def isValidLoc(self, obj):
+        """Check whether the loc command is valid"""
+        TYPES = {"tree", "landmark"} #obj types, for debugging
+        
+        if(len(obj) != 5):
+            debug("location is invalid,missing command")
+            return False
+        
+        try:
+            int(obj[2]) and int(obj[3])
+        except:
+            debug(obj[1], " doesn't have the right type for x and y position")
+            return False
+        
+        return obj[1] in TYPES 
+ 
+
     def addLoc(self, Loc):
         """Add Location to Places and check for name collisions"""
         
