@@ -7,17 +7,14 @@
  Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
-from ViewMain import ViewMain
-import sys
-
-from PyQt4.QtGui import QMainWindow, QApplication, QCloseEvent
+from os import popen3
 
 def main():
-    """Create an instance of the game"""
-    app = QApplication(sys.argv)
-    MainWindow = ViewMain()
-    MainWindow.show()
-    sys.exit(app.exec_())
-
+    testErrFiles = open("test.err","w")
+    fi,fo,fe = popen3("C:\Python27\python AutomatedTests.py")
+    for i in fe.readlines():
+        testErrFiles.write(i)
+    testErrFiles.close()
+        
 if __name__ == '__main__':
     main()

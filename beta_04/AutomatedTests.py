@@ -48,7 +48,7 @@ class ClassInstantiation(unittest.TestCase):
 
     def test_story(self):
         from Story import Story
-        #Story()
+        Story(25)
 
 ##    def test_Gui(self):
 ##        from Gui import Gui
@@ -85,7 +85,7 @@ class GameTests(unittest.TestCase):
 
     def test_Story(self):
         from Story import Story
-        #Story()
+        Story(25)
 
         
 if __name__ == '__main__':
