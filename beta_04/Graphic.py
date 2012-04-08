@@ -7,6 +7,8 @@
  Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
+# Should 
+
 from PyQt4.QtCore import QObject
 
 class Graphic(QObject):
@@ -19,7 +21,8 @@ class Graphic(QObject):
         self.y = center[1]
         self.objType = objType
 
-        # Add slot for signal from location object.
+        # Add slot for signal from location object
+        # The signal will call 
         
     def __repr__(self):
         return "QGraphicsObject at "+`self.x`+","+`self.y`+ \
@@ -28,5 +31,6 @@ class Graphic(QObject):
     def creatInitial(self):
         None
     
-    def update(self):
+    def update(self, center):
+        # FIXME Update needs the new center of the graphics object.
         None

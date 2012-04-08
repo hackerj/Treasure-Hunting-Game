@@ -34,7 +34,6 @@ class Sounds(object):
         """Set volume (only works on music right now)"""
         mixer.music.set_volume((float(slider))/100.0)
         self.volumeLevel = slider
-        debug(self.volumeLevel)
         
     def switchSongs(self, songnum):
         """Change songs (only has songs for menu and game)"""

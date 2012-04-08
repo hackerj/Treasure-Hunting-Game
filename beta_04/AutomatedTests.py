@@ -44,7 +44,11 @@ class ClassInstantiation(unittest.TestCase):
 
     def test_sounds(self):
         from Sounds import Sounds
-        sounds = Sounds()
+        sounds = Sounds(50)
+
+    def test_story(self):
+        from Story import Story
+        #Story()
 
 ##    def test_Gui(self):
 ##        from Gui import Gui
@@ -78,6 +82,11 @@ class GameTests(unittest.TestCase):
         self.assertEqual(loc_complex.objType, "city")
         self.assertEqual(loc_complex.x, 5)
         self.assertEqual(loc_complex.y, 7)
+
+    def test_Story(self):
+        from Story import Story
+        #Story()
+
         
 if __name__ == '__main__':
     try:

@@ -224,9 +224,16 @@ class ViewMain(QMainWindow):
             print "Accepting close event"
             event.accept()
 
-    def addGraphicsObject(self, lotsOfArgs):
+    def addGraphicsObject(self, signal, center, name, objType):
         """Add graphics object to the person veiw and map view properly and
         leave a graphics object in ViewMain to handle it. """
+        # FIXME connect signal from Places for whenever a loc object is
+        # Created.
+        graphic = Graphic(self, center, name, objType)
+        # FIXME connect signal from Loc object to graphic for whenever a
+        # graphic need to update.
+        
+        self.graphicsObjects.append(graphic)
         
     def addOverlay(self, filename):
         obj = self.gui.mapView.scene.addPixmap(QPixmap(filename))
