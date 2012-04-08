@@ -8,7 +8,6 @@ class ClassInstantiation(unittest.TestCase):
 
         import Globals
         import Gui
-        import Load
         
         import Sounds
         import Story
