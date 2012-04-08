@@ -10,6 +10,8 @@
 from os import popen3
 
 def main():
+    # FIXME only support for windows right now.
+    
     testErrFiles = open("test.err","w")
     fi,fo,fe = popen3("C:\Python27\python AutomatedTests.py")
     for i in fe.readlines():
