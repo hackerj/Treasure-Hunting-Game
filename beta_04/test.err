@@ -11,6 +11,6 @@ Traceback (most recent call last):
 SyntaxError: invalid syntax
 
 ----------------------------------------------------------------------
-Ran 11 tests in 0.662s
+Ran 11 tests in 0.666s
 
 FAILED (errors=1)
