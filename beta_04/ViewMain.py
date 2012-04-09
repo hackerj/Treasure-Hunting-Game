@@ -110,7 +110,17 @@ class ViewMain(QMainWindow):
         if isfile(filename):
             self.gui.loadSaved = True
             self.setStackWidgetIndex(self.GAME_PAGE)
-                
+            self.overlays['latLongOverlay'] = self.addOverlay(
+                        normpath("images/latOverlay.png"))
+            self.overlays['colorOverlay'] = self.addOverlay(
+                        normpath("images/colorOverlay.png"))
+            self.overlays['legendOverlay'] = self.addOverlay(
+                        normpath("images/legendOverlay.png"))
+            
+            self.game = Game()
+            debug("Initializing the saved game...")
+            self.game.load(filename)    
+            
     def saveFileDialog(self):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
                                                "MapMaster Save files (*.save)")

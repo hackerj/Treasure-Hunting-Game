@@ -44,19 +44,57 @@ class Game(QObject):
         
     def new(self):
         """Load new game from file"""
-        # FIXME load sys here
+        
         self.gameTime = QTime()
         self.frameTimer = QTimer() # Create Frame Timer
-        debug("loading charcter")
+        debug("newgame...loading charcter")
         self.character = Character((0,0), "Character", "Character")
-        debug("loading places")
+        debug("newgame...loading places")
         self.places.loadLoc()
         self.launch()
         
-    def load(self):
+    def load(self,filename):
         """Load existing game from file"""
-        # FIXME load sys here 
-        None
+        # FIXME if QTime and QTimer should be stored in certain way
+        self.gameTime = QTime()
+        self.frameTimer = QTimer() # Create Frame Timer
+        
+        debug("loadgame...loading initial character and places")
+        self.character = Character((0,0), "Character", "Character")
+        self.places.loadLoc()
+        
+        debug("loadgame...read data from saved file")
+        savedData = open(filename)    
+        nextLine = savedData.readline()
+        x = 0
+        y = 0
+        
+        # Parsing saved file
+        while (nextLine):
+            line = nextLine.split()
+            if (len(line) == 4 and loadIsValid(line)):
+                x = int(line[0])
+                y = int(line[1])
+                numClues = int(line[2])
+                self.places.clueStack = self.story._clueList[:numClues]
+                self.places.score = int(line[3])     
+        
+            nextLine = savedData.readline()
+        
+        savedData.close()
+    
+    def loadIsValid(obj):
+        """Check that the input from saved file is valid"""         
+        posx = obj[0]
+        posy = obj[1]
+        numClue = obj[2]
+        score = obj[3]
+        try:
+            int(posx) and int(posy) and int(numClue) and int(score)
+        except:
+            print "Invalid position input"
+            return False
+        return True
     
     def save(self, filename):
         """Save to file"""
@@ -84,9 +122,6 @@ class Game(QObject):
         """For testing game independed of normal save and load 
         funcitonality"""
         None
-        
-    
-       
         
         
     def keyPress(self, event):
