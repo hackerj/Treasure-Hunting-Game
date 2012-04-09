@@ -45,6 +45,7 @@ class ViewMain(QMainWindow):
         self.currStackIndex = self.MAIN_PAGE
         self.gui.soundManager.playCurrMusic()
         
+        
 ########################################
 ### Signals and slots connected here ###
 ########################################
@@ -114,17 +115,12 @@ class ViewMain(QMainWindow):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
                                                "MapMaster Save files (*.save)")
         if filename == "":
-            debug("No file specified!")
+            filename = "temp.save"
         else:
-            if ".save" in filename:
-                fname = open(filename, "w")
-            else:
-                fname = open(filename + ".save", "w")
-            score = `self.gui.data.score`
-            numClues = `len(self.gui.data.clueStack)`
-            charX, charY = self.gui.data.character.getCenter()
-            toWriteList = '\t' + `charX` + '\t' + `charY` + '\t' + \
-                        numClues + '\t' + score
+            if ".save" not in filename:
+                filename = filename + ".save"
+        self.game.save(filename)    
+                
                         
     def newGame(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
@@ -139,7 +135,9 @@ class ViewMain(QMainWindow):
         
         # Create game instance and start the game
         self.game = Game()
+        debug("Initialized a new game")
         self.game.new()
+        debug("Starting a new game")
         
     def storyButton(self):
         self.setStackWidgetIndex(self.GAME_PAGE)

@@ -20,7 +20,6 @@ class Places(QObject):
         
         self.locList = {}
  
- 
     def loadLoc(self, filename = "saves/places.loc"):
         """Load location objects from file"""
         locData = open(filename)
@@ -40,7 +39,7 @@ class Places(QObject):
                     locObject = Loc(pos, itemName, objType)
                     self.addLoc(locObject)
             else:
-                debug( "Line ", n, " is invalid!")
+                debug( "Places.loadLoc...Line ", n, " is invalid!")
             nextLine = locData.readline()
             n+=1
 
@@ -76,8 +75,8 @@ class Places(QObject):
             return False
         
         self.locList[Loc.name] = Loc        
-        self.passLoc.emit(Loc.name, Loc.x, Loc.y, Loc.objType)
-        debug("Emitting location: " + Loc.name + '' + `(Loc.x, Loc.y)`)
+        #self.passLoc.emit(Loc.name, Loc.x, Loc.y, Loc.objType)
+        #debug("Emitting location: " + Loc.name + '' + `(Loc.x, Loc.y)`)
         return Loc.name
                 
     def getLoc(self, name):
@@ -88,3 +87,7 @@ class Places(QObject):
     def getLocsNear(self, x, y):
         """Find Location Objects Need Position"""
         None
+        
+        
+        
+        

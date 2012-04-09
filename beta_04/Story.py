@@ -116,6 +116,7 @@ class Story(QObject):
                     clues = filter(lambda x: x!="", loadClues)
                     self.addClues(clues)
             nextLine = filedata.readline()
+        debug("Finish loading initial data to game")
             
         
     def addClues(self,obj):

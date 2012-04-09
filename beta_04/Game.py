@@ -45,18 +45,29 @@ class Game(QObject):
     def new(self):
         """Load new game from file"""
         # FIXME load sys here
-        self.temporaryLoadSys()
-        None
-
+        self.gameTime = QTime()
+        self.frameTimer = QTimer() # Create Frame Timer
+        debug("loading charcter")
+        self.character = Character((0,0), "Character", "Character")
+        debug("loading places")
+        self.places.loadLoc()
+        self.launch()
+        
     def load(self):
         """Load existing game from file"""
         # FIXME load sys here 
         None
     
-    def save(self):
+    def save(self, filename):
         """Save to file"""
-        # FIXME save sys here
-        None
+        fname = open(filename, "w")
+        score = `self.story.score`
+        numClues = `len(self.story._clueList)`
+        charX, charY = self.character.getCenter()
+        toWriteList = '\t' + `charX` + '\t' + `charY` + '\t' + \
+                        numClues + '\t' + score
+        fname.write(toWriteList)     
+        fname.close()
     
     def endGame(self):
         """Make things tidy for another game instance"""
@@ -72,18 +83,11 @@ class Game(QObject):
     def temporaryLoadSys(self):
         """For testing game independed of normal save and load 
         funcitonality"""
+        None
         
-        self.gameTime = QTime()
-        self.frameTimer = QTimer() # Create Frame Timer
-
-        self.places.addLoc( Loc((20,20), "Tree1", "Trees"))
-                
-        debug("loading charcter")
-        self.character = Character((0,0), "Character", "Character")
     
-        self.places.addLoc(Loc())
+       
         
-        self.launch()
         
     def keyPress(self, event):
         key = event.key()
