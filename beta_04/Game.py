@@ -72,7 +72,7 @@ class Game(QObject):
         # Parsing saved file
         while (nextLine):
             line = nextLine.split()
-            if (len(line) == 4 and loadIsValid(line)):
+            if (len(line) == 4 and self.loadIsValid(line)):
                 x = int(line[0])
                 y = int(line[1])
                 numClues = int(line[2])
@@ -83,7 +83,7 @@ class Game(QObject):
         
         savedData.close()
     
-    def loadIsValid(obj):
+    def loadIsValid(self,obj):
         """Check that the input from saved file is valid"""         
         posx = obj[0]
         posy = obj[1]
