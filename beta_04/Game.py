@@ -117,11 +117,6 @@ class Game(QObject):
         self.gameTime.start()
         self.frameTimer.start(ONE_SECOND/self.FRAME_RATE)
         self.frameTimer.timeout.connect(self.story.frameTime)
-    
-    def temporaryLoadSys(self):
-        """For testing game independed of normal save and load 
-        funcitonality"""
-        None
         
         
     def keyPress(self, event):

@@ -453,7 +453,6 @@ class Gui(object):
         self.stackedWidget.setCurrentIndex(0)
 
         self.stackIndex = 0
-        self.loadSaved = False
 
     def retranslateUi(self, MainWindow):
         pass

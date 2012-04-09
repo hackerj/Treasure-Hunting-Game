@@ -47,16 +47,16 @@ class Character(Loc):
         """Change Velocity based on key press"""
         
         if key == Qt.Key_W or key == Qt.Key_Up:
-            self.charVelocityY = -SPEED #Forward
+            self.charVelocityY = -self.SPEED #Forward
 
         elif key == Qt.Key_S or key == Qt.Key_Down:
-            self.charVelocityY = SPEED #Backward
+            self.charVelocityY = self.SPEED #Backward
 
         elif key == Qt.Key_A or key == Qt.Key_Left:
-            self.charVelocityX = -SPEED #Left
+            self.charVelocityX = -self.SPEED #Left
 
         elif key == Qt.Key_D or key == Qt.Key_Right:
-            self.charVelocityX = SPEED #Right
+            self.charVelocityX = self.SPEED #Right
     
     def keyRelease(self, key):
         """Change Velocity based on key release"""

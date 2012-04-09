@@ -108,7 +108,6 @@ class ViewMain(QMainWindow):
         filename = fd.getOpenFileName(None, "Load Saved Game",
                                       "saves", "MapMaster Save files (*.save)")
         if isfile(filename):
-            self.gui.loadSaved = True
             self.setStackWidgetIndex(self.GAME_PAGE)
             self.overlays['latLongOverlay'] = self.addOverlay(
                         normpath("images/latOverlay.png"))
