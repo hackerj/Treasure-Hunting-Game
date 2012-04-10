@@ -240,12 +240,14 @@ class ViewMain(QMainWindow):
         graphic = Graphic(xval, yval, name, objType)
         self.graphicsObjects[name] = graphic
         self.game.places.locList[str(name)].changePos.connect(
-                                        self.graphicsObjects[name].update)
+                                        self.updateGraphicsObject)
         debug("Connecting Loc to Graphic for " + name)
         
         self.game.places.locList[str(name)].emitter()
         
         #self.graphicsObjects.append(graphic)
+    def updateGraphicsObject(self, xpos, ypos, name):
+        self.graphicsObjects[name].update(xpos, ypos)
         
     def addOverlay(self, filename):
         obj = self.gui.mapView.scene.addPixmap(QPixmap(filename))

@@ -10,6 +10,7 @@
 # Should 
 
 from PyQt4.QtCore import QObject
+from Globals import *
 
 class Graphic(QObject):  
     def __init__(self, xval, yval, name = '', objType=None):
@@ -32,6 +33,6 @@ class Graphic(QObject):
         None
     
     def update(self, newx, newy):
-        debug(name + " connected")
+        debug(self.name + " connected")
         #self.x = center[0]
         #self.y = center[1]
