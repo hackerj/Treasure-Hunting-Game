@@ -124,6 +124,7 @@ class ViewMain(QMainWindow):
             self.game = Game()
             debug("Initializing the saved game...")
             self.game.load(filename)    
+            self.gui.scoreBox.setText((str)(self.game.story.score))
             
     def saveFileDialog(self):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
