@@ -9,19 +9,19 @@
 
 # Should FIXME
 
-from PyQt4.QtCore import QObject
+from PyQt4.QtCore import QObject, QString
 from PyQt4.QtGui import QPixmap
 from Globals import *
 from os.path import normpath
 
 class Graphic(QObject):
 
-    OBJ_TYPES = {'tree'     : ('Forest3.png', 'tree.png'), 
-                 'landmark' : ('city2.png', 'city.png'), 
-                 'capital'  : ('city2.png','capital.png'), 
-                 'city'     : ('city2.png', 'city.png'), 
-                 'grass'    : ('grasstexture2.png', None),
-                 'mapBG'    : (None, None)}
+    OBJ_TYPES = {u'tree'    : ('Forest3.png', 'tree.png'), 
+                 u'landmark' : ('city2.png', 'city.png'), 
+                 u'capital'  : ('city2.png','capital.png'), 
+                 u'city'     : ('city2.png', 'city.png'), 
+                 u'grass'    : ('grasstexture2.png', None),
+                 u'mapBG'    : (None, None)}
                     
     def __init__(self, xval, yval, name = '', objType=None):
         """Data container for graphics equivalent of location objects"""
@@ -29,14 +29,15 @@ class Graphic(QObject):
         self.mViewObject = None
         self.x = xval
         self.y = yval
-        self.objType = objType
+        self.objType = str(objType)
         self.name = name
 
         # Add slot for signal from location object
         # The signal will call 
     
-    def chooseImages(self, objType):
-        pViewName, mViewName = ('Forest3.png', 'tree.png')
+    def chooseImages(self):
+        pViewName, mViewName = self.OBJ_TYPES[self.objType]
+                
         if pViewName:
             pViewImage = normpath("images/"+pViewName)
         else: pViewImage = None
@@ -62,7 +63,8 @@ class Graphic(QObject):
                " of type " + `self.objType`
     
     def createInitial(self, pView, mView):
-        pViewImage, mViewImage = self.chooseImages(self.objType)
+        pViewImage, mViewImage = self.chooseImages()
+        debug(pViewImage, mViewImage, self.objType)
         self.addGraphicsObjects(pView, mView, pViewImage, mViewImage)
     
     def update(self, newx, newy):

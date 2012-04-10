@@ -8,7 +8,7 @@ class ClassInstantiation(unittest.TestCase):
 
         import Globals
         import Gui
-        
+        import Load
         import Sounds
         import Story
         import ViewGraphics
@@ -31,7 +31,7 @@ class ClassInstantiation(unittest.TestCase):
 
     def test_Graphic(self):
         from Graphic import Graphic
-        graphic = Graphic()
+        graphic = Graphic(0,0,'name','type')
         
     def test_loc(self):
         from Loc import Loc

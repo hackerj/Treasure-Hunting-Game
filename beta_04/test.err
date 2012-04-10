@@ -1,16 +1,5 @@
-....E......
-======================================================================
-ERROR: test_otherImports (__main__.ClassInstantiation)
+...........
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "AutomatedTests.py", line 11, in test_otherImports
-    import Load
-  File "C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_04\Load.py", line 9
-    <<<<<<< .mine
-     ^
-SyntaxError: invalid syntax
+Ran 11 tests in 0.590s
 
-----------------------------------------------------------------------
-Ran 11 tests in 0.666s
-
-FAILED (errors=1)
+OK

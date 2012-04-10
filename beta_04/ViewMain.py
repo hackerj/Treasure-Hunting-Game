@@ -241,7 +241,7 @@ class ViewMain(QMainWindow):
         """Add graphics object to the person veiw and map view properly and
         leave a graphics object in ViewMain to handle it. """
         debug("Receiving passLoc")
-        graphic = Graphic(xval, yval, name, objType)
+        graphic = Graphic(xval, yval, str(name), str(objType))
         graphic.createInitial(self.gui.personView, self.gui.mapView)
         self.graphicsObjects[name] = graphic
         self.game.places.locList[str(name)].changePos.connect(
