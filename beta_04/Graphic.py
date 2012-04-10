@@ -10,13 +10,22 @@
 # Should 
 
 from PyQt4.QtCore import QObject
+from PyQt4.QtGui import QPixmap
 from Globals import *
+from os.path import normpath
 
-class Graphic(QObject):  
+class Graphic(QObject):
+
+    OBJ_TYPES = {'tree'     : ('Forest3.png', 'tree.png'), 
+                 'landmark' : ('city2.png', 'city.png'), 
+                 'capital'  : ('city2.png','capital.png'), 
+                 'city'     : ('city2.png', 'city.png'), 
+                 'grass'    : ('grasstexture2.png', None)}
+                    
     def __init__(self, xval, yval, name = '', objType=None):
         """Data container for graphics equivalent of location objects"""
-        self.PviewObject = None
-        self.MviewObject = None
+        self.pViewObject = None
+        self.mViewObject = None
         self.x = xval
         self.y = yval
         self.objType = objType
@@ -24,15 +33,47 @@ class Graphic(QObject):
 
         # Add slot for signal from location object
         # The signal will call 
+    
+    def chooseImages(self, objType):
+        pViewName, mViewName = ('Forest3.png', 'tree.png')
+        if pViewName:
+            pViewImage = normpath("images/"+pViewName)
+        else: pViewImage = None
         
+        if mViewName:
+            mViewImage = normpath("images/"+mViewName)
+        else: mViewImage = None
+        return pViewImage, mViewImage
+    
+    def addGraphicsObjects(self, pView, mView, pViewImage, mViewImage):
+        if pViewImage:
+            self.pViewObject = pView.scene.addPixmap(QPixmap(pViewImage))
+        else:
+            debug("No Person Image")
+        if mViewImage:
+            self.mViewObject = mView.scene.addPixmap(QPixmap(mViewImage))
+        else:
+            debug("No Map Image")
+        self.update(self.x, self.y)
+    
     def __repr__(self):
         return "QGraphicsObject at "+`self.x`+","+`self.y`+ \
                " of type " + `self.objType`
     
-    def creatInitial(self):
-        None
+    def createInitial(self, pView, mView):
+        pViewImage, mViewImage = self.chooseImages(self.objType)
+        self.addGraphicsObjects(pView, mView, pViewImage, mViewImage)
     
     def update(self, newx, newy):
         debug(self.name + " connected")
-        #self.x = center[0]
-        #self.y = center[1]
+        if self.pViewObject:
+            self.updateGraphicsItem(self.pViewObject)
+        if self.mViewObject:
+            self.updateGraphicsItem(self.mViewObject)
+
+    def updateGraphicsItem(self, item):
+        try:
+            item.setX(self.x)
+            item.setY(self.y)
+        except:
+            debug("Could not update graphcis item")

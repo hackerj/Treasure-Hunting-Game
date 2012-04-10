@@ -45,7 +45,9 @@ class ViewMain(QMainWindow):
         
         self.currStackIndex = self.MAIN_PAGE
         self.gui.soundManager.playCurrMusic()
-        
+
+        self.gui.personView.centerOn(0,0)
+        self.gui.mapView.centerOn(500,270)
         
 ########################################
 ### Signals and slots connected here ###
@@ -149,6 +151,8 @@ class ViewMain(QMainWindow):
         self.connectGame()
         self.game.new()
         debug("Starting a new game")
+
+        self.gui.mapView
         
     def storyButton(self):
         self.setStackWidgetIndex(self.GAME_PAGE)
@@ -238,6 +242,7 @@ class ViewMain(QMainWindow):
         leave a graphics object in ViewMain to handle it. """
         debug("Receiving passLoc")
         graphic = Graphic(xval, yval, name, objType)
+        graphic.createInitial(self.gui.personView, self.gui.mapView)
         self.graphicsObjects[name] = graphic
         self.game.places.locList[str(name)].changePos.connect(
                                         self.updateGraphicsObject)

@@ -21,6 +21,7 @@ class GuiMain(object):
         
         self.data = data
         self.loadSave = False
+        
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         
@@ -154,10 +155,12 @@ class GuiMain(object):
         self.personView.setGeometry(QtCore.QRect(0, 0, 390, 500))
         self.personView.setObjectName("personView")
         
+        
         #Map View
         self.mapView = ViewGraphics(self.mainPage)
         self.mapView.setGeometry(QtCore.QRect(410, 0, 390, 500))
         self.mapView.setObjectName("mapView")
+        
         
         #ClueView
         self.clueView = QLabel(self.mainPage)
