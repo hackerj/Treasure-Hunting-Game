@@ -17,7 +17,7 @@ class Places(QObject):
     
     def __init__(self):
         """Internaly Places is represented as a dictonary"""
-        
+        super(QObject, self).__init__()
         self.locList = {}
  
     def loadLoc(self, filename = "saves/places.loc"):
@@ -75,8 +75,8 @@ class Places(QObject):
             return False
         
         self.locList[Loc.name] = Loc        
-        #self.passLoc.emit(Loc.name, Loc.x, Loc.y, Loc.objType)
-        #debug("Emitting location: " + Loc.name + '' + `(Loc.x, Loc.y)`)
+        self.passLoc.emit(Loc.name, Loc.x, Loc.y, Loc.objType)
+        debug("Emitting location: " + Loc.name + '' + `(Loc.x, Loc.y)`)
         return Loc.name
                 
     def getLoc(self, name):
