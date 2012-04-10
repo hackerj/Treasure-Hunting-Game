@@ -127,7 +127,7 @@ class ViewMain(QMainWindow):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
                                                "MapMaster Save files (*.save)")
         if filename == "":
-            filename = "temp.save"
+            filename = "saves/temp.save"
         else:
             if ".save" not in filename:
                 filename = filename + ".save"
@@ -260,3 +260,4 @@ class ViewMain(QMainWindow):
         obj.setY(-250)
         obj.setVisible(False)
         return obj
+        

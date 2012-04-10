@@ -77,10 +77,11 @@ class Game(QObject):
                 y = int(line[1])
                 numClues = int(line[2])
                 self.places.clueStack = self.story._clueList[:numClues]
-                self.places.score = int(line[3])     
+                self.story.score = int(line[3])
+                debug("x: " + `x` + " y: " + `y` + " numCLue: " + `numClues` + \
+                      " score is: " + `int(line[3])`)
         
-            nextLine = savedData.readline()
-        
+            nextLine = savedData.readline()       
         savedData.close()
     
     def loadIsValid(self,obj):
@@ -125,7 +126,8 @@ class Game(QObject):
         
         
     def keyRelease(self, event):
-        None
+        key = event.key()
+        self.character.keyRelease(key)
         
     def frameUpdate(self):
         self.story.frameTime()

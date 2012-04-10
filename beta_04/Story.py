@@ -17,12 +17,13 @@ class Story(QObject):
     LANDMARK_RADIUS = 256
     CLUE_TROUBLE = 1000 * 60 * 5
     LOAD_TIME = 5   #seconds
+    CLUE_COMMANDS = {"addClue"} #use to check uploaded file
     
     loadBar = pyqtSignal(int, int)
     searchTime = pyqtSignal()
     clueTrouble = pyqtSignal()
 
-    CLUE_COMMANDS = {"addClue"}
+    
     def __init__(self, frameRate):
         super(QObject, self).__init__()
         #Over Simplified Clue managment.
@@ -105,7 +106,6 @@ class Story(QObject):
         
     def loadData(self, filename = "saves/story.clue"):
         """load clues from file"""
-
         filedata = open(filename)
         n = 0
         nextLine = filedata.readline()
@@ -117,12 +117,9 @@ class Story(QObject):
                     clues = filter(lambda x: x!="", loadClues)
                     self.addClues(clues)
             nextLine = filedata.readline()
-        debug("Finish loading initial data to game")
             
-        
     def addClues(self,obj):
         """add new clues to the clueStack"""    
-        
         clue = {}
         clue['landmark'] = obj[1]
         posx = int(obj[2])

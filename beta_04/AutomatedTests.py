@@ -84,9 +84,13 @@ class GameTests(unittest.TestCase):
 
     def test_Story(self):
         from Story import Story
-        Story(25)
-
+        story = Story(25)
         
+    
+        
+    
+    
+    
 if __name__ == '__main__':
     try:
         x = unittest.main()

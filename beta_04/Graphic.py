@@ -7,7 +7,7 @@
  Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
-# Should 
+# Should FIXME
 
 from PyQt4.QtCore import QObject
 from PyQt4.QtGui import QPixmap
