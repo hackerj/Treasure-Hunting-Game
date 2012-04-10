@@ -22,6 +22,7 @@ class Story(QObject):
     searchTime = pyqtSignal()
     clueTrouble = pyqtSignal()
 
+    CLUE_COMMANDS = {"addClue"}
     def __init__(self, frameRate):
         super(QObject, self).__init__()
         #Over Simplified Clue managment.
@@ -103,8 +104,7 @@ class Story(QObject):
         
     def loadData(self, filename = "saves/story.clue"):
         """load clues from file"""
-        
-        CLUE_COMMANDS = {"addClue"}
+
         filedata = open(filename)
         n = 0
         nextLine = filedata.readline()
@@ -112,7 +112,7 @@ class Story(QObject):
             loadClues = nextLine.split('\t')
             if (len(loadClues)>2):
                 objCommand = loadClues[0]
-                if (objCommand in CLUE_COMMANDS):
+                if (objCommand in self.CLUE_COMMANDS):
                     clues = filter(lambda x: x!="", loadClues)
                     self.addClues(clues)
             nextLine = filedata.readline()
