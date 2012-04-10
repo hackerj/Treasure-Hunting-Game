@@ -7,17 +7,21 @@
  Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
-from PyQt4.QtCore import QObject
+from PyQt4.QtCore import QObject, pyqtSignal
 
 class Loc(QObject):
+    
+    changePos = pyqtSignal(int, int)
+    
     def __init__(self, center = (0,0), name = '', objType=None):
         """Data container for objects appearing in the person and map views"""
+        super(QObject, self).__init__()
 
         self.name = name
         self.x = center[0]
         self.y = center[1]
         self.objType = objType
-        #Signal Here
+        
         
     def __repr__(self):
         return "Loc Object at "+`self.x`+","+`self.y`+ \
@@ -25,3 +29,6 @@ class Loc(QObject):
     
     def getCenter(self):
         return (self.x, self.y)
+        
+    def emitter(self):
+        self.changePos.emit(1,2)

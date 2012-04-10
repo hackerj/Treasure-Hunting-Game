@@ -12,6 +12,7 @@ from Globals import *
 from os.path import normpath, isfile
 from Gui import Gui
 from Game import Game
+from Graphic import Graphic
 
 class ViewMain(QMainWindow):
     """This Class Provides the Graphical Interface for Game"""
@@ -36,8 +37,8 @@ class ViewMain(QMainWindow):
         self.connectGui()
         self.messageFade = None
 
-        # List of Graphics Objects
-        self.graphicsObjects = []
+        # Dictionary of Graphics Objects
+        self.graphicsObjects = {}
         
         # Overlays
         self.overlays = {}
@@ -80,7 +81,7 @@ class ViewMain(QMainWindow):
         # story (emits when working on a clue for too long), emits nothing
         # story (emits signal updating search progress), emits 0-1
         # story (emits signal for message fade), emits 1-0
-        None
+        self.game.places.passLoc.connect(self.addGraphicsObject)
 
 ########################################
 ###### Custom slots defined here #######
@@ -145,6 +146,7 @@ class ViewMain(QMainWindow):
         # Create game instance and start the game
         self.game = Game()
         debug("Initialized a new game")
+        self.connectGame()
         self.game.new()
         debug("Starting a new game")
         
@@ -231,16 +233,19 @@ class ViewMain(QMainWindow):
             print "Accepting close event"
             event.accept()
 
-    def addGraphicsObject(self, signal, center, name, objType):
+    def addGraphicsObject(self, name, xval, yval, objType):
         """Add graphics object to the person veiw and map view properly and
         leave a graphics object in ViewMain to handle it. """
-        # FIXME connect signal from Places for whenever a loc object is
-        # Created.
-        graphic = Graphic(self, center, name, objType)
-        # FIXME connect signal from Loc object to graphic for whenever a
-        # graphic need to update.
+        debug("Receiving passLoc")
+        graphic = Graphic(xval, yval, name, objType)
+        self.graphicsObjects[name] = graphic
+        self.game.places.locList[str(name)].changePos.connect(
+                                        self.graphicsObjects[name].update)
+        debug("Connecting Loc to Graphic for " + name)
         
-        self.graphicsObjects.append(graphic)
+        self.game.places.locList[str(name)].emitter()
+        
+        #self.graphicsObjects.append(graphic)
         
     def addOverlay(self, filename):
         obj = self.gui.mapView.scene.addPixmap(QPixmap(filename))

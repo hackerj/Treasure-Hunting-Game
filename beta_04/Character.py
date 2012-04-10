@@ -10,7 +10,7 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 from Loc import Loc
 from Globals import *
 
-from PyQt4.QtCore import Qt
+from PyQt4.QtCore import Qt, pyqtSignal
 
 class Character(Loc):
     """Inherit from Location Objects and add functionality for"""
@@ -28,7 +28,8 @@ class Character(Loc):
         if (self.isValidMove( xDist, yDist)):
             self.x += xDist
             self.y += yDist
-            # FIXME Trigger signal passing the new center
+            self.changePos.emit((self.x, self.y))
+            debug("Character is emitting changePos")
 
     def isValidMove(self, xDist, yDist):
         """Stop Character From walking off the edge of the map"""

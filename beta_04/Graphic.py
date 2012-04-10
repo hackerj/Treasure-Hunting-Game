@@ -11,15 +11,15 @@
 
 from PyQt4.QtCore import QObject
 
-class Graphic(QObject):
-    def __init__(self, center = (0,0), name = '', objType=None):
+class Graphic(QObject):  
+    def __init__(self, xval, yval, name = '', objType=None):
         """Data container for graphics equivalent of location objects"""
-
         self.PviewObject = None
         self.MviewObject = None
-        self.x = center[0]
-        self.y = center[1]
+        self.x = xval
+        self.y = yval
         self.objType = objType
+        self.name = name
 
         # Add slot for signal from location object
         # The signal will call 
@@ -31,6 +31,7 @@ class Graphic(QObject):
     def creatInitial(self):
         None
     
-    def update(self, center):
-        # FIXME Update needs the new center of the graphics object.
-        None
+    def update(self, newx, newy):
+        debug(name + " connected")
+        #self.x = center[0]
+        #self.y = center[1]

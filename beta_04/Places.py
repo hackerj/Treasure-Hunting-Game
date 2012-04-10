@@ -13,7 +13,7 @@ from Loc import Loc
 
 class Places(QObject):
     """Dictionary of Location Objects with name collision Checking"""
-    passLoc = pyqtSignal('QString', int, int, 'QString') 
+    passLoc = pyqtSignal(str, int, int, str) 
     
     def __init__(self):
         """Internaly Places is represented as a dictonary"""
@@ -74,7 +74,7 @@ class Places(QObject):
             debug("Name collision for ", Loc.name)
             return False
         
-        self.locList[Loc.name] = Loc        
+        self.locList[Loc.name] = Loc      
         self.passLoc.emit(Loc.name, Loc.x, Loc.y, Loc.objType)
         debug("Emitting location: " + Loc.name + '' + `(Loc.x, Loc.y)`)
         return Loc.name

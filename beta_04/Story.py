@@ -91,6 +91,7 @@ class Story(QObject):
         
     def searchResults(self):
         self.clueTimeEnable = True
+        debug("SearchResults: Signal accepted")
         return self.currAction
         
     def getDistance(self, position):
