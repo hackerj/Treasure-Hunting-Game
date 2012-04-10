@@ -84,6 +84,8 @@ class ViewMain(QMainWindow):
         # story (emits signal updating search progress), emits 0-1
         # story (emits signal for message fade), emits 1-0
         self.game.places.passLoc.connect(self.addGraphicsObject)
+        self.game.story.searchTime.connect(self.erasePopup)
+        self.game.story.clueResult.connect(self.handleClueResult)
 
 ########################################
 ###### Custom slots defined here #######
@@ -201,6 +203,26 @@ class ViewMain(QMainWindow):
         
     def doSearch(self):
         self.game.story.searchForClue(self.game.character.getCenter())
+        self.drawPopup("Searching...")
+        
+    def drawPopup(self, text):
+        self.gui.popupLabel.setText(text)
+        self.gui.popupLabel.setVisible(True)
+        debug("Popup on, saying " + text)
+        
+    def erasePopup(self):
+        self.gui.popupLabel.setVisible(False)
+        debug("Popup gone")
+        
+    # FIXME This needs time actions
+    def handleClueResult(self, action, text):
+        if action == 'ClueFound':
+            self.gui.clueView.setText(text)
+            self.gui.scoreBox.setText(`self.game.story.score`)
+        elif action == 'GameOver':
+            self.gui.clueView.setText(text)
+        else:
+            None
     
 ########################################
 ####### Other methods are here #########

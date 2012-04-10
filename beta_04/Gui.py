@@ -229,6 +229,14 @@ class Gui(object):
         self.popupLabel = QLabel(self.mainPage)
         self.popupLabel.setGeometry(QtCore.QRect(25, 25, 750, 450))
         self.popupLabel.setObjectName("popupLabel")
+        #This is temporary code to insert a popup.
+        self.popupLabel.setStyleSheet(
+                "QLabel { background-color: tan ; color : black }")
+        self.popupLabel.setAlignment(QtCore.Qt.AlignCenter)
+        font.setPointSize(36)
+        self.popupLabel.setFont(font)
+        self.popupLabel.setText("")
+        self.popupLabel.setVisible(False)
         self.stackedWidget.addWidget(self.mainPage)
         
         #Help page

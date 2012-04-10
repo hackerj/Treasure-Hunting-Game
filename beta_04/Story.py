@@ -22,6 +22,7 @@ class Story(QObject):
     loadBar = pyqtSignal(int, int)
     searchTime = pyqtSignal()
     clueTrouble = pyqtSignal()
+    clueResult = pyqtSignal(str, str)
 
     
     def __init__(self, frameRate):
@@ -78,7 +79,7 @@ class Story(QObject):
             if self.status:
                 self.currAction =  ('ClueFailed',
                         "No clue here, must be \n somewhere else")
-        if self._clueList:
+        elif self._clueList:
             self.currClue = self._clueList.pop()
             self.score += 100
             self.currAction =  ('ClueFound', 
@@ -93,7 +94,8 @@ class Story(QObject):
         self.timerCounter = 0
         self.clueTimeEnable = True
         debug("SearchResults: Signal accepted")
-        return self.currAction
+        self.clueResult.emit(self.currAction[0], self.currAction[1])
+        debug("Emitting search result")
         
     def getDistance(self, position):
         """Calculate the distance between character's location and the clue"""
@@ -128,6 +130,5 @@ class Story(QObject):
         clue['text'] = obj[4].replace('\\n ', '\n') # ensure proper formate
         clue['hint'] = obj[5].replace('\\n ', '\n')
         self._clueList.append(clue)
-        
         
         
