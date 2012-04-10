@@ -59,8 +59,6 @@ class Story(QObject):
             if self.timerCounter == self.SEARCH_FRAME_COUNT:
                 debug("Emitting searchTime")
                 self.searchTime.emit()
-                self.timerEnable = False
-                self.timerCounter = 0
         if self.clueTimeEnable:
             self.clueTime += 1
         if self.clueTime >= self.CLUE_TROUBLE:
@@ -90,6 +88,8 @@ class Story(QObject):
                         "YOU WON!\nBut the game has just begun")
         
     def searchResults(self):
+        self.timerEnable = False
+        self.timerCounter = 0
         self.clueTimeEnable = True
         debug("SearchResults: Signal accepted")
         return self.currAction
