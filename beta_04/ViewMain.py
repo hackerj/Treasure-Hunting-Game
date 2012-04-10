@@ -256,5 +256,7 @@ class ViewMain(QMainWindow):
         
     def addOverlay(self, filename):
         obj = self.gui.mapView.scene.addPixmap(QPixmap(filename))
+        obj.setX(-195)
+        obj.setY(-250)
         obj.setVisible(False)
         return obj

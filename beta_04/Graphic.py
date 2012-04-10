@@ -20,7 +20,8 @@ class Graphic(QObject):
                  'landmark' : ('city2.png', 'city.png'), 
                  'capital'  : ('city2.png','capital.png'), 
                  'city'     : ('city2.png', 'city.png'), 
-                 'grass'    : ('grasstexture2.png', None)}
+                 'grass'    : ('grasstexture2.png', None),
+                 'mapBG'    : (None, None)}
                     
     def __init__(self, xval, yval, name = '', objType=None):
         """Data container for graphics equivalent of location objects"""
@@ -67,13 +68,13 @@ class Graphic(QObject):
     def update(self, newx, newy):
         debug(self.name + " connected")
         if self.pViewObject:
-            self.updateGraphicsItem(self.pViewObject)
+            self.updateGraphicsItem(self.pViewObject, 1)
         if self.mViewObject:
-            self.updateGraphicsItem(self.mViewObject)
+            self.updateGraphicsItem(self.mViewObject, 0.1)
 
-    def updateGraphicsItem(self, item):
+    def updateGraphicsItem(self, item, scale = 1):
         try:
-            item.setX(self.x)
-            item.setY(self.y)
+            item.setX(self.x * scale)
+            item.setY(self.y * scale)
         except:
-            debug("Could not update graphcis item")
+            debug("Could not update graphcis item", mapScale)
