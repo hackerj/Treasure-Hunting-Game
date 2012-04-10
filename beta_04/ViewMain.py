@@ -45,9 +45,10 @@ class ViewMain(QMainWindow):
         
         self.currStackIndex = self.MAIN_PAGE
         self.gui.soundManager.playCurrMusic()
+        self.gui.soundManager.setVolume(0)
 
-        self.gui.personView.centerOn(0,0)
-        self.gui.mapView.centerOn(500,270)
+        #self.gui.personView.centerOn(0,0)
+        #self.gui.mapView.centerOn(0,0)
         
 ########################################
 ### Signals and slots connected here ###
@@ -122,8 +123,10 @@ class ViewMain(QMainWindow):
                         normpath("images/legendOverlay.png"))
             
             self.game = Game()
+            self.connectGame()
             debug("Initializing the saved game...")
-            self.game.load(filename)    
+            self.game.load(filename) 
+                       
             self.gui.scoreBox.setText((str)(self.game.story.score))
             
     def saveFileDialog(self):

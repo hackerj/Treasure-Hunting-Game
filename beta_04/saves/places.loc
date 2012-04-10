@@ -1,6 +1,7 @@
 
 Command objType x    y  itemname
 
+addLoc mapBG 0 0 mapBG
 addLoc tree 200 158  tree1
 addLoc tree -800 45  tree2
 addLoc tree 120 80  tree3
@@ -8,11 +9,9 @@ addLoc tree 310 470  tree4
 addLoc tree 220 -400  tree5
 addLoc tree 100 500  tree6
 addLoc grass 0 0 grass1
-addLoc grass 1024 1024 grass2
-addLoc grass -1024 1204 grass3
-addLoc grass 1024 -1024 grass4
-addLoc mapBG 0 0 mapBG
+addLoc grass 0 -1024 grass2
+addLoc grass -1024 0 grass3
+addLoc grass -1024 -1024 grass4
 addLoc landmark -350 100  city0
 addLoc landmark -450 910  city1
 addLoc landmark 450 -700  city2
-

@@ -31,7 +31,7 @@ class Game(QObject):
         
         # Keep track of how long we have been playing.
         self.gameTime = None
-        self.frameTimer = None        
+        self.frameTimer = None
         
         # Manage Character
         self.character = None
@@ -51,6 +51,8 @@ class Game(QObject):
         self.character = Character((0,0), "Character", "Character")
         debug("newgame...loading places")
         self.places.loadLoc()
+        debug("end of load")
+        self.places.addLoc(self.character)
         self.launch()
         
     def load(self,filename):
@@ -62,6 +64,8 @@ class Game(QObject):
         debug("loadgame...loading initial character and places")
         self.character = Character((0,0), "Character", "Character")
         self.places.loadLoc()
+        debug("end of load")
+        self.places.addLoc(self.character)
         
         debug("loadgame...read data from saved file")
         savedData = open(filename)    
@@ -83,6 +87,7 @@ class Game(QObject):
         
             nextLine = savedData.readline()       
         savedData.close()
+        self.launch()
     
     def loadIsValid(self,obj):
         """Check that the input from saved file is valid"""         
@@ -118,20 +123,20 @@ class Game(QObject):
         self.gameTime.start()
         self.frameTimer.start(ONE_SECOND/self.FRAME_RATE)
         self.frameTimer.timeout.connect(self.story.frameTime)
-        
+        self.frameTimer.timeout.connect(self.frameUpdate)
+        self.frameUpdate()
         
     def keyPress(self, event):
         key = event.key()
         self.character.keyPress(key)
-        
         
     def keyRelease(self, event):
         key = event.key()
         self.character.keyRelease(key)
         
     def frameUpdate(self):
-        self.story.frameTime()
-        self.character.frameUpdate(FRAME_RATE)
+        debug('character frame update')
+        self.character.frameUpdate(self.FRAME_RATE)
         
         
         

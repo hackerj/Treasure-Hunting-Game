@@ -21,7 +21,8 @@ class Graphic(QObject):
                  u'capital'  : ('city2.png','capital.png'), 
                  u'city'     : ('city2.png', 'city.png'), 
                  u'grass'    : ('grasstexture2.png', None),
-                 u'mapBG'    : (None, None)}
+                 u'mapBG'    : (None, 'mapBackground.png'),
+                 u'Character' : ('circle.png','circle.png')}
                     
     def __init__(self, xval, yval, name = '', objType=None):
         """Data container for graphics equivalent of location objects"""
@@ -68,6 +69,10 @@ class Graphic(QObject):
         self.addGraphicsObjects(pView, mView, pViewImage, mViewImage)
     
     def update(self, newx, newy):
+        self.x = newx 
+        self.y = newy
+        debug("debug update positon", newx, newy)
+        debug("real update positon", self.x, self.y)
         debug(self.name + " connected")
         if self.pViewObject:
             self.updateGraphicsItem(self.pViewObject, 1)
@@ -76,6 +81,7 @@ class Graphic(QObject):
 
     def updateGraphicsItem(self, item, scale = 1):
         try:
+            #item.PixMap.
             item.setX(self.x * scale)
             item.setY(self.y * scale)
         except:

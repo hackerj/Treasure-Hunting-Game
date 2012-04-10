@@ -17,8 +17,9 @@ class Character(Loc):
     SPEED = 200
     
     def __init__(self, center = (0,0), name = '', objType=None):
-        super(Character, self).__init__(center = (0,0), 
-                                        name = '', objType=None)
+        super(Character, self).__init__(center, name, objType)
+        
+        debug("Character name is", name)
         
         self.charVelocityX = 0  # Gives the X offset to use every frame
         self.charVelocityY = 0  # Gives the Y offset to use every frame
@@ -28,7 +29,7 @@ class Character(Loc):
         if (self.isValidMove( xDist, yDist)):
             self.x += xDist
             self.y += yDist
-            self.changePos.emit((self.x, self.y))
+            self.changePos.emit(self.x, self.y, self.name)
             debug("Character is emitting changePos")
 
     def isValidMove(self, xDist, yDist):
@@ -39,12 +40,13 @@ class Character(Loc):
         
     def frameUpdate(self, framerate):
         """update character position for the new frame"""
-        
-        xLoc = self.charVelocityX/framerate
-        yLoc = self.charVelocityY/framerate
-        self.translate(data, xLoc, yLoc)
+        debug("character frame update")
+        xDist = self.charVelocityX/framerate
+        yDist = self.charVelocityY/framerate
+        self.translate(xDist, yDist)
     
     def keyPress(self, key):
+        debug("Key Press reaches Character")
         """Change Velocity based on key press"""
         
         if key == Qt.Key_W or key == Qt.Key_Up:

@@ -42,12 +42,14 @@ class Places(QObject):
                 debug( "Places.loadLoc...Line ", n, " is invalid!")
             nextLine = locData.readline()
             n+=1
-
+        
+        
         locData.close()
+        debug("while loop ends")
     
     def isValidLoc(self, obj):
         """Check whether the loc command is valid"""
-        TYPES = {"tree", "landmark"} #obj types, for debugging
+        TYPES = {"tree", "landmark","grass","mapBG"} #obj types, for debugging
         
         if(len(obj) != 5):
             debug("location is invalid,missing command")
@@ -63,6 +65,7 @@ class Places(QObject):
  
 
     def addLoc(self, Loc):
+        debug("Load tag")
         """Add Location to Places and check for name collisions"""
         
         if Loc.name == "":

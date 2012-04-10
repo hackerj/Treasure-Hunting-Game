@@ -8,7 +8,7 @@ class ClassInstantiation(unittest.TestCase):
 
         import Globals
         import Gui
-        import Load
+        
         import Sounds
         import Story
         import ViewGraphics
@@ -86,9 +86,10 @@ class GameTests(unittest.TestCase):
         from Story import Story
         story = Story(25)
         
-    
-        
-    
+class LoadTests(unittest.TestCase):
+
+    def test_something(self):
+        None    
     
     
 if __name__ == '__main__':

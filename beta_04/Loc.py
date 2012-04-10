@@ -8,6 +8,7 @@
 """
 
 from PyQt4.QtCore import QObject, pyqtSignal
+from Globals import *
 
 class Loc(QObject):
     
@@ -31,4 +32,5 @@ class Loc(QObject):
         return (self.x, self.y)
         
     def emitter(self):
-        self.changePos.emit(1,2, self.name)
+        debug("Hi from", self.name)
+        self.changePos.emit(self.x,self.y, self.name)
