@@ -39,7 +39,8 @@ class Places(QObject):
                     locObject = Loc(pos, itemName, objType)
                     self.addLoc(locObject)
             else:
-                debug( "Places.loadLoc...Line ", n, " is invalid!")
+                #debug( "Places.loadLoc...Line ", n, " is invalid!")
+                pass
             nextLine = locData.readline()
             n+=1
         
@@ -52,13 +53,13 @@ class Places(QObject):
         TYPES = {"tree", "landmark","grass","mapBG"} #obj types, for debugging
         
         if(len(obj) != 5):
-            debug("location is invalid,missing command")
+            #debug("location is invalid,missing command")
             return False
         
         try:
             int(obj[2]) and int(obj[3])
         except:
-            debug(obj[1], " doesn't have the right type for x and y position")
+            #debug(obj[1], " doesn't have the right type for x and y position")
             return False
         
         return obj[1] in TYPES 

@@ -128,7 +128,8 @@ class ViewMain(QMainWindow):
             self.game.load(filename) 
                        
             self.gui.scoreBox.setText((str)(self.game.story.score))
-            
+
+
     def saveFileDialog(self):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
                                                "MapMaster Save files (*.save)")
@@ -138,7 +139,7 @@ class ViewMain(QMainWindow):
             if ".save" not in filename:
                 filename = filename + ".save"
         self.game.save(filename)    
-                
+               
                         
     def newGame(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
