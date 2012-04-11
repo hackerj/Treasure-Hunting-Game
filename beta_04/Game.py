@@ -98,7 +98,7 @@ class Game(QObject):
         try:
             int(posx) and int(posy) and int(numClue) and int(score)
         except:
-            print "Invalid position input"
+            debug("Invalid position input in save file")
             return False
         return True
     

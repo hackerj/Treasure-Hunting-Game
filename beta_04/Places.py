@@ -13,6 +13,9 @@ from Loc import Loc
 
 class Places(QObject):
     """Dictionary of Location Objects with name collision Checking"""
+    
+    TYPES = {"tree", "landmark","grass","mapBG"} #obj types, for debugging use
+    OBJ_COMMANDS = {"addLoc"}
     passLoc = pyqtSignal(str, int, int, str) 
     
     def __init__(self):
@@ -28,9 +31,9 @@ class Places(QObject):
         while (nextLine):
             obj = nextLine.split()
         
-            if (len(obj)>2):
+            if (len(obj)>2 and obj[0]!= "Command"):
                 objCommand = obj[0]
-                if (objCommand == "addLoc" and self.isValidLoc(obj)):
+                if (self.isValidLoc(obj)):
                     objType = obj[1]
                     posx = int(obj[2])
                     posy = int(obj[3])
@@ -38,31 +41,34 @@ class Places(QObject):
                     itemName = obj[4]
                     locObject = Loc(pos, itemName, objType)
                     self.addLoc(locObject)
-            else:
-                #debug( "Places.loadLoc...Line ", n, " is invalid!")
-                pass
+                else:
+                    debug("Places...loading loc line ",n," is an invalid input!")
+                    return
+                
             nextLine = locData.readline()
-            n+=1
-        
-        
+            n+=1       
         locData.close()
         debug("while loop ends")
     
     def isValidLoc(self, obj):
         """Check whether the loc command is valid"""
-        TYPES = {"tree", "landmark","grass","mapBG"} #obj types, for debugging
-        
         if(len(obj) != 5):
-            #debug("location is invalid,missing command")
+            debug("Places...loading loc.... has missing command, should be 5")
             return False
         
+        if (obj[0] not in self.OBJ_COMMANDS):
+            debug(obj[0], " Places...loading loc.... has an invalid command")
+            
+        if (obj[1] not in self.TYPES):
+            debug(obj[1], " Places...loading loc.... has an invalid obj type")
+            
         try:
             int(obj[2]) and int(obj[3])
         except:
-            #debug(obj[1], " doesn't have the right type for x and y position")
+            debug(obj[1], " doesn't have the right type for x and y position")
             return False
-        
-        return obj[1] in TYPES 
+            
+        return  True
  
 
     def addLoc(self, Loc):
