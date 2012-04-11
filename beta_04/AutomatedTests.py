@@ -87,9 +87,10 @@ class GameTests(unittest.TestCase):
         story = Story(25)
         
 class LoadTests(unittest.TestCase):
-
+    from Story import Story
+    
     def test_something(self):
-        None    
+        story = self.Story(25)    
     
     
 if __name__ == '__main__':
