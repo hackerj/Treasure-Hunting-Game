@@ -4,7 +4,7 @@ Command objType x    y  itemname
 addLoc mapBG 0 0 mapBG
 addLoc tree 200 158  tree1
 addLoc tree -800 45  tree2
-add3e tree 120 80  tree3
+addLoc tree 120 80  tree3
 addLoc tree 310 470  tree4
 addLoc tree 220 -400  tree5
 addLoc tree 100 500  tree6

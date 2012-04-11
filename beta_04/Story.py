@@ -31,7 +31,6 @@ class Story(QObject):
         #Clue object are represented as dictionaries.
         self._clueList = []
         self.currClue = {}
-        #self.loadClues() #initial clues from file
         
         self.currAction = ('','')
         
