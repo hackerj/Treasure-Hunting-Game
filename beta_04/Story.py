@@ -31,7 +31,7 @@ class Story(QObject):
         #Clue object are represented as dictionaries.
         self._clueList = []
         self.currClue = {}
-        self.loadData() #initial clues from file
+        #self.loadClues() #initial clues from file
         
         self.currAction = ('','')
         
@@ -106,7 +106,7 @@ class Story(QObject):
     def troubleFindingClue(self):
         return self.currClue['hint']
         
-    def loadData(self, filename = "saves/story.clue"):
+    def loadClues(self, filename = "saves/story.clue"):
         """load clues from file"""
         filedata = open(filename)
         n = 0
@@ -128,7 +128,7 @@ class Story(QObject):
         posy = int(obj[3])
         clue['position'] = (posx, posy)
         clue['text'] = obj[4].replace('\\n ', '\n') # ensure proper formate
-        clue['hint'] = obj[5].replace('\\n ', '\n')
+        clue['hint'] = obj[5][:-2].replace('\\n ', '\n') #get rid of the return
         self._clueList.append(clue)
         
         

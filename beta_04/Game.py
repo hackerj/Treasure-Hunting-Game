@@ -47,6 +47,8 @@ class Game(QObject):
         
         self.gameTime = QTime()
         self.frameTimer = QTimer() # Create Frame Timer
+        debug("newgame...loading clues")
+        self.story.loadClues()
         debug("newgame...loading charcter")
         self.character = Character((0,0), "Character", "Character")
         debug("newgame...loading places")
@@ -60,7 +62,8 @@ class Game(QObject):
         # FIXME if QTime and QTimer should be stored in certain way
         self.gameTime = QTime()
         self.frameTimer = QTimer() # Create Frame Timer
-        
+        debug("loadgame...loading clues")
+        self.story.loadClues()
         debug("loadgame...loading initial character and places")
         self.character = Character((0,0), "Character", "Character")
         self.places.loadLoc()
