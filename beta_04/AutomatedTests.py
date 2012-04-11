@@ -87,12 +87,14 @@ class GameTests(unittest.TestCase):
         story = Story(25)
         
 class LoadTests(unittest.TestCase):
-    from Story import Story
+    from Places import Places
     
-    def test_something(self):
-        story = self.Story(25)    
-    
-    
+    def test_loadLoc(self):
+        places = self.Places()    
+        places.loadLoc("tests/load1.test")
+        locObjs = places.locList
+        
+        
 if __name__ == '__main__':
     try:
         x = unittest.main()

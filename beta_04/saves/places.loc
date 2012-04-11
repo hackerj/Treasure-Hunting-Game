@@ -8,7 +8,7 @@ addLoc tree 120 80  tree3
 addLoc tree 310 470  tree4
 addLoc tree 220 -400  tree5
 addLoc tree 100 500  tree6
-addLox grass 0 0 grass1
+addLoc grass 0 0 grass1
 addLoc grass 0 -1024 grass2
 addLoc grass -1024 0 grass3
 addLoc grass -1024 -1024 grass4
