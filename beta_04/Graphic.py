@@ -16,6 +16,7 @@ from os.path import normpath
 
 class Graphic(QObject):
 
+    SCALE = 0.1
     OBJ_TYPES = {u'tree'    : ('Forest3.png', 'tree.png'), 
                  u'landmark' : ('city2.png', 'city.png'), 
                  u'capital'  : ('city2.png','capital.png'), 
@@ -71,18 +72,22 @@ class Graphic(QObject):
     def update(self, newx, newy):
         self.x = newx 
         self.y = newy
-        debug("debug update positon", newx, newy)
-        debug("real update positon", self.x, self.y)
-        debug(self.name + " connected")
+        debug(self.name, " has positon: ", self.x, self.y)        
         if self.pViewObject:
             self.updateGraphicsItem(self.pViewObject, 1)
         if self.mViewObject:
-            self.updateGraphicsItem(self.mViewObject, 0.1)
+            if not self.pViewObject:
+                scale = 1
+            else:
+                scale = self.SCALE
+            self.updateGraphicsItem(self.mViewObject, scale)
 
     def updateGraphicsItem(self, item, scale = 1):
         try:
-            #item.PixMap.
-            item.setX(self.x * scale)
-            item.setY(self.y * scale)
+            width = item.pixmap().width()/2
+            heigth = item.pixmap().height()/2
+            debug("update helper: width, hight", width, heigth)
+            item.setX((self.x - width)* scale)
+            item.setY((self.y - heigth)* scale)
         except:
             debug("Could not update graphcis item", mapScale)

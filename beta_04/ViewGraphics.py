@@ -21,8 +21,8 @@ class ViewGraphics(QGraphicsView):
         self.setScene(self.scene)
 
         #View Settings (Fix Scroll Bars)
-        #self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        #self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         
     def wheelEvent(self, event):
         """Ignore wheel events"""
