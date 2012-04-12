@@ -10,10 +10,11 @@
 from PyQt4.QtCore import QObject, pyqtSignal
 from Globals import *
 from Loc import Loc
-
+from os.path import isfile
 class Places(QObject):
     """Dictionary of Location Objects with name collision Checking"""
-    
+    NAMES = {'city2', 'city1', 'tree5', 'tree4', 'tree6', 'tree1', 'grass1',\
+              'tree3', 'tree2', 'grass4', 'mapBG', 'grass2', 'city0', 'grass3'}
     TYPES = {"tree", "landmark","grass","mapBG"} #obj types, for debugging use
     OBJ_COMMANDS = {"addLoc"}
     passLoc = pyqtSignal(str, int, int, str) 
@@ -22,15 +23,19 @@ class Places(QObject):
         """Internaly Places is represented as a dictonary"""
         super(QObject, self).__init__()
         self.locList = {}
- 
+
     def loadLoc(self, filename = "saves/places.loc"):
         """Load location objects from file"""
+        
+        if(not isfile(filename)):
+            debug("location file does not exist!!!")
+            return
+            
         locData = open(filename)
         n = 0
         nextLine = locData.readline()
-        while (nextLine):
+        while (nextLine):        # start parsing..
             obj = nextLine.split()
-        
             if (len(obj)>2 and obj[0]!= "Command"):
                 objCommand = obj[0]
                 if (self.isValidLoc(obj)):
@@ -43,8 +48,7 @@ class Places(QObject):
                     self.addLoc(locObject)
                 else:
                     debug("Places...loading loc line ",n," is an invalid input!")
-                    return
-                
+
             nextLine = locData.readline()
             n+=1       
         locData.close()
@@ -56,19 +60,25 @@ class Places(QObject):
             debug("Places...loading loc.... has missing command, should be 5")
             return False
         
-        if (obj[0] not in self.OBJ_COMMANDS):
+        if(obj[0] not in self.OBJ_COMMANDS):
             debug(obj[0], " Places...loading loc.... has an invalid command")
-            
-        if (obj[1] not in self.TYPES):
+            return False
+        
+        if(obj[1] not in self.TYPES):
             debug(obj[1], " Places...loading loc.... has an invalid obj type")
-            
+            return False
+        
         try:
             int(obj[2]) and int(obj[3])
         except:
             debug(obj[1], " doesn't have the right type for x and y position")
             return False
-            
-        return  True
+
+        if (obj[4] not in self.NAMES):
+            debug(obj[1], " Places...loading loc.... has an invalid name")
+            return False
+        
+        return True
  
 
     def addLoc(self, Loc):

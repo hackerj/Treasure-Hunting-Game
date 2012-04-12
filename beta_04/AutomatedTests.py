@@ -88,12 +88,44 @@ class GameTests(unittest.TestCase):
         
 class LoadTests(unittest.TestCase):
     from Places import Places
-    
+    TYPES = {"landmark", "tree", "grass", "mapBG"}
     def test_loadLoc(self):
-        places = self.Places()    
-        places.loadLoc("tests/load1.test")
-        locObjs = places.locList
+        """Check if locations are correctly loaded from file"""
         
+        # load location check from good file
+        locNames = {"mapBG", "tree2", "grass1", "grass4", "city1", "city2"}
+        numObjs = 6
+        placesGood = self.Places()    
+        placesGood.loadLoc("tests/load1.test")
+        locObjs = placesGood.locList
+        self.assertEqual(len(locObjs), numObjs)
+        objList = locObjs.keys()
+        for eachObj in objList:
+            self.assertIn(locObjs[eachObj].name, locNames)
+            self.assertIsInstance(locObjs[eachObj].x, int)
+            self.assertIsInstance(locObjs[eachObj].y, int)
+            self.assertIn(locObjs[eachObj].objType, self.TYPES)
+            
+        # load location check from file that contains invalid commands,including
+        # invalid objType, pos type, item names and obj command. Make sure that
+        # only two objs can be loaded from error file.
+        badObjs = 2 
+        placesBad= self.Places()    
+        placesBad.loadLoc("tests/load2.test")
+        locObjs = placesBad.locList
+        self.assertEqual(len(locObjs), badObjs)
+        objList = locObjs.keys()
+        for eachObj in objList:
+            self.assertIn(locObjs[eachObj].name, locNames)
+            self.assertIsInstance(locObjs[eachObj].x, int)
+            self.assertIsInstance(locObjs[eachObj].y, int)
+            self.assertIn(locObjs[eachObj].objType, self.TYPES)
+        
+        # load objs from invalid file path
+        placesEmpty = self.Places()
+        placesEmpty.loadLoc("tests/empty.test")
+        locObjs = placesEmpty.locList
+        self.assertEqual(len(locObjs),0)
         
 if __name__ == '__main__':
     try:
