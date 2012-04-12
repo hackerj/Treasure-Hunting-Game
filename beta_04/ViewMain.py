@@ -127,9 +127,8 @@ class ViewMain(QMainWindow):
                         normpath("images/colorOverlay.png"))
             self.overlays['legendOverlay'] = self.addOverlay(
                         normpath("images/legendOverlay.png"))
-                       
             self.gui.scoreBox.setText((str)(self.game.story.score))
-
+            
 
     def saveFileDialog(self):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 

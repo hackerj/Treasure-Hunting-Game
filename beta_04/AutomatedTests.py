@@ -86,7 +86,7 @@ class GameTests(unittest.TestCase):
         from Story import Story
         story = Story(25)
         
-class LoadTests(unittest.TestCase):
+class LoadLocTests(unittest.TestCase):
     from Places import Places
     TYPES = {"landmark", "tree", "grass", "mapBG"}
     def test_loadLoc(self):
