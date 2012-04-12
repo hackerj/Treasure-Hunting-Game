@@ -16,7 +16,7 @@ class Story(QObject):
     # Declare Constants to avoid Magic Values
     LANDMARK_RADIUS = 256
     CLUE_TROUBLE = 1000 * 60 * 5
-    LOAD_TIME = 3   #seconds
+    LOAD_TIME = 2   #seconds
     CLUE_COMMANDS = {"addClue"} #use to check uploaded file
     
     loadBar = pyqtSignal(int, int)
@@ -118,6 +118,7 @@ class Story(QObject):
                     clues = filter(lambda x: x!="", loadClues)
                     self.addClues(clues)
             nextLine = filedata.readline()
+        self.currClue = self._clueList.pop()
             
     def addClues(self,obj):
         """add new clues to the clueStack"""    

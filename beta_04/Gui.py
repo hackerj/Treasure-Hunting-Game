@@ -185,6 +185,7 @@ class Gui(object):
         self.latLongCheck.setObjectName("latLongCheck")
         font.setPointSize(12)
         self.latLongCheck.setFont(font)
+        self.latLongCheck.setFocusPolicy(QtCore.Qt.NoFocus)
 
         self.colorCheck = QCheckBox(self.mainPage)
         self.colorCheck.setGeometry(QtCore.QRect(560, 510, 97, 41))
@@ -193,12 +194,15 @@ class Gui(object):
                                 "Coding", None, QApplication.UnicodeUTF8))
         self.colorCheck.setObjectName("colorCheck")
         self.colorCheck.setFont(font)
+        self.colorCheck.setFocusPolicy(QtCore.Qt.NoFocus)
         
         self.legendCheck = QCheckBox(self.mainPage)
         self.legendCheck.setGeometry(QtCore.QRect(680, 520, 97, 22))
         self.legendCheck.setText(QApplication.translate("MainWindow", 
                                  "Legend", None, QApplication.UnicodeUTF8))
         self.legendCheck.setObjectName("legendCheck")
+        self.legendCheck.setFocusPolicy(QtCore.Qt.NoFocus)
+        
         font.setPointSize(12)
         self.legendCheck.setFont(font)
         self.searchButton = QPushButton(self.mainPage)
@@ -209,6 +213,7 @@ class Gui(object):
         self.searchButton.setObjectName("searchButton")
         font.setPointSize(15)
         self.searchButton.setFont(font)
+        self.searchButton.setFocusPolicy(QtCore.Qt.NoFocus)
         
         #Score pieces
         self.scoreBox = QLabel(self.mainPage)

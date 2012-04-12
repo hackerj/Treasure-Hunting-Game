@@ -15,7 +15,7 @@ class Places(QObject):
     """Dictionary of Location Objects with name collision Checking"""
     NAMES = {'city2', 'city1', 'tree5', 'tree4', 'tree6', 'tree1', 'grass1',\
               'tree3', 'tree2', 'grass4', 'mapBG', 'grass2', 'city0', 'grass3'}
-    TYPES = {"tree", "landmark","grass","mapBG"} #obj types, for debugging use
+    TYPES = {"tree", "landmark","grass","mapBG", "capital"} #obj types, for debugging use
     OBJ_COMMANDS = {"addLoc"}
     passLoc = pyqtSignal(str, int, int, str) 
     

@@ -8,6 +8,7 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
 from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap
+from PyQt4.QtCore import Qt
 from Globals import *
 from os.path import normpath, isfile
 from Gui import Gui
@@ -163,6 +164,7 @@ class ViewMain(QMainWindow):
                         normpath("images/colorOverlay.png"))
         self.overlays['legendOverlay'] = self.addOverlay(
                         normpath("images/legendOverlay.png"))
+        self.gui.clueView.setText(self.game.story.currClue['text'])
         
     def storyButton(self):
         self.setStackWidgetIndex(self.GAME_PAGE)
@@ -245,7 +247,11 @@ class ViewMain(QMainWindow):
     def keyReleaseEvent(self, event):
         """Get keyboard events no matter what widget has focus"""
         if self.game:
-            self.game.keyRelease(event)
+            key = event.key()
+            if key == Qt.Key_Space or key == Qt.Key_Enter or key == Qt.Key_Return:
+                self.doSearch()
+            else:
+                self.game.keyRelease(event)
     
     def closeEvent(self, event):
         """Remapping the close event to a message box"""

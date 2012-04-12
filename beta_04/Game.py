@@ -53,7 +53,7 @@ class Game(QObject):
         self.places.loadLoc()
         debug("end of load")
         self.places.addLoc(self.character)
-        self.story.searchForClue((0,0)) # initial the first clue
+        #self.story.searchForClue((0,0))
         #self.frameTimer = QTimer() # Create Frame Timer
         self.gameTime = QTime()
         self.launch()
@@ -139,6 +139,3 @@ class Game(QObject):
         key = event.key()
         self.character.keyRelease(key)
 
-        
-        
-        

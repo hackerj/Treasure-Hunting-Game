@@ -13,5 +13,5 @@ addLoc grass 0 -1024 grass2
 addLoc grass -1024 0 grass3
 addLoc grass -1024 -1024 grass4
 addLoc landmark -350 100  city0
-addLoc landmark -450 910  city1
+addLoc capital -450 910  city1
 addLoc landmark 450 -700  city2
