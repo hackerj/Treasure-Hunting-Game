@@ -115,17 +115,18 @@ class ViewMain(QMainWindow):
                                       "saves", "MapMaster Save files (*.save)")
         if isfile(filename):
             self.setStackWidgetIndex(self.GAME_PAGE)
+           
+            self.game = Game()
+            self.connectGame()
+            debug("Initializing the saved game...")
+            self.game.load(filename) 
+            
             self.overlays['latLongOverlay'] = self.addOverlay(
                         normpath("images/latOverlay.png"))
             self.overlays['colorOverlay'] = self.addOverlay(
                         normpath("images/colorOverlay.png"))
             self.overlays['legendOverlay'] = self.addOverlay(
                         normpath("images/legendOverlay.png"))
-            
-            self.game = Game()
-            self.connectGame()
-            debug("Initializing the saved game...")
-            self.game.load(filename) 
                        
             self.gui.scoreBox.setText((str)(self.game.story.score))
 
