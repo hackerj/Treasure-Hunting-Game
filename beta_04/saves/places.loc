@@ -1,17 +1,37 @@
 
 Command objType x    y  itemname
 
+#Background Textures For PersonView
+addLoc grass -1024 1024  grass0
+addLoc grass -1024 0     grass1
+addLoc grass -1024 -1024 grass2
+addLoc grass 0     1024  grass3
+addLoc grass 0     0     grass4
+addLoc grass 0     -1024 grass5
+addLoc grass 1024  1024  grass6
+addLoc grass 1024  0     grass7
+addLoc grass 1024  -1024 grass8
+
+addLoc grass -2048 1024  grass9
+addLoc grass -2048 0     grass10
+addLoc grass -2048 -1024 grass11
+
+addLoc grass 2048  1024  grass12
+addLoc grass 2048  0     grass13
+addLoc grass 2048  -1024 grass14
+
+#Background Texture for Map View
 addLoc mapBG 0 0 mapBG
-addLoc tree 200 158  tree1
-addLoc tree -800 45  tree2
-addLoc tree 120 80  tree3
-addLoc tree 310 470  tree4
-addLoc tree 220 -400  tree5
-addLoc tree 100 500  tree6
-addLoc grass 0 0 grass1
-addLoc grass 0 -1024 grass2
-addLoc grass -1024 0 grass3
-addLoc grass -1024 -1024 grass4
+
+#Eye candy
+addLoc tree 200  158   tree1
+addLoc tree -800 45    tree2
+addLoc tree 120  80    tree3
+addLoc tree 310  470   tree4
+addLoc tree 220  -400  tree5
+addLoc tree 100  500   tree6
+
+#Actual Landmarks
 addLoc landmark -350 100  city0
-addLoc capital -450 910  city1
+addLoc capital  -450 910  city1
 addLoc landmark 450 -700  city2
