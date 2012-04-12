@@ -104,9 +104,9 @@ class ViewMain(QMainWindow):
     def goBack(self):
         self.setStackWidgetIndex(self.gui.stackIndex)
         if self.gui.stackIndex == self.GAME_PAGE:
-            self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
+            self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         else:
-            None
+            self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
             #Should be something here later
     
     def loadFileDialog(self):
@@ -128,7 +128,7 @@ class ViewMain(QMainWindow):
             self.overlays['legendOverlay'] = self.addOverlay(
                         normpath("images/legendOverlay.png"))
             self.gui.scoreBox.setText((str)(self.game.story.score))
-            
+        self.gui.stackIndex = self.GAME_PAGE
 
     def saveFileDialog(self):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
@@ -144,6 +144,7 @@ class ViewMain(QMainWindow):
     def newGame(self):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         self.setStackWidgetIndex(self.STORY_PAGE)
+        self.gui.stackIndex = self.GAME_PAGE
         
         # Create game instance and start the game
         self.game = Game()
@@ -168,6 +169,7 @@ class ViewMain(QMainWindow):
         self.saveFileDialog()
         self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
         self.setStackWidgetIndex(self.MAIN_PAGE)
+        self.gui.stackIndex = self.MAIN_PAGE
         
     def setStackWidgetIndex(self, index):
         if index == self.MAIN_PAGE:
