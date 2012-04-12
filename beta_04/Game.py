@@ -93,7 +93,7 @@ class Game(QObject):
             nextLine = savedData.readline()       
         savedData.close()
         
-        self.story.searchForClue((self.character.x,self.character.y)) # initial the first clue
+        #self.story.searchForClue((self.character.x,self.character.y)) # initial the first clue
         self.launch()
     
     def loadIsValid(self,obj):

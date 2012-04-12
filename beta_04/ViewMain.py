@@ -131,7 +131,8 @@ class ViewMain(QMainWindow):
                         normpath("images/legendOverlay.png"))
 
             self.gui.scoreBox.setText((str)(self.game.story.score))
-        self.gui.stackIndex = self.GAME_PAGE
+            self.gui.clueView.setText(self.game.story.currClue['text'])
+            self.gui.stackIndex = self.GAME_PAGE
 
     def saveFileDialog(self):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
