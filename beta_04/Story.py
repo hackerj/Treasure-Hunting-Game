@@ -130,4 +130,3 @@ class Story(QObject):
         clue['hint'] = obj[5][:-2].replace('\\n ', '\n') #get rid of the return
         self._clueList.append(clue)
         
-        

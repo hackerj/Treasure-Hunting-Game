@@ -45,8 +45,6 @@ class Game(QObject):
     def new(self):
         """Load new game from file"""
         
-        self.gameTime = QTime()
-        #self.frameTimer = QTimer() # Create Frame Timer
         debug("newgame...loading clues")
         self.story.loadClues()
         debug("newgame...loading charcter")
@@ -55,7 +53,11 @@ class Game(QObject):
         self.places.loadLoc()
         debug("end of load")
         self.places.addLoc(self.character)
+        self.story.searchForClue((0,0))
+        #self.frameTimer = QTimer() # Create Frame Timer
+        self.gameTime = QTime()
         self.launch()
+        
         
     def load(self,filename):
         """Load existing game from file"""

@@ -38,6 +38,7 @@ class Character(Loc):
         #debug("isValidMove not implemented!")
         return True
         
+
     def frameUpdate(self, framerate):
         """update character position for the new frame"""
         #debug("character frame update")
