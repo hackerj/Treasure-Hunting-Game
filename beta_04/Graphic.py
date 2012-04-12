@@ -72,7 +72,7 @@ class Graphic(QObject):
     def update(self, newx, newy):
         self.x = newx 
         self.y = newy
-        debug(self.name, " has positon: ", self.x, self.y)        
+        #debug(self.name, " has positon: ", self.x, self.y)        
         if self.pViewObject:
             self.updateGraphicsItem(self.pViewObject, 1)
         if self.mViewObject:
@@ -86,7 +86,7 @@ class Graphic(QObject):
         try:
             width = item.pixmap().width()/2
             heigth = item.pixmap().height()/2
-            debug("update helper: width, hight", width, heigth)
+            #debug("update helper: width, hight", width, heigth)
             item.setX((self.x - width)* scale)
             item.setY((self.y - heigth)* scale)
         except:

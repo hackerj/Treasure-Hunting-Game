@@ -30,23 +30,23 @@ class Character(Loc):
             self.x += xDist
             self.y += yDist
             self.changePos.emit(self.x, self.y, self.name)
-            debug("Character is emitting changePos")
+            #debug("Character is emitting changePos")
 
     def isValidMove(self, xDist, yDist):
         """Stop Character From walking off the edge of the map"""
         
-        debug("isValidMove not implemented!")
+        #debug("isValidMove not implemented!")
         return True
         
     def frameUpdate(self, framerate):
         """update character position for the new frame"""
-        debug("character frame update")
+        #debug("character frame update")
         xDist = self.charVelocityX/framerate
         yDist = self.charVelocityY/framerate
         self.translate(xDist, yDist)
     
     def keyPress(self, key):
-        debug("Key Press reaches Character")
+        #debug("Key Press reaches Character")
         """Change Velocity based on key press"""
         
         if key == Qt.Key_W or key == Qt.Key_Up:

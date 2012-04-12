@@ -87,6 +87,7 @@ class ViewMain(QMainWindow):
         self.game.places.passLoc.connect(self.addGraphicsObject)
         self.game.story.searchTime.connect(self.erasePopup)
         self.game.story.clueResult.connect(self.handleClueResult)
+        self.game.frameTimer.timeout.connect(self.frameUpdate)
 
 ########################################
 ###### Custom slots defined here #######
@@ -281,7 +282,7 @@ class ViewMain(QMainWindow):
         
         #self.graphicsObjects.append(graphic)
     def updateGraphicsObject(self, xpos, ypos, name):
-        debug("Updating the graphics object")
+        #debug("Updating the graphics object")
         self.graphicsObjects[name].update(xpos, ypos)
         
     def addOverlay(self, filename):
@@ -290,4 +291,8 @@ class ViewMain(QMainWindow):
         obj.setY(-250)
         obj.setVisible(False)
         return obj
+        
+    def frameUpdate(self):
+        #debug('Frame update sent to character')
+        self.game.character.frameUpdate(self.game.FRAME_RATE)
         

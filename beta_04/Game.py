@@ -31,7 +31,7 @@ class Game(QObject):
         
         # Keep track of how long we have been playing.
         self.gameTime = None
-        self.frameTimer = None
+        self.frameTimer = QTimer()
         
         # Manage Character
         self.character = None
@@ -46,7 +46,7 @@ class Game(QObject):
         """Load new game from file"""
         
         self.gameTime = QTime()
-        self.frameTimer = QTimer() # Create Frame Timer
+        #self.frameTimer = QTimer() # Create Frame Timer
         debug("newgame...loading clues")
         self.story.loadClues()
         debug("newgame...loading charcter")
@@ -61,7 +61,7 @@ class Game(QObject):
         """Load existing game from file"""
         # FIXME if QTime and QTimer should be stored in certain way
         self.gameTime = QTime()
-        self.frameTimer = QTimer() # Create Frame Timer
+        #self.frameTimer = QTimer() # Create Frame Timer
         debug("loadgame...loading clues")
         self.story.loadClues()
         debug("loadgame...loading initial character and places")
@@ -126,8 +126,6 @@ class Game(QObject):
         self.gameTime.start()
         self.frameTimer.start(ONE_SECOND/self.FRAME_RATE)
         self.frameTimer.timeout.connect(self.story.frameTime)
-        self.frameTimer.timeout.connect(self.frameUpdate)
-        self.frameUpdate()
         
     def keyPress(self, event):
         key = event.key()
@@ -136,10 +134,7 @@ class Game(QObject):
     def keyRelease(self, event):
         key = event.key()
         self.character.keyRelease(key)
-        
-    def frameUpdate(self):
-        debug('Frame update sent to character')
-        self.character.frameUpdate(self.FRAME_RATE)
+
         
         
         
