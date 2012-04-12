@@ -82,6 +82,11 @@ class Graphic(QObject):
                 scale = self.SCALE
             self.updateGraphicsItem(self.mViewObject, scale)
 
+        if self.objType == 'Character':
+            scene = self.pViewObject.scene()
+            view = scene.views()[0]
+            view.centerOn(self.pViewObject)
+
     def updateGraphicsItem(self, item, scale = 1):
         try:
             width = item.pixmap().width()/2
