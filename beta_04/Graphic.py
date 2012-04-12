@@ -90,4 +90,4 @@ class Graphic(QObject):
             item.setX((self.x - width)* scale)
             item.setY((self.y - heigth)* scale)
         except:
-            debug("Could not update graphcis item", mapScale)
+            debug("Could not update graphics item", mapScale)

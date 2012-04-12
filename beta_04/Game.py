@@ -138,9 +138,8 @@ class Game(QObject):
         self.character.keyRelease(key)
         
     def frameUpdate(self):
-        debug('character frame update')
+        debug('Frame update sent to character')
         self.character.frameUpdate(self.FRAME_RATE)
-        
         
         
         

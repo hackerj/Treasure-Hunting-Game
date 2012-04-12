@@ -16,7 +16,7 @@ class Story(QObject):
     # Declare Constants to avoid Magic Values
     LANDMARK_RADIUS = 256
     CLUE_TROUBLE = 1000 * 60 * 5
-    LOAD_TIME = 5   #seconds
+    LOAD_TIME = 3   #seconds
     CLUE_COMMANDS = {"addClue"} #use to check uploaded file
     
     loadBar = pyqtSignal(int, int)

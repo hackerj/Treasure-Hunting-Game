@@ -35,7 +35,7 @@ class Character(Loc):
     def isValidMove(self, xDist, yDist):
         """Stop Character From walking off the edge of the map"""
         
-        debug("isVaidMove not implemented!")
+        debug("isValidMove not implemented!")
         return True
         
     def frameUpdate(self, framerate):

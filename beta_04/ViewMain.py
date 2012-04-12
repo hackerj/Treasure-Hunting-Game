@@ -145,13 +145,6 @@ class ViewMain(QMainWindow):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         self.setStackWidgetIndex(self.STORY_PAGE)
         
-        self.overlays['latLongOverlay'] = self.addOverlay(
-                        normpath("images/latOverlay.png"))
-        self.overlays['colorOverlay'] = self.addOverlay(
-                        normpath("images/colorOverlay.png"))
-        self.overlays['legendOverlay'] = self.addOverlay(
-                        normpath("images/legendOverlay.png"))
-        
         # Create game instance and start the game
         self.game = Game()
         debug("Initialized a new game")
@@ -160,6 +153,13 @@ class ViewMain(QMainWindow):
         debug("Starting a new game")
 
         self.gui.mapView
+        
+        self.overlays['latLongOverlay'] = self.addOverlay(
+                        normpath("images/latOverlay.png"))
+        self.overlays['colorOverlay'] = self.addOverlay(
+                        normpath("images/colorOverlay.png"))
+        self.overlays['legendOverlay'] = self.addOverlay(
+                        normpath("images/legendOverlay.png"))
         
     def storyButton(self):
         self.setStackWidgetIndex(self.GAME_PAGE)
@@ -279,6 +279,7 @@ class ViewMain(QMainWindow):
         
         #self.graphicsObjects.append(graphic)
     def updateGraphicsObject(self, xpos, ypos, name):
+        debug("Updating the graphics object")
         self.graphicsObjects[name].update(xpos, ypos)
         
     def addOverlay(self, filename):
