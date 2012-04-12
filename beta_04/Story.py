@@ -127,6 +127,6 @@ class Story(QObject):
         posy = int(obj[3])
         clue['position'] = (posx, posy)
         clue['text'] = obj[4].replace('\\n ', '\n') # ensure proper formate
-        clue['hint'] = obj[5][:-2].replace('\\n ', '\n') #get rid of the return
+        clue['hint'] = obj[5][:-1].replace('\\n ', '\n') #get rid of the return
         self._clueList.append(clue)
         

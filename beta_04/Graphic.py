@@ -96,3 +96,6 @@ class Graphic(QObject):
             item.setY((self.y - heigth)* scale)
         except:
             debug("Could not update graphics item", mapScale)
+            
+            
+    

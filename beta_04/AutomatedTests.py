@@ -88,9 +88,12 @@ class GameTests(unittest.TestCase):
         
 class LoadLocTests(unittest.TestCase):
     from Places import Places
+    from Story import Story
     TYPES = {"landmark", "tree", "grass", "mapBG"}
     def test_loadLoc(self):
-        """Check if locations are correctly loaded from file"""
+        """Check if locations are correctly loaded from file
+           new game and saved game
+        """
         
         # load location check from good file
         locNames = {"mapBG", "tree2", "grass1", "grass4", "city1", "city2"}
@@ -122,10 +125,43 @@ class LoadLocTests(unittest.TestCase):
             self.assertIn(locObjs[eachObj].objType, self.TYPES)
         
         # load objs from invalid file path
+        emptyObjs = 0
         placesEmpty = self.Places()
         placesEmpty.loadLoc("tests/empty.test")
         locObjs = placesEmpty.locList
-        self.assertEqual(len(locObjs),0)
+        self.assertEqual(len(locObjs),emptyObjs)
+        
+    def test_loadClues(self):
+        """Check if locations are correctly loaded from file
+           new game and saved game
+        """
+        
+        # load clues from good file
+        clueKeys = ['landmark', 'position', 'hint', 'text']
+        numClues = 2
+        clueGood = self.Story(25)    
+        clueGood.loadClues("tests/validClue.test")
+        clueList = clueGood._clueList
+        self.assertEqual(len(clueList), numClues)
+
+        for eachClue in clueList:
+            self.assertEqual(eachClue.keys(), clueKeys)
+            self.assertEqual(len(eachClue.values()), 4)
+            
+        self.assertEqual(clueList[0]["position"],(-1,1))
+        self.assertEqual(clueList[0]["text"],"clue1")
+        self.assertEqual(clueList[1]["hint"],"clue2 hint")
+        self.assertEqual(clueList[1]["landmark"],"city2")
+        
+        
+        # load clues from file that contains invalid command
+        numClues = 1
+        clueBad = self.Story(25)    
+        clueBad.loadClues("tests/invalidClue.test")
+        clueList = clueBad._clueList
+        self.assertEqual(len(clueList), numClues)
+
+        
         
 if __name__ == '__main__':
     try:
