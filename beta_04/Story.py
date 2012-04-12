@@ -124,6 +124,11 @@ class Story(QObject):
         """add new clues to the clueStack"""    
         clue = {}
         clue['landmark'] = obj[1]
+        try:
+            int(obj[2]) and int(obj[3])
+        except:
+            debug("clue position x and y has invalid type, should be int...")
+            return
         posx = int(obj[2])
         posy = int(obj[3])
         clue['position'] = (posx, posy)

@@ -138,7 +138,7 @@ class LoadLocTests(unittest.TestCase):
         
         # load clues from good file
         clueKeys = ['landmark', 'position', 'hint', 'text']
-        numClues = 2
+        numClues = 1
         clueGood = self.Story(25)    
         clueGood.loadClues("tests/validClue.test")
         clueList = clueGood._clueList
@@ -150,8 +150,8 @@ class LoadLocTests(unittest.TestCase):
             
         self.assertEqual(clueList[0]["position"],(-1,1))
         self.assertEqual(clueList[0]["text"],"clue1")
-        self.assertEqual(clueList[1]["hint"],"clue2 hint")
-        self.assertEqual(clueList[1]["landmark"],"city2")
+        self.assertEqual(clueList[0]["hint"],"clue1 hint")
+        self.assertEqual(clueList[0]["landmark"],"city1")
         
         
         # load clues from file that contains invalid command

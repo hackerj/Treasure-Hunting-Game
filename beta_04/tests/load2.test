@@ -12,8 +12,5 @@ addLoc grass ers 0 grass1
 # Good line, should be loaded
 addLoc grass -1024 -1024 grass4
 
-# Wrong name
-addLoc landmark -450 910  cit3q
-
 #Good line, should be loaded
 addLoc landmark 450 -700  city2

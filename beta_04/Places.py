@@ -13,8 +13,7 @@ from Loc import Loc
 from os.path import isfile
 class Places(QObject):
     """Dictionary of Location Objects with name collision Checking"""
-    NAMES = {'city2', 'city1', 'tree5', 'tree4', 'tree6', 'tree1', 'grass1',\
-              'tree3', 'tree2', 'grass4', 'mapBG', 'grass2', 'city0', 'grass3'}
+    
     TYPES = {"tree", "landmark","grass","mapBG", "capital"} #obj types, for debugging use
     OBJ_COMMANDS = {"addLoc"}
     passLoc = pyqtSignal(str, int, int, str) 
@@ -72,10 +71,6 @@ class Places(QObject):
             int(obj[2]) and int(obj[3])
         except:
             debug(obj[1], " doesn't have the right type for x and y position")
-            return False
-
-        if (obj[4] not in self.NAMES):
-            debug(obj[1], " Places...loading loc.... has an invalid name")
             return False
         
         return True
