@@ -14,3 +14,11 @@ addLoc grass -1024 -1024 grass4
 
 #Good line, should be loaded
 addLoc landmark 450 -700  city2
+
+#Good line, name should be added..
+addLoc landmark 0 0 
+
+#Repeat name, should complain..
+addLoc landmark 450 -700  city2
+
+ 

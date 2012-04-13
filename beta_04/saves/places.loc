@@ -23,7 +23,6 @@ addLoc grass 2048  -1024 grass14
 addLoc grass 2048  -2048 grass15
 addLoc grass 0  -2048 grass16
 addLoc grass 1024  -2048 grass17
-
 addLoc grass -2048  2048 grass18
 addLoc grass 0  2048 grass19
 addLoc grass -1024  2048 grass20

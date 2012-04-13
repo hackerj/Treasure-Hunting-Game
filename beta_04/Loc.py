@@ -14,7 +14,7 @@ class Loc(QObject):
     
     changePos = pyqtSignal(int, int, str)
     
-    def __init__(self, center = (0,0), name = '', objType=None):
+    def __init__(self, center = (0,0), name = "", objType=None):
         """Data container for objects appearing in the person and map views"""
         super(QObject, self).__init__()
 

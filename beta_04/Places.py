@@ -22,7 +22,7 @@ class Places(QObject):
         """Internaly Places is represented as a dictonary"""
         super(QObject, self).__init__()
         self.locList = {}
-        self.repeatName = 0
+        self.newId = 0
         
     def loadLoc(self, filename = "saves/places.loc"):
         """Load location objects from file"""
@@ -32,7 +32,7 @@ class Places(QObject):
             return
             
         n = 0
-        itemName = None    
+        itemName = ""   
         locData = open(filename)
         nextLine = locData.readline()
         while (nextLine):        # start parsing..
@@ -48,19 +48,20 @@ class Places(QObject):
                         itemName = obj[4]
                     locObject = Loc(pos, itemName, objType)
                     if (self.addLoc(locObject) == False):
-                        debug("Places...loading loc line ",n," is an invalid input!")
+                        pass
                 else:
                     debug("Places...loading loc line ",n," is an invalid input!")
 
             nextLine = locData.readline()
-            n+=1       
+            n+=1
+            itemName = ""       
         locData.close()
         debug("while loop ends")
     
     def isValidLoc(self, obj):
         """Check whether the loc command is valid"""
         if(len(obj) < 4):
-            debug("Places...loading loc.... has missing command, should be 5")
+            debug("Places...loading loc.... miss command, should at least 4")
             return False
         if(obj[0] not in self.OBJ_COMMANDS):
             debug(obj[0], " Places...loading loc.... has an invalid command")
