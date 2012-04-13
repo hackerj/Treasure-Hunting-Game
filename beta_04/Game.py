@@ -61,23 +61,15 @@ class Game(QObject):
         
     def load(self,filename):
         """Load existing game from file"""
-       
+        debug("loadgame...read data from saved file")
+        
         debug("loadgame...loading clues")
         self.story.loadClues()
-        debug("loadgame...loading initial character and places")
-        self.character = Character((0,0), "Character", "Character")
-        self.places.loadLoc()
-        debug("end of load")
-        self.places.addLoc(self.character)
-        # FIXME if QTime and QTimer should be stored in certain way
-        self.gameTime = QTime()
-        #self.frameTimer = QTimer() # Create Frame Timer
-        debug("loadgame...read data from saved file")
+        
         savedData = open(filename)    
         nextLine = savedData.readline()
         x = 0
         y = 0
-        
         # Parsing saved file
         while (nextLine):
             line = nextLine.split()
@@ -93,6 +85,14 @@ class Game(QObject):
             nextLine = savedData.readline()       
         savedData.close()
         
+        debug("loadgame...loading initial character and places")
+        self.character = Character((x,y), "Character", "Character")
+        self.places.loadLoc()
+        debug("end of load")
+        self.places.addLoc(self.character)
+        # FIXME if QTime and QTimer should be stored in certain way
+        self.gameTime = QTime()
+        #self.frameTimer = QTimer() # Create Frame Timer
         #self.story.searchForClue((self.character.x,self.character.y)) # initial the first clue
         self.launch()
     
