@@ -77,9 +77,10 @@ class Game(QObject):
                 x = int(line[0])
                 y = int(line[1])
                 numClues = int(line[2])
-                self.places.clueStack = self.story._clueList[:numClues]
+                
+                self.story._clueList = self.story._clueList[:numClues]
                 self.story.score = int(line[3])
-                debug("x: " + `x` + " y: " + `y` + " numCLue: " + `numClues` + \
+                debug("x: " + `x` + " y: " + `y` + " numCLue: " + `len(self.story._clueList)` + \
                       " score is: " + `int(line[3])`)
         
             nextLine = savedData.readline()       
