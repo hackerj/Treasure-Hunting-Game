@@ -34,10 +34,6 @@ addLoc grass -2048  2048 grass24
 addLoc grass 0  2048 grass25
 addLoc grass -1024  2048 grass26
 
-
-
-
-
 #Background Texture for Map View
 addLoc mapBG 0 0 mapBG
 
@@ -50,7 +46,7 @@ addLoc tree 220  -400  tree1
 addLoc tree 100  500   tree6
 
 #Actual Landmarks
-addLoc landmark -350 100  city1
+addLoc landmark -350 100  
 addLoc capital  -450 910  city1
 addLoc landmark 450 -700  city2
 addLoc landmark -1700 -600 city2
