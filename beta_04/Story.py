@@ -118,7 +118,7 @@ class Story(QObject):
                     clues = filter(lambda x: x!="", loadClues)
                     self.addClues(clues)
             nextLine = filedata.readline()
-        self.currClue = self._clueList.pop()
+        
             
     def addClues(self,obj):
         """add new clues to the clueStack"""    

@@ -41,7 +41,7 @@ class Game(QObject):
         
         # Manage World
         self.places = Places()
-        
+
     def new(self):
         """Load new game from file"""
         
@@ -53,7 +53,7 @@ class Game(QObject):
         self.places.loadLoc()
         debug("end of load")
         self.places.addLoc(self.character)
-        #self.story.searchForClue((0,0))
+        self.story.currClue = self.story._clueList.pop()
         #self.frameTimer = QTimer() # Create Frame Timer
         self.gameTime = QTime()
         self.launch()
@@ -61,6 +61,7 @@ class Game(QObject):
         
     def load(self,filename):
         """Load existing game from file"""
+        
         debug("loadgame...read data from saved file")
         
         debug("loadgame...loading clues")
@@ -68,8 +69,7 @@ class Game(QObject):
         
         savedData = open(filename)    
         nextLine = savedData.readline()
-        x = 0
-        y = 0
+        
         # Parsing saved file
         while (nextLine):
             line = nextLine.split()
@@ -77,8 +77,7 @@ class Game(QObject):
                 x = int(line[0])
                 y = int(line[1])
                 numClues = int(line[2])
-                
-                self.story._clueList = self.story._clueList[:numClues]
+                self.story._clueList =  self.story._clueList[:numClues]
                 self.story.score = int(line[3])
                 debug("x: " + `x` + " y: " + `y` + " numCLue: " + `len(self.story._clueList)` + \
                       " score is: " + `int(line[3])`)
@@ -86,9 +85,11 @@ class Game(QObject):
             nextLine = savedData.readline()       
         savedData.close()
         
+        self.story.currClue = self.story._clueList.pop()
         debug("loadgame...loading initial character and places")
         self.character = Character((x,y), "Character", "Character")
         self.places.loadLoc()
+        
         debug("end of load")
         self.places.addLoc(self.character)
         # FIXME if QTime and QTimer should be stored in certain way
