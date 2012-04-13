@@ -22,7 +22,8 @@ class Places(QObject):
         """Internaly Places is represented as a dictonary"""
         super(QObject, self).__init__()
         self.locList = {}
-
+        self.repeatName = 0
+        
     def loadLoc(self, filename = "saves/places.loc"):
         """Load location objects from file"""
         
@@ -30,8 +31,9 @@ class Places(QObject):
             debug("location file does not exist!!!")
             return
             
-        locData = open(filename)
         n = 0
+        itemName = None    
+        locData = open(filename)
         nextLine = locData.readline()
         while (nextLine):        # start parsing..
             obj = nextLine.split()
@@ -42,9 +44,11 @@ class Places(QObject):
                     posx = int(obj[2])
                     posy = int(obj[3])
                     pos = (posx, posy)
-                    itemName = obj[4]
+                    if (len(obj) > 4):
+                        itemName = obj[4]
                     locObject = Loc(pos, itemName, objType)
-                    self.addLoc(locObject)
+                    if (self.addLoc(locObject) == False):
+                        debug("Places...loading loc line ",n," is an invalid input!")
                 else:
                     debug("Places...loading loc line ",n," is an invalid input!")
 
@@ -55,10 +59,9 @@ class Places(QObject):
     
     def isValidLoc(self, obj):
         """Check whether the loc command is valid"""
-        if(len(obj) != 5):
+        if(len(obj) < 4):
             debug("Places...loading loc.... has missing command, should be 5")
             return False
-        
         if(obj[0] not in self.OBJ_COMMANDS):
             debug(obj[0], " Places...loading loc.... has an invalid command")
             return False
@@ -66,16 +69,13 @@ class Places(QObject):
         if(obj[1] not in self.TYPES):
             debug(obj[1], " Places...loading loc.... has an invalid obj type")
             return False
-        
         try:
             int(obj[2]) and int(obj[3])
         except:
             debug(obj[1], " doesn't have the right type for x and y position")
             return False
-        
         return True
  
-
     def addLoc(self, Loc):
         debug("Load tag")
         """Add Location to Places and check for name collisions"""
@@ -85,7 +85,7 @@ class Places(QObject):
             self.newId += 1
             return self.addLoc(Loc) # Do we actually want to store these?
 
-        elif self.locList.has_key(Loc.name):
+        if self.locList.has_key(Loc.name):
             debug("Name collision for ", Loc.name)
             return False
         
