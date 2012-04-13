@@ -8,7 +8,7 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
 from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap
-from PyQt4.QtCore import Qt
+from PyQt4.QtCore import Qt, QTimeLine
 from Globals import *
 from os.path import normpath, isfile
 from Gui import Gui
@@ -47,6 +47,14 @@ class ViewMain(QMainWindow):
         self.currStackIndex = self.MAIN_PAGE
         self.gui.soundManager.playCurrMusic()
         self.gui.soundManager.setVolume(0)
+        
+        self.popupTimelineStart = QTimeLine(200)
+        self.popupTimelineStart.setFrameRange(0,100)
+        self.popupTimelineEnd = QTimeLine(200)
+        self.popupTimelineEnd.setFrameRange(0,100)
+        self.popupTimelineWait = QTimeLine()
+        self.popupTimelineWait.setFrameRange(0,100)
+        self.popupClue = False
 
         #self.gui.personView.centerOn(0,0)
         #self.gui.mapView.centerOn(0,0)
@@ -54,6 +62,12 @@ class ViewMain(QMainWindow):
 ########################################
 ### Signals and slots connected here ###
 ########################################
+
+        self.popupTimelineStart.frameChanged.connect(self.drawPopup)
+        self.popupTimelineStart.finished.connect(self.popupWait)
+        self.popupTimelineEnd.frameChanged.connect(self.erasePopup)   
+        self.popupTimelineWait.finished.connect(self.enableErasePopup) 
+    
     def connectGui(self):
         """Connect signals for Gui"""
         self.gui.actionQuit.triggered.connect(self.close)
@@ -86,7 +100,7 @@ class ViewMain(QMainWindow):
         # story (emits signal updating search progress), emits 0-1
         # story (emits signal for message fade), emits 1-0
         self.game.places.passLoc.connect(self.addGraphicsObject)
-        self.game.story.searchTime.connect(self.erasePopup)
+        self.game.story.searchTime.connect(self.enableErasePopup)
         self.game.story.clueResult.connect(self.handleClueResult)
         self.game.frameTimer.timeout.connect(self.frameUpdate)
 
@@ -215,20 +229,35 @@ class ViewMain(QMainWindow):
         
     def doSearch(self):
         self.game.story.searchForClue(self.game.character.getCenter())
-        self.drawPopup("Searching...")
+        self.popupClue = True
+        self.gui.popupText.setPlainText("Searching...")
+        self.popupTimelineStart.start()
         
-    def drawPopup(self, text):
-        self.gui.popupLabel.setText(text)
-        self.gui.popupLabel.setVisible(True)
-        debug("Popup on, saying " + text)
         
-    def erasePopup(self):
-        self.gui.popupLabel.setVisible(False)
-        debug("Popup gone")
+    def drawPopup(self, value):
+        debug("Called drawPopup")
+        self.gui.popupImage.setOpacity(value/100.0)
+        self.gui.popupText.setOpacity(value/100.0)
+        
+    def enableErasePopup(self):
+        debug("Enabled erase popup")
+        self.popupClue = False
+        self.popupTimelineEnd.start()
+        
+    def erasePopup(self, value):
+        debug("Called erase popup")
+        self.gui.popupImage.setOpacity(1-(value/100.0))
+        self.gui.popupText.setOpacity(1-(value/100.0))
+        
+    def popupWait(self):
+        debug("Entered popupWait")
+        if not self.popupClue:
+            self.popupTimelineWait.start()
         
     # FIXME This needs time actions
     def handleClueResult(self, action, text):
         if action == 'ClueFound':
+            #self.popupMessage("You found a clue!", 2000)
             self.gui.clueView.setText(text)
             self.gui.scoreBox.setText(`self.game.story.score`)
         elif action == 'GameOver':
@@ -236,9 +265,10 @@ class ViewMain(QMainWindow):
         else:
             None
     
-########################################
-####### Other methods are here #########
-########################################
+    def popupMessage(self, text, time):
+        self.gui.popupText.setPlainText(text)
+        self.popupTimelineWait.setDuration(time)
+        self.popupTimelineStart.start()
         
     def keyPressEvent(self, event):
         """Get keyboard events no matter what widget has focus"""
@@ -303,4 +333,3 @@ class ViewMain(QMainWindow):
     def frameUpdate(self):
         #debug('Frame update sent to character')
         self.game.character.frameUpdate(self.game.FRAME_RATE)
-        

@@ -19,7 +19,7 @@ class Story(QObject):
     LOAD_TIME = 2   #seconds
     CLUE_COMMANDS = {"addClue"} #use to check uploaded file
     
-    loadBar = pyqtSignal(int, int)
+    #loadBar = pyqtSignal(int, int)
     searchTime = pyqtSignal()
     clueTrouble = pyqtSignal()
     clueResult = pyqtSignal(str, str)
@@ -55,7 +55,7 @@ class Story(QObject):
     def frameTime(self):
         if self.timerEnable:
             self.timerCounter += 1
-            self.loadBar.emit(self.timerCounter, self.SEARCH_FRAME_COUNT)
+            #self.loadBar.emit(self.timerCounter, self.SEARCH_FRAME_COUNT)
             debug ("Story timer increased, now " + `self.timerCounter`)
             if self.timerCounter == self.SEARCH_FRAME_COUNT:
                 debug("Emitting searchTime")

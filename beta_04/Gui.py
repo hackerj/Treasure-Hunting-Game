@@ -13,7 +13,8 @@ from os.path import normpath
 from sys import platform
 from PyQt4.QtGui import QPixmap, QIcon, QWidget, QLabel, QStackedWidget, \
     QGridLayout, QPushButton, QApplication, QSlider, QFont, QCheckBox, \
-    QMenuBar, QMenu, QAction, QMainWindow
+    QMenuBar, QMenu, QAction, QMainWindow, QGraphicsScene, QGraphicsView, \
+    QColor
 from Sounds import Sounds
 
 #Toplevel Widget Class for Game Window
@@ -40,6 +41,8 @@ class Gui(object):
         self.background.setPixmap(self.backgroundPixmapMenu)       
         
         self.background.setGeometry(QtCore.QRect(0, 0, 818, 665))
+        
+        self.popupPixmap = QPixmap(normpath("images/popupBG.png"))
         
         font = QFont()
         if "linux" in platform:
@@ -232,17 +235,20 @@ class Gui(object):
         self.scoreLabel.setObjectName("scoreLabel")
         self.scoreLabel.setFont(font)
         
-        self.popupLabel = QLabel(self.mainPage)
-        self.popupLabel.setGeometry(QtCore.QRect(25, 25, 750, 450))
-        self.popupLabel.setObjectName("popupLabel")
-        #This is temporary code to insert a popup.
-        self.popupLabel.setStyleSheet(
-                "QLabel { background-color: tan ; color : black }")
-        self.popupLabel.setAlignment(QtCore.Qt.AlignCenter)
-        font.setPointSize(36)
-        self.popupLabel.setFont(font)
-        self.popupLabel.setText("")
-        self.popupLabel.setVisible(False)
+        self.popup = ViewGraphics(self.mainPage)
+        self.popup.setStyleSheet(
+                "QGraphicsView {background:transparent;border-style:none}")
+        self.popupImage = self.popup.scene.addPixmap(self.popupPixmap)
+        self.popup.setGeometry(QtCore.QRect(25, 25, 750, 450))
+        self.popup.setObjectName("popupLabel")
+        font.setPointSize(25)
+        self.popupText = self.popup.scene.addText("", font)
+        self.textColor = QColor('black')
+        self.popupText.setDefaultTextColor(self.textColor)
+        self.popupText.setX(350)
+        self.popupText.setY(225)
+        self.popupImage.setOpacity(0)
+        self.popupText.setOpacity(0)
         self.stackedWidget.addWidget(self.mainPage)
         
         #Help page
