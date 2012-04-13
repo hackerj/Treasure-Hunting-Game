@@ -14,7 +14,7 @@ from PyQt4.QtCore import Qt, pyqtSignal
 
 class Character(Loc):
     """Inherit from Location Objects and add functionality for"""
-    SPEED = 200
+    SPEED = 1000
     
     def __init__(self, center = (0,0), name = '', objType=None):
         super(Character, self).__init__(center, name, objType)
@@ -34,11 +34,15 @@ class Character(Loc):
 
     def isValidMove(self, xDist, yDist):
         """Stop Character From walking off the edge of the map"""
-        
         #debug("isValidMove not implemented!")
-        return True
-        
-
+        checkX = self.x + xDist
+        checkY = self.y + yDist
+        if (checkX > 2024 or checkX < -2024 or checkY > 2024
+                               or checkY < -2024):
+            return False
+        else:
+            return True
+    
     def frameUpdate(self, framerate):
         """update character position for the new frame"""
         #debug("character frame update")

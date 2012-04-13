@@ -111,7 +111,7 @@ class Story(QObject):
         n = 0
         nextLine = filedata.readline()
         while (nextLine):
-            loadClues = nextLine.split('\t')
+            loadClues = nextLine.split(';')
             if (len(loadClues)>2):
                 objCommand = loadClues[0]
                 if (objCommand in self.CLUE_COMMANDS):

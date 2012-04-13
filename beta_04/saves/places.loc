@@ -19,6 +19,24 @@ addLoc grass -2048 -1024 grass11
 addLoc grass 2048  1024  grass12
 addLoc grass 2048  0     grass13
 addLoc grass 2048  -1024 grass14
+             
+addLoc grass 2048  -2048 grass15
+addLoc grass 0  -2048 grass16
+addLoc grass 1024  -2048 grass17
+
+addLoc grass -2048  2048 grass181
+addLoc grass 0  2048 grass191
+addLoc grass -1024  2048 grass201
+addLoc grass 2048  2048 grass151
+addLoc grass 0  2048 grass161
+addLoc grass 1024  2048 grass171
+addLoc grass -2048  2048 grass181
+addLoc grass 0  2048 grass191
+addLoc grass -1024  2048 grass201
+
+
+
+
 
 #Background Texture for Map View
 addLoc mapBG 0 0 mapBG
@@ -35,3 +53,18 @@ addLoc tree 100  500   tree6
 addLoc landmark -350 100  city0
 addLoc capital  -450 910  city1
 addLoc landmark 450 -700  city2
+addLoc landmark -1700 -600 city3
+addLoc landmark -1800 1000 city4
+addLoc capital 800 1200 city5
+addLoc capital -1400 -1000 city6
+addLoc landmark 300 -1900 city7
+addLoc capital 0 -1300 city8
+addLoc tree 0 -1800 tree7
+addLoc tree -500 1700 tree8
+
+
+
+
+
+
+
