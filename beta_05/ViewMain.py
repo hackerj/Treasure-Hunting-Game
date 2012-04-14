@@ -197,6 +197,7 @@ class ViewMain(QMainWindow):
         self.saveFileDialog(self.toMain)
         self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
         self.setStackWidgetIndex(self.MAIN_PAGE)
+        self.gui.stackIndex = self.MAIN_PAGE
         
     def setStackWidgetIndex(self, index):
         if index == self.MAIN_PAGE:
@@ -205,7 +206,7 @@ class ViewMain(QMainWindow):
             self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
     
         self.gui.stackedWidget.setCurrentIndex(index)
-        self.gui.stackIndex = index
+        self.currStackIndex = index
         self.gui.soundManager.switchSongs(index)
     
     def latLong(self):
