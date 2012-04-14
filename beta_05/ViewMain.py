@@ -7,7 +7,7 @@ Version: 0.5 using PyQt4.9
 Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
-from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap
+from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap, QLineEdit, QInputDialog
 from PyQt4.QtCore import Qt, QTimeLine, QTimer
 from Globals import *
 from os.path import normpath, isfile
@@ -80,7 +80,7 @@ class ViewMain(QMainWindow):
         self.gui.loadButton.released.connect(self.loadFileDialog)
         self.gui.actionSave_Game.triggered.connect(self.saveFileDialog)
         self.gui.doneButton.released.connect(self.goBack)
-        self.gui.startButton.released.connect(self.newGame)
+        self.gui.startButton.released.connect(self.enterName)
         self.gui.actionMain_Menu.triggered.connect(self.setMain)
         self.gui.actionHelp.triggered.connect(self.setInstructions)
         self.gui.instrButton.released.connect(self.setInstructions)
@@ -120,6 +120,16 @@ class ViewMain(QMainWindow):
             self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
             #Should be something here later
     
+    def enterName(self):
+        """Name enter dialog"""
+        playerName, ok = QInputDialog.getText(self, 'Enter Name Dialog', 
+            'Enter your name:')
+        
+        if ok and playerName!="":
+            self.newGame(playerName)
+        else:
+            pass
+            
     def loadFileDialog(self):
         
         fd = QFileDialog()
@@ -161,13 +171,15 @@ class ViewMain(QMainWindow):
             self.game.save(filename)    
                
                         
-    def newGame(self):
+    def newGame(self, playerName = ""):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         self.setStackWidgetIndex(self.STORY_PAGE)
         self.gui.stackIndex = self.GAME_PAGE
         
         # Create game instance and start the game
         self.game = Game()
+        self.game.playerName = playerName
+        debug ("player ", playerName, " is playing the game..")
         debug("Initialized a new game")
         self.connectGame()
         self.game.new()

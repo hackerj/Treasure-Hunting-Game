@@ -74,8 +74,8 @@ class Gui(object):
                                  "Start Game", None, QApplication.UnicodeUTF8))
         self.startButton.setObjectName("startButton")
         font.setPointSize(15)
-        
         self.startButton.setFont(font)
+              
         self.loadButton = QPushButton(self.menuPage)
         self.loadButton.setStyleSheet(self.fgb)
         self.loadButton.setGeometry(QtCore.QRect(600, 280, 180, 60))

@@ -41,7 +41,10 @@ class Game(QObject):
         
         # Manage World
         self.places = Places()
-
+        
+        # Store player's name
+        self.playerName = ""
+        
     def new(self):
         """Load new game from file"""
         debug("newgame...loading clues")
