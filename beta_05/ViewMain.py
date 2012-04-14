@@ -68,6 +68,7 @@ class ViewMain(QMainWindow):
         self.popupTimelineStart.finished.connect(self.popupWait)
         self.popupTimelineEnd.frameChanged.connect(self.erasePopup)   
         self.popupTimelineWait.finished.connect(self.enableErasePopup) 
+        self.popupTimelineEnd.finished.connect(self.writeClue)
     
     def connectGui(self):
         """Connect signals for Gui"""
@@ -93,16 +94,8 @@ class ViewMain(QMainWindow):
         self.gui.volumeSlider.sliderMoved.connect(self.setVol)
         
     def connectGame(self):
-        # character (emits when updates) , emits newpos
-        # places (emits when loc added), emits loc and signal
-        # - viewMain connects that signal between the location obj and 
-        # - the graphics obj
-        # story (emits when working on a clue for too long), emits nothing
-        # story (emits signal updating search progress), emits 0-1
-        # story (emits signal for message fade), emits 1-0
+        """Connect signals for Game"""
         self.game.places.passLoc.connect(self.addGraphicsObject)
-        self.game.story.searchTime.connect(self.enableErasePopup)
-        self.game.story.clueResult.connect(self.handleClueResult)
         self.game.frameTimer.timeout.connect(self.frameUpdate)
 
 ########################################
@@ -234,11 +227,22 @@ class ViewMain(QMainWindow):
         self.gui.soundManager.setVolume(self.gui.volumeSlider.sliderPosition())
         
     def doSearch(self):
-        self.game.story.searchForClue(self.game.character.getCenter())
         self.popupClue = True
-        self.gui.popupText.setPlainText("Searching...")
-        self.popupTimelineStart.start()
+        self.popupMessage("Searching...", 2*ONE_SECOND)
         
+    def writeClue(self):
+        if self.popupClue:
+            clueResult = self.game.story.searchForClue(self.game.character.getCenter())
+            self.handleClueResult(clueResult[0], clueResult[1])
+            self.popupClue = False
+            if clueResult[0] == 'ClueFound':
+                self.popupMessage('You found a clue!\n' + clueResult[1], 5*ONE_SECOND)
+            elif clueResult[0] == 'ClueFailed':
+                self.popupMessage(clueResult[1], 3*ONE_SECOND)
+            elif clueResult[0] == 'GameOver':
+                self.popupMessage(clueResult[1], 3*ONE_SECOND)
+            else:
+                None
         
     def drawPopup(self, value):
         debug("Called drawPopup")
@@ -247,7 +251,6 @@ class ViewMain(QMainWindow):
         
     def enableErasePopup(self):
         debug("Enabled erase popup")
-        self.popupClue = False
         self.popupTimelineEnd.start()
         
     def erasePopup(self, value):
@@ -257,8 +260,7 @@ class ViewMain(QMainWindow):
         
     def popupWait(self):
         debug("Entered popupWait")
-        if not self.popupClue:
-            self.popupTimelineWait.start()
+        self.popupTimelineWait.start()
         
     # FIXME This needs time actions
     def handleClueResult(self, action, text):

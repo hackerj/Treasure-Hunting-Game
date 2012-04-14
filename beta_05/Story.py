@@ -20,9 +20,7 @@ class Story(QObject):
     CLUE_COMMANDS = {"addClue"} #use to check uploaded file
     
     #loadBar = pyqtSignal(int, int)
-    searchTime = pyqtSignal()
     clueTrouble = pyqtSignal()
-    clueResult = pyqtSignal(str, str)
 
     
     def __init__(self, frameRate):
@@ -43,23 +41,12 @@ class Story(QObject):
         #Measure Time
         self.clueTime = 0
         self.clueTimeEnable = True
-        self.messageFade = None
-        self.timerCounter = 0
-        self.timerEnable = False
         self.FRAME_RATE = frameRate
         self.SEARCH_FRAME_COUNT = self.FRAME_RATE * self.LOAD_TIME
         
-        self.searchTime.connect(self.searchResults)
         
     # Emits clueTrouble if the player has been stuck on a clue for 5 min
     def frameTime(self):
-        if self.timerEnable:
-            self.timerCounter += 1
-            #self.loadBar.emit(self.timerCounter, self.SEARCH_FRAME_COUNT)
-            debug ("Story timer increased, now " + `self.timerCounter`)
-            if self.timerCounter == self.SEARCH_FRAME_COUNT:
-                debug("Emitting searchTime")
-                self.searchTime.emit()
         if self.clueTimeEnable:
             self.clueTime += 1
         if self.clueTime >= self.CLUE_TROUBLE:
@@ -71,9 +58,7 @@ class Story(QObject):
         if not self.currClue:
             self.currClue['position'] = position
         dist = self.getDistance(position)
-        self.timerEnable = True
         debug("Timer now enabled")
-        self.clueTimeEnable = False
         if not dist < self.LANDMARK_RADIUS:
             if self.status:
                 self.currAction =  ('ClueFailed',
@@ -87,14 +72,7 @@ class Story(QObject):
             self.gameStatus = 0
             self.currAction = ('GameOver', 
                         "YOU WON!\nBut the game has just begun")
-        
-    def searchResults(self):
-        self.timerEnable = False
-        self.timerCounter = 0
-        self.clueTimeEnable = True
-        debug("SearchResults: Signal accepted")
-        self.clueResult.emit(self.currAction[0], self.currAction[1])
-        debug("Emitting search result")
+        return self.currAction
         
     def getDistance(self, position):
         """Calculate the distance between character's location and the clue"""
