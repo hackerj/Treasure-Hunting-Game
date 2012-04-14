@@ -37,7 +37,6 @@ class ViewMain(QMainWindow):
         self.gui  = Gui(self)
         self.game = None
         self.connectGui()
-        self.messageFade = None
 
         # Dictionary of Graphics Objects
         self.graphicsObjects = {}
@@ -153,7 +152,6 @@ class ViewMain(QMainWindow):
 
             self.gui.scoreBox.setText((str)(self.game.story.score))
             self.gui.clueView.setText(self.game.story.currClue['text'])
-            self.gui.stackIndex = self.GAME_PAGE
 
     def saveFileDialog(self,toMain = False):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
@@ -174,7 +172,6 @@ class ViewMain(QMainWindow):
     def newGame(self, playerName = ""):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         self.setStackWidgetIndex(self.STORY_PAGE)
-        self.gui.stackIndex = self.GAME_PAGE
         
         # Create game instance and start the game
         self.game = Game()
@@ -200,7 +197,6 @@ class ViewMain(QMainWindow):
         self.saveFileDialog(self.toMain)
         self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
         self.setStackWidgetIndex(self.MAIN_PAGE)
-        self.gui.stackIndex = self.MAIN_PAGE
         
     def setStackWidgetIndex(self, index):
         if index == self.MAIN_PAGE:
@@ -209,7 +205,7 @@ class ViewMain(QMainWindow):
             self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
     
         self.gui.stackedWidget.setCurrentIndex(index)
-        self.currStackIndex = index
+        self.gui.stackIndex = index
         self.gui.soundManager.switchSongs(index)
     
     def latLong(self):
@@ -307,7 +303,7 @@ class ViewMain(QMainWindow):
     
     def keyReleaseEvent(self, event):
         """Get keyboard events no matter what widget has focus"""
-        if self.game:
+        if self.game and (self.gui.stackIndex == self.GAME_PAGE):
             key = event.key()
             if key==Qt.Key_Space or key==Qt.Key_Enter or key==Qt.Key_Return:
                 self.doSearch()
