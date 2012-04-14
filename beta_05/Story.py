@@ -42,7 +42,6 @@ class Story(QObject):
         self.clueTime = 0
         self.clueTimeEnable = True
         self.FRAME_RATE = frameRate
-        self.SEARCH_FRAME_COUNT = self.FRAME_RATE * self.LOAD_TIME
         
         
     # Emits clueTrouble if the player has been stuck on a clue for 5 min

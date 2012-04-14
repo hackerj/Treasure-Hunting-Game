@@ -250,7 +250,7 @@ class Gui(object):
         self.popupText = self.popup.scene.addText("", font)
         self.textColor = QColor('black')
         self.popupText.setDefaultTextColor(self.textColor)
-        self.popupText.setX(300)
+        self.popupText.setX(150)
         self.popupText.setY(150)
         self.popupImage.setOpacity(0)
         self.popupText.setOpacity(0)

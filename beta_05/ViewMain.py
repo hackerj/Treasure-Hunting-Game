@@ -234,11 +234,13 @@ class ViewMain(QMainWindow):
         
     def writeClue(self):
         if self.popupClue:
-            clueResult = self.game.story.searchForClue(self.game.character.getCenter())
+            clueResult = self.game.story.searchForClue(
+                                        self.game.character.getCenter())
             self.handleClueResult(clueResult[0], clueResult[1])
             self.popupClue = False
             if clueResult[0] == 'ClueFound':
-                self.popupMessage('You found a clue!\n' + clueResult[1], 5*ONE_SECOND)
+                self.popupMessage(
+                        'You found a clue!\n' + clueResult[1], 5*ONE_SECOND)
                 self.gui.soundManager.playSound("success")
             elif clueResult[0] == 'ClueFailed':
                 self.popupMessage(clueResult[1], 3*ONE_SECOND)
@@ -297,7 +299,7 @@ class ViewMain(QMainWindow):
         """Get keyboard events no matter what widget has focus"""
         if self.game:
             key = event.key()
-            if key == Qt.Key_Space or key == Qt.Key_Enter or key == Qt.Key_Return:
+            if key==Qt.Key_Space or key==Qt.Key_Enter or key==Qt.Key_Return:
                 self.doSearch()
             else:
                 self.game.keyRelease(event)
