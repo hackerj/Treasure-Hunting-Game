@@ -47,7 +47,7 @@ class ViewMain(QMainWindow):
         
         self.currStackIndex = self.MAIN_PAGE
         self.gui.soundManager.playCurrMusic()
-        self.gui.soundManager.setVolume(0)
+        #self.gui.soundManager.setVolume(0)
         
         self.popupTimelineStart = QTimeLine(200)
         self.popupTimelineStart.setFrameRange(0,100)
@@ -239,8 +239,10 @@ class ViewMain(QMainWindow):
             self.popupClue = False
             if clueResult[0] == 'ClueFound':
                 self.popupMessage('You found a clue!\n' + clueResult[1], 5*ONE_SECOND)
+                self.gui.soundManager.playSound("success")
             elif clueResult[0] == 'ClueFailed':
                 self.popupMessage(clueResult[1], 3*ONE_SECOND)
+                self.gui.soundManager.playSound("failure")
             elif clueResult[0] == 'GameOver':
                 self.popupMessage(clueResult[1], 3*ONE_SECOND)
             else:

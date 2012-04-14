@@ -15,11 +15,15 @@ class Sounds(object):
     """This module handle sound (sets volume and switches sound)"""
     
     def __init__(self, volume):
-        #mixer.pre_init(44100, -16, 2, 1024)
+        mixer.pre_init(44100, -16, 2, 1024)
         mixer.init()
         
         self.menuSound = normpath("sounds/theme.mp3")
         self.gameSound = normpath("sounds/gameTheme.mp3")
+
+        self.successSound = mixer.Sound(normpath("sounds/success.wav"))
+        self.failureSound = mixer.Sound(normpath("sounds/failure.wav"))
+
         self.currSound = self.menuSound
 
         
@@ -54,4 +58,10 @@ class Sounds(object):
         mixer.music.load(self.currSound)
         mixer.music.play(-1)
         self.setVolume(self.volumeLevel)
+
+    def playSound(self, soundName):
+        if soundName == "success":
+            self.successSound.play()
+        elif soundName == "failure":
+            self.failureSound.play()
         
