@@ -69,7 +69,8 @@ class Story(QObject):
             self.currAction =  ('ClueFound', 
                     self.currClue['text'])
         else:
-            self.gameStatus = 0
+            self.status = 0
+            debug("no clues now....................in story")
             self.currAction = ('GameOver', 
                         "YOU WON!\nBut the game has just begun")
         return self.currAction

@@ -27,6 +27,7 @@ class ViewMain(QMainWindow):
     INSTRUCTIONS_PAGE = 3
     CREDITS_PAGE = 4
     STORY_PAGE = 5
+    SCORE_PAGE = 6
     
     def __init__(self, parent=None):
         """Initialize the abstracted class instance"""
@@ -229,6 +230,7 @@ class ViewMain(QMainWindow):
     def doSearch(self):
         self.popupClue = True
         self.popupMessage("Searching...", 2*ONE_SECOND)
+    
         
     def writeClue(self):
         if self.popupClue:
