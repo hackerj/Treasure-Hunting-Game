@@ -1,0 +1,24 @@
+Command objType x    y  itemname
+
+#Error obj command
+addLds mapBG 0 0 mapBG
+
+#Error type
+addLoc edas -800 45  tree2
+
+#Error pos type
+addLoc grass ers 0 grass1
+
+# Good line, should be loaded
+addLoc grass -1024 -1024 grass4
+
+#Good line, should be loaded
+addLoc landmark 450 -700  city2
+
+#Good line, name should be added..
+addLoc landmark 0 0 
+
+#Repeat name, should complain..
+addLoc landmark 450 -700  city2
+
+ 

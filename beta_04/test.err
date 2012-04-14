@@ -1,16 +1,16 @@
 ...........E.
 ======================================================================
 ERROR: test_loadClues (__main__.LoadLocTests)
-Check if locations are correctly loaded from file
+Check if clues are correctly loaded from file
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "AutomatedTests.py", line 143, in test_loadClues
     clueGood.loadClues("tests/validClue.test")
-  File "C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_04\Story.py", line 110, in loadClues
-    filedata = open(filename)
-IOError: [Errno 2] No such file or directory: 'tests/validClue.test'
+  File "C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_04\Story.py", line 121, in loadClues
+    self.currClue = self._clueList.pop()
+IndexError: pop from empty list
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.606s
+Ran 13 tests in 0.576s
 
 FAILED (errors=1)

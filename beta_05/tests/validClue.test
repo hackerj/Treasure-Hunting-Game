@@ -1,0 +1,6 @@
+All characters are separated by tabs.
+command		landmark	x	y	text	hints
+
+addClue		city1	-1	1		clue1		clue1 hint
+addClue		city2	2	-2		clue2		clue2 hint
+addClue		city2	2	-2		clue2		clue2 hint

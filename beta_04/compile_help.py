@@ -15,7 +15,7 @@ from distutils.core import setup
 import py2exe
 from os.path import walk, normpath
 
-buildLoc = normpath("../../builds/Mapmaster02")
+buildLoc = normpath("../../builds/Mapmaster04")
 
 fileList = []
 fileList += [('imageformats',
@@ -31,7 +31,9 @@ fileList += [("", ["C:\Python27\Lib\site-packages\pygame\SDL_ttf.dll",
 
 fileList += [("", ["COPYING.txt", "README","icon_medium.ico"])]
 
-fileList += [("saves", ["saves\save1.save"])]
+fileList += [("saves", ["saves\save1.save",
+                        "saves\story.clue",
+                        "saves\places.loc"])]
 
 
 def addFileRoot(a , dirname, filenames):
