@@ -432,6 +432,51 @@ class Gui(object):
         self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         
+        
+###########################being work in score                
+        # score page
+        self.scorePage = QWidget()
+        self.scorePage.setObjectName("scorePage")
+        self.scoreLabel = QLabel(self.scorePage)
+        self.scoreLabel.setStyleSheet(self.fg)
+        self.scoreLabel.setGeometry(QtCore.QRect(260, 30, 280, 60))
+        font.setPointSize(36)
+        self.scoreLabel.setFont(font)
+        self.scoreLabel.setText(QApplication.translate("MainWindow", 
+                                  "Scores", None, QApplication.UnicodeUTF8))
+        self.scoreLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.scoreLabel.setObjectName("scoreLabel")
+        self.scores = QLabel(self.scorePage)
+        self.scores.setStyleSheet(self.fg)
+        self.scores.setGeometry(QtCore.QRect(180, 150, 500, 400))
+        font.setPointSize(20)
+        self.scores.setFont(font)
+        self.scores.setText("Here is your score...")
+        self.scores.setAlignment(
+                QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.scores.setObjectName("scores")
+        #self.doneButton3 = QPushButton(self.creditsPage)
+        #self.doneButton3.setStyleSheet(self.fgb)
+        #self.doneButton3.setGeometry(QtCore.QRect(600, 520, 161, 61))
+        #self.doneButton3.setText(QApplication.translate("MainWindow", 
+         #                       "Done", None, QApplication.UnicodeUTF8))
+        #self.doneButton3.setObjectName("doneButton3")
+        #font.setPointSize(15)
+        #self.doneButton3.setFont(font)
+        self.stackedWidget.addWidget(self.scorePage)
+        
+        
+        
+        
+        
+        
+        
+        
+###########################################end working on score        
+        
+        
+        
+        
         #Menu bar
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 818, 25))

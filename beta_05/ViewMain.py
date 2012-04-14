@@ -8,7 +8,7 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
 from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap
-from PyQt4.QtCore import Qt, QTimeLine
+from PyQt4.QtCore import Qt, QTimeLine, QTimer
 from Globals import *
 from os.path import normpath, isfile
 from Gui import Gui
@@ -244,9 +244,15 @@ class ViewMain(QMainWindow):
                 self.popupMessage(clueResult[1], 3*ONE_SECOND)
                 self.gui.soundManager.playSound("failure")
             elif clueResult[0] == 'GameOver':
-                self.popupMessage(clueResult[1], 3*ONE_SECOND)
+                self.popupMessage(clueResult[1], 5*ONE_SECOND)
+                QTimer.singleShot(4*ONE_SECOND, self.scoreWidget)
+                
             else:
                 None
+                
+    def scoreWidget(self):
+        """change to score widget"""
+        self.setStackWidgetIndex(self.SCORE_PAGE)
         
     def drawPopup(self, value):
         debug("Called drawPopup")
