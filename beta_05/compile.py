@@ -9,18 +9,11 @@
 
 #Repace Dirs with a meaningfull command when I get back to my room.
 
-from os import popen3
-from time import sleep
+from subprocess import call
 
 def main():
-    fi,fo,fe = popen3("C:\Python27\python compile_help.py py2exe")
+    print "Be patient. It takes a few seconds to finish."
+    call('C:\Python27\python compile_help.py py2exe 1> compile.out 2> compile.err', shell=True)
     
-    for i in fe.xreadlines():
-        print "error> ",i
-    for i in fo.readlines():
-        print 'stdout> ',i,
-
 if __name__ == '__main__':
     main()
-
-    "C:\Python27\python compile_help.py py2exe\r"

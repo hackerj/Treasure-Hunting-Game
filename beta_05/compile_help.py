@@ -24,28 +24,8 @@ from distutils.core import setup
 import py2exe
 from os.path import walk, normpath
 
-buildLoc = normpath("../../builds/Mapmaster04")
-
-fileList = []
-fileList += [('imageformats',
-             ['C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats'
-              '\qico4.dll',
-              'C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats'
-              '\qmng4.dll',
-              ])]
-
-fileList += [("", ["C:\Python27\Lib\site-packages\pygame\SDL_ttf.dll",
-                   "C:\Python27\Lib\site-packages\pygame\SDL_mixer.dll",
-                   "C:\Python27\Lib\site-packages\pygame\libogg-0.dll"]),]
-
-fileList += [("", ["COPYING.txt", "README","icon_medium.ico"])]
-
-fileList += [("saves", ["saves\save1.save",
-                        "saves\story.clue",
-                        "saves\places.loc"])]
-
-
 def addFileRoot(a , dirname, filenames):
+    """Same as add file except it creates the files in the root"""
     global fileList
     tempList = []
     for name in filenames:
@@ -55,6 +35,7 @@ def addFileRoot(a , dirname, filenames):
     fileList += [("", tempList)]
 
 def addFile(a , dirname, filenames):
+    """For Adding files to folder of same name in distribution directory"""
     global fileList
     tempList = []
     for name in filenames:
@@ -63,19 +44,53 @@ def addFile(a , dirname, filenames):
         tempList.append(path)
     fileList += [(dirname, tempList)]
 
+# Paths we will need later
+
+buildLoc = normpath("../../builds/Mapmaster04")
+icon_path = ".\icon_medium.ico"
+
+# List for all extra files that need to be Added
+fileList = []
+
+# Add Image DLLs
+fileList += [('imageformats',
+             ['C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats'
+              '\qico4.dll',
+              'C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats'
+              '\qmng4.dll',
+              ])]
+
+# Add Pygame DLLs
+fileList += [("", ["C:\Python27\Lib\site-packages\pygame\SDL_ttf.dll",
+                   "C:\Python27\Lib\site-packages\pygame\SDL_mixer.dll",
+                   "C:\Python27\Lib\site-packages\pygame\libogg-0.dll"]),]
+
+# Add Licence Agreement Readme and Application Icon
+fileList += [("", ["COPYING.txt", "README","icon_medium.ico"])]
+
+# Add save data
+fileList += [("saves", ["saves\save1.save",
+                        "saves\story.clue",
+                        "saves\places.loc"])]
+
+# Add all the images, sounds and dlls
 walk('images', addFile, None)
 walk('sounds', addFile, None)
 walk('dlls', addFileRoot, None)
 
+# Sip Library is needed
 includes = ["sip"]
+
+# Ignore libraries that are not needed
 excludes = ['_gtkagg', '_tkagg', 'bsddb', 'curses', 'email', 'pywin.debugger',
             'pywin.debugger.dbgcon', 'pywin.dialogs', 'tcl','numpy'
             'Tkconstants', 'Tkinter']
 
-#print fileList
 
+
+# Actually Build the Game
 setup(windows=[{"script" : "MapMaster.pyw",
-               "icon_resources" : [(1, normpath("./icon_medium.ico"))]}],
+                "icon_resources":[(1, icon_path)]}],
       data_files = fileList,
       options = {"py2exe" : {"includes"   : includes,
                              "excludes"   : excludes,
