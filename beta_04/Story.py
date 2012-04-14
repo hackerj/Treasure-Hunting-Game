@@ -118,7 +118,6 @@ class Story(QObject):
                     clues = filter(lambda x: x!="", loadClues)
                     self.addClues(clues)
             nextLine = filedata.readline()
-        
             
     def addClues(self,obj):
         """add new clues to the clueStack"""    
@@ -135,7 +134,5 @@ class Story(QObject):
         clue['text'] = obj[4].replace('\\n ', '\n') # ensure proper formate
         clue['hint'] = obj[5][:-1].replace('\\n ', '\n') #get rid of the return
         self._clueList.append(clue)
-            
-   
-   
+
    

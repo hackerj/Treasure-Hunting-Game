@@ -55,7 +55,8 @@ class ViewMain(QMainWindow):
         self.popupTimelineWait = QTimeLine()
         self.popupTimelineWait.setFrameRange(0,100)
         self.popupClue = False
-
+        
+        self.toMain = False
         #self.gui.personView.centerOn(0,0)
         #self.gui.mapView.centerOn(0,0)
         
@@ -126,16 +127,18 @@ class ViewMain(QMainWindow):
             #Should be something here later
     
     def loadFileDialog(self):
+        
         fd = QFileDialog()
         filename = fd.getOpenFileName(None, "Load Saved Game",
                                       "saves", "MapMaster Save files (*.save)")
+        
         if isfile(filename):
             self.setStackWidgetIndex(self.GAME_PAGE)
-           
-            self.game = Game()
+            self.game = Game() 
             self.connectGame()
+            self.game.load(filename)
             debug("Initializing the saved game...")
-            self.game.load(filename) 
+            
             
             self.overlays['latLongOverlay'] = self.addOverlay(
                         normpath("images/latOverlay.png"))
@@ -148,15 +151,20 @@ class ViewMain(QMainWindow):
             self.gui.clueView.setText(self.game.story.currClue['text'])
             self.gui.stackIndex = self.GAME_PAGE
 
-    def saveFileDialog(self):
+    def saveFileDialog(self,toMain = False):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
                                                "MapMaster Save files (*.save)")
         if filename == "":
-            filename = "saves/temp.save"
+            if toMain:
+                self.setStackWidgetIndex(self.MAIN_PAGE)                
+            else:
+                return False
         else:
             if ".save" not in filename:
+                debug(".save is not in the file, add one..")
                 filename = filename + ".save"
-        self.game.save(filename)    
+            debug("correctly save data to file...",filename)
+            self.game.save(filename)    
                
                         
     def newGame(self):
@@ -170,8 +178,6 @@ class ViewMain(QMainWindow):
         self.connectGame()
         self.game.new()
         debug("Starting a new game")
-
-        self.gui.mapView
         
         self.overlays['latLongOverlay'] = self.addOverlay(
                         normpath("images/latOverlay.png"))
@@ -185,7 +191,7 @@ class ViewMain(QMainWindow):
         self.setStackWidgetIndex(self.GAME_PAGE)
         
     def setMain(self):
-        self.saveFileDialog()
+        self.saveFileDialog(self.toMain)
         self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
         self.setStackWidgetIndex(self.MAIN_PAGE)
         self.gui.stackIndex = self.MAIN_PAGE
@@ -301,9 +307,12 @@ class ViewMain(QMainWindow):
         elif ret == QMessageBox.Cancel:
             event.ignore()
         else:
-            self.saveFileDialog()
-            print "Accepting close event"
-            event.accept()
+            if (self.saveFileDialog() == False):
+                debug("Not quit yet, go back to game...")
+                event.ignore()
+            else:
+                print "Accepting close event"
+                event.accept()
 
     def addGraphicsObject(self, name, xval, yval, objType):
         """Add graphics object to the person veiw and map view properly and

@@ -51,7 +51,6 @@ class Places(QObject):
                         pass
                 else:
                     debug("Places...loading loc line ",n," is an invalid input!")
-
             nextLine = locData.readline()
             n+=1
             itemName = ""       
@@ -66,7 +65,6 @@ class Places(QObject):
         if(obj[0] not in self.OBJ_COMMANDS):
             debug(obj[0], " Places...loading loc.... has an invalid command")
             return False
-        
         if(obj[1] not in self.TYPES):
             debug(obj[1], " Places...loading loc.... has an invalid obj type")
             return False

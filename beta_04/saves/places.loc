@@ -21,17 +21,16 @@ addLoc grass 2048  0     grass13
 addLoc grass 2048  -1024 grass14
              
 addLoc grass 2048  -2048 grass15
-addLoc grass 0  -2048 grass16
 addLoc grass 1024  -2048 grass17
-addLoc grass -2048  2048 grass18
-addLoc grass 0  2048 grass19
-addLoc grass -1024  2048 grass20
+addLoc grass -2048  -2048 grass18
+addLoc grass -1024  -2048 grass19
+addLoc grass 0  -2048 grass20
+
 addLoc grass 2048  2048 grass21
-addLoc grass 0  2048 grass22
-addLoc grass 1024  2048 grass23
-addLoc grass -2048  2048 grass24
-addLoc grass 0  2048 grass25
-addLoc grass -1024  2048 grass26
+addLoc grass 1024  2048 grass22
+addLoc grass -2048  2048 grass23
+addLoc grass 0  2048 grass24
+addLoc grass -1024  2048 grass25
 
 #Background Texture for Map View
 addLoc mapBG 0 0 mapBG

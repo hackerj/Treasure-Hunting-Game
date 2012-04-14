@@ -66,6 +66,7 @@ class Gui(object):
         #Main Menu page
         self.menuPage = QWidget()
         self.menuPage.setObjectName("menuPage")
+        
         self.startButton = QPushButton(self.menuPage)
         self.startButton.setStyleSheet(self.fgb)
         self.startButton.setGeometry(QtCore.QRect(600, 200, 180, 60))
@@ -73,6 +74,7 @@ class Gui(object):
                                  "Start Game", None, QApplication.UnicodeUTF8))
         self.startButton.setObjectName("startButton")
         font.setPointSize(15)
+        
         self.startButton.setFont(font)
         self.loadButton = QPushButton(self.menuPage)
         self.loadButton.setStyleSheet(self.fgb)
@@ -81,6 +83,7 @@ class Gui(object):
                                 "Load Game", None, QApplication.UnicodeUTF8))
         self.loadButton.setObjectName("loadButton")
         self.loadButton.setFont(font)
+        
         self.settingsButton = QPushButton(self.menuPage)
         self.settingsButton.setStyleSheet(self.fgb)
         self.settingsButton.setGeometry(QtCore.QRect(600, 440, 180, 60))
@@ -88,6 +91,7 @@ class Gui(object):
                                    "Settings", None, QApplication.UnicodeUTF8))
         self.settingsButton.setObjectName("settingsButton")
         self.settingsButton.setFont(font)
+        
         self.quitButton = QPushButton(self.menuPage)
         self.quitButton.setStyleSheet(self.fgb)
         self.quitButton.setGeometry(QtCore.QRect(600, 520, 180, 60))
@@ -95,6 +99,7 @@ class Gui(object):
                                 "Quit", None, QApplication.UnicodeUTF8))
         self.quitButton.setObjectName("quitButton")
         self.quitButton.setFont(font)
+        
         self.instrButton = QPushButton(self.menuPage)
         self.instrButton.setStyleSheet(self.fgb)
         self.instrButton.setGeometry(QtCore.QRect(600, 360, 180, 60))
