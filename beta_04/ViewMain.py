@@ -155,10 +155,7 @@ class ViewMain(QMainWindow):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
                                                "MapMaster Save files (*.save)")
         if filename == "":
-            if toMain:
-                self.setStackWidgetIndex(self.MAIN_PAGE)                
-            else:
-                return False
+            return False
         else:
             if ".save" not in filename:
                 debug(".save is not in the file, add one..")
@@ -191,10 +188,12 @@ class ViewMain(QMainWindow):
         self.setStackWidgetIndex(self.GAME_PAGE)
         
     def setMain(self):
-        self.saveFileDialog(self.toMain)
-        self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
-        self.setStackWidgetIndex(self.MAIN_PAGE)
-        self.gui.stackIndex = self.MAIN_PAGE
+        if (self.saveFileDialog() == False):
+            pass
+        else:
+            self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
+            self.setStackWidgetIndex(self.MAIN_PAGE)
+            self.gui.stackIndex = self.MAIN_PAGE
         
     def setStackWidgetIndex(self, index):
         if index == self.MAIN_PAGE:
