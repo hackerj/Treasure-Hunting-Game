@@ -3,7 +3,7 @@
 Map Master Game
 ---------------
 Authors: MI Maps Team, CS121-SoftwareDevelopment, Harvey Mudd College
-Version: 0.4 using PyQt4.9
+Version: 0.5 using PyQt4.9
 Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
@@ -274,10 +274,8 @@ class ViewMain(QMainWindow):
         debug("Entered popupWait")
         self.popupTimelineWait.start()
         
-    # FIXME This needs time actions
     def handleClueResult(self, action, text):
         if action == 'ClueFound':
-            #self.popupMessage("You found a clue!", 2000)
             self.gui.clueView.setText(text)
             self.gui.scoreBox.setText(`self.game.story.score`)
         elif action == 'GameOver':
