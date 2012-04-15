@@ -21,6 +21,7 @@ from Story import Story             # Manages Clues and serves Actions
 from Places import Places           # Manages Location Objects
 from Loc import Loc                 # Location Objects
 
+from operator import itemgetter
 
 class Game(QObject):
     """Container to hold one new or loaded game instance"""
@@ -44,6 +45,7 @@ class Game(QObject):
         
         # Store player's name
         self.playerName = ""
+        self.scoreList = []
         
     def new(self):
         """Load new game from file"""
@@ -106,6 +108,22 @@ class Game(QObject):
             debug("Invalid position input in save file")
             return False
         return True
+    
+    def loadScores(self, filename = "saves/player.score"):
+        """load highest score from file"""
+        scoreData = open(filename)    
+        nextLine = scoreData.readline()
+        # Parsing saved file
+        while (nextLine):
+            prevScore = nextLine.split()
+            if (len(prevScore) == 2):
+                loadedName = prevScore[0]
+                loadedScore = prevScore[1]
+                self.scoreList.append((loadedName, loadedScore))
+            nextLine = scoreData.readline()       
+        scoreData.close()
+        sorted(self.scoreList, key = itemgetter(1)) # sorted previous player by scor
+        
         
     def save(self, filename):
         """Save to file"""
