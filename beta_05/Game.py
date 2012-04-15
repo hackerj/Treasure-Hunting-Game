@@ -73,14 +73,13 @@ class Game(QObject):
         # Parsing saved file
         while (nextLine):
             line = nextLine.split()
-            if (len(line) == 4 and self.loadIsValid(line)):
+            if (len(line) == 5 and self.loadIsValid(line)):
                 x = int(line[0])
                 y = int(line[1])
                 numClues = int(line[2])+1
                 self.story._clueList =  self.story._clueList[:numClues]
                 self.story.score = int(line[3])
-                debug("x: " + `x` + " y: " + `y` + " numCLue: " + `len(self.story._clueList)` + \
-                      " score is: " + `int(line[3])`)
+                debug("x: " + `x` + " y: " + `y` + " numCLue: " + `len(self.story._clueList)` + " score is: " + `int(line[3])` +" name is " + line[4])
             nextLine = savedData.readline()       
         savedData.close()
         self.story.currClue = self.story._clueList.pop()
