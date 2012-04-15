@@ -125,6 +125,25 @@ class ViewMain(QMainWindow):
         """Set widget to main menu after winning the game"""
         self.setStackWidgetIndex(self.MAIN_PAGE)
         self.gui.stackIndex = self.MAIN_PAGE
+        
+    def scoreWidget(self):
+        """change to score widget"""
+        self.game.loadScores()
+        text = "Congratulations "+ self.game.playerName+ "\nYou win the game!!\n"
+        self.displayHighScores(text)
+        self.setStackWidgetIndex(self.SCORE_PAGE)
+    
+    def displayHighScores(self,text):
+        """After player wins the game, we want to display
+           the 10th high scores on screen
+        """
+        
+        while(self.game.scoreList):
+            prevPlayer = self.game.scoreList.pop()
+            debug("length of scoreList is ..." + `len(self.game.scoreList)`)
+            text = text + prevPlayer[0] + "  ......................  " + prevPlayer[1] + "\n"
+        self.gui.scores.setText(text)
+    
     
     def enterName(self):
         """Name enter dialog"""
@@ -209,7 +228,7 @@ class ViewMain(QMainWindow):
         reply.setWindowTitle("Back to Main")
         reply.setText(quit_msg)
         reply.setStandardButtons(
-             QMessageBox.Ok |QMessageBox.Save |  QMessageBox.Cancel)
+             QMessageBox.Ok | QMessageBox.Save |  QMessageBox.Cancel)
         reply.setDefaultButton(QMessageBox.Save)
         ret = reply.exec_()
         
@@ -232,6 +251,7 @@ class ViewMain(QMainWindow):
                 self.gui.stackIndex = self.MAIN_PAGE
         
     def setStackWidgetIndex(self, index):
+        """Allow to switch between widgets."""
         if index == self.MAIN_PAGE:
             self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
         else:
@@ -242,6 +262,7 @@ class ViewMain(QMainWindow):
         self.gui.soundManager.switchSongs(index)
     
     def latLong(self):
+        """Turn on/off latitude graphic overlays in the mapView"""
         if self.gui.latLongCheck.isChecked():
             debug("Lat/long overlay on")
         else:
@@ -250,6 +271,7 @@ class ViewMain(QMainWindow):
                                         self.gui.latLongCheck.isChecked())
     
     def colorize(self):
+        """Turn on/off color coding graphic overlays in the mapView"""
         if self.gui.colorCheck.isChecked():
             debug("Color overlay on")
         else:
@@ -258,6 +280,7 @@ class ViewMain(QMainWindow):
                                         self.gui.colorCheck.isChecked())
                                         
     def legend(self):
+        """Turn on/off legend graphic overlays in the mapView"""
         if self.gui.legendCheck.isChecked():
             debug("Legend overlay on")
         else:
@@ -266,6 +289,7 @@ class ViewMain(QMainWindow):
                                         self.gui.legendCheck.isChecked())
 
     def setVol(self):
+        """Set volumn level for the game"""
         self.gui.soundManager.setVolume(self.gui.volumeSlider.sliderPosition())
         
     def doSearch(self):
@@ -287,15 +311,11 @@ class ViewMain(QMainWindow):
                 self.popupMessage(clueResult[1], 3*ONE_SECOND)
                 self.gui.soundManager.playSound("failure")
             elif clueResult[0] == 'GameOver':
-                self.popupMessage(clueResult[1], 5*ONE_SECOND)
-                QTimer.singleShot(4*ONE_SECOND, self.scoreWidget)  
+                self.popupMessage(clueResult[1], 5*ONE_SECOND) 
+                QTimer.singleShot(4*ONE_SECOND, self.scoreWidget)
+                scoreFile = open("saves/player.score","a")  
             else:
                 None
-                
-    def scoreWidget(self):
-        """change to score widget"""
-        self.setStackWidgetIndex(self.SCORE_PAGE)
-        
     def drawPopup(self, value):
         debug("Called drawPopup")
         self.gui.popupImage.setOpacity(value/100.0)
@@ -379,7 +399,6 @@ class ViewMain(QMainWindow):
         
         self.game.places.locList[str(name)].emitter()
         
-        #self.graphicsObjects.append(graphic)
     def updateGraphicsObject(self, xpos, ypos, name):
         #debug("Updating the graphics object")
         self.graphicsObjects[name].update(xpos, ypos)
