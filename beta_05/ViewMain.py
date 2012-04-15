@@ -7,7 +7,7 @@ Version: 0.5 using PyQt4.9
 Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
-from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap, QLineEdit, QInputDialog
+from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap, QInputDialog
 from PyQt4.QtCore import Qt, QTimeLine, QTimer
 from Globals import *
 from os.path import normpath, isfile
@@ -85,6 +85,7 @@ class ViewMain(QMainWindow):
         self.gui.instrButton.released.connect(self.setInstructions)
         self.gui.doneButton2.released.connect(self.goBack)
         self.gui.doneButton3.released.connect(self.goBack)
+        self.gui.doneButtonScore.released.connect(self.finishGame)
         self.gui.actionCredits.triggered.connect(self.setCredits)
         self.gui.latLongCheck.stateChanged.connect(self.latLong)
         self.gui.colorCheck.stateChanged.connect(self.colorize)
@@ -119,11 +120,16 @@ class ViewMain(QMainWindow):
             self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
             #Should be something here later
     
+    
+    def finishGame(self):
+        """Set widget to main menu after winning the game"""
+        self.setStackWidgetIndex(self.MAIN_PAGE)
+    
     def enterName(self):
         """Name enter dialog"""
         playerName, ok = QInputDialog.getText(self, 'Enter Name Dialog', 
             'Enter your name:')
-        
+
         if ok and playerName!="":
             self.newGame(playerName)
         else:

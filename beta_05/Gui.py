@@ -455,27 +455,16 @@ class Gui(object):
         self.scores.setAlignment(
                 QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.scores.setObjectName("scores")
-        #self.doneButton3 = QPushButton(self.creditsPage)
-        #self.doneButton3.setStyleSheet(self.fgb)
-        #self.doneButton3.setGeometry(QtCore.QRect(600, 520, 161, 61))
-        #self.doneButton3.setText(QApplication.translate("MainWindow", 
-         #                       "Done", None, QApplication.UnicodeUTF8))
-        #self.doneButton3.setObjectName("doneButton3")
-        #font.setPointSize(15)
-        #self.doneButton3.setFont(font)
+        self.doneButtonScore = QPushButton(self.scorePage)
+        self.doneButtonScore.setStyleSheet(self.fgb)
+        self.doneButtonScore.setGeometry(QtCore.QRect(600, 520, 161, 61))
+        self.doneButtonScore.setText(QApplication.translate("MainWindow", 
+                                "Done", None, QApplication.UnicodeUTF8))
+        self.doneButtonScore.setObjectName("doneButtonScore")
+        font.setPointSize(15)
+        self.doneButtonScore.setFont(font)
         self.stackedWidget.addWidget(self.scorePage)
-        
-        
-        
-        
-        
-        
-        
-        
-###########################################end working on score        
-        
-        
-        
+       
         
         #Menu bar
         self.menubar = QMenuBar(MainWindow)
