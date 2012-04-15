@@ -115,8 +115,9 @@ class Game(QObject):
         score = `self.story.score`
         numClues = `len(self.story._clueList)`
         charX, charY = self.character.getCenter()
-        toWriteList = '\t' + `charX` + '\t' + `charY` + '\t' + \
-                        numClues + '\t' + score + self.playerName
+        name = self.playerName
+        toWriteList = '\t' + `charX` + '\t' + `charY` + '\t' \
+                       + numClues + '\t'+ score + '\t'+ name
         fname.write(toWriteList)     
         fname.close()
     
