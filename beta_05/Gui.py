@@ -432,9 +432,7 @@ class Gui(object):
         self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         
-        
-###########################being work in score                
-        # score page
+        # Score Page after player wins the game..
         self.scorePage = QWidget()
         self.scorePage.setObjectName("scorePage")
         self.scorePageLabel = QLabel(self.scorePage)
@@ -451,10 +449,10 @@ class Gui(object):
         self.scores.setGeometry(QtCore.QRect(180, 150, 500, 400))
         font.setPointSize(20)
         self.scores.setFont(font)
-        self.scores.setText("Here is your score...")
         self.scores.setAlignment(
                 QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.scores.setObjectName("scores")
+        
         self.doneButtonScore = QPushButton(self.scorePage)
         self.doneButtonScore.setStyleSheet(self.fgb)
         self.doneButtonScore.setGeometry(QtCore.QRect(600, 520, 161, 61))
