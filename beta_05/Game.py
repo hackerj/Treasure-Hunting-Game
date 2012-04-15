@@ -60,7 +60,6 @@ class Game(QObject):
         self.gameTime = QTime()
         self.launch()
         
-        
     def load(self,filename):
         """Load existing game from file"""
         
@@ -94,7 +93,7 @@ class Game(QObject):
         self.gameTime = QTime()
         #self.frameTimer = QTimer() # Create Frame Timer
         self.launch()
-    
+      
     def loadIsValid(self,obj):
         """Check that the input from saved file is valid"""         
         posx = obj[0]
@@ -107,7 +106,7 @@ class Game(QObject):
             debug("Invalid position input in save file")
             return False
         return True
-    
+        
     def save(self, filename):
         """Save to file"""
         fname = open(filename, "w")
@@ -119,7 +118,7 @@ class Game(QObject):
                        + numClues + '\t'+ score + '\t'+ name
         fname.write(toWriteList)     
         fname.close()
-    
+            
     def endGame(self):
         """Make things tidy for another game instance"""
         # Signal that we have won the game and should
