@@ -152,6 +152,7 @@ class ViewMain(QMainWindow):
 
             self.gui.scoreBox.setText((str)(self.game.story.score))
             self.gui.clueView.setText(self.game.story.currClue['text'])
+            self.gui.stackIndex = self.GAME_PAGE
 
     def saveFileDialog(self,toMain = False):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
@@ -172,6 +173,7 @@ class ViewMain(QMainWindow):
     def newGame(self, playerName = ""):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         self.setStackWidgetIndex(self.STORY_PAGE)
+        self.gui.stackIndex = self.STORY_PAGE
         
         # Create game instance and start the game
         self.game = Game()
@@ -300,7 +302,7 @@ class ViewMain(QMainWindow):
         
     def keyPressEvent(self, event):
         """Get keyboard events no matter what widget has focus"""
-        if self.game:
+        if self.game and (self.gui.stackIndex == self.GAME_PAGE):
             self.game.keyPress(event)
     
     def keyReleaseEvent(self, event):
