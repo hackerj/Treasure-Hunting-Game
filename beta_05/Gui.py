@@ -483,6 +483,7 @@ class Gui(object):
         self.actionCredits.setText(QApplication.translate("MainWindow", 
                                    "Credits", None, QApplication.UnicodeUTF8))
         self.actionCredits.setObjectName("actionCredits")
+        
         self.actionQuit = QAction(MainWindow)
         self.actionQuit.setText(QApplication.translate("MainWindow", 
                                 "Quit", None, QApplication.UnicodeUTF8))
