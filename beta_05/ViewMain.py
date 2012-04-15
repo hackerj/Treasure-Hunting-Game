@@ -192,6 +192,7 @@ class ViewMain(QMainWindow):
         
     def storyButton(self):
         self.setStackWidgetIndex(self.GAME_PAGE)
+        self.gui.stackIndex = self.GAME_PAGE
         
     def setMain(self):
         self.saveFileDialog(self.toMain)
