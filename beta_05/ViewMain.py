@@ -85,7 +85,7 @@ class ViewMain(QMainWindow):
         self.gui.instrButton.released.connect(self.setInstructions)
         self.gui.doneButton2.released.connect(self.goBack)
         self.gui.doneButton3.released.connect(self.goBack)
-        self.gui.doneButtonScore.released.connect(self.finishGame)
+        self.gui.doneButtonScore.released.connect(self.scoreButton)
         self.gui.actionCredits.triggered.connect(self.setCredits)
         self.gui.latLongCheck.stateChanged.connect(self.latLong)
         self.gui.colorCheck.stateChanged.connect(self.colorize)
@@ -121,9 +121,10 @@ class ViewMain(QMainWindow):
             #Should be something here later
     
     
-    def finishGame(self):
+    def scoreButton(self):
         """Set widget to main menu after winning the game"""
         self.setStackWidgetIndex(self.MAIN_PAGE)
+        self.gui.stackIndex = self.MAIN_PAGE
     
     def enterName(self):
         """Name enter dialog"""
@@ -162,19 +163,16 @@ class ViewMain(QMainWindow):
 
     def saveFileDialog(self,toMain = False):
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
-                                               "MapMaster Save files (*.save)")
+                                               "MapMaster Save files (*.save)")        
         if filename == "":
-            if toMain:
-                self.setStackWidgetIndex(self.MAIN_PAGE)                
-            else:
-                return False
+            return False
         else:
             if ".save" not in filename:
                 debug(".save is not in the file, add one..")
                 filename = filename + ".save"
             debug("correctly save data to file...",filename)
             self.game.save(filename)    
-               
+              
                         
     def newGame(self, playerName = ""):
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
@@ -201,12 +199,14 @@ class ViewMain(QMainWindow):
     def storyButton(self):
         self.setStackWidgetIndex(self.GAME_PAGE)
         self.gui.stackIndex = self.GAME_PAGE
-        
+       
     def setMain(self):
-        self.saveFileDialog(self.toMain)
-        self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
-        self.setStackWidgetIndex(self.MAIN_PAGE)
-        self.gui.stackIndex = self.MAIN_PAGE
+        if (self.saveFileDialog() == False):
+            pass
+        else:
+            self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
+            self.setStackWidgetIndex(self.MAIN_PAGE)
+            self.gui.stackIndex = self.MAIN_PAGE
         
     def setStackWidgetIndex(self, index):
         if index == self.MAIN_PAGE:
@@ -265,8 +265,7 @@ class ViewMain(QMainWindow):
                 self.gui.soundManager.playSound("failure")
             elif clueResult[0] == 'GameOver':
                 self.popupMessage(clueResult[1], 5*ONE_SECOND)
-                QTimer.singleShot(4*ONE_SECOND, self.scoreWidget)
-                
+                QTimer.singleShot(4*ONE_SECOND, self.scoreWidget)  
             else:
                 None
                 

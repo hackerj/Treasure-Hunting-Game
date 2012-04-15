@@ -437,15 +437,15 @@ class Gui(object):
         # score page
         self.scorePage = QWidget()
         self.scorePage.setObjectName("scorePage")
-        self.scoreLabel = QLabel(self.scorePage)
-        self.scoreLabel.setStyleSheet(self.fg)
-        self.scoreLabel.setGeometry(QtCore.QRect(260, 30, 280, 60))
+        self.scorePageLabel = QLabel(self.scorePage)
+        self.scorePageLabel.setStyleSheet(self.fg)
+        self.scorePageLabel.setGeometry(QtCore.QRect(260, 30, 280, 60))
         font.setPointSize(36)
-        self.scoreLabel.setFont(font)
-        self.scoreLabel.setText(QApplication.translate("MainWindow", 
+        self.scorePageLabel.setFont(font)
+        self.scorePageLabel.setText(QApplication.translate("MainWindow", 
                                   "Scores", None, QApplication.UnicodeUTF8))
-        self.scoreLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.scoreLabel.setObjectName("scoreLabel")
+        self.scorePageLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.scorePageLabel.setObjectName("scorePageLabel")
         self.scores = QLabel(self.scorePage)
         self.scores.setStyleSheet(self.fg)
         self.scores.setGeometry(QtCore.QRect(180, 150, 500, 400))
