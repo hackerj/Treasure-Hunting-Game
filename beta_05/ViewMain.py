@@ -199,14 +199,37 @@ class ViewMain(QMainWindow):
     def storyButton(self):
         self.setStackWidgetIndex(self.GAME_PAGE)
         self.gui.stackIndex = self.GAME_PAGE
-       
+
     def setMain(self):
-        if (self.saveFileDialog() == False):
-            pass
-        else:
+        """Create a message box when player want to go back to main menu
+           from the middle of the game. Make sure that player save the game.
+        """
+        quit_msg = "Go back to Main Menu will lose all the game, are you sure?"
+        reply = QMessageBox()
+        reply.setWindowTitle("Back to Main")
+        reply.setText(quit_msg)
+        reply.setStandardButtons(
+             QMessageBox.Ok |QMessageBox.Save |  QMessageBox.Cancel)
+        reply.setDefaultButton(QMessageBox.Save)
+        ret = reply.exec_()
+        
+        if ret == QMessageBox.Ok:
+            debug( "Go back to main menu" )
             self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
             self.setStackWidgetIndex(self.MAIN_PAGE)
             self.gui.stackIndex = self.MAIN_PAGE
+        elif ret == QMessageBox.Cancel:
+            debug("cancel back to main menu action...")
+            pass
+        else:
+            if (self.saveFileDialog() == False):
+                debug("Not save yet, go back to game...")
+                pass
+            else:
+                debug("save and back to main menu...")
+                self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
+                self.setStackWidgetIndex(self.MAIN_PAGE)
+                self.gui.stackIndex = self.MAIN_PAGE
         
     def setStackWidgetIndex(self, index):
         if index == self.MAIN_PAGE:
