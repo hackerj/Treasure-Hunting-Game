@@ -145,7 +145,7 @@ class ViewMain(QMainWindow):
     def scoreWidget(self):
         """change to score widget"""
         self.game.loadScores()
-        text = "Congratulations "+ self.game.playerName+ "\nYou win the game!!\n"
+        text = "Congratulations "+ self.game.playerName+ "\nYou win the game!!\n\n"
         self.displayHighScores(text)
         self.setStackWidgetIndex(self.SCORE_PAGE)
     
@@ -153,14 +153,12 @@ class ViewMain(QMainWindow):
         """After player wins the game, we want to display
            the 10th high scores on screen
         """
-        
-        while(self.game.scoreList):
-            prevPlayer = self.game.scoreList.pop()
+        for prevPlayer in self.game.scoreList:
+            text = text + prevPlayer[0] + "  ......................  "  + `prevPlayer[1]` + "\n"
             debug("length of scoreList is ..." + `len(self.game.scoreList)`)
-            text = text + prevPlayer[0] + "  ......................  " + prevPlayer[1] + "\n"
         self.gui.scores.setText(text)
-    
-    
+        self.game.saveScores()
+        
     def enterName(self):
         """Name enter dialog"""
         playerName, ok = QInputDialog.getText(self, 'Enter Name Dialog', 

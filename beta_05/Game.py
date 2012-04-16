@@ -80,6 +80,7 @@ class Game(QObject):
                 numClues = int(line[2])+1
                 self.story._clueList =  self.story._clueList[:numClues]
                 self.story.score = int(line[3])
+                self.playerName = line[4]
                 debug("x: " + `x` + " y: " + `y` + " numCLue: " + `len(self.story._clueList)` + " score is: " + `int(line[3])` +" name is " + line[4])
             nextLine = savedData.readline()       
         savedData.close()
@@ -115,10 +116,10 @@ class Game(QObject):
         nextLine = scoreData.readline()
         # Parsing saved file
         while (nextLine):
-            prevScore = nextLine.split()
+            prevScore = nextLine.strip().split(";")
             if (len(prevScore) == 2):
                 loadedName = prevScore[0]
-                loadedScore = prevScore[1]
+                loadedScore = int(prevScore[1])
                 self.scoreList.append((loadedName, loadedScore))
             nextLine = scoreData.readline()       
         scoreData.close()
@@ -136,15 +137,24 @@ class Game(QObject):
             debug("Player score append to scoreList")
             self.scoreList.append((self.playerName, self.story.score))
         else:
-            debug("POp the bad score, and add in player score to file")
+            debug("Pop the bad score, and add in player score to file")
             self.scoreList.pop()
             self.scoreList.append((self.playerName, self.story.score))
-            
+        self.writeScoreToFile()
+        
     def writeScoreToFile(self, filename = "saves/player.score"):
         """Save the 10 highest score to file.."""
-        scoreFile = open(filename, "w")
-        None
-            
+        text = ""
+        if (len(self.scoreList)<=10):
+            scoreFile = open(filename, "w")
+            while (self.scoreList):
+                scores = self.scoreList.pop()
+                text = text + scores[0] + ";" + `scores[1]` + "\n"
+            scoreFile.write(text)
+            scoreFile.close()
+        else:
+            print "Error: Too many scores29 stored in scoreList"
+            return    
         
     def save(self, filename):
         """Save to file"""
