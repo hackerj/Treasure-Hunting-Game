@@ -84,9 +84,9 @@ class Story(QObject):
             self.currAction =  ('ClueFound', 
                     self.currClue['text'])
         else:
-            self.gameStatus = 0
-            self.currAction = ('GameOver', 
-                        "YOU WON!\nBut the game has just begun")
+            self.status = 0
+            #self.currAction = ('GameOver', 
+                        #"YOU WON!\nBut the game has just begun")
         
     def searchResults(self):
         self.timerEnable = False
