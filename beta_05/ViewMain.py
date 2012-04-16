@@ -145,7 +145,7 @@ class ViewMain(QMainWindow):
     def scoreWidget(self):
         """change to score widget"""
         self.game.loadScores()
-        text = "Congratulations "+ self.game.playerName+ ".     You win the game!!"
+        text = "Congratulations "+ self.game.playerName+ ". Your score is "+ `self.game.story.score` + "!!"
         self.gui.scores.setText(text)
         self.displayHighScores()
         self.setStackWidgetIndex(self.SCORE_PAGE)
@@ -172,7 +172,7 @@ class ViewMain(QMainWindow):
             pass
             
     def loadFileDialog(self):
-        
+        """pop up the loading dialog for players to choose saved file"""
         fd = QFileDialog()
         filename = fd.getOpenFileName(None, "Load Saved Game",
                                       "saves", "MapMaster Save files (*.save)")
