@@ -125,7 +125,7 @@ class Game(QObject):
         scoreData.close()
         self.scoreList = sorted(self.scoreList, key = itemgetter(1), reverse = True) # sorted previous player by scor
     
-    def saveScores(self):
+    def savedScores(self):
         """save player's score into top 10 list if the player make it"""
         lowestScore = self.scoreList[-1][1]
         listLen = len(self.scoreList)

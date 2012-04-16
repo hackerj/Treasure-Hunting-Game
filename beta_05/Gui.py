@@ -433,6 +433,7 @@ class Gui(object):
         self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         
+        
         # Score Page after player wins the game..
         self.scorePage = QWidget()
         self.scorePage.setObjectName("scorePage")
@@ -445,18 +446,30 @@ class Gui(object):
                                   "Scores", None, QApplication.UnicodeUTF8))
         self.scorePageLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.scorePageLabel.setObjectName("scorePageLabel")
+        
+        # Display current player's score..
         self.scores = QLabel(self.scorePage)
         self.scores.setStyleSheet(self.fg)
-        self.scores.setGeometry(QtCore.QRect(180, 150, 500, 400))
+        self.scores.setGeometry(QtCore.QRect( 80,120 , 800, 100))
         font.setPointSize(20)
         self.scores.setFont(font)
         self.scores.setAlignment(
                 QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.scores.setObjectName("scores")
         
+        # Display top ten scores
+        self.topTenScores = QLabel(self.scorePage)
+        self.topTenScores.setStyleSheet(self.fg)
+        self.topTenScores.setGeometry(QtCore.QRect(180, 180, 500, 400))
+        font.setPointSize(20)
+        self.topTenScores.setFont(font)
+        self.topTenScores.setAlignment(
+                QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.scores.setObjectName("topTenScores")
+        
         self.doneButtonScore = QPushButton(self.scorePage)
         self.doneButtonScore.setStyleSheet(self.fgb)
-        self.doneButtonScore.setGeometry(QtCore.QRect(600, 520, 161, 61))
+        self.doneButtonScore.setGeometry(QtCore.QRect(600,530, 161, 61))
         self.doneButtonScore.setText(QApplication.translate("MainWindow", 
                                 "Done", None, QApplication.UnicodeUTF8))
         self.doneButtonScore.setObjectName("doneButtonScore")
