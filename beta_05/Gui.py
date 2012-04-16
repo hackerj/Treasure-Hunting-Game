@@ -342,6 +342,7 @@ class Gui(object):
         self.searchInstr.setAutoDefault(False)
         self.searchInstr.setDefault(False)
         self.searchInstr.setFlat(False)
+        self.searchInstr.setFocusPolicy(QtCore.Qt.NoFocus)
         self.searchInstr.setObjectName("searchInstr")
         font.setPointSize(15)
         self.searchInstr.setFont(font)
