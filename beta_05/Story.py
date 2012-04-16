@@ -15,7 +15,6 @@ class Story(QObject):
     
     # Declare Constants to avoid Magic Values
     LANDMARK_RADIUS = 256
-    CLUE_TROUBLE = 1000 * 60 * 5
     LOAD_TIME = 2   #seconds
     CLUE_COMMANDS = {"addClue"} #use to check uploaded file
     
@@ -42,6 +41,7 @@ class Story(QObject):
         self.clueTime = 0
         self.clueTimeEnable = True
         self.FRAME_RATE = frameRate
+        self.CLUE_TROUBLE = self.FRAME_RATE * 60 * 1
         
         
     # Emits clueTrouble if the player has been stuck on a clue for 5 min

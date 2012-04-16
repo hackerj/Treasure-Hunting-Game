@@ -48,6 +48,7 @@ class ViewMain(QMainWindow):
         self.gui.soundManager.playCurrMusic()
         #self.gui.soundManager.setVolume(0)
         
+        # Timer initialization and setup for normal popups
         self.popupTimelineStart = QTimeLine(200)
         self.popupTimelineStart.setFrameRange(0,100)
         self.popupTimelineEnd = QTimeLine(200)
@@ -56,16 +57,15 @@ class ViewMain(QMainWindow):
         self.popupTimelineWait.setFrameRange(0,100)
         self.popupClue = False
         
+        # Initialization and setup for animated popups
         self.popupAnimationOpen = QPropertyAnimation(self.gui.popup,"geometry")
         self.popupAnimationOpen.setDuration(200)
         self.popupAnimationOpen.setStartValue(QRect(0, 591, 0, 0))
         self.popupAnimationOpen.setEndValue(QRect(25, 25, 750, 450))
-        
         self.popupAnimationClose = QPropertyAnimation(self.gui.popup,"geometry")
         self.popupAnimationClose.setDuration(200)
         self.popupAnimationClose.setStartValue(QRect(25, 25, 750, 450))
         self.popupAnimationClose.setEndValue(QRect(0, 591, 0, 0))
-        
         self.popupAnimationWait = QTimeLine()
         
         self.toMain = False
@@ -76,12 +76,14 @@ class ViewMain(QMainWindow):
 ### Signals and slots connected here ###
 ########################################
 
+        # Connections for normal popups
         self.popupTimelineStart.frameChanged.connect(self.drawPopup)
         self.popupTimelineStart.finished.connect(self.popupWait)
         self.popupTimelineEnd.frameChanged.connect(self.erasePopup)   
         self.popupTimelineWait.finished.connect(self.enableErasePopup) 
         self.popupTimelineEnd.finished.connect(self.writeClue)
         
+        # Connections for animated popups
         self.popupAnimationOpen.finished.connect(self.popupAnimationWait.start)
         self.popupAnimationWait.finished.connect(self.popupAnimationClose.start)
         self.popupAnimationClose.finished.connect(self.popupAnimationCleanup)
@@ -114,28 +116,32 @@ class ViewMain(QMainWindow):
         """Connect signals for Game"""
         self.game.places.passLoc.connect(self.addGraphicsObject)
         self.game.frameTimer.timeout.connect(self.frameUpdate)
+        self.game.frameTimer.timeout.connect(self.game.story.frameTime)
+        self.game.story.clueTrouble.connect(self.giveHint)
 
 ########################################
 ###### Custom slots defined here #######
 ########################################
 
     def setSettings(self):
+        """Change to the settings page in the stack widget"""
         self.setStackWidgetIndex(self.SETTINGS_PAGE)
         
     def setInstructions(self):
+        """Change to the instructions page in the stack widget"""
         self.setStackWidgetIndex(self.INSTRUCTIONS_PAGE)
 
     def setCredits(self):
+        """Change to the credits page in the stack widget"""
         self.setStackWidgetIndex(self.CREDITS_PAGE)
         
     def goBack(self):
+        """Return to the last primary page in the stack"""
         self.setStackWidgetIndex(self.gui.stackIndex)
         if self.gui.stackIndex == self.GAME_PAGE:
             self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         else:
             self.gui.background.setPixmap(self.gui.backgroundPixmapMenu)
-            #Should be something here later
-    
     
     def scoreButton(self):
         """Set widget to main menu after winning the game"""
@@ -197,6 +203,7 @@ class ViewMain(QMainWindow):
             self.gui.stackIndex = self.GAME_PAGE
 
     def saveFileDialog(self,toMain = False):
+        """Dialog to save a game"""
         filename = QFileDialog.getSaveFileName(None, "Save Game", "saves", 
                                                "MapMaster Save files (*.save)")        
         if filename == "":
@@ -210,6 +217,7 @@ class ViewMain(QMainWindow):
               
                         
     def newGame(self, playerName = ""):
+        """Start a new game"""
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         self.setStackWidgetIndex(self.STORY_PAGE)
         self.gui.stackIndex = self.STORY_PAGE
@@ -232,6 +240,7 @@ class ViewMain(QMainWindow):
         self.gui.clueView.setText(self.game.story.currClue['text'])
         
     def storyButton(self):
+        """Continue from the story page to the game page"""
         self.setStackWidgetIndex(self.GAME_PAGE)
         self.gui.stackIndex = self.GAME_PAGE
 
@@ -332,6 +341,7 @@ class ViewMain(QMainWindow):
                 scoreFile = open("saves/player.score","a")  
             else:
                 None
+           
     def drawPopup(self, value):
         debug("Called drawPopup")
         self.gui.popupImage.setOpacity(value/100.0)
@@ -358,6 +368,10 @@ class ViewMain(QMainWindow):
             self.gui.clueView.setText(text)
         else:
             None
+            
+    def giveHint(self):
+        text = self.game.story.troubleFindingClue()
+        self.popupMessage(text, 5*ONE_SECOND)
     
     def popupMessage(self, text, time):
         self.gui.popupText.setPlainText(text)
