@@ -1,0 +1,14 @@
+...........F.
+======================================================================
+FAIL: test_loadClues (__main__.LoadLocTests)
+Check if clues are correctly loaded from file
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "AutomatedTests.py", line 154, in test_loadClues
+    self.assertEqual(len(clueList), numClues)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.592s
+
+FAILED (failures=1)
