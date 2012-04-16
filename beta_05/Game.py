@@ -122,8 +122,29 @@ class Game(QObject):
                 self.scoreList.append((loadedName, loadedScore))
             nextLine = scoreData.readline()       
         scoreData.close()
-        sorted(self.scoreList, key = itemgetter(1)) # sorted previous player by scor
+        self.scoreList = sorted(self.scoreList, key = itemgetter(1), reverse = True) # sorted previous player by scor
+    
+    def saveScores(self):
+        """save player's score into top 10 list if the player make it"""
+        lowestScore = self.scoreList[-1][1]
+        listLen = len(self.scoreList)
         
+        if (self.story.score <= lowestScore and listLen > 9):
+            debug("player's score is not high enough to write to file")
+            return
+        elif listLen < 10:
+            debug("Player score append to scoreList")
+            self.scoreList.append((self.playerName, self.story.score))
+        else:
+            debug("POp the bad score, and add in player score to file")
+            self.scoreList.pop()
+            self.scoreList.append((self.playerName, self.story.score))
+            
+    def writeScoreToFile(self, filename = "saves/player.score"):
+        """Save the 10 highest score to file.."""
+        scoreFile = open(filename, "w")
+        None
+            
         
     def save(self, filename):
         """Save to file"""
