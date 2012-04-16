@@ -57,7 +57,6 @@ class Story(QObject):
         if not self.currClue:
             self.currClue['position'] = position
         dist = self.getDistance(position)
-        debug("Timer now enabled")
         if not dist < self.LANDMARK_RADIUS:
             if self.status:
                 self.currAction =  ('ClueFailed',

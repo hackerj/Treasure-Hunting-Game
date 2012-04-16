@@ -8,7 +8,7 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
 from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap, QInputDialog
-from PyQt4.QtCore import Qt, QTimeLine, QTimer
+from PyQt4.QtCore import Qt, QTimeLine, QTimer, QPropertyAnimation, QRect
 from Globals import *
 from os.path import normpath, isfile
 from Gui import Gui
@@ -56,6 +56,18 @@ class ViewMain(QMainWindow):
         self.popupTimelineWait.setFrameRange(0,100)
         self.popupClue = False
         
+        self.popupAnimationOpen = QPropertyAnimation(self.gui.popup,"geometry")
+        self.popupAnimationOpen.setDuration(200)
+        self.popupAnimationOpen.setStartValue(QRect(0, 591, 0, 0))
+        self.popupAnimationOpen.setEndValue(QRect(25, 25, 750, 450))
+        
+        self.popupAnimationClose = QPropertyAnimation(self.gui.popup,"geometry")
+        self.popupAnimationClose.setDuration(200)
+        self.popupAnimationClose.setStartValue(QRect(25, 25, 750, 450))
+        self.popupAnimationClose.setEndValue(QRect(0, 591, 0, 0))
+        
+        self.popupAnimationWait = QTimeLine()
+        
         self.toMain = False
         #self.gui.personView.centerOn(0,0)
         self.gui.mapView.centerOn(0,0)
@@ -69,6 +81,10 @@ class ViewMain(QMainWindow):
         self.popupTimelineEnd.frameChanged.connect(self.erasePopup)   
         self.popupTimelineWait.finished.connect(self.enableErasePopup) 
         self.popupTimelineEnd.finished.connect(self.writeClue)
+        
+        self.popupAnimationOpen.finished.connect(self.popupAnimationWait.start)
+        self.popupAnimationWait.finished.connect(self.popupAnimationClose.start)
+        self.popupAnimationClose.finished.connect(self.popupAnimationCleanup)
     
     def connectGui(self):
         """Connect signals for Gui"""
@@ -304,11 +320,11 @@ class ViewMain(QMainWindow):
             self.handleClueResult(clueResult[0], clueResult[1])
             self.popupClue = False
             if clueResult[0] == 'ClueFound':
-                self.popupMessage(
-                        'You found a clue!\n' + clueResult[1], 5*ONE_SECOND)
+                self.popupMessageAnimated(
+                        'You found a clue!\n' + clueResult[1], 4*ONE_SECOND)
                 self.gui.soundManager.playSound("success")
             elif clueResult[0] == 'ClueFailed':
-                self.popupMessage(clueResult[1], 3*ONE_SECOND)
+                self.popupMessage(clueResult[1], 2*ONE_SECOND)
                 self.gui.soundManager.playSound("failure")
             elif clueResult[0] == 'GameOver':
                 self.popupMessage(clueResult[1], 5*ONE_SECOND) 
@@ -413,3 +429,17 @@ class ViewMain(QMainWindow):
     def frameUpdate(self):
         #debug('Frame update sent to character')
         self.game.character.frameUpdate(self.game.FRAME_RATE)
+
+    def popupMessageAnimated(self, text, time):
+        self.gui.popupText.setPlainText('')
+        self.gui.popup.setGeometry(QRect(0, 591, 0, 0))
+        self.gui.popupImage.setOpacity(1)
+        self.popupAnimationWait.setDuration(time)
+        self.popupAnimationOpen.start()
+        self.gui.popupText.setPlainText(text)
+        self.gui.popupText.setOpacity(1)
+        
+    def popupAnimationCleanup(self):
+        self.gui.popupImage.setOpacity(0)
+        self.gui.popupText.setOpacity(0)
+        self.gui.popup.setGeometry(QRect(25, 25, 750, 450))
