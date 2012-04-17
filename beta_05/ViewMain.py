@@ -163,9 +163,11 @@ class ViewMain(QMainWindow):
         text = ""
         for prevPlayer in self.game.scoreList:
             text = text + prevPlayer[0] + 40*"."  + `prevPlayer[1]` + "\n"
-            debug("length of scoreList is ..." + `len(self.game.scoreList)`)
         self.gui.topTenScores.setText(text)
-        self.game.savedScores()
+        if (len(self.game.scoreList) == 0):
+            pass
+        else:
+            self.game.savedScores()
         
     def enterName(self):
         """Name enter dialog"""
