@@ -88,12 +88,11 @@ class Story(QObject):
         n = 0
         nextLine = filedata.readline()
         while (nextLine):
-            loadClues = nextLine.split(';')
+            loadClues = nextLine.strip().split(";")
             if (len(loadClues)>2):
                 objCommand = loadClues[0]
                 if (objCommand in self.CLUE_COMMANDS):
-                    clues = filter(lambda x: x!="", loadClues)
-                    self.addClues(clues)
+                    self.addClues(loadClues)
             nextLine = filedata.readline()
             
     def addClues(self,obj):
@@ -109,7 +108,7 @@ class Story(QObject):
         posy = int(obj[3])
         clue['position'] = (posx, posy)
         clue['text'] = obj[4].replace('\\n ', '\n') # ensure proper formate
-        clue['hint'] = obj[5][:-1].replace('\\n ', '\n') #get rid of the return
+        clue['hint'] = obj[5].replace('\\n ', '\n') #get rid of the return
         self._clueList.append(clue)
 
    
