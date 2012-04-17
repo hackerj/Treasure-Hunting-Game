@@ -46,7 +46,7 @@ def addFile(a , dirname, filenames):
 
 # Paths we will need later
 
-buildLoc = normpath("../../builds/Mapmaster04")
+buildLoc = normpath("../../builds/Mapmaster05")
 icon_path = ".\icon_medium.ico"
 
 # List for all extra files that need to be Added

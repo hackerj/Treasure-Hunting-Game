@@ -15,9 +15,9 @@ speakerLoud.png
 speakerQuiet.png
 tree.png
 treeSymbol.png
-failure.mp3
+failure.wav
 gameTheme.mp3
-success.mp3
+success.wav
 theme.mp3
 libfreetype-6.dll
 msvcp90.dll
@@ -25,13 +25,14 @@ python27.dll
 SDL.dll
 zlib1.dll
 running py2exe
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05
 *** searching for required modules ***
 *** parsing results ***
 *** finding dlls needed ***
 *** create binaries ***
 *** byte compile python files ***
-writing byte-compilation script 'c:\users\pand\appdata\local\temp\tmp5cn0pe.py'
-C:\Python27\python.exe -OO c:\users\pand\appdata\local\temp\tmp5cn0pe.py
+writing byte-compilation script 'c:\users\pand\appdata\local\temp\tmpkdu1wg.py'
+C:\Python27\python.exe -OO c:\users\pand\appdata\local\temp\tmpkdu1wg.py
 skipping byte-compilation of C:\Python27\lib\BaseHTTPServer.py to BaseHTTPServer.pyo
 skipping byte-compilation of C:\Python27\lib\ConfigParser.py to ConfigParser.pyo
 skipping byte-compilation of C:\Python27\lib\Queue.py to Queue.pyo
@@ -513,44 +514,54 @@ skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Sou
 skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Story.py to Story.pyo
 skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\ViewGraphics.py to ViewGraphics.pyo
 skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\ViewMain.py to ViewMain.pyo
-removing c:\users\pand\appdata\local\temp\tmp5cn0pe.py
+removing c:\users\pand\appdata\local\temp\tmpkdu1wg.py
 *** copy extensions ***
 *** copy dlls ***
+copying C:\Python27\w9xpopen.exe -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05
 *** copy data files ***
-copying COPYING.txt -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\
-copying README -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\
-copying icon_medium.ico -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\
-copying saves\save1.save -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\saves
-copying saves\story.clue -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\saves
-copying saves\places.loc -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\saves
-copying images\capital.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\circle.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\city.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\city2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\colorOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\Forest3.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\gameMenu2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\gameMenuSettings2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\grasstexture2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\latOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\legendOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\mapBackground.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\popupBG.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\speakerLoud.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\speakerQuiet.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\tree.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying images\treeSymbol.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\images
-copying sounds\failure.mp3 -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\sounds
-copying sounds\gameTheme.mp3 -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\sounds
-copying sounds\success.mp3 -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\sounds
-copying sounds\theme.mp3 -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\sounds
-copying dlls\libfreetype-6.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\
-copying dlls\msvcp90.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\
-copying dlls\python27.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\
-copying dlls\SDL.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\
-copying dlls\zlib1.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\
-copying C:\Python27\lib\site-packages\py2exe\run_w.exe -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\MapMaster.exe
-Adding python27.dll to C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster04\library.zip
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\imageformats
+copying C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qico4.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\imageformats
+copying C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qmng4.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\imageformats
+copying C:\Python27\Lib\site-packages\pygame\SDL_ttf.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying C:\Python27\Lib\site-packages\pygame\SDL_mixer.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying C:\Python27\Lib\site-packages\pygame\libogg-0.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying COPYING.txt -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying README -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying icon_medium.ico -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\saves
+copying saves\save1.save -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\saves
+copying saves\story.clue -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\saves
+copying saves\places.loc -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\saves
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\capital.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\circle.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\city.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\city2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\colorOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\Forest3.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\gameMenu2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\gameMenuSettings2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\grasstexture2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\latOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\legendOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\mapBackground.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\popupBG.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\speakerLoud.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\speakerQuiet.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\tree.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\treeSymbol.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
+copying sounds\failure.wav -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
+copying sounds\gameTheme.mp3 -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
+copying sounds\success.wav -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
+copying sounds\theme.mp3 -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
+copying dlls\libfreetype-6.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying dlls\msvcp90.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying dlls\python27.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying dlls\SDL.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying dlls\zlib1.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying C:\Python27\lib\site-packages\py2exe\run_w.exe -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\MapMaster.exe
+Adding python27.dll to C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\library.zip
 The following modules appear to be missing
 ['AppKit', 'Carbon', 'Carbon.Files', 'Foundation', 'Numeric', 'OpenGL.GL', 'Pyrex.Compiler.Main', '__svn_version__', '_scproxy', 'configparser', 'copyreg', 'core.abs', 'core.max', 'core.min', 'core.round', 'dummy.Process', 'email.utils', 'fcompiler.FCompiler', 'fcompiler.show_fcompilers', 'nose', 'nose.plugins', 'nose.plugins.base', 'nose.plugins.builtin', 'nose.plugins.errorclass', 'nose.tools', 'nose.util', 'numarray', 'numpy_distutils', 'numpy_distutils.command.build_flib', 'numpy_distutils.command.cpuinfo', 'numpy_distutils.cpuinfo', 'numpy_distutils.fcompiler', 'numscons', 'numscons.core.utils', 'pkg_resources', 'queue', 'scipy', 'setuptools', 'setuptools.command', 'setuptools.command.bdist_rpm', 'setuptools.command.develop', 'setuptools.command.egg_info', 'setuptools.command.install', 'setuptools.command.sdist', 'sitecustomize', 'testing.Tester', 'usercustomize', 'win32api', 'win32con', 'win32pdh', 'win32pipe', 'winreg', 'numpy.absolute', 'numpy.arccos', 'numpy.arccosh', 'numpy.arcsin', 'numpy.arcsinh', 'numpy.arctan', 'numpy.arctanh', 'numpy.bitwise_and', 'numpy.bitwise_or', 'numpy.bitwise_xor', 'numpy.bool_', 'numpy.ceil', 'numpy.conjugate', 'numpy.core.absolute', 'numpy.core.add', 'numpy.core.cdouble', 'numpy.core.complexfloating', 'numpy.core.conjugate', 'numpy.core.csingle', 'numpy.core.double', 'numpy.core.exp', 'numpy.core.float64', 'numpy.core.float_', 'numpy.core.inexact', 'numpy.core.intc', 'numpy.core.integer', 'numpy.core.isfinite', 'numpy.core.isinf', 'numpy.core.isnan', 'numpy.core.log', 'numpy.core.maximum', 'numpy.core.multiply', 'numpy.core.number', 'numpy.core.signbit', 'numpy.core.single', 'numpy.core.sqrt', 'numpy.cosh', 'numpy.divide', 'numpy.e', 'numpy.fabs', 'numpy.floor', 'numpy.floor_divide', 'numpy.fmod', 'numpy.greater', 'numpy.hypot', 'numpy.invert', 'numpy.left_shift', 'numpy.less', 'numpy.log', 'numpy.logical_and', 'numpy.logical_not', 'numpy.logical_or', 'numpy.logical_xor', 'numpy.maximum', 'numpy.minimum', 'numpy.negative', 'numpy.not_equal', 'numpy.power', 'numpy.remainder', 'numpy.right_shift', 'numpy.sign', 'numpy.sinh', 'numpy.tan', 'numpy.tanh', 'numpy.true_divide', 'pygame.sdlmain_osx']
 

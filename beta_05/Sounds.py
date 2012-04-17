@@ -28,8 +28,8 @@ class Sounds(object):
 
         
         self.volumeLevel = volume
-        #self.setVolume(self.volumeLevel)
-        self.setVolume(0)
+        self.setVolume(self.volumeLevel)
+        #self.setVolume(0)
 
         
         mixer.music.load(self.menuSound)
