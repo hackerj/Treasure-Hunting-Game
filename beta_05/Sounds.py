@@ -40,12 +40,12 @@ class Sounds(object):
         mixer.music.set_volume((float(slider))/100.0)
         self.volumeLevel = slider
         
-    def switchSongs(self, songnum):
+    def switchSongs(self, songNum):
         """Change songs (only has songs for menu and game)"""
         
-        if songnum == 0:
+        if songNum == 0:
             newSound = self.menuSound
-        elif songnum == 2:
+        elif songNum == 2:
             newSound = self.gameSound
         else:
             newSound = self.menuSound
@@ -56,11 +56,15 @@ class Sounds(object):
             self.playCurrMusic()
             
     def playCurrMusic(self):
+        """Allow current music to be played"""
         mixer.music.load(self.currSound)
         mixer.music.play(-1)
         self.setVolume(self.volumeLevel)
 
     def playSound(self, soundName):
+        """PLay different songs according to whether 
+           player successfully find clues
+        """
         if soundName == "success":
             self.successSound.play()
         elif soundName == "failure":

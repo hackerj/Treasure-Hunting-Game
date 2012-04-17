@@ -26,6 +26,7 @@ class Character(Loc):
         self.updateSignal = None
         
     def translate(self, xDist, yDist):
+        """Recieve signals from keyboard and update character's location"""
         if (self.isValidMove( xDist, yDist)):
             self.x += xDist
             self.y += yDist

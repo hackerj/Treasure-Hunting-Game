@@ -38,6 +38,7 @@ class Graphic(QObject):
         # The signal will call 
     
     def chooseImages(self):
+        """Associate location with location images"""
         pViewName, mViewName = self.OBJ_TYPES[self.objType]
                 
         if pViewName:
@@ -50,6 +51,7 @@ class Graphic(QObject):
         return pViewImage, mViewImage
     
     def addGraphicsObjects(self, pView, mView, pViewImage, mViewImage):
+        """Make each location object as graphic objs"""
         if pViewImage:
             self.pViewObject = pView.scene.addPixmap(QPixmap(pViewImage))
         else:
@@ -65,11 +67,13 @@ class Graphic(QObject):
                " of type " + `self.objType`
     
     def createInitial(self, pView, mView):
+        """Display loc objs to screen"""
         pViewImage, mViewImage = self.chooseImages()
         debug(pViewImage, mViewImage, self.objType)
         self.addGraphicsObjects(pView, mView, pViewImage, mViewImage)
     
     def update(self, newx, newy):
+        """Update the graphic objs with character movement"""
         self.x = newx 
         self.y = newy
         #debug(self.name, " has positon: ", self.x, self.y)        
@@ -88,6 +92,7 @@ class Graphic(QObject):
             view.centerOn(self.pViewObject)
 
     def updateGraphicsItem(self, item, scale = 1):
+        """When character walk out of frame, update graphic"""
         try:
             width = item.pixmap().width()/2
             heigth = item.pixmap().height()/2
