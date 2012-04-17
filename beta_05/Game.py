@@ -45,6 +45,8 @@ class Game(QObject):
         
         # Store player's name
         self.playerName = ""
+        
+        # Store scores from previous play
         self.scoreList = []
         
     def new(self):
@@ -181,10 +183,12 @@ class Game(QObject):
         self.frameTimer.timeout.connect(self.story.frameTime)
         
     def keyPress(self, event):
+        """Recieve events from keyboard, pass to update character movement"""
         key = event.key()
         self.character.keyPress(key)
         
     def keyRelease(self, event):
+        """Recieve events from keyboard, pass to update character movement"""
         key = event.key()
         self.character.keyRelease(key)
 
