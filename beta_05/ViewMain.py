@@ -318,11 +318,12 @@ class ViewMain(QMainWindow):
         self.gui.soundManager.setVolume(self.gui.volumeSlider.sliderPosition())
         
     def doSearch(self):
+        """Begins searching for a clue"""
         self.popupClue = True
         self.popupMessage("Searching...", 2*ONE_SECOND)
     
-        
     def writeClue(self):
+        """Handles the result of searching for a clue"""
         if self.popupClue:
             clueResult = self.game.story.searchForClue(
                                         self.game.character.getCenter())
@@ -343,24 +344,45 @@ class ViewMain(QMainWindow):
                 None
            
     def drawPopup(self, value):
+        """Draws the popup to the screen"""
         debug("Called drawPopup")
         self.gui.popupImage.setOpacity(value/100.0)
         self.gui.popupText.setOpacity(value/100.0)
         
     def enableErasePopup(self):
+        """Starts the timeline for erasePopup"""
         debug("Enabled erase popup")
         self.popupTimelineEnd.start()
         
     def erasePopup(self, value):
+        """Erases the popup from the screen"""
         debug("Called erase popup")
         self.gui.popupImage.setOpacity(1-(value/100.0))
         self.gui.popupText.setOpacity(1-(value/100.0))
         
     def popupWait(self):
+        """Keeps the popup on the screeen"""
         debug("Entered popupWait")
         self.popupTimelineWait.start()
         
+    def popupMessageAnimated(self, text, time):
+        """Uses an animated popup to display text for some time"""
+        self.gui.popupText.setPlainText('')
+        self.gui.popup.setGeometry(QRect(0, 591, 0, 0))
+        self.gui.popupImage.setOpacity(1)
+        self.popupAnimationWait.setDuration(time)
+        self.popupAnimationOpen.start()
+        self.gui.popupText.setPlainText(text)
+        self.gui.popupText.setOpacity(1)
+        
+    def popupAnimationCleanup(self):
+        """Returns the popup to its original state after it finishes"""
+        self.gui.popupImage.setOpacity(0)
+        self.gui.popupText.setOpacity(0)
+        self.gui.popup.setGeometry(QRect(25, 25, 750, 450))
+        
     def handleClueResult(self, action, text):
+        """Performs the writing to gui after a clue was found"""
         if action == 'ClueFound':
             self.gui.clueView.setText(text)
             self.gui.scoreBox.setText(`self.game.story.score`)
@@ -370,10 +392,12 @@ class ViewMain(QMainWindow):
             None
             
     def giveHint(self):
+        """If the player has been stuck on a clue, give a hint"""
         text = self.game.story.troubleFindingClue()
         self.popupMessage(text, 5*ONE_SECOND)
     
     def popupMessage(self, text, time):
+        """Displays the given text for the given time in a popup"""
         self.gui.popupText.setPlainText(text)
         self.popupTimelineWait.setDuration(time)
         self.popupTimelineStart.start()
@@ -430,10 +454,11 @@ class ViewMain(QMainWindow):
         self.game.places.locList[str(name)].emitter()
         
     def updateGraphicsObject(self, xpos, ypos, name):
-        #debug("Updating the graphics object")
+        """Changes the position of the character on the screen"""
         self.graphicsObjects[name].update(xpos, ypos)
         
     def addOverlay(self, filename):
+        """Adds an overlay to the map view"""
         obj = self.gui.mapView.scene.addPixmap(QPixmap(filename))
         obj.setX(-195)
         obj.setY(-250)
@@ -441,19 +466,6 @@ class ViewMain(QMainWindow):
         return obj
         
     def frameUpdate(self):
-        #debug('Frame update sent to character')
+        """One tick of the game clock sent to the character"""
         self.game.character.frameUpdate(self.game.FRAME_RATE)
 
-    def popupMessageAnimated(self, text, time):
-        self.gui.popupText.setPlainText('')
-        self.gui.popup.setGeometry(QRect(0, 591, 0, 0))
-        self.gui.popupImage.setOpacity(1)
-        self.popupAnimationWait.setDuration(time)
-        self.popupAnimationOpen.start()
-        self.gui.popupText.setPlainText(text)
-        self.gui.popupText.setOpacity(1)
-        
-    def popupAnimationCleanup(self):
-        self.gui.popupImage.setOpacity(0)
-        self.gui.popupText.setOpacity(0)
-        self.gui.popup.setGeometry(QRect(25, 25, 750, 450))

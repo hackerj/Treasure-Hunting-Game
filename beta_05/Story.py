@@ -41,7 +41,7 @@ class Story(QObject):
         self.clueTime = 0
         self.clueTimeEnable = True
         self.FRAME_RATE = frameRate
-        self.CLUE_TROUBLE = self.FRAME_RATE * 60 * 1
+        self.CLUE_TROUBLE = self.FRAME_RATE * 60 * 2
         
         
     # Emits clueTrouble if the player has been stuck on a clue for 5 min
@@ -66,6 +66,7 @@ class Story(QObject):
             self.score += 100
             self.currAction =  ('ClueFound', 
                     self.currClue['text'])
+            self.clueTime = 0
         else:
             self.status = 0
             debug("no clues now....................in story")
