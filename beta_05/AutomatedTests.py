@@ -147,7 +147,7 @@ class LoadLocTests(unittest.TestCase):
         
         # load clues from good file
         clueKeys = ['landmark', 'position', 'hint', 'text']
-        numClues = 1
+        numClues = 3
         clueGood = self.Story(25)    
         clueGood.loadClues("tests/validClue.test")
         clueList = clueGood._clueList
@@ -164,7 +164,7 @@ class LoadLocTests(unittest.TestCase):
         
         
         # load clues from file that contains invalid command
-        numClues = 1
+        numClues = 2
         clueBad = self.Story(25)    
         clueBad.loadClues("tests/invalidClue.test")
         clueList = clueBad._clueList
