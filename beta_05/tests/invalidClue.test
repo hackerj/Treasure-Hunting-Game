@@ -1,7 +1,7 @@
 All characters are separated by tabs.
-command		landmark	x	y	text	hints
+command;landmark;x;y;text;hints
 
-add		city1	-1	1		clue1		clue1 hint
-addClue		cityV	-1	1		clueV		clueV hint
-addClue		city2	a	-2		clue2		clue2 hint
-addClue		cityV	-1	1		clueV		clueV hint
+add;city1;-1;1;clue1;clue1 hint
+addClue;cityV;-1;1;clueV;clueV hint
+addClue;city2;a;-2;clue2;clue2 hint
+addClue;cityV;-1;1;clueV;clueV hint

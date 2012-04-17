@@ -128,7 +128,6 @@ class LoadLocTests(unittest.TestCase):
         self.assertEqual(len(locObjs), badObjs)
         objList = locObjs.keys()
         for eachObj in objList:
-            #self.assertIn(locObjs[eachObj].name, locNames)
             self.assertIsInstance(locObjs[eachObj].x, int)
             self.assertIsInstance(locObjs[eachObj].y, int)
             self.assertIn(locObjs[eachObj].objType, self.TYPES)

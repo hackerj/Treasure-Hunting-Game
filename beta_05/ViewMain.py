@@ -170,7 +170,7 @@ class ViewMain(QMainWindow):
     def enterName(self):
         """Name enter dialog"""
         playerName, ok = QInputDialog.getText(self, 'Enter Name Dialog', 
-            'Enter your name:')
+            'Please enter your name:')
 
         if ok and playerName!="":
             self.newGame()

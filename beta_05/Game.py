@@ -81,7 +81,6 @@ class Game(QObject):
                 self.story._clueList =  self.story._clueList[:numClues]
                 self.story.score = int(line[3])
                 self.playerName = line[4]
-                debug("x: " + `x` + " y: " + `y` + " numCLue: " + `len(self.story._clueList)` + " score is: " + `int(line[3])` +" name is " + line[4])
             nextLine = savedData.readline()       
         savedData.close()
         self.story.currClue = self.story._clueList.pop()
@@ -111,7 +110,7 @@ class Game(QObject):
         return True
     
     def loadScores(self, filename = "saves/player.score"):
-        """load highest score from file"""
+        """load the 10 highest score from file"""
         scoreData = open(filename)    
         nextLine = scoreData.readline()
         # Parsing saved file
@@ -123,7 +122,9 @@ class Game(QObject):
                 self.scoreList.append((loadedName, loadedScore))
             nextLine = scoreData.readline()       
         scoreData.close()
-        self.scoreList = sorted(self.scoreList, key = itemgetter(1), reverse = True) # sorted previous player by scor
+        
+        # sorted previous player by score
+        self.scoreList = sorted(self.scoreList, key = itemgetter(1), reverse = True) 
     
     def savedScores(self):
         """save player's score into top 10 list if the player make it"""
