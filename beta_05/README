@@ -5,25 +5,61 @@ Authors: MI Maps Team, CS121-SoftwareDevelopment, Harvey Mudd College
 Version: 0.5 using PyQt4.9
 Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 
+------------------
+Running on Windows
+------------------
+On Windows using the binary package is recomented.
+For some versions an installer is also available.
+For instruction on how to play the game see the in-game instruciton page.
+
+--------------------------
+Running on other Platforms
+--------------------------
+MapMaster should be cross platform, and is tested regularaly in scripted form on
+Linux. MapMaster is not tested frequently on Mac but should still work. In order to run as script you will need to instal:
+ - Python 2.7
+ - PyQt (v4.9 or compatable)
+ - Pygame (v1.9.1 or compatable)
+
+----------------------------
+Build Instrucitons (Windows)
+----------------------------
+In order to build this program you will need the following
+ - Python 2.7
+ - PyQt (v4.9 or compatable)
+ - Pygame (v1.9.1 or compatable)
+ - Py2exe (v0.69 or compatable)
+
+Open compile_help.py and edit the following line to contain the desired
+build location.
+
+buildLoc = normpath("../../builds/Mapmaster05")
+
+Once you have done that run compile.py.
+
 ---------------
 TODO:
 ---------------
- (See BugList on Trac for bugs)
- 
- - Include searches in landmarks other than cities.
- - Resume Game and NewGame Used Correctly
- - More Story / Game Interaction
- - Rename "Sounds.py" to "Music.py"
+ (See BugList on Trac for complete bug list)
+ - Icon Does not appear on executible
  - Move Game to subfolder and create module.
 
 ----------------
 Change Log
 ----------------
 
+Map Master 0.5
+ - New story system provides more feedback.
+ - Support for clue hints
+ - Animated Popups.
+
 Map Master 0.4
  - Code Overhaul
  - Now uses custom signals and slots
-
+ - Include searches in landmarks other than cities.
+ - Resume Game and NewGame Used Correctly
+ - More Story / Game Interaction
+ 
 Map Master 0.3
  - Improved Frame Handling for better navigation, and animation support.
  - Added simple automated testing system.
