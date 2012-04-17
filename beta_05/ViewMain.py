@@ -173,7 +173,8 @@ class ViewMain(QMainWindow):
             'Enter your name:')
 
         if ok and playerName!="":
-            self.newGame(playerName)
+            self.newGame()
+            self.game.playerName = playerName
         else:
             pass
             
@@ -216,7 +217,7 @@ class ViewMain(QMainWindow):
             self.game.save(filename)    
               
                         
-    def newGame(self, playerName = ""):
+    def newGame(self):
         """Start a new game"""
         self.gui.background.setPixmap(self.gui.backgroundPixmapSettings)
         self.setStackWidgetIndex(self.STORY_PAGE)
@@ -224,9 +225,6 @@ class ViewMain(QMainWindow):
         
         # Create game instance and start the game
         self.game = Game()
-        self.game.playerName = playerName
-        debug ("player ", playerName, " is playing the game..")
-        debug("Initialized a new game")
         self.connectGame()
         self.game.new()
         debug("Starting a new game")
@@ -428,7 +426,7 @@ class ViewMain(QMainWindow):
         ret = reply.exec_()
         
         if ret == QMessageBox.Discard:
-            print "Accepting close event"
+            debug("Accepting close event")
             event.accept()
         elif ret == QMessageBox.Cancel:
             event.ignore()
@@ -437,7 +435,7 @@ class ViewMain(QMainWindow):
                 debug("Not quit yet, go back to game...")
                 event.ignore()
             else:
-                print "Accepting close event"
+                debug("Accepting close event")
                 event.accept()
 
     def addGraphicsObject(self, name, xval, yval, objType):
