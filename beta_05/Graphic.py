@@ -18,8 +18,8 @@ class Graphic(QObject):
 
     SCALE = 0.1
     OBJ_TYPES = {u'tree'      : ('Forest3.png', 'tree.png'), 
-                 u'mountain'  : ('Mountain.png', 'mountain.png'),
-                 u'lake'      : ('Lake.png', 'lake.png'),
+                 u'mountain'  : ('Mountain.png', 'mountainSymbol.png'),
+                 u'lake'      : ('Lake.png', 'lakeSymbol.png'),
                  u'landmark'  : ('city2.png', 'city.png'), 
                  u'capital'   : ('city2.png','capital.png'), 
                  u'city'      : ('city2.png', 'city.png'), 
