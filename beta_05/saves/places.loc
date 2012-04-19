@@ -46,6 +46,7 @@ addLoc tree 0 -1800 tree7
 addLoc tree -500 1700 tree8
 addLoc mountain 600 300 mountain1
 addLoc mountain 600 400 mountain2
+addLoc lake 700 -1600 lake1
 
 #Actual Landmarks
 addLoc landmark -350 100 city0 

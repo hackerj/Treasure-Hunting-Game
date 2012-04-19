@@ -14,7 +14,7 @@ from os.path import isfile
 class Places(QObject):
     """Dictionary of Location Objects with name collision Checking"""
     
-    TYPES = {"tree", "mountain","landmark","grass","mapBG", "capital"} #obj types, for debugging use
+    TYPES = {"tree", "mountain","lake","landmark","grass","water","mapBG", "capital"} #obj types, for debugging use
     OBJ_COMMANDS = {"addLoc"}
     passLoc = pyqtSignal(str, int, int, str) 
     

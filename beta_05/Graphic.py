@@ -17,13 +17,15 @@ from os.path import normpath
 class Graphic(QObject):
 
     SCALE = 0.1
-    OBJ_TYPES = {u'tree'    : ('Forest3.png', 'tree.png'), 
-                 u'mountain' : ('Mountain.png', 'mountain.png'),
-                 u'landmark' : ('city2.png', 'city.png'), 
-                 u'capital'  : ('city2.png','capital.png'), 
-                 u'city'     : ('city2.png', 'city.png'), 
-                 u'grass'    : ('grasstexture2.png', None),
-                 u'mapBG'    : (None, 'mapBackground.png'),
+    OBJ_TYPES = {u'tree'      : ('Forest3.png', 'tree.png'), 
+                 u'mountain'  : ('Mountain.png', 'mountain.png'),
+                 u'lake'      : ('Lake.png', 'lake.png'),
+                 u'landmark'  : ('city2.png', 'city.png'), 
+                 u'capital'   : ('city2.png','capital.png'), 
+                 u'city'      : ('city2.png', 'city.png'), 
+                 u'grass'     : ('grasstexture2.png', None),
+                 u'water'     : ('watertexture.png', None),
+                 u'mapBG'     : (None, 'mapBackground.png'),
                  u'Character' : ('circle.png','circle.png')}
                     
     def __init__(self, xval, yval, name = '', objType=None):
