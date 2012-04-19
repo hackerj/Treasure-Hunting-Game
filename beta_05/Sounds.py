@@ -73,4 +73,6 @@ class Sounds(object):
             self.successSound.play()
         elif soundName == "failure":
             self.failureSound.play()
+        elif soundName == "victory":
+            self.victorySound.play()
         
