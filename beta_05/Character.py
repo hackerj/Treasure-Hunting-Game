@@ -14,7 +14,7 @@ from PyQt4.QtCore import Qt, pyqtSignal
 
 class Character(Loc):
     """Inherit from Location Objects and add functionality for"""
-    SPEED = 1000
+    SPEED = 300
     
     def __init__(self, center = (0,0), name = '', objType=None):
         super(Character, self).__init__(center, name, objType)

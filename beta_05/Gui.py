@@ -416,11 +416,12 @@ class Gui(object):
         font.setPointSize(25)
         self.storyLabel.setFont(font)
         self.storyLabel.setText(QApplication.translate("MainWindow", 
-        "My name is Travis Sinclair.\n I'm a skilled cartographer.\n I recently"
-        " lost my job, but stumbled\n on a clue that may change my life"
-        " \nforever. I've set off on a quest - a quest\n to find a lost city. "
-        "I've found a clue,\n and believe there may be more.\n Help me find "
-        "the lost city.  ", None, QApplication.UnicodeUTF8))
+        "You recently discovered an old \n parchment with mysterious"
+        " \nwriting. Ace explorer Travis Sinclair \n found you and "
+        "excitedly told you that\n it is the first of many clues \n leading to "
+        "the fabled Lost City.\n Who knows what you will discover\n  "
+        "on your adventure to find the Lost\n  City and become a MAP MASTER!"
+        , None, QApplication.UnicodeUTF8))
         self.storyLabel.setAlignment(
                 QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.storyLabel.setObjectName("storyLabel")

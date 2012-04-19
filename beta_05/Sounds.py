@@ -24,6 +24,7 @@ class Sounds(object):
         self.successSound = mixer.Sound(normpath("sounds/success.wav"))
         self.failureSound = mixer.Sound(normpath("sounds/failure.wav"))
         self.victorySound = mixer.Sound(normpath("sounds/victory.wav"))
+        #self.brilliantSound = mixer.Sound(normpath("sounds/brilliant.wav"))
 
         self.currSound = self.menuSound
 
@@ -42,6 +43,7 @@ class Sounds(object):
         self.successSound.set_volume((float(slider))/100.0)
         self.failureSound.set_volume((float(slider))/100.0)
         self.victorySound.set_volume((float(slider))/100.0)
+        #self.brilliantSound.set_volume((float(slider))/100.0)
         self.volumeLevel = slider
         
     def switchSongs(self, songNum):
@@ -75,4 +77,6 @@ class Sounds(object):
             self.failureSound.play()
         elif soundName == "victory":
             self.victorySound.play()
+        #elif soundName == "brilliant":
+            #self.brilliantSound.play()
         

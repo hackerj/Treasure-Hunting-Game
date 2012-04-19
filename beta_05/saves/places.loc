@@ -1,4 +1,4 @@
-
+sv
 Command objType x    y  itemname
 
 #Background Textures For PersonView
@@ -36,33 +36,54 @@ addLoc grass -1024  2048 grass25
 addLoc mapBG 0 0 mapBG
 
 #Eye candy
-addLoc tree 200  158   tree1
-addLoc tree -800 45    tree2
-addLoc tree 120  80    tree3
-addLoc tree 310  470   tree4
-addLoc tree 220  -400  tree5
-addLoc tree 100  500   tree6
-addLoc tree 0 -1800 tree7
-addLoc tree -500 1700 tree8
-addLoc mountain 600 300 mountain1
-addLoc mountain 600 400 mountain2
-addLoc lake 700 -1600 lake1
+addLoc tree -280 2000   tree1
+addLoc tree -160 1920   tree2
+addLoc tree 1400 -520  tree3
+addLoc tree 1400 -880   tree4
+addLoc tree 1120 -760 tree5
+addLoc tree 1120 -1040   tree6
+addLoc tree 1280 -1200 tree7
+addLoc tree 1160 -1440 tree8
+addLoc tree -320 -1600 tree9
+addLoc tree -320 -1840 tree10
+addLoc tree -520 -1960 tree11
+addLoc tree -640 -1680 tree12
+addLoc tree -880 -1840 tree13
+addLoc tree -920 -1640 tree14
+addLoc tree -1280 -1760 tree15
+addLoc tree -1280 -1560 tree16
+addLoc tree -240 280 tree17
+
+addLoc mountain 1280 -200 mountain1
+addLoc mountain -1640 -1080 mountain2
+addLoc mountain -1520 -680 mountain3
+addLoc mountain -1440 -200 mountain4
+addLoc mountain -1400 160 mountain5
+addLoc mountain -1040 320 mountain6
+addLoc mountain -320 920 mountain7
+addLoc mountain -200 1280 mountain8
+addLoc mountain -160 -1560 mountain9
+
+addLoc lake 760 1920 lake1
+addLoc lake -560 1320 lake2
+addLoc lake -360 -1240 lake3
+addLoc lake 1000 -320 lake4
+addLoc lake 1120 40 lake5
 
 #Actual Landmarks
-addLoc landmark -350 100 city0 
-addLoc capital  -450 910  city1
-addLoc landmark 450 -700  city2
-addLoc landmark -1700 -600 city3
-addLoc landmark -1800 1000 city4
-addLoc capital 800 1200 city5
-addLoc capital -1400 -1000 city6
-addLoc landmark 300 -1900 city7
-addLoc capital 0 -1300 city8
+addLoc capital 560 680 capital1
+addLoc capital 1240 1000 capital2
+addLoc capital 40 -1280 capital3
+addLoc capital -1000 840 capital4
 
-
-
-
-
+addLoc landmark 0 0 city1
+addLoc landmark 600 -120 city2
+addLoc landmark 200 -680 city3
+addLoc landmark -880 -1320 city4
+addLoc landmark -1120 -560 city5
+addLoc landmark -1720 600 city6
+addLoc landmark -680 1760 city8
+addLoc landmark 880 1560 city9
 
 
 

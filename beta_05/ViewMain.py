@@ -210,11 +210,11 @@ class ViewMain(QMainWindow):
             
             
             self.overlays['latLongOverlay'] = self.addOverlay(
-                        normpath("images/latOverlay.png"))
+                        normpath("images/latOverlayNew.png"))
             self.overlays['colorOverlay'] = self.addOverlay(
                         normpath("images/colorOverlay.png"))
             self.overlays['legendOverlay'] = self.addOverlay(
-                        normpath("images/legendOverlay.png"))
+                        normpath("images/legendOverlayNew.png"))
 
             self.gui.scoreBox.setText((str)(self.game.story.score))
             self.gui.clueView.setText(self.game.story.currClue['text'])
@@ -247,11 +247,11 @@ class ViewMain(QMainWindow):
         debug("Starting a new game")
         
         self.overlays['latLongOverlay'] = self.addOverlay(
-                        normpath("images/latOverlay.png"))
+                        normpath("images/latOverlayNew.png"))
         self.overlays['colorOverlay'] = self.addOverlay(
                         normpath("images/colorOverlay.png"))
         self.overlays['legendOverlay'] = self.addOverlay(
-                        normpath("images/legendOverlay.png"))
+                        normpath("images/legendOverlayNew.png"))
         self.gui.clueView.setText(self.game.story.currClue['text'])
         self.gui.scoreBox.setText((str)(0))
     def storyButton(self):
@@ -362,6 +362,7 @@ class ViewMain(QMainWindow):
     def writeStory(self):
         """Handles drawing story"""
         if self.game.story.currClue['story'] != 'none':
+            #self.gui.soundManager.playSound("brilliant")
             self.popupStory = True
             self.popupMessage(self.game.story.currClue['story'], 5*ONE_SECOND)
            
