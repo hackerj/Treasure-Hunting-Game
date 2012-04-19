@@ -422,6 +422,9 @@ class ViewMain(QMainWindow):
             key = event.key()
             if key==Qt.Key_Space or key==Qt.Key_Enter or key==Qt.Key_Return:
                 self.doSearch()
+            elif key==Qt.Key_L:
+                debug('Character location is ' 
+                        + `self.game.character.getCenter()`)
             else:
                 self.game.keyRelease(event)
     
