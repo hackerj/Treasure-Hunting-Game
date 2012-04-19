@@ -188,7 +188,6 @@ class ViewMain(QMainWindow):
         fd = QFileDialog()
         filename = fd.getOpenFileName(None, "Load Saved Game",
                                       "saves", "MapMaster Save files (*.save)")
-        
         if isfile(filename):
             self.setStackWidgetIndex(self.GAME_PAGE)
             self.game = Game() 
@@ -241,7 +240,7 @@ class ViewMain(QMainWindow):
         self.overlays['legendOverlay'] = self.addOverlay(
                         normpath("images/legendOverlay.png"))
         self.gui.clueView.setText(self.game.story.currClue['text'])
-        
+        self.gui.scoreBox.setText((str)(0))
     def storyButton(self):
         """Continue from the story page to the game page"""
         self.setStackWidgetIndex(self.GAME_PAGE)
