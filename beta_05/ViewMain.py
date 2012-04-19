@@ -340,6 +340,7 @@ class ViewMain(QMainWindow):
                 self.gui.soundManager.playSound("failure")
             elif clueResult[0] == 'GameOver':
                 self.popupMessage(clueResult[1], 5*ONE_SECOND) 
+                self.gui.soundManager.playSound("victory")
                 QTimer.singleShot(4*ONE_SECOND, self.scoreWidget)
                 scoreFile = open("saves/player.score","a")  
             else:

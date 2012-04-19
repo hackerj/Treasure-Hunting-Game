@@ -23,6 +23,7 @@ class Sounds(object):
 
         self.successSound = mixer.Sound(normpath("sounds/success.wav"))
         self.failureSound = mixer.Sound(normpath("sounds/failure.wav"))
+        self.victorySound = mixer.Sound(normpath("sounds/victory.wav"))
 
         self.currSound = self.menuSound
 
@@ -40,6 +41,7 @@ class Sounds(object):
         mixer.music.set_volume((float(slider))/100.0)
         self.successSound.set_volume((float(slider))/100.0)
         self.failureSound.set_volume((float(slider))/100.0)
+        self.victorySound.set_volume((float(slider))/100.0)
         self.volumeLevel = slider
         
     def switchSongs(self, songNum):
