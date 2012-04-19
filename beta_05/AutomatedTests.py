@@ -146,7 +146,7 @@ class LoadLocTests(unittest.TestCase):
         
         # load clues from good file
         clueKeys = ['landmark', 'position', 'hint', 'text']
-        numClues = 3
+        numClues = 9
         clueGood = self.Story(25)    
         clueGood.loadClues("tests/validClue.test")
         clueList = clueGood._clueList

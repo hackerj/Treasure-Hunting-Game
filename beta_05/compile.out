@@ -7,522 +7,614 @@ Forest3.png
 gameMenu2.png
 gameMenuSettings2.png
 grasstexture2.png
+Lake.png
+lakeSymbol.png
 latOverlay.png
+latOverlayNew.png
 legendOverlay.png
+legendOverlayNew.png
 mapBackground.png
+Mountain.png
+mountainSymbol.png
 popupBG.png
 speakerLoud.png
 speakerQuiet.png
+storyBG.png
 tree.png
 treeSymbol.png
+watertexture.png
+brilliant.wav
 failure.wav
 gameTheme.mp3
 success.wav
 theme.mp3
+victory.wav
 libfreetype-6.dll
 msvcp90.dll
 python27.dll
 SDL.dll
 zlib1.dll
 running py2exe
+creating C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build
+creating C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32
+creating C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe
+creating C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+creating C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\bundle-2.7
+creating C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\temp
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05
 *** searching for required modules ***
 *** parsing results ***
 *** finding dlls needed ***
 *** create binaries ***
 *** byte compile python files ***
-writing byte-compilation script 'c:\users\pand\appdata\local\temp\tmpalydal.py'
-C:\Python27\python.exe -OO c:\users\pand\appdata\local\temp\tmpalydal.py
-skipping byte-compilation of C:\Python27\lib\BaseHTTPServer.py to BaseHTTPServer.pyo
-skipping byte-compilation of C:\Python27\lib\ConfigParser.py to ConfigParser.pyo
-skipping byte-compilation of C:\Python27\lib\Queue.py to Queue.pyo
-skipping byte-compilation of C:\Python27\lib\SocketServer.py to SocketServer.pyo
-skipping byte-compilation of C:\Python27\lib\StringIO.py to StringIO.pyo
-skipping byte-compilation of C:\Python27\lib\UserDict.py to UserDict.pyo
-skipping byte-compilation of C:\Python27\lib\_LWPCookieJar.py to _LWPCookieJar.pyo
-skipping byte-compilation of C:\Python27\lib\_MozillaCookieJar.py to _MozillaCookieJar.pyo
-skipping byte-compilation of C:\Python27\lib\__future__.py to __future__.pyo
-skipping byte-compilation of C:\Python27\lib\_abcoll.py to _abcoll.pyo
-skipping byte-compilation of C:\Python27\lib\_strptime.py to _strptime.pyo
-skipping byte-compilation of C:\Python27\lib\_threading_local.py to _threading_local.pyo
-skipping byte-compilation of C:\Python27\lib\_weakrefset.py to _weakrefset.pyo
-skipping byte-compilation of C:\Python27\lib\abc.py to abc.pyo
-skipping byte-compilation of C:\Python27\lib\ast.py to ast.pyo
-skipping byte-compilation of C:\Python27\lib\atexit.py to atexit.pyo
-skipping byte-compilation of C:\Python27\lib\base64.py to base64.pyo
-skipping byte-compilation of C:\Python27\lib\bdb.py to bdb.pyo
-skipping byte-compilation of C:\Python27\lib\bisect.py to bisect.pyo
-skipping byte-compilation of C:\Python27\lib\calendar.py to calendar.pyo
-skipping byte-compilation of C:\Python27\lib\cmd.py to cmd.pyo
-skipping byte-compilation of C:\Python27\lib\codecs.py to codecs.pyo
-skipping byte-compilation of C:\Python27\lib\collections.py to collections.pyo
-skipping byte-compilation of C:\Python27\lib\commands.py to commands.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\__init__.py to compiler\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\ast.py to compiler\ast.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\consts.py to compiler\consts.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\future.py to compiler\future.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\misc.py to compiler\misc.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\pyassem.py to compiler\pyassem.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\pycodegen.py to compiler\pycodegen.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\symbols.py to compiler\symbols.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\syntax.py to compiler\syntax.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\transformer.py to compiler\transformer.pyo
-skipping byte-compilation of C:\Python27\lib\compiler\visitor.py to compiler\visitor.pyo
-skipping byte-compilation of C:\Python27\lib\cookielib.py to cookielib.pyo
-skipping byte-compilation of C:\Python27\lib\copy.py to copy.pyo
-skipping byte-compilation of C:\Python27\lib\copy_reg.py to copy_reg.pyo
-skipping byte-compilation of C:\Python27\lib\ctypes\__init__.py to ctypes\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\ctypes\_endian.py to ctypes\_endian.pyo
-skipping byte-compilation of C:\Python27\lib\difflib.py to difflib.pyo
-skipping byte-compilation of C:\Python27\lib\dis.py to dis.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\__init__.py to distutils\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\archive_util.py to distutils\archive_util.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\ccompiler.py to distutils\ccompiler.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\cmd.py to distutils\cmd.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\__init__.py to distutils\command\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\bdist_rpm.py to distutils\command\bdist_rpm.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\build.py to distutils\command\build.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\build_clib.py to distutils\command\build_clib.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\build_ext.py to distutils\command\build_ext.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\build_py.py to distutils\command\build_py.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\build_scripts.py to distutils\command\build_scripts.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\config.py to distutils\command\config.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\install.py to distutils\command\install.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\install_data.py to distutils\command\install_data.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\install_headers.py to distutils\command\install_headers.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\command\sdist.py to distutils\command\sdist.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\config.py to distutils\config.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\core.py to distutils\core.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\cygwinccompiler.py to distutils\cygwinccompiler.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\debug.py to distutils\debug.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\dep_util.py to distutils\dep_util.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\dir_util.py to distutils\dir_util.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\dist.py to distutils\dist.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\errors.py to distutils\errors.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\extension.py to distutils\extension.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\fancy_getopt.py to distutils\fancy_getopt.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\file_util.py to distutils\file_util.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\filelist.py to distutils\filelist.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\log.py to distutils\log.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\msvc9compiler.py to distutils\msvc9compiler.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\msvccompiler.py to distutils\msvccompiler.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\spawn.py to distutils\spawn.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\sysconfig.py to distutils\sysconfig.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\text_file.py to distutils\text_file.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\unixccompiler.py to distutils\unixccompiler.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\util.py to distutils\util.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\version.py to distutils\version.pyo
-skipping byte-compilation of C:\Python27\lib\distutils\versionpredicate.py to distutils\versionpredicate.pyo
-skipping byte-compilation of C:\Python27\lib\doctest.py to doctest.pyo
-skipping byte-compilation of C:\Python27\lib\dummy_thread.py to dummy_thread.pyo
-skipping byte-compilation of C:\Python27\lib\dummy_threading.py to dummy_threading.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\__init__.py to encodings\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\aliases.py to encodings\aliases.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\ascii.py to encodings\ascii.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\base64_codec.py to encodings\base64_codec.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\big5.py to encodings\big5.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\big5hkscs.py to encodings\big5hkscs.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\bz2_codec.py to encodings\bz2_codec.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\charmap.py to encodings\charmap.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp037.py to encodings\cp037.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1006.py to encodings\cp1006.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1026.py to encodings\cp1026.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1140.py to encodings\cp1140.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1250.py to encodings\cp1250.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1251.py to encodings\cp1251.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1252.py to encodings\cp1252.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1253.py to encodings\cp1253.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1254.py to encodings\cp1254.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1255.py to encodings\cp1255.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1256.py to encodings\cp1256.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1257.py to encodings\cp1257.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp1258.py to encodings\cp1258.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp424.py to encodings\cp424.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp437.py to encodings\cp437.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp500.py to encodings\cp500.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp720.py to encodings\cp720.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp737.py to encodings\cp737.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp775.py to encodings\cp775.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp850.py to encodings\cp850.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp852.py to encodings\cp852.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp855.py to encodings\cp855.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp856.py to encodings\cp856.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp857.py to encodings\cp857.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp858.py to encodings\cp858.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp860.py to encodings\cp860.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp861.py to encodings\cp861.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp862.py to encodings\cp862.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp863.py to encodings\cp863.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp864.py to encodings\cp864.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp865.py to encodings\cp865.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp866.py to encodings\cp866.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp869.py to encodings\cp869.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp874.py to encodings\cp874.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp875.py to encodings\cp875.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp932.py to encodings\cp932.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp949.py to encodings\cp949.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\cp950.py to encodings\cp950.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\euc_jis_2004.py to encodings\euc_jis_2004.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\euc_jisx0213.py to encodings\euc_jisx0213.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\euc_jp.py to encodings\euc_jp.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\euc_kr.py to encodings\euc_kr.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\gb18030.py to encodings\gb18030.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\gb2312.py to encodings\gb2312.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\gbk.py to encodings\gbk.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\hex_codec.py to encodings\hex_codec.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\hp_roman8.py to encodings\hp_roman8.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\hz.py to encodings\hz.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\idna.py to encodings\idna.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso2022_jp.py to encodings\iso2022_jp.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso2022_jp_1.py to encodings\iso2022_jp_1.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso2022_jp_2.py to encodings\iso2022_jp_2.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso2022_jp_2004.py to encodings\iso2022_jp_2004.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso2022_jp_3.py to encodings\iso2022_jp_3.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso2022_jp_ext.py to encodings\iso2022_jp_ext.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso2022_kr.py to encodings\iso2022_kr.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_1.py to encodings\iso8859_1.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_10.py to encodings\iso8859_10.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_11.py to encodings\iso8859_11.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_13.py to encodings\iso8859_13.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_14.py to encodings\iso8859_14.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_15.py to encodings\iso8859_15.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_16.py to encodings\iso8859_16.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_2.py to encodings\iso8859_2.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_3.py to encodings\iso8859_3.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_4.py to encodings\iso8859_4.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_5.py to encodings\iso8859_5.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_6.py to encodings\iso8859_6.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_7.py to encodings\iso8859_7.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_8.py to encodings\iso8859_8.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\iso8859_9.py to encodings\iso8859_9.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\johab.py to encodings\johab.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\koi8_r.py to encodings\koi8_r.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\koi8_u.py to encodings\koi8_u.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\latin_1.py to encodings\latin_1.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_arabic.py to encodings\mac_arabic.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_centeuro.py to encodings\mac_centeuro.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_croatian.py to encodings\mac_croatian.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_cyrillic.py to encodings\mac_cyrillic.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_farsi.py to encodings\mac_farsi.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_greek.py to encodings\mac_greek.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_iceland.py to encodings\mac_iceland.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_latin2.py to encodings\mac_latin2.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_roman.py to encodings\mac_roman.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_romanian.py to encodings\mac_romanian.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mac_turkish.py to encodings\mac_turkish.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\mbcs.py to encodings\mbcs.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\palmos.py to encodings\palmos.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\ptcp154.py to encodings\ptcp154.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\punycode.py to encodings\punycode.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\quopri_codec.py to encodings\quopri_codec.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\raw_unicode_escape.py to encodings\raw_unicode_escape.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\rot_13.py to encodings\rot_13.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\shift_jis.py to encodings\shift_jis.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\shift_jis_2004.py to encodings\shift_jis_2004.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\shift_jisx0213.py to encodings\shift_jisx0213.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\string_escape.py to encodings\string_escape.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\tis_620.py to encodings\tis_620.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\undefined.py to encodings\undefined.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\unicode_escape.py to encodings\unicode_escape.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\unicode_internal.py to encodings\unicode_internal.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\utf_16.py to encodings\utf_16.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\utf_16_be.py to encodings\utf_16_be.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\utf_16_le.py to encodings\utf_16_le.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\utf_32.py to encodings\utf_32.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\utf_32_be.py to encodings\utf_32_be.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\utf_32_le.py to encodings\utf_32_le.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\utf_7.py to encodings\utf_7.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\utf_8.py to encodings\utf_8.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\utf_8_sig.py to encodings\utf_8_sig.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\uu_codec.py to encodings\uu_codec.pyo
-skipping byte-compilation of C:\Python27\lib\encodings\zlib_codec.py to encodings\zlib_codec.pyo
-skipping byte-compilation of C:\Python27\lib\fileinput.py to fileinput.pyo
-skipping byte-compilation of C:\Python27\lib\fnmatch.py to fnmatch.pyo
-skipping byte-compilation of C:\Python27\lib\formatter.py to formatter.pyo
-skipping byte-compilation of C:\Python27\lib\ftplib.py to ftplib.pyo
-skipping byte-compilation of C:\Python27\lib\functools.py to functools.pyo
-skipping byte-compilation of C:\Python27\lib\genericpath.py to genericpath.pyo
-skipping byte-compilation of C:\Python27\lib\getopt.py to getopt.pyo
-skipping byte-compilation of C:\Python27\lib\getpass.py to getpass.pyo
-skipping byte-compilation of C:\Python27\lib\gettext.py to gettext.pyo
-skipping byte-compilation of C:\Python27\lib\glob.py to glob.pyo
-skipping byte-compilation of C:\Python27\lib\gzip.py to gzip.pyo
-skipping byte-compilation of C:\Python27\lib\hashlib.py to hashlib.pyo
-skipping byte-compilation of C:\Python27\lib\heapq.py to heapq.pyo
-skipping byte-compilation of C:\Python27\lib\hmac.py to hmac.pyo
-skipping byte-compilation of C:\Python27\lib\httplib.py to httplib.pyo
-skipping byte-compilation of C:\Python27\lib\inspect.py to inspect.pyo
-skipping byte-compilation of C:\Python27\lib\io.py to io.pyo
-skipping byte-compilation of C:\Python27\lib\keyword.py to keyword.pyo
-skipping byte-compilation of C:\Python27\lib\linecache.py to linecache.pyo
-skipping byte-compilation of C:\Python27\lib\locale.py to locale.pyo
-skipping byte-compilation of C:\Python27\lib\logging\__init__.py to logging\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\mimetools.py to mimetools.pyo
-skipping byte-compilation of C:\Python27\lib\mimetypes.py to mimetypes.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\__init__.py to multiprocessing\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\connection.py to multiprocessing\connection.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\dummy\__init__.py to multiprocessing\dummy\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\dummy\connection.py to multiprocessing\dummy\connection.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\forking.py to multiprocessing\forking.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\heap.py to multiprocessing\heap.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\managers.py to multiprocessing\managers.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\pool.py to multiprocessing\pool.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\process.py to multiprocessing\process.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\queues.py to multiprocessing\queues.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\reduction.py to multiprocessing\reduction.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\sharedctypes.py to multiprocessing\sharedctypes.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\synchronize.py to multiprocessing\synchronize.pyo
-skipping byte-compilation of C:\Python27\lib\multiprocessing\util.py to multiprocessing\util.pyo
-skipping byte-compilation of C:\Python27\lib\new.py to new.pyo
-skipping byte-compilation of C:\Python27\lib\ntpath.py to ntpath.pyo
-skipping byte-compilation of C:\Python27\lib\nturl2path.py to nturl2path.pyo
-skipping byte-compilation of C:\Python27\lib\opcode.py to opcode.pyo
-skipping byte-compilation of C:\Python27\lib\optparse.py to optparse.pyo
-skipping byte-compilation of C:\Python27\lib\os.py to os.pyo
-skipping byte-compilation of C:\Python27\lib\os2emxpath.py to os2emxpath.pyo
-skipping byte-compilation of C:\Python27\lib\pdb.py to pdb.pyo
-skipping byte-compilation of C:\Python27\lib\pickle.py to pickle.pyo
-skipping byte-compilation of C:\Python27\lib\pkgutil.py to pkgutil.pyo
-skipping byte-compilation of C:\Python27\lib\platform.py to platform.pyo
-skipping byte-compilation of C:\Python27\lib\plistlib.py to plistlib.pyo
-skipping byte-compilation of C:\Python27\lib\posixpath.py to posixpath.pyo
-skipping byte-compilation of C:\Python27\lib\pprint.py to pprint.pyo
-skipping byte-compilation of C:\Python27\lib\py_compile.py to py_compile.pyo
-skipping byte-compilation of C:\Python27\lib\pydoc.py to pydoc.pyo
-skipping byte-compilation of C:\Python27\lib\pydoc_data\__init__.py to pydoc_data\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\pydoc_data\topics.py to pydoc_data\topics.pyo
-skipping byte-compilation of C:\Python27\lib\quopri.py to quopri.pyo
-skipping byte-compilation of C:\Python27\lib\random.py to random.pyo
-skipping byte-compilation of C:\Python27\lib\re.py to re.pyo
-skipping byte-compilation of C:\Python27\lib\repr.py to repr.pyo
-skipping byte-compilation of C:\Python27\lib\rfc822.py to rfc822.pyo
-skipping byte-compilation of C:\Python27\lib\sets.py to sets.pyo
-skipping byte-compilation of C:\Python27\lib\shlex.py to shlex.pyo
-skipping byte-compilation of C:\Python27\lib\shutil.py to shutil.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\PyQt4\__init__.py to PyQt4\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\__config__.py to numpy\__config__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\__init__.py to numpy\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\_import_tools.py to numpy\_import_tools.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\add_newdocs.py to numpy\add_newdocs.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\compat\__init__.py to numpy\compat\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\compat\_inspect.py to numpy\compat\_inspect.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\compat\py3k.py to numpy\compat\py3k.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\__init__.py to numpy\core\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\_internal.py to numpy\core\_internal.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\arrayprint.py to numpy\core\arrayprint.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\defchararray.py to numpy\core\defchararray.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\fromnumeric.py to numpy\core\fromnumeric.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\function_base.py to numpy\core\function_base.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\getlimits.py to numpy\core\getlimits.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\info.py to numpy\core\info.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\machar.py to numpy\core\machar.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\memmap.py to numpy\core\memmap.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\numeric.py to numpy\core\numeric.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\numerictypes.py to numpy\core\numerictypes.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\records.py to numpy\core\records.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\core\shape_base.py to numpy\core\shape_base.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\ctypeslib.py to numpy\ctypeslib.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\__config__.py to numpy\distutils\__config__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\__init__.py to numpy\distutils\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\__version__.py to numpy\distutils\__version__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\ccompiler.py to numpy\distutils\ccompiler.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\__init__.py to numpy\distutils\command\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\autodist.py to numpy\distutils\command\autodist.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\bdist_rpm.py to numpy\distutils\command\bdist_rpm.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\build.py to numpy\distutils\command\build.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\build_clib.py to numpy\distutils\command\build_clib.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\build_ext.py to numpy\distutils\command\build_ext.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\build_py.py to numpy\distutils\command\build_py.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\build_scripts.py to numpy\distutils\command\build_scripts.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\build_src.py to numpy\distutils\command\build_src.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\config.py to numpy\distutils\command\config.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\config_compiler.py to numpy\distutils\command\config_compiler.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\develop.py to numpy\distutils\command\develop.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\egg_info.py to numpy\distutils\command\egg_info.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\install.py to numpy\distutils\command\install.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\install_clib.py to numpy\distutils\command\install_clib.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\install_data.py to numpy\distutils\command\install_data.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\install_headers.py to numpy\distutils\command\install_headers.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\scons.py to numpy\distutils\command\scons.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\command\sdist.py to numpy\distutils\command\sdist.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\compat.py to numpy\distutils\compat.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\conv_template.py to numpy\distutils\conv_template.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\core.py to numpy\distutils\core.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\cpuinfo.py to numpy\distutils\cpuinfo.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\environment.py to numpy\distutils\environment.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\exec_command.py to numpy\distutils\exec_command.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\extension.py to numpy\distutils\extension.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\fcompiler\__init__.py to numpy\distutils\fcompiler\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\from_template.py to numpy\distutils\from_template.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\info.py to numpy\distutils\info.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\interactive.py to numpy\distutils\interactive.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\lib2def.py to numpy\distutils\lib2def.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\log.py to numpy\distutils\log.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\mingw32ccompiler.py to numpy\distutils\mingw32ccompiler.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\misc_util.py to numpy\distutils\misc_util.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\npy_pkg_config.py to numpy\distutils\npy_pkg_config.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\numpy_distribution.py to numpy\distutils\numpy_distribution.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\system_info.py to numpy\distutils\system_info.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\distutils\unixccompiler.py to numpy\distutils\unixccompiler.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\dual.py to numpy\dual.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\__init__.py to numpy\f2py\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\__version__.py to numpy\f2py\__version__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\auxfuncs.py to numpy\f2py\auxfuncs.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\capi_maps.py to numpy\f2py\capi_maps.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\cb_rules.py to numpy\f2py\cb_rules.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\cfuncs.py to numpy\f2py\cfuncs.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\common_rules.py to numpy\f2py\common_rules.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\crackfortran.py to numpy\f2py\crackfortran.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\diagnose.py to numpy\f2py\diagnose.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\f2py2e.py to numpy\f2py\f2py2e.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\f2py_testing.py to numpy\f2py\f2py_testing.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\f90mod_rules.py to numpy\f2py\f90mod_rules.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\func2subr.py to numpy\f2py\func2subr.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\info.py to numpy\f2py\info.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\rules.py to numpy\f2py\rules.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\f2py\use_rules.py to numpy\f2py\use_rules.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\fft\__init__.py to numpy\fft\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\fft\fftpack.py to numpy\fft\fftpack.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\fft\helper.py to numpy\fft\helper.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\fft\info.py to numpy\fft\info.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\__init__.py to numpy\lib\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\_datasource.py to numpy\lib\_datasource.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\_iotools.py to numpy\lib\_iotools.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\arraysetops.py to numpy\lib\arraysetops.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\arrayterator.py to numpy\lib\arrayterator.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\financial.py to numpy\lib\financial.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\format.py to numpy\lib\format.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\function_base.py to numpy\lib\function_base.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\index_tricks.py to numpy\lib\index_tricks.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\info.py to numpy\lib\info.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\npyio.py to numpy\lib\npyio.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\polynomial.py to numpy\lib\polynomial.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\scimath.py to numpy\lib\scimath.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\shape_base.py to numpy\lib\shape_base.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\stride_tricks.py to numpy\lib\stride_tricks.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\twodim_base.py to numpy\lib\twodim_base.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\type_check.py to numpy\lib\type_check.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\ufunclike.py to numpy\lib\ufunclike.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\lib\utils.py to numpy\lib\utils.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\linalg\__init__.py to numpy\linalg\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\linalg\info.py to numpy\linalg\info.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\linalg\linalg.py to numpy\linalg\linalg.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\ma\__init__.py to numpy\ma\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\ma\core.py to numpy\ma\core.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\ma\extras.py to numpy\ma\extras.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\ma\mrecords.py to numpy\ma\mrecords.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\matrixlib\__init__.py to numpy\matrixlib\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\matrixlib\defmatrix.py to numpy\matrixlib\defmatrix.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\numarray\__init__.py to numpy\numarray\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\numarray\compat.py to numpy\numarray\compat.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\numarray\functions.py to numpy\numarray\functions.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\numarray\numerictypes.py to numpy\numarray\numerictypes.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\numarray\session.py to numpy\numarray\session.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\numarray\ufuncs.py to numpy\numarray\ufuncs.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\numarray\util.py to numpy\numarray\util.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\polynomial\__init__.py to numpy\polynomial\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\polynomial\chebyshev.py to numpy\polynomial\chebyshev.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\polynomial\hermite.py to numpy\polynomial\hermite.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\polynomial\hermite_e.py to numpy\polynomial\hermite_e.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\polynomial\laguerre.py to numpy\polynomial\laguerre.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\polynomial\legendre.py to numpy\polynomial\legendre.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\polynomial\polynomial.py to numpy\polynomial\polynomial.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\polynomial\polytemplate.py to numpy\polynomial\polytemplate.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\polynomial\polyutils.py to numpy\polynomial\polyutils.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\random\__init__.py to numpy\random\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\random\info.py to numpy\random\info.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\testing\__init__.py to numpy\testing\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\testing\decorators.py to numpy\testing\decorators.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\testing\noseclasses.py to numpy\testing\noseclasses.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\testing\nosetester.py to numpy\testing\nosetester.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\testing\numpytest.py to numpy\testing\numpytest.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\testing\utils.py to numpy\testing\utils.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\numpy\version.py to numpy\version.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\__init__.py to pygame\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\_numpysndarray.py to pygame\_numpysndarray.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\_numpysurfarray.py to pygame\_numpysurfarray.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\colordict.py to pygame\colordict.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\compat.py to pygame\compat.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\cursors.py to pygame\cursors.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\locals.py to pygame\locals.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\mac_scrap.py to pygame\mac_scrap.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\macosx.py to pygame\macosx.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\pkgdata.py to pygame\pkgdata.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\sndarray.py to pygame\sndarray.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\sprite.py to pygame\sprite.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\surfarray.py to pygame\surfarray.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\sysfont.py to pygame\sysfont.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\threads\Py25Queue.py to pygame\threads\Py25Queue.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\threads\__init__.py to pygame\threads\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\pygame\version.py to pygame\version.pyo
-skipping byte-compilation of C:\Python27\lib\site-packages\zipextimporter.py to zipextimporter.pyo
-skipping byte-compilation of C:\Python27\lib\site.py to site.pyo
-skipping byte-compilation of C:\Python27\lib\socket.py to socket.pyo
-skipping byte-compilation of C:\Python27\lib\sre.py to sre.pyo
-skipping byte-compilation of C:\Python27\lib\sre_compile.py to sre_compile.pyo
-skipping byte-compilation of C:\Python27\lib\sre_constants.py to sre_constants.pyo
-skipping byte-compilation of C:\Python27\lib\sre_parse.py to sre_parse.pyo
-skipping byte-compilation of C:\Python27\lib\ssl.py to ssl.pyo
-skipping byte-compilation of C:\Python27\lib\stat.py to stat.pyo
-skipping byte-compilation of C:\Python27\lib\string.py to string.pyo
-skipping byte-compilation of C:\Python27\lib\stringprep.py to stringprep.pyo
-skipping byte-compilation of C:\Python27\lib\struct.py to struct.pyo
-skipping byte-compilation of C:\Python27\lib\subprocess.py to subprocess.pyo
-skipping byte-compilation of C:\Python27\lib\symbol.py to symbol.pyo
-skipping byte-compilation of C:\Python27\lib\symtable.py to symtable.pyo
-skipping byte-compilation of C:\Python27\lib\sysconfig.py to sysconfig.pyo
-skipping byte-compilation of C:\Python27\lib\tarfile.py to tarfile.pyo
-skipping byte-compilation of C:\Python27\lib\tempfile.py to tempfile.pyo
-skipping byte-compilation of C:\Python27\lib\textwrap.py to textwrap.pyo
-skipping byte-compilation of C:\Python27\lib\threading.py to threading.pyo
-skipping byte-compilation of C:\Python27\lib\token.py to token.pyo
-skipping byte-compilation of C:\Python27\lib\tokenize.py to tokenize.pyo
-skipping byte-compilation of C:\Python27\lib\traceback.py to traceback.pyo
-skipping byte-compilation of C:\Python27\lib\tty.py to tty.pyo
-skipping byte-compilation of C:\Python27\lib\types.py to types.pyo
-skipping byte-compilation of C:\Python27\lib\unittest\__init__.py to unittest\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\unittest\case.py to unittest\case.pyo
-skipping byte-compilation of C:\Python27\lib\unittest\loader.py to unittest\loader.pyo
-skipping byte-compilation of C:\Python27\lib\unittest\main.py to unittest\main.pyo
-skipping byte-compilation of C:\Python27\lib\unittest\result.py to unittest\result.pyo
-skipping byte-compilation of C:\Python27\lib\unittest\runner.py to unittest\runner.pyo
-skipping byte-compilation of C:\Python27\lib\unittest\signals.py to unittest\signals.pyo
-skipping byte-compilation of C:\Python27\lib\unittest\suite.py to unittest\suite.pyo
-skipping byte-compilation of C:\Python27\lib\unittest\util.py to unittest\util.pyo
-skipping byte-compilation of C:\Python27\lib\urllib.py to urllib.pyo
-skipping byte-compilation of C:\Python27\lib\urllib2.py to urllib2.pyo
-skipping byte-compilation of C:\Python27\lib\urlparse.py to urlparse.pyo
-skipping byte-compilation of C:\Python27\lib\uu.py to uu.pyo
-skipping byte-compilation of C:\Python27\lib\warnings.py to warnings.pyo
-skipping byte-compilation of C:\Python27\lib\weakref.py to weakref.pyo
-skipping byte-compilation of C:\Python27\lib\webbrowser.py to webbrowser.pyo
-skipping byte-compilation of C:\Python27\lib\xml\__init__.py to xml\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\xml\parsers\__init__.py to xml\parsers\__init__.pyo
-skipping byte-compilation of C:\Python27\lib\xml\parsers\expat.py to xml\parsers\expat.pyo
-skipping byte-compilation of C:\Python27\lib\xmllib.py to xmllib.pyo
-skipping byte-compilation of C:\Python27\lib\xmlrpclib.py to xmlrpclib.pyo
-skipping byte-compilation of C:\Python27\lib\zipfile.py to zipfile.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Character.py to Character.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Game.py to Game.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Globals.py to Globals.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Graphic.py to Graphic.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Gui.py to Gui.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Loc.py to Loc.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\MapMaster.py to MapMaster.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Places.py to Places.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Sounds.py to Sounds.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Story.py to Story.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\ViewGraphics.py to ViewGraphics.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\ViewMain.py to ViewMain.pyo
-removing c:\users\pand\appdata\local\temp\tmpalydal.py
+writing byte-compilation script 'c:\users\pand\appdata\local\temp\tmpji_n4u.py'
+C:\Python27\python.exe -OO c:\users\pand\appdata\local\temp\tmpji_n4u.py
+byte-compiling C:\Python27\lib\BaseHTTPServer.py to BaseHTTPServer.pyo
+byte-compiling C:\Python27\lib\ConfigParser.py to ConfigParser.pyo
+byte-compiling C:\Python27\lib\Queue.py to Queue.pyo
+byte-compiling C:\Python27\lib\SocketServer.py to SocketServer.pyo
+byte-compiling C:\Python27\lib\StringIO.py to StringIO.pyo
+byte-compiling C:\Python27\lib\UserDict.py to UserDict.pyo
+byte-compiling C:\Python27\lib\_LWPCookieJar.py to _LWPCookieJar.pyo
+byte-compiling C:\Python27\lib\_MozillaCookieJar.py to _MozillaCookieJar.pyo
+byte-compiling C:\Python27\lib\__future__.py to __future__.pyo
+byte-compiling C:\Python27\lib\_abcoll.py to _abcoll.pyo
+byte-compiling C:\Python27\lib\_strptime.py to _strptime.pyo
+byte-compiling C:\Python27\lib\_threading_local.py to _threading_local.pyo
+byte-compiling C:\Python27\lib\_weakrefset.py to _weakrefset.pyo
+byte-compiling C:\Python27\lib\abc.py to abc.pyo
+byte-compiling C:\Python27\lib\ast.py to ast.pyo
+byte-compiling C:\Python27\lib\atexit.py to atexit.pyo
+byte-compiling C:\Python27\lib\base64.py to base64.pyo
+byte-compiling C:\Python27\lib\bdb.py to bdb.pyo
+byte-compiling C:\Python27\lib\bisect.py to bisect.pyo
+byte-compiling C:\Python27\lib\calendar.py to calendar.pyo
+byte-compiling C:\Python27\lib\cmd.py to cmd.pyo
+byte-compiling C:\Python27\lib\codecs.py to codecs.pyo
+byte-compiling C:\Python27\lib\collections.py to collections.pyo
+byte-compiling C:\Python27\lib\commands.py to commands.pyo
+byte-compiling C:\Python27\lib\compiler\__init__.py to compiler\__init__.pyo
+byte-compiling C:\Python27\lib\compiler\ast.py to compiler\ast.pyo
+byte-compiling C:\Python27\lib\compiler\consts.py to compiler\consts.pyo
+byte-compiling C:\Python27\lib\compiler\future.py to compiler\future.pyo
+byte-compiling C:\Python27\lib\compiler\misc.py to compiler\misc.pyo
+byte-compiling C:\Python27\lib\compiler\pyassem.py to compiler\pyassem.pyo
+byte-compiling C:\Python27\lib\compiler\pycodegen.py to compiler\pycodegen.pyo
+byte-compiling C:\Python27\lib\compiler\symbols.py to compiler\symbols.pyo
+byte-compiling C:\Python27\lib\compiler\syntax.py to compiler\syntax.pyo
+byte-compiling C:\Python27\lib\compiler\transformer.py to compiler\transformer.pyo
+byte-compiling C:\Python27\lib\compiler\visitor.py to compiler\visitor.pyo
+byte-compiling C:\Python27\lib\cookielib.py to cookielib.pyo
+byte-compiling C:\Python27\lib\copy.py to copy.pyo
+byte-compiling C:\Python27\lib\copy_reg.py to copy_reg.pyo
+byte-compiling C:\Python27\lib\ctypes\__init__.py to ctypes\__init__.pyo
+byte-compiling C:\Python27\lib\ctypes\_endian.py to ctypes\_endian.pyo
+byte-compiling C:\Python27\lib\difflib.py to difflib.pyo
+byte-compiling C:\Python27\lib\dis.py to dis.pyo
+byte-compiling C:\Python27\lib\distutils\__init__.py to distutils\__init__.pyo
+byte-compiling C:\Python27\lib\distutils\archive_util.py to distutils\archive_util.pyo
+byte-compiling C:\Python27\lib\distutils\ccompiler.py to distutils\ccompiler.pyo
+byte-compiling C:\Python27\lib\distutils\cmd.py to distutils\cmd.pyo
+byte-compiling C:\Python27\lib\distutils\command\__init__.py to distutils\command\__init__.pyo
+byte-compiling C:\Python27\lib\distutils\command\bdist_rpm.py to distutils\command\bdist_rpm.pyo
+byte-compiling C:\Python27\lib\distutils\command\build.py to distutils\command\build.pyo
+byte-compiling C:\Python27\lib\distutils\command\build_clib.py to distutils\command\build_clib.pyo
+byte-compiling C:\Python27\lib\distutils\command\build_ext.py to distutils\command\build_ext.pyo
+byte-compiling C:\Python27\lib\distutils\command\build_py.py to distutils\command\build_py.pyo
+byte-compiling C:\Python27\lib\distutils\command\build_scripts.py to distutils\command\build_scripts.pyo
+byte-compiling C:\Python27\lib\distutils\command\config.py to distutils\command\config.pyo
+byte-compiling C:\Python27\lib\distutils\command\install.py to distutils\command\install.pyo
+byte-compiling C:\Python27\lib\distutils\command\install_data.py to distutils\command\install_data.pyo
+byte-compiling C:\Python27\lib\distutils\command\install_headers.py to distutils\command\install_headers.pyo
+byte-compiling C:\Python27\lib\distutils\command\sdist.py to distutils\command\sdist.pyo
+byte-compiling C:\Python27\lib\distutils\config.py to distutils\config.pyo
+byte-compiling C:\Python27\lib\distutils\core.py to distutils\core.pyo
+byte-compiling C:\Python27\lib\distutils\cygwinccompiler.py to distutils\cygwinccompiler.pyo
+byte-compiling C:\Python27\lib\distutils\debug.py to distutils\debug.pyo
+byte-compiling C:\Python27\lib\distutils\dep_util.py to distutils\dep_util.pyo
+byte-compiling C:\Python27\lib\distutils\dir_util.py to distutils\dir_util.pyo
+byte-compiling C:\Python27\lib\distutils\dist.py to distutils\dist.pyo
+byte-compiling C:\Python27\lib\distutils\errors.py to distutils\errors.pyo
+byte-compiling C:\Python27\lib\distutils\extension.py to distutils\extension.pyo
+byte-compiling C:\Python27\lib\distutils\fancy_getopt.py to distutils\fancy_getopt.pyo
+byte-compiling C:\Python27\lib\distutils\file_util.py to distutils\file_util.pyo
+byte-compiling C:\Python27\lib\distutils\filelist.py to distutils\filelist.pyo
+byte-compiling C:\Python27\lib\distutils\log.py to distutils\log.pyo
+byte-compiling C:\Python27\lib\distutils\msvc9compiler.py to distutils\msvc9compiler.pyo
+byte-compiling C:\Python27\lib\distutils\msvccompiler.py to distutils\msvccompiler.pyo
+byte-compiling C:\Python27\lib\distutils\spawn.py to distutils\spawn.pyo
+byte-compiling C:\Python27\lib\distutils\sysconfig.py to distutils\sysconfig.pyo
+byte-compiling C:\Python27\lib\distutils\text_file.py to distutils\text_file.pyo
+byte-compiling C:\Python27\lib\distutils\unixccompiler.py to distutils\unixccompiler.pyo
+byte-compiling C:\Python27\lib\distutils\util.py to distutils\util.pyo
+byte-compiling C:\Python27\lib\distutils\version.py to distutils\version.pyo
+byte-compiling C:\Python27\lib\distutils\versionpredicate.py to distutils\versionpredicate.pyo
+byte-compiling C:\Python27\lib\doctest.py to doctest.pyo
+byte-compiling C:\Python27\lib\dummy_thread.py to dummy_thread.pyo
+byte-compiling C:\Python27\lib\dummy_threading.py to dummy_threading.pyo
+byte-compiling C:\Python27\lib\encodings\__init__.py to encodings\__init__.pyo
+byte-compiling C:\Python27\lib\encodings\aliases.py to encodings\aliases.pyo
+byte-compiling C:\Python27\lib\encodings\ascii.py to encodings\ascii.pyo
+byte-compiling C:\Python27\lib\encodings\base64_codec.py to encodings\base64_codec.pyo
+byte-compiling C:\Python27\lib\encodings\big5.py to encodings\big5.pyo
+byte-compiling C:\Python27\lib\encodings\big5hkscs.py to encodings\big5hkscs.pyo
+byte-compiling C:\Python27\lib\encodings\bz2_codec.py to encodings\bz2_codec.pyo
+byte-compiling C:\Python27\lib\encodings\charmap.py to encodings\charmap.pyo
+byte-compiling C:\Python27\lib\encodings\cp037.py to encodings\cp037.pyo
+byte-compiling C:\Python27\lib\encodings\cp1006.py to encodings\cp1006.pyo
+byte-compiling C:\Python27\lib\encodings\cp1026.py to encodings\cp1026.pyo
+byte-compiling C:\Python27\lib\encodings\cp1140.py to encodings\cp1140.pyo
+byte-compiling C:\Python27\lib\encodings\cp1250.py to encodings\cp1250.pyo
+byte-compiling C:\Python27\lib\encodings\cp1251.py to encodings\cp1251.pyo
+byte-compiling C:\Python27\lib\encodings\cp1252.py to encodings\cp1252.pyo
+byte-compiling C:\Python27\lib\encodings\cp1253.py to encodings\cp1253.pyo
+byte-compiling C:\Python27\lib\encodings\cp1254.py to encodings\cp1254.pyo
+byte-compiling C:\Python27\lib\encodings\cp1255.py to encodings\cp1255.pyo
+byte-compiling C:\Python27\lib\encodings\cp1256.py to encodings\cp1256.pyo
+byte-compiling C:\Python27\lib\encodings\cp1257.py to encodings\cp1257.pyo
+byte-compiling C:\Python27\lib\encodings\cp1258.py to encodings\cp1258.pyo
+byte-compiling C:\Python27\lib\encodings\cp424.py to encodings\cp424.pyo
+byte-compiling C:\Python27\lib\encodings\cp437.py to encodings\cp437.pyo
+byte-compiling C:\Python27\lib\encodings\cp500.py to encodings\cp500.pyo
+byte-compiling C:\Python27\lib\encodings\cp720.py to encodings\cp720.pyo
+byte-compiling C:\Python27\lib\encodings\cp737.py to encodings\cp737.pyo
+byte-compiling C:\Python27\lib\encodings\cp775.py to encodings\cp775.pyo
+byte-compiling C:\Python27\lib\encodings\cp850.py to encodings\cp850.pyo
+byte-compiling C:\Python27\lib\encodings\cp852.py to encodings\cp852.pyo
+byte-compiling C:\Python27\lib\encodings\cp855.py to encodings\cp855.pyo
+byte-compiling C:\Python27\lib\encodings\cp856.py to encodings\cp856.pyo
+byte-compiling C:\Python27\lib\encodings\cp857.py to encodings\cp857.pyo
+byte-compiling C:\Python27\lib\encodings\cp858.py to encodings\cp858.pyo
+byte-compiling C:\Python27\lib\encodings\cp860.py to encodings\cp860.pyo
+byte-compiling C:\Python27\lib\encodings\cp861.py to encodings\cp861.pyo
+byte-compiling C:\Python27\lib\encodings\cp862.py to encodings\cp862.pyo
+byte-compiling C:\Python27\lib\encodings\cp863.py to encodings\cp863.pyo
+byte-compiling C:\Python27\lib\encodings\cp864.py to encodings\cp864.pyo
+byte-compiling C:\Python27\lib\encodings\cp865.py to encodings\cp865.pyo
+byte-compiling C:\Python27\lib\encodings\cp866.py to encodings\cp866.pyo
+byte-compiling C:\Python27\lib\encodings\cp869.py to encodings\cp869.pyo
+byte-compiling C:\Python27\lib\encodings\cp874.py to encodings\cp874.pyo
+byte-compiling C:\Python27\lib\encodings\cp875.py to encodings\cp875.pyo
+byte-compiling C:\Python27\lib\encodings\cp932.py to encodings\cp932.pyo
+byte-compiling C:\Python27\lib\encodings\cp949.py to encodings\cp949.pyo
+byte-compiling C:\Python27\lib\encodings\cp950.py to encodings\cp950.pyo
+byte-compiling C:\Python27\lib\encodings\euc_jis_2004.py to encodings\euc_jis_2004.pyo
+byte-compiling C:\Python27\lib\encodings\euc_jisx0213.py to encodings\euc_jisx0213.pyo
+byte-compiling C:\Python27\lib\encodings\euc_jp.py to encodings\euc_jp.pyo
+byte-compiling C:\Python27\lib\encodings\euc_kr.py to encodings\euc_kr.pyo
+byte-compiling C:\Python27\lib\encodings\gb18030.py to encodings\gb18030.pyo
+byte-compiling C:\Python27\lib\encodings\gb2312.py to encodings\gb2312.pyo
+byte-compiling C:\Python27\lib\encodings\gbk.py to encodings\gbk.pyo
+byte-compiling C:\Python27\lib\encodings\hex_codec.py to encodings\hex_codec.pyo
+byte-compiling C:\Python27\lib\encodings\hp_roman8.py to encodings\hp_roman8.pyo
+byte-compiling C:\Python27\lib\encodings\hz.py to encodings\hz.pyo
+byte-compiling C:\Python27\lib\encodings\idna.py to encodings\idna.pyo
+byte-compiling C:\Python27\lib\encodings\iso2022_jp.py to encodings\iso2022_jp.pyo
+byte-compiling C:\Python27\lib\encodings\iso2022_jp_1.py to encodings\iso2022_jp_1.pyo
+byte-compiling C:\Python27\lib\encodings\iso2022_jp_2.py to encodings\iso2022_jp_2.pyo
+byte-compiling C:\Python27\lib\encodings\iso2022_jp_2004.py to encodings\iso2022_jp_2004.pyo
+byte-compiling C:\Python27\lib\encodings\iso2022_jp_3.py to encodings\iso2022_jp_3.pyo
+byte-compiling C:\Python27\lib\encodings\iso2022_jp_ext.py to encodings\iso2022_jp_ext.pyo
+byte-compiling C:\Python27\lib\encodings\iso2022_kr.py to encodings\iso2022_kr.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_1.py to encodings\iso8859_1.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_10.py to encodings\iso8859_10.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_11.py to encodings\iso8859_11.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_13.py to encodings\iso8859_13.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_14.py to encodings\iso8859_14.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_15.py to encodings\iso8859_15.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_16.py to encodings\iso8859_16.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_2.py to encodings\iso8859_2.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_3.py to encodings\iso8859_3.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_4.py to encodings\iso8859_4.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_5.py to encodings\iso8859_5.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_6.py to encodings\iso8859_6.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_7.py to encodings\iso8859_7.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_8.py to encodings\iso8859_8.pyo
+byte-compiling C:\Python27\lib\encodings\iso8859_9.py to encodings\iso8859_9.pyo
+byte-compiling C:\Python27\lib\encodings\johab.py to encodings\johab.pyo
+byte-compiling C:\Python27\lib\encodings\koi8_r.py to encodings\koi8_r.pyo
+byte-compiling C:\Python27\lib\encodings\koi8_u.py to encodings\koi8_u.pyo
+byte-compiling C:\Python27\lib\encodings\latin_1.py to encodings\latin_1.pyo
+byte-compiling C:\Python27\lib\encodings\mac_arabic.py to encodings\mac_arabic.pyo
+byte-compiling C:\Python27\lib\encodings\mac_centeuro.py to encodings\mac_centeuro.pyo
+byte-compiling C:\Python27\lib\encodings\mac_croatian.py to encodings\mac_croatian.pyo
+byte-compiling C:\Python27\lib\encodings\mac_cyrillic.py to encodings\mac_cyrillic.pyo
+byte-compiling C:\Python27\lib\encodings\mac_farsi.py to encodings\mac_farsi.pyo
+byte-compiling C:\Python27\lib\encodings\mac_greek.py to encodings\mac_greek.pyo
+byte-compiling C:\Python27\lib\encodings\mac_iceland.py to encodings\mac_iceland.pyo
+byte-compiling C:\Python27\lib\encodings\mac_latin2.py to encodings\mac_latin2.pyo
+byte-compiling C:\Python27\lib\encodings\mac_roman.py to encodings\mac_roman.pyo
+byte-compiling C:\Python27\lib\encodings\mac_romanian.py to encodings\mac_romanian.pyo
+byte-compiling C:\Python27\lib\encodings\mac_turkish.py to encodings\mac_turkish.pyo
+byte-compiling C:\Python27\lib\encodings\mbcs.py to encodings\mbcs.pyo
+byte-compiling C:\Python27\lib\encodings\palmos.py to encodings\palmos.pyo
+byte-compiling C:\Python27\lib\encodings\ptcp154.py to encodings\ptcp154.pyo
+byte-compiling C:\Python27\lib\encodings\punycode.py to encodings\punycode.pyo
+byte-compiling C:\Python27\lib\encodings\quopri_codec.py to encodings\quopri_codec.pyo
+byte-compiling C:\Python27\lib\encodings\raw_unicode_escape.py to encodings\raw_unicode_escape.pyo
+byte-compiling C:\Python27\lib\encodings\rot_13.py to encodings\rot_13.pyo
+byte-compiling C:\Python27\lib\encodings\shift_jis.py to encodings\shift_jis.pyo
+byte-compiling C:\Python27\lib\encodings\shift_jis_2004.py to encodings\shift_jis_2004.pyo
+byte-compiling C:\Python27\lib\encodings\shift_jisx0213.py to encodings\shift_jisx0213.pyo
+byte-compiling C:\Python27\lib\encodings\string_escape.py to encodings\string_escape.pyo
+byte-compiling C:\Python27\lib\encodings\tis_620.py to encodings\tis_620.pyo
+byte-compiling C:\Python27\lib\encodings\undefined.py to encodings\undefined.pyo
+byte-compiling C:\Python27\lib\encodings\unicode_escape.py to encodings\unicode_escape.pyo
+byte-compiling C:\Python27\lib\encodings\unicode_internal.py to encodings\unicode_internal.pyo
+byte-compiling C:\Python27\lib\encodings\utf_16.py to encodings\utf_16.pyo
+byte-compiling C:\Python27\lib\encodings\utf_16_be.py to encodings\utf_16_be.pyo
+byte-compiling C:\Python27\lib\encodings\utf_16_le.py to encodings\utf_16_le.pyo
+byte-compiling C:\Python27\lib\encodings\utf_32.py to encodings\utf_32.pyo
+byte-compiling C:\Python27\lib\encodings\utf_32_be.py to encodings\utf_32_be.pyo
+byte-compiling C:\Python27\lib\encodings\utf_32_le.py to encodings\utf_32_le.pyo
+byte-compiling C:\Python27\lib\encodings\utf_7.py to encodings\utf_7.pyo
+byte-compiling C:\Python27\lib\encodings\utf_8.py to encodings\utf_8.pyo
+byte-compiling C:\Python27\lib\encodings\utf_8_sig.py to encodings\utf_8_sig.pyo
+byte-compiling C:\Python27\lib\encodings\uu_codec.py to encodings\uu_codec.pyo
+byte-compiling C:\Python27\lib\encodings\zlib_codec.py to encodings\zlib_codec.pyo
+byte-compiling C:\Python27\lib\fileinput.py to fileinput.pyo
+byte-compiling C:\Python27\lib\fnmatch.py to fnmatch.pyo
+byte-compiling C:\Python27\lib\formatter.py to formatter.pyo
+byte-compiling C:\Python27\lib\ftplib.py to ftplib.pyo
+byte-compiling C:\Python27\lib\functools.py to functools.pyo
+byte-compiling C:\Python27\lib\genericpath.py to genericpath.pyo
+byte-compiling C:\Python27\lib\getopt.py to getopt.pyo
+byte-compiling C:\Python27\lib\getpass.py to getpass.pyo
+byte-compiling C:\Python27\lib\gettext.py to gettext.pyo
+byte-compiling C:\Python27\lib\glob.py to glob.pyo
+byte-compiling C:\Python27\lib\gzip.py to gzip.pyo
+byte-compiling C:\Python27\lib\hashlib.py to hashlib.pyo
+byte-compiling C:\Python27\lib\heapq.py to heapq.pyo
+byte-compiling C:\Python27\lib\hmac.py to hmac.pyo
+byte-compiling C:\Python27\lib\httplib.py to httplib.pyo
+byte-compiling C:\Python27\lib\inspect.py to inspect.pyo
+byte-compiling C:\Python27\lib\io.py to io.pyo
+byte-compiling C:\Python27\lib\keyword.py to keyword.pyo
+byte-compiling C:\Python27\lib\linecache.py to linecache.pyo
+byte-compiling C:\Python27\lib\locale.py to locale.pyo
+byte-compiling C:\Python27\lib\logging\__init__.py to logging\__init__.pyo
+byte-compiling C:\Python27\lib\mimetools.py to mimetools.pyo
+byte-compiling C:\Python27\lib\mimetypes.py to mimetypes.pyo
+byte-compiling C:\Python27\lib\multiprocessing\__init__.py to multiprocessing\__init__.pyo
+byte-compiling C:\Python27\lib\multiprocessing\connection.py to multiprocessing\connection.pyo
+byte-compiling C:\Python27\lib\multiprocessing\dummy\__init__.py to multiprocessing\dummy\__init__.pyo
+byte-compiling C:\Python27\lib\multiprocessing\dummy\connection.py to multiprocessing\dummy\connection.pyo
+byte-compiling C:\Python27\lib\multiprocessing\forking.py to multiprocessing\forking.pyo
+byte-compiling C:\Python27\lib\multiprocessing\heap.py to multiprocessing\heap.pyo
+byte-compiling C:\Python27\lib\multiprocessing\managers.py to multiprocessing\managers.pyo
+byte-compiling C:\Python27\lib\multiprocessing\pool.py to multiprocessing\pool.pyo
+byte-compiling C:\Python27\lib\multiprocessing\process.py to multiprocessing\process.pyo
+byte-compiling C:\Python27\lib\multiprocessing\queues.py to multiprocessing\queues.pyo
+byte-compiling C:\Python27\lib\multiprocessing\reduction.py to multiprocessing\reduction.pyo
+byte-compiling C:\Python27\lib\multiprocessing\sharedctypes.py to multiprocessing\sharedctypes.pyo
+byte-compiling C:\Python27\lib\multiprocessing\synchronize.py to multiprocessing\synchronize.pyo
+byte-compiling C:\Python27\lib\multiprocessing\util.py to multiprocessing\util.pyo
+byte-compiling C:\Python27\lib\new.py to new.pyo
+byte-compiling C:\Python27\lib\ntpath.py to ntpath.pyo
+byte-compiling C:\Python27\lib\nturl2path.py to nturl2path.pyo
+byte-compiling C:\Python27\lib\opcode.py to opcode.pyo
+byte-compiling C:\Python27\lib\optparse.py to optparse.pyo
+byte-compiling C:\Python27\lib\os.py to os.pyo
+byte-compiling C:\Python27\lib\os2emxpath.py to os2emxpath.pyo
+byte-compiling C:\Python27\lib\pdb.py to pdb.pyo
+byte-compiling C:\Python27\lib\pickle.py to pickle.pyo
+byte-compiling C:\Python27\lib\pkgutil.py to pkgutil.pyo
+byte-compiling C:\Python27\lib\platform.py to platform.pyo
+byte-compiling C:\Python27\lib\plistlib.py to plistlib.pyo
+byte-compiling C:\Python27\lib\posixpath.py to posixpath.pyo
+byte-compiling C:\Python27\lib\pprint.py to pprint.pyo
+byte-compiling C:\Python27\lib\py_compile.py to py_compile.pyo
+byte-compiling C:\Python27\lib\pydoc.py to pydoc.pyo
+byte-compiling C:\Python27\lib\pydoc_data\__init__.py to pydoc_data\__init__.pyo
+byte-compiling C:\Python27\lib\pydoc_data\topics.py to pydoc_data\topics.pyo
+byte-compiling C:\Python27\lib\quopri.py to quopri.pyo
+byte-compiling C:\Python27\lib\random.py to random.pyo
+byte-compiling C:\Python27\lib\re.py to re.pyo
+byte-compiling C:\Python27\lib\repr.py to repr.pyo
+byte-compiling C:\Python27\lib\rfc822.py to rfc822.pyo
+byte-compiling C:\Python27\lib\sets.py to sets.pyo
+byte-compiling C:\Python27\lib\shlex.py to shlex.pyo
+byte-compiling C:\Python27\lib\shutil.py to shutil.pyo
+byte-compiling C:\Python27\lib\site-packages\PyQt4\__init__.py to PyQt4\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\__config__.py to numpy\__config__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\__init__.py to numpy\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\_import_tools.py to numpy\_import_tools.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\add_newdocs.py to numpy\add_newdocs.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\compat\__init__.py to numpy\compat\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\compat\_inspect.py to numpy\compat\_inspect.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\compat\py3k.py to numpy\compat\py3k.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\__init__.py to numpy\core\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\_internal.py to numpy\core\_internal.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\arrayprint.py to numpy\core\arrayprint.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\defchararray.py to numpy\core\defchararray.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\fromnumeric.py to numpy\core\fromnumeric.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\function_base.py to numpy\core\function_base.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\getlimits.py to numpy\core\getlimits.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\info.py to numpy\core\info.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\machar.py to numpy\core\machar.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\memmap.py to numpy\core\memmap.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\numeric.py to numpy\core\numeric.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\numerictypes.py to numpy\core\numerictypes.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\records.py to numpy\core\records.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\core\shape_base.py to numpy\core\shape_base.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\ctypeslib.py to numpy\ctypeslib.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\__config__.py to numpy\distutils\__config__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\__init__.py to numpy\distutils\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\__version__.py to numpy\distutils\__version__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\ccompiler.py to numpy\distutils\ccompiler.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\__init__.py to numpy\distutils\command\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\autodist.py to numpy\distutils\command\autodist.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\bdist_rpm.py to numpy\distutils\command\bdist_rpm.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\build.py to numpy\distutils\command\build.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\build_clib.py to numpy\distutils\command\build_clib.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\build_ext.py to numpy\distutils\command\build_ext.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\build_py.py to numpy\distutils\command\build_py.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\build_scripts.py to numpy\distutils\command\build_scripts.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\build_src.py to numpy\distutils\command\build_src.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\config.py to numpy\distutils\command\config.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\config_compiler.py to numpy\distutils\command\config_compiler.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\develop.py to numpy\distutils\command\develop.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\egg_info.py to numpy\distutils\command\egg_info.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\install.py to numpy\distutils\command\install.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\install_clib.py to numpy\distutils\command\install_clib.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\install_data.py to numpy\distutils\command\install_data.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\install_headers.py to numpy\distutils\command\install_headers.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\scons.py to numpy\distutils\command\scons.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\command\sdist.py to numpy\distutils\command\sdist.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\compat.py to numpy\distutils\compat.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\conv_template.py to numpy\distutils\conv_template.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\core.py to numpy\distutils\core.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\cpuinfo.py to numpy\distutils\cpuinfo.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\environment.py to numpy\distutils\environment.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\exec_command.py to numpy\distutils\exec_command.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\extension.py to numpy\distutils\extension.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\fcompiler\__init__.py to numpy\distutils\fcompiler\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\from_template.py to numpy\distutils\from_template.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\info.py to numpy\distutils\info.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\interactive.py to numpy\distutils\interactive.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\lib2def.py to numpy\distutils\lib2def.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\log.py to numpy\distutils\log.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\mingw32ccompiler.py to numpy\distutils\mingw32ccompiler.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\misc_util.py to numpy\distutils\misc_util.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\npy_pkg_config.py to numpy\distutils\npy_pkg_config.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\numpy_distribution.py to numpy\distutils\numpy_distribution.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\system_info.py to numpy\distutils\system_info.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\distutils\unixccompiler.py to numpy\distutils\unixccompiler.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\dual.py to numpy\dual.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\__init__.py to numpy\f2py\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\__version__.py to numpy\f2py\__version__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\auxfuncs.py to numpy\f2py\auxfuncs.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\capi_maps.py to numpy\f2py\capi_maps.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\cb_rules.py to numpy\f2py\cb_rules.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\cfuncs.py to numpy\f2py\cfuncs.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\common_rules.py to numpy\f2py\common_rules.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\crackfortran.py to numpy\f2py\crackfortran.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\diagnose.py to numpy\f2py\diagnose.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\f2py2e.py to numpy\f2py\f2py2e.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\f2py_testing.py to numpy\f2py\f2py_testing.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\f90mod_rules.py to numpy\f2py\f90mod_rules.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\func2subr.py to numpy\f2py\func2subr.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\info.py to numpy\f2py\info.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\rules.py to numpy\f2py\rules.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\f2py\use_rules.py to numpy\f2py\use_rules.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\fft\__init__.py to numpy\fft\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\fft\fftpack.py to numpy\fft\fftpack.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\fft\helper.py to numpy\fft\helper.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\fft\info.py to numpy\fft\info.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\__init__.py to numpy\lib\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\_datasource.py to numpy\lib\_datasource.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\_iotools.py to numpy\lib\_iotools.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\arraysetops.py to numpy\lib\arraysetops.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\arrayterator.py to numpy\lib\arrayterator.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\financial.py to numpy\lib\financial.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\format.py to numpy\lib\format.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\function_base.py to numpy\lib\function_base.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\index_tricks.py to numpy\lib\index_tricks.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\info.py to numpy\lib\info.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\npyio.py to numpy\lib\npyio.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\polynomial.py to numpy\lib\polynomial.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\scimath.py to numpy\lib\scimath.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\shape_base.py to numpy\lib\shape_base.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\stride_tricks.py to numpy\lib\stride_tricks.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\twodim_base.py to numpy\lib\twodim_base.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\type_check.py to numpy\lib\type_check.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\ufunclike.py to numpy\lib\ufunclike.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\lib\utils.py to numpy\lib\utils.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\linalg\__init__.py to numpy\linalg\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\linalg\info.py to numpy\linalg\info.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\linalg\linalg.py to numpy\linalg\linalg.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\ma\__init__.py to numpy\ma\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\ma\core.py to numpy\ma\core.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\ma\extras.py to numpy\ma\extras.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\ma\mrecords.py to numpy\ma\mrecords.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\matrixlib\__init__.py to numpy\matrixlib\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\matrixlib\defmatrix.py to numpy\matrixlib\defmatrix.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\numarray\__init__.py to numpy\numarray\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\numarray\compat.py to numpy\numarray\compat.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\numarray\functions.py to numpy\numarray\functions.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\numarray\numerictypes.py to numpy\numarray\numerictypes.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\numarray\session.py to numpy\numarray\session.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\numarray\ufuncs.py to numpy\numarray\ufuncs.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\numarray\util.py to numpy\numarray\util.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\polynomial\__init__.py to numpy\polynomial\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\polynomial\chebyshev.py to numpy\polynomial\chebyshev.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\polynomial\hermite.py to numpy\polynomial\hermite.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\polynomial\hermite_e.py to numpy\polynomial\hermite_e.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\polynomial\laguerre.py to numpy\polynomial\laguerre.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\polynomial\legendre.py to numpy\polynomial\legendre.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\polynomial\polynomial.py to numpy\polynomial\polynomial.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\polynomial\polytemplate.py to numpy\polynomial\polytemplate.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\polynomial\polyutils.py to numpy\polynomial\polyutils.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\random\__init__.py to numpy\random\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\random\info.py to numpy\random\info.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\testing\__init__.py to numpy\testing\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\testing\decorators.py to numpy\testing\decorators.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\testing\noseclasses.py to numpy\testing\noseclasses.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\testing\nosetester.py to numpy\testing\nosetester.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\testing\numpytest.py to numpy\testing\numpytest.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\testing\utils.py to numpy\testing\utils.pyo
+byte-compiling C:\Python27\lib\site-packages\numpy\version.py to numpy\version.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\__init__.py to pygame\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\_numpysndarray.py to pygame\_numpysndarray.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\_numpysurfarray.py to pygame\_numpysurfarray.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\colordict.py to pygame\colordict.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\compat.py to pygame\compat.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\cursors.py to pygame\cursors.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\locals.py to pygame\locals.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\mac_scrap.py to pygame\mac_scrap.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\macosx.py to pygame\macosx.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\pkgdata.py to pygame\pkgdata.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\sndarray.py to pygame\sndarray.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\sprite.py to pygame\sprite.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\surfarray.py to pygame\surfarray.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\sysfont.py to pygame\sysfont.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\threads\Py25Queue.py to pygame\threads\Py25Queue.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\threads\__init__.py to pygame\threads\__init__.pyo
+byte-compiling C:\Python27\lib\site-packages\pygame\version.py to pygame\version.pyo
+byte-compiling C:\Python27\lib\site-packages\zipextimporter.py to zipextimporter.pyo
+byte-compiling C:\Python27\lib\site.py to site.pyo
+byte-compiling C:\Python27\lib\socket.py to socket.pyo
+byte-compiling C:\Python27\lib\sre.py to sre.pyo
+byte-compiling C:\Python27\lib\sre_compile.py to sre_compile.pyo
+byte-compiling C:\Python27\lib\sre_constants.py to sre_constants.pyo
+byte-compiling C:\Python27\lib\sre_parse.py to sre_parse.pyo
+byte-compiling C:\Python27\lib\ssl.py to ssl.pyo
+byte-compiling C:\Python27\lib\stat.py to stat.pyo
+byte-compiling C:\Python27\lib\string.py to string.pyo
+byte-compiling C:\Python27\lib\stringprep.py to stringprep.pyo
+byte-compiling C:\Python27\lib\struct.py to struct.pyo
+byte-compiling C:\Python27\lib\subprocess.py to subprocess.pyo
+byte-compiling C:\Python27\lib\symbol.py to symbol.pyo
+byte-compiling C:\Python27\lib\symtable.py to symtable.pyo
+byte-compiling C:\Python27\lib\sysconfig.py to sysconfig.pyo
+byte-compiling C:\Python27\lib\tarfile.py to tarfile.pyo
+byte-compiling C:\Python27\lib\tempfile.py to tempfile.pyo
+byte-compiling C:\Python27\lib\textwrap.py to textwrap.pyo
+byte-compiling C:\Python27\lib\threading.py to threading.pyo
+byte-compiling C:\Python27\lib\token.py to token.pyo
+byte-compiling C:\Python27\lib\tokenize.py to tokenize.pyo
+byte-compiling C:\Python27\lib\traceback.py to traceback.pyo
+byte-compiling C:\Python27\lib\tty.py to tty.pyo
+byte-compiling C:\Python27\lib\types.py to types.pyo
+byte-compiling C:\Python27\lib\unittest\__init__.py to unittest\__init__.pyo
+byte-compiling C:\Python27\lib\unittest\case.py to unittest\case.pyo
+byte-compiling C:\Python27\lib\unittest\loader.py to unittest\loader.pyo
+byte-compiling C:\Python27\lib\unittest\main.py to unittest\main.pyo
+byte-compiling C:\Python27\lib\unittest\result.py to unittest\result.pyo
+byte-compiling C:\Python27\lib\unittest\runner.py to unittest\runner.pyo
+byte-compiling C:\Python27\lib\unittest\signals.py to unittest\signals.pyo
+byte-compiling C:\Python27\lib\unittest\suite.py to unittest\suite.pyo
+byte-compiling C:\Python27\lib\unittest\util.py to unittest\util.pyo
+byte-compiling C:\Python27\lib\urllib.py to urllib.pyo
+byte-compiling C:\Python27\lib\urllib2.py to urllib2.pyo
+byte-compiling C:\Python27\lib\urlparse.py to urlparse.pyo
+byte-compiling C:\Python27\lib\uu.py to uu.pyo
+byte-compiling C:\Python27\lib\warnings.py to warnings.pyo
+byte-compiling C:\Python27\lib\weakref.py to weakref.pyo
+byte-compiling C:\Python27\lib\webbrowser.py to webbrowser.pyo
+byte-compiling C:\Python27\lib\xml\__init__.py to xml\__init__.pyo
+byte-compiling C:\Python27\lib\xml\parsers\__init__.py to xml\parsers\__init__.pyo
+byte-compiling C:\Python27\lib\xml\parsers\expat.py to xml\parsers\expat.pyo
+byte-compiling C:\Python27\lib\xmllib.py to xmllib.pyo
+byte-compiling C:\Python27\lib\xmlrpclib.py to xmlrpclib.pyo
+byte-compiling C:\Python27\lib\zipfile.py to zipfile.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Character.py to Character.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Game.py to Game.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Globals.py to Globals.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Graphic.py to Graphic.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Gui.py to Gui.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Loc.py to Loc.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\MapMaster.py to MapMaster.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Places.py to Places.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Sounds.py to Sounds.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Story.py to Story.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\ViewGraphics.py to ViewGraphics.pyo
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\ViewMain.py to ViewMain.pyo
+removing c:\users\pand\appdata\local\temp\tmpji_n4u.py
 *** copy extensions ***
+copying C:\Python27\DLLs\_ctypes.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\DLLs\_hashlib.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\DLLs\_multiprocessing.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\DLLs\_socket.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\DLLs\_ssl.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\DLLs\bz2.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\DLLs\pyexpat.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\DLLs\select.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\DLLs\unicodedata.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\PyQt4\QtCore.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\PyQt4
+copying C:\Python27\lib\site-packages\PyQt4\QtGui.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\PyQt4
+copying C:\Python27\lib\site-packages\numpy\core\_dotblas.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\numpy\core
+copying C:\Python27\lib\site-packages\numpy\core\_sort.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\numpy\core
+copying C:\Python27\lib\site-packages\numpy\core\multiarray.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\numpy\core
+copying C:\Python27\lib\site-packages\numpy\core\scalarmath.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\numpy\core
+copying C:\Python27\lib\site-packages\numpy\core\umath.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\numpy\core
+copying C:\Python27\lib\site-packages\numpy\fft\fftpack_lite.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\numpy\fft
+copying C:\Python27\lib\site-packages\numpy\lib\_compiled_base.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\numpy\lib
+copying C:\Python27\lib\site-packages\numpy\linalg\lapack_lite.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\numpy\linalg
+copying C:\Python27\lib\site-packages\numpy\random\mtrand.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\numpy\random
+copying C:\Python27\lib\site-packages\pygame\_arraysurfarray.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\_numericsndarray.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\_numericsurfarray.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\base.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\bufferproxy.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\cdrom.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\color.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\constants.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\display.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\draw.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\event.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\fastevent.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\font.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\image.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\imageext.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\joystick.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\key.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\mask.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\mixer.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\mixer_music.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\mouse.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\movie.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\overlay.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\pixelarray.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\rect.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\rwobject.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\scrap.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\surface.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\surflock.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\time.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\pygame\transform.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7\pygame
+copying C:\Python27\lib\site-packages\sip.pyd -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
 *** copy dlls ***
+copying C:\Windows\system32\python27.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\bundle-2.7
+setting sys.winver for 'C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\bundle-2.7\python27.dll' to 'py2exe'
+copying C:\Python27\lib\site-packages\pygame\SDL_mixer.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\PyQt4\QtGui4.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\pygame\SDL_image.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\pygame\libvorbis-0.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\pygame\libvorbisfile-3.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\pygame\zlib1.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\PyQt4\QtCore4.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\pygame\smpeg.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\pygame\jpeg.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\pygame\SDL.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\lib\site-packages\pygame\libpng12-0.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
+copying C:\Python27\w9xpopen.exe -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05
+copying C:\Python27\lib\site-packages\pygame\libtiff.dll -> C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\build\bdist.win32\winexe\collect-2.7
 *** copy data files ***
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\imageformats
+copying C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qico4.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\imageformats
+copying C:\Python27\Lib\site-packages\PyQt4\plugins\imageformats\qmng4.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\imageformats
+copying C:\Python27\Lib\site-packages\pygame\SDL_ttf.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying C:\Python27\Lib\site-packages\pygame\SDL_mixer.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+copying C:\Python27\Lib\site-packages\pygame\libogg-0.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
 copying COPYING.txt -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
 copying README -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
 copying icon_medium.ico -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\saves
 copying saves\save1.save -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\saves
 copying saves\story.clue -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\saves
 copying saves\places.loc -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\saves
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\capital.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\circle.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\city.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
@@ -532,18 +624,29 @@ copying images\Forest3.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster
 copying images\gameMenu2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\gameMenuSettings2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\grasstexture2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\Lake.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\lakeSymbol.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\latOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\latOverlayNew.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\legendOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\legendOverlayNew.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\mapBackground.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\Mountain.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\mountainSymbol.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\popupBG.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\speakerLoud.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\speakerQuiet.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\storyBG.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\tree.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\treeSymbol.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+copying images\watertexture.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
+creating C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
+copying sounds\brilliant.wav -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
 copying sounds\failure.wav -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
 copying sounds\gameTheme.mp3 -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
 copying sounds\success.wav -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
 copying sounds\theme.mp3 -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
+copying sounds\victory.wav -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
 copying dlls\libfreetype-6.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
 copying dlls\msvcp90.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
 copying dlls\python27.dll -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\
