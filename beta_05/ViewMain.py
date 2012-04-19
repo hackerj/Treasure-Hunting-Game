@@ -155,7 +155,12 @@ class ViewMain(QMainWindow):
     def scoreWidget(self):
         """change to score widget"""
         self.game.loadScores()
-        text = "Congratulations "+ self.game.playerName+ ". Your score is "+ `self.game.story.score` + "!!"
+        if self.game.topTen:
+            text = "Congratulations "+ self.game.playerName+ \
+                   ".\nYou make the Top Ten List !!"
+        else:
+            text = "Congratulations "+ self.game.playerName + \
+                   ".\nYour score is "+ `self.game.story.score` + "!!x"
         self.gui.scores.setText(text)
         self.displayHighScores()
         self.setStackWidgetIndex(self.SCORE_PAGE)
@@ -165,14 +170,21 @@ class ViewMain(QMainWindow):
            the 10th high scores on screen
         """
         text = ""
+        markCurr = 0 # Mark curr player if he made to the top ten list
+        debug("len of scoreLIst is: ", len(self.game.scoreList))
         for prevPlayer in self.game.scoreList:
-            text = text + prevPlayer[0] + 40*"."  + `prevPlayer[1]` + "\n"
+            prevName = prevPlayer[0]
+            prevScore = prevPlayer[1]
+            if (markCurr == 0 and prevName == self.game.playerName \
+            and prevScore == self.game.story.score):
+                markCurr = 1
+                text = text + prevPlayer[0] + 40*"."  + `prevPlayer[1]` + "  *****" + "\n"
+            else:
+                text = text + prevPlayer[0] + 40*"."  + `prevPlayer[1]` + "\n"
         self.gui.topTenScores.setText(text)
-        if (len(self.game.scoreList) == 0):
-            pass
-        else:
-            self.game.savedScores()
-        
+        self.game.writeScoreToFile() 
+ 
+
     def enterName(self):
         """Name enter dialog"""
         playerName, ok = QInputDialog.getText(self, 'Enter Name Dialog', 
@@ -344,7 +356,6 @@ class ViewMain(QMainWindow):
                 self.popupMessage(clueResult[1], 5*ONE_SECOND) 
                 self.gui.soundManager.playSound("victory")
                 QTimer.singleShot(4*ONE_SECOND, self.scoreWidget)
-                scoreFile = open("saves/player.score","a")  
             else:
                 None
 

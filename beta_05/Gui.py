@@ -454,7 +454,7 @@ class Gui(object):
         # Display current player's score..
         self.scores = QLabel(self.scorePage)
         self.scores.setStyleSheet(self.fg)
-        self.scores.setGeometry(QtCore.QRect( 80,120 , 800, 100))
+        self.scores.setGeometry(QtCore.QRect( 180,120 , 800, 100))
         font.setPointSize(20)
         self.scores.setFont(font)
         self.scores.setAlignment(
@@ -464,7 +464,7 @@ class Gui(object):
         # Display top ten scores
         self.topTenScores = QLabel(self.scorePage)
         self.topTenScores.setStyleSheet(self.fg)
-        self.topTenScores.setGeometry(QtCore.QRect(180, 180, 500, 400))
+        self.topTenScores.setGeometry(QtCore.QRect(180, 250, 500, 400))
         font.setPointSize(20)
         self.topTenScores.setFont(font)
         self.topTenScores.setAlignment(

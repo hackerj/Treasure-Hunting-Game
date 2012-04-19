@@ -48,6 +48,7 @@ class Game(QObject):
         
         # Store scores from previous play
         self.scoreList = []
+        self.topTen = True
         
     def new(self):
         """Load new game from file"""
@@ -124,17 +125,18 @@ class Game(QObject):
                 self.scoreList.append((loadedName, loadedScore))
             nextLine = scoreData.readline()       
         scoreData.close()
-        
-        # sorted previous player by score
-        self.scoreList = sorted(self.scoreList, key = itemgetter(1), reverse = True) 
+        self.addCurrScoreToList()
     
-    def savedScores(self):
+    def addCurrScoreToList(self):
         """save player's score into top 10 list if the player make it"""
-        lowestScore = self.scoreList[-1][1]
         listLen = len(self.scoreList)
+        lowestScore = 0
         
+        if (listLen > 0):
+            lowestScore = self.scoreList[-1][1]
         if (self.story.score <= lowestScore and listLen > 9):
             debug("player's score is not high enough to write to file")
+            self.topTen = False
             return
         elif listLen < 10:
             debug("Player score append to scoreList")
@@ -143,7 +145,8 @@ class Game(QObject):
             debug("Pop the bad score, and add in player score to file")
             self.scoreList.pop()
             self.scoreList.append((self.playerName, self.story.score))
-        self.writeScoreToFile()
+        # sorted previous player by score
+        self.scoreList = sorted(self.scoreList, key = itemgetter(1), reverse = True) 
         
     def writeScoreToFile(self, filename = "saves/player.score"):
         """Save the 10 highest score to file.."""
@@ -156,7 +159,7 @@ class Game(QObject):
             scoreFile.write(text)
             scoreFile.close()
         else:
-            print "Error: Too many scores29 stored in scoreList"
+            print "Error: Too many scores to be stored in scoreList"
             return    
         
     def save(self, filename):
