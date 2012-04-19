@@ -146,7 +146,8 @@ class Game(QObject):
             self.scoreList.pop()
             self.scoreList.append((self.playerName, self.story.score))
         # sorted previous player by score
-        self.scoreList = sorted(self.scoreList, key = itemgetter(1), reverse = True) 
+        self.scoreList = sorted(self.scoreList, \
+                                key = itemgetter(1), reverse = True) 
         
     def writeScoreToFile(self, filename = "saves/player.score"):
         """Save the 10 highest score to file.."""

@@ -464,7 +464,7 @@ class Gui(object):
         # Display top ten scores
         self.topTenScores = QLabel(self.scorePage)
         self.topTenScores.setStyleSheet(self.fg)
-        self.topTenScores.setGeometry(QtCore.QRect(180, 250, 500, 400))
+        self.topTenScores.setGeometry(QtCore.QRect(180, 200, 500, 400))
         font.setPointSize(20)
         self.topTenScores.setFont(font)
         self.topTenScores.setAlignment(
