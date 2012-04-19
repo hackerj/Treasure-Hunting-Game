@@ -44,6 +44,8 @@ class Gui(object):
         
         self.popupPixmap = QPixmap(normpath("images/popupBG.png"))
         
+        self.popupStoryPixmap = QPixmap(normpath("images/storyBG.png"))
+        
         font = QFont()
         if "linux" in platform:
             font.setFamily("Century Schoolbook L")
@@ -244,6 +246,7 @@ class Gui(object):
         self.popup.setStyleSheet(
                 "QGraphicsView {background:transparent;border-style:none}")
         self.popupImage = self.popup.scene.addPixmap(self.popupPixmap)
+        self.popupStoryImage=self.popup.scene.addPixmap(self.popupStoryPixmap)
         self.popup.setGeometry(QtCore.QRect(25, 25, 750, 450))
         self.popup.setObjectName("popupLabel")
         font.setPointSize(25)
@@ -253,6 +256,7 @@ class Gui(object):
         self.popupText.setX(150)
         self.popupText.setY(150)
         self.popupImage.setOpacity(0)
+        self.popupStoryImage.setOpacity(0)
         self.popupText.setOpacity(0)
         self.stackedWidget.addWidget(self.mainPage)
         

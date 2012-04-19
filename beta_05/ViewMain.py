@@ -58,6 +58,7 @@ class ViewMain(QMainWindow):
         self.popupTimelineWait = QTimeLine()
         self.popupTimelineWait.setFrameRange(0,100)
         self.popupClue = False
+        self.popupStory = False
         
         # Initialization and setup for animated popups
         self.popupAnimationOpen = QPropertyAnimation(self.gui.popup,"geometry")
@@ -326,6 +327,7 @@ class ViewMain(QMainWindow):
     
     def writeClue(self):
         """Handles the result of searching for a clue"""
+        self.popupStory = False
         if self.popupClue:
             clueResult = self.game.story.searchForClue(
                                         self.game.character.getCenter())
@@ -349,12 +351,16 @@ class ViewMain(QMainWindow):
     def writeStory(self):
         """Handles drawing story"""
         if self.game.story.currClue['story'] != 'none':
+            self.popupStory = True
             self.popupMessage(self.game.story.currClue['story'], 5*ONE_SECOND)
            
     def drawPopup(self, value):
         """Draws the popup to the screen"""
         debug("Called drawPopup")
-        self.gui.popupImage.setOpacity(value/100.0)
+        if self.popupStory:
+            self.gui.popupStoryImage.setOpacity(value/100.0)
+        else:
+            self.gui.popupImage.setOpacity(value/100.0)
         self.gui.popupText.setOpacity(value/100.0)
         
     def enableErasePopup(self):
@@ -365,7 +371,10 @@ class ViewMain(QMainWindow):
     def erasePopup(self, value):
         """Erases the popup from the screen"""
         debug("Called erase popup")
-        self.gui.popupImage.setOpacity(1-(value/100.0))
+        if self.popupStory:
+            self.gui.popupStoryImage.setOpacity(1-(value/100.0))
+        else:
+            self.gui.popupImage.setOpacity(1-(value/100.0))
         self.gui.popupText.setOpacity(1-(value/100.0))
         
     def popupWait(self):
