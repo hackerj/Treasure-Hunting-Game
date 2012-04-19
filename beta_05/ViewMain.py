@@ -8,7 +8,7 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 """
 
 from PyQt4.QtGui import QMainWindow, QMessageBox, QFileDialog, QPixmap, QInputDialog
-from PyQt4.QtCore import Qt, QTimeLine, QTimer, QPropertyAnimation, QRect
+from PyQt4.QtCore import Qt, QTimeLine, QTimer, QPropertyAnimation, QRect, pyqtSignal
 from Globals import *
 from os.path import normpath, isfile
 from Gui import Gui
@@ -28,6 +28,8 @@ class ViewMain(QMainWindow):
     CREDITS_PAGE = 4
     STORY_PAGE = 5
     SCORE_PAGE = 6
+
+    finished = pyqtSignal()
     
     def __init__(self, parent=None):
         """Initialize the abstracted class instance"""
@@ -87,6 +89,7 @@ class ViewMain(QMainWindow):
         self.popupAnimationOpen.finished.connect(self.popupAnimationWait.start)
         self.popupAnimationWait.finished.connect(self.popupAnimationClose.start)
         self.popupAnimationClose.finished.connect(self.popupAnimationCleanup)
+        self.finished.connect(self.writeStory)
     
     def connectGui(self):
         """Connect signals for Gui"""
@@ -342,6 +345,11 @@ class ViewMain(QMainWindow):
                 scoreFile = open("saves/player.score","a")  
             else:
                 None
+
+    def writeStory(self):
+        """Handles drawing story"""
+        if self.game.story.currClue['story'] != 'none':
+            self.popupMessage(self.game.story.currClue['story'], 5*ONE_SECOND)
            
     def drawPopup(self, value):
         """Draws the popup to the screen"""
@@ -380,6 +388,7 @@ class ViewMain(QMainWindow):
         self.gui.popupImage.setOpacity(0)
         self.gui.popupText.setOpacity(0)
         self.gui.popup.setGeometry(QRect(25, 25, 750, 450))
+        self.finished.emit()
         
     def handleClueResult(self, action, text):
         """Performs the writing to gui after a clue was found"""

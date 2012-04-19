@@ -38,6 +38,8 @@ class Sounds(object):
     def setVolume(self, slider):
         """Set volume (only works on music right now)"""
         mixer.music.set_volume((float(slider))/100.0)
+        self.successSound.set_volume((float(slider))/100.0)
+        self.failureSound.set_volume((float(slider))/100.0)
         self.volumeLevel = slider
         
     def switchSongs(self, songNum):
