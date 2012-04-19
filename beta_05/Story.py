@@ -48,10 +48,9 @@ class Story(QObject):
     def frameTime(self):
         if self.clueTimeEnable:
             self.clueTime += 1
-        if self.clueTime >= self.CLUE_TROUBLE:
+        if self.clueTime % self.CLUE_TROUBLE == 0:
             self.clueTrouble.emit()
             debug("Emitting clueTrouble")
-            self.clueTime = 0
         
     def searchForClue(self, position):
         if not self.currClue:
@@ -64,6 +63,7 @@ class Story(QObject):
         elif self._clueList:
             self.currClue = self._clueList.pop()
             self.score += 100
+            self.score+=int(round((4 * 60.0 * self.FRAME_RATE)/self.clueTime))
             self.currAction =  ('ClueFound', 
                     self.currClue['text'])
             self.clueTime = 0
