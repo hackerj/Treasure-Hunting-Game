@@ -160,7 +160,7 @@ class ViewMain(QMainWindow):
                    ".\nYou make the Top Ten List !!"
         else:
             text = "Congratulations "+ self.game.playerName + \
-                   ".\nYour score is "+ `self.game.story.score` + "!!x"
+                   ".\nYour score is "+ `self.game.story.score` + "!!"
         self.gui.scores.setText(text)
         self.displayHighScores()
         self.setStackWidgetIndex(self.SCORE_PAGE)
