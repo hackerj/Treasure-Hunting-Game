@@ -90,9 +90,16 @@ class Graphic(QObject):
             self.updateGraphicsItem(self.mViewObject, scale)
 
         if self.objType == 'Character':
-            scene = self.pViewObject.scene()
-            view = scene.views()[0]
-            view.centerOn(self.pViewObject)
+            pScene = self.pViewObject.scene()
+            pView = pScene.views()[0]
+            pView.centerOn(self.pViewObject)
+            
+            debug("center ", self.x, ", ", self.y)
+
+            mScene = self.mViewObject.scene()
+            mView = mScene.views()[0]
+            mView.centerOn(0,0)
+
 
     def updateGraphicsItem(self, item, scale = 1):
         """When character walk out of frame, update graphic"""
