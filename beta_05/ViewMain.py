@@ -362,7 +362,6 @@ class ViewMain(QMainWindow):
     def writeStory(self):
         """Handles drawing story"""
         if self.game.story.currClue['story'] != 'none':
-            #self.gui.soundManager.playSound("brilliant")
             self.popupStory = True
             self.popupMessage(self.game.story.currClue['story'], 5*ONE_SECOND)
            
