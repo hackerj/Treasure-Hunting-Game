@@ -8,40 +8,40 @@ Wiki_url: https://www.cs.hmc.edu/trac/cs121sp2012_4/
 ------------------
 Running on Windows
 ------------------
-On Windows using the binary package is recomented.
+On Windows using the binary package is recommended.
 For some versions an installer is also available.
-For instruction on how to play the game see the in-game instruciton page.
+For instructions on how to play the game see the in-game instruction page.
 
 --------------------------
 Running on other Platforms
 --------------------------
-MapMaster should be cross platform, and is tested regularaly in scripted form on
-Linux. MapMaster is not tested frequently on Mac but should still work. In order to run as script you will need to instal:
+MapMaster should be cross platform, and is tested regularly in scripted form on
+Ubuntu Linux. MapMaster is not tested frequently on Mac OS X but should still work. In order to run MapMaster as script you will need to install:
  - Python 2.7
- - PyQt (v4.9 or compatable)
- - Pygame (v1.9.1 or compatable)
+ - PyQt (v4.9 or compatible)
+ - Pygame (v1.9.1 or compatible)
 
 ----------------------------
 Build Instrucitons (Windows)
 ----------------------------
 In order to build this program you will need the following
  - Python 2.7
- - PyQt (v4.9 or compatable)
- - Pygame (v1.9.1 or compatable)
- - Py2exe (v0.69 or compatable)
+ - PyQt (v4.9 or compatible)
+ - Pygame (v1.9.1 or compatible)
+ - Py2exe (v0.69 or compatible)
 
 Open compile_help.py and edit the following line to contain the desired
 build location.
 
 buildLoc = normpath("../../builds/Mapmaster05")
 
-Once you have done that run compile.py.
+Once you have done that run compile.py by double-clicking on it.
 
 ---------------
 TODO:
 ---------------
  (See BugList on Trac for complete bug list)
- - Icon Does not appear on executible
+ - Icon Does not appear on executable
  - Move Game to subfolder and create module.
 
 ----------------
@@ -54,22 +54,22 @@ Map Master 0.5
  - Animated Popups.
 
 Map Master 0.4
- - Code Overhaul
+ - Code overhaul
  - Now uses custom signals and slots
  - Include searches in landmarks other than cities.
- - Resume Game and NewGame Used Correctly
- - More Story / Game Interaction
+ - Resume Game and NewGame used correctly
+ - More Story / Game interaction
  
 Map Master 0.3
- - Improved Frame Handling for better navigation, and animation support.
+ - Improved frame handling for better navigation and animation support.
  - Added simple automated testing system.
 
 Map Master 0.2
- - Better Graphics
- - Added Sound Support
- - Added Bounds Checking on Map
- - Disable resizing because it is not a feature at the momment. 
- - Character Starts Centered Properly
- - Add Close Dialog
- - Make SearchButton More Noticeable
- - Update Score
+ - Better graphics
+ - Added sound support
+ - Added bounds checking on map
+ - Disable resizing because it is not a feature at the moment. 
+ - Character starts centered properly
+ - Add close dialog
+ - Make search button more noticeable
+ - Update score
