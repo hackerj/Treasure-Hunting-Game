@@ -9,9 +9,7 @@ gameMenuSettings2.png
 grasstexture2.png
 Lake.png
 lakeSymbol.png
-latOverlay.png
 latOverlayNew.png
-legendOverlay.png
 legendOverlayNew.png
 mapBackground.png
 Mountain.png
@@ -21,9 +19,6 @@ speakerLoud.png
 speakerQuiet.png
 storyBG.png
 tree.png
-treeSymbol.png
-watertexture.png
-watertexture2.PNG
 brilliant.wav
 failure.wav
 gameTheme.mp3
@@ -41,8 +36,8 @@ running py2exe
 *** finding dlls needed ***
 *** create binaries ***
 *** byte compile python files ***
-writing byte-compilation script 'c:\users\pand\appdata\local\temp\tmpfhw5o4.py'
-C:\Python27\python.exe -OO c:\users\pand\appdata\local\temp\tmpfhw5o4.py
+writing byte-compilation script 'c:\users\pand\appdata\local\temp\tmpj35dw4.py'
+C:\Python27\python.exe -OO c:\users\pand\appdata\local\temp\tmpj35dw4.py
 skipping byte-compilation of C:\Python27\lib\BaseHTTPServer.py to BaseHTTPServer.pyo
 skipping byte-compilation of C:\Python27\lib\ConfigParser.py to ConfigParser.pyo
 skipping byte-compilation of C:\Python27\lib\Queue.py to Queue.pyo
@@ -523,8 +518,8 @@ skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Pla
 skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Sounds.py to Sounds.pyo
 skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Story.py to Story.pyo
 skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\ViewGraphics.py to ViewGraphics.pyo
-skipping byte-compilation of C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\ViewMain.py to ViewMain.pyo
-removing c:\users\pand\appdata\local\temp\tmpfhw5o4.py
+byte-compiling C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\ViewMain.py to ViewMain.pyo
+removing c:\users\pand\appdata\local\temp\tmpj35dw4.py
 *** copy extensions ***
 *** copy dlls ***
 *** copy data files ***
@@ -545,9 +540,7 @@ copying images\gameMenuSettings2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds
 copying images\grasstexture2.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\Lake.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\lakeSymbol.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
-copying images\latOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\latOverlayNew.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
-copying images\legendOverlay.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\legendOverlayNew.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\mapBackground.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\Mountain.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
@@ -557,9 +550,6 @@ copying images\speakerLoud.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapma
 copying images\speakerQuiet.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\storyBG.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying images\tree.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
-copying images\treeSymbol.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
-copying images\watertexture.png -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
-copying images\watertexture2.PNG -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\images
 copying sounds\brilliant.wav -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
 copying sounds\failure.wav -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds
 copying sounds\gameTheme.mp3 -> C:\cygwin\home\pand\cs121sp2012_4\builds\Mapmaster05\sounds

@@ -461,6 +461,13 @@ class ViewMain(QMainWindow):
             
             debug("use work round")
             self.useLoadWorkaround = False
+
+            self.overlays['latLongOverlay'] = self.addOverlay(
+                    normpath("images/latOverlayNew.png"))
+            self.overlays['colorOverlay'] = self.addOverlay(
+                        normpath("images/colorOverlay.png"))
+            self.overlays['legendOverlay'] = self.addOverlay(
+                        normpath("images/legendOverlayNew.png"))
         
     
     def keyReleaseEvent(self, event):
