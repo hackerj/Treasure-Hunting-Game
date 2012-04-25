@@ -94,7 +94,7 @@ class Graphic(QObject):
             pView = pScene.views()[0]
             pView.centerOn(self.pViewObject)
             
-            debug("center ", self.x, ", ", self.y)
+            #debug("center ", self.x, ", ", self.y)
 
             mScene = self.mViewObject.scene()
             mView = mScene.views()[0]

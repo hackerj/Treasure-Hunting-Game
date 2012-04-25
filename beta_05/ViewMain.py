@@ -453,7 +453,7 @@ class ViewMain(QMainWindow):
         if self.game and (self.gui.stackIndex == self.GAME_PAGE):
             self.game.keyPress(event)
 
-        #Work around because to make load work.
+        #Work around to make load work.
         if self.useLoadWorkaround and self.gameWasLoaded:
             self.game = Game() 
             self.connectGame()
