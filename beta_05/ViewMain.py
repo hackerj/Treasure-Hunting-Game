@@ -40,6 +40,9 @@ class ViewMain(QMainWindow):
         self.game = None
         self.connectGui()
 
+        self.gameWasLoaded = False
+        self.useLoadWorkaround = True
+
         # Dictionary of Graphics Objects
         self.graphicsObjects = {}
         
@@ -201,24 +204,35 @@ class ViewMain(QMainWindow):
         fd = QFileDialog()
         filename = fd.getOpenFileName(None, "Load Saved Game",
                                       "saves", "MapMaster Save files (*.save)")
-        if isfile(filename):
-            self.setStackWidgetIndex(self.GAME_PAGE)
-            self.game = Game() 
-            self.connectGame()
-            self.game.load(filename)
-            debug("Initializing the saved game...")
-            
-            
-            self.overlays['latLongOverlay'] = self.addOverlay(
-                        normpath("images/latOverlayNew.png"))
-            self.overlays['colorOverlay'] = self.addOverlay(
-                        normpath("images/colorOverlay.png"))
-            self.overlays['legendOverlay'] = self.addOverlay(
-                        normpath("images/legendOverlayNew.png"))
 
-            self.gui.scoreBox.setText((str)(self.game.story.score))
-            self.gui.clueView.setText(self.game.story.currClue['text'])
-            self.gui.stackIndex = self.GAME_PAGE
+        if isfile(filename):
+            self.loadGame(filename)
+        
+            self.gameWasLoaded = True
+            self.filename = filename
+        else:
+            debug("invalid file")
+
+    def loadGame(self, filename):
+        """pop up the loading dialog for players to choose saved file"""
+
+        self.setStackWidgetIndex(self.GAME_PAGE)
+        self.game = Game() 
+        self.connectGame()
+        self.game.load(filename)
+        debug("Initializing the saved game...")
+        
+        
+        self.overlays['latLongOverlay'] = self.addOverlay(
+                    normpath("images/latOverlayNew.png"))
+        self.overlays['colorOverlay'] = self.addOverlay(
+                    normpath("images/colorOverlay.png"))
+        self.overlays['legendOverlay'] = self.addOverlay(
+                    normpath("images/legendOverlayNew.png"))
+
+        self.gui.scoreBox.setText((str)(self.game.story.score))
+        self.gui.clueView.setText(self.game.story.currClue['text'])
+        self.gui.stackIndex = self.GAME_PAGE
 
     def saveFileDialog(self,toMain = False):
         """Dialog to save a game"""
@@ -254,6 +268,9 @@ class ViewMain(QMainWindow):
                         normpath("images/legendOverlayNew.png"))
         self.gui.clueView.setText(self.game.story.currClue['text'])
         self.gui.scoreBox.setText((str)(0))
+
+        self.gameWasLoaded = False
+        
     def storyButton(self):
         """Continue from the story page to the game page"""
         self.setStackWidgetIndex(self.GAME_PAGE)
@@ -430,11 +447,21 @@ class ViewMain(QMainWindow):
         self.gui.popupText.setPlainText(text)
         self.popupTimelineWait.setDuration(time)
         self.popupTimelineStart.start()
-        
+       
     def keyPressEvent(self, event):
         """Get keyboard events no matter what widget has focus"""
         if self.game and (self.gui.stackIndex == self.GAME_PAGE):
             self.game.keyPress(event)
+
+        #Work around because to make load work.
+        if self.useLoadWorkaround and self.gameWasLoaded:
+            self.game = Game() 
+            self.connectGame()
+            self.game.load(self.filename)
+            
+            debug("use work round")
+            self.useLoadWorkaround = False
+        
     
     def keyReleaseEvent(self, event):
         """Get keyboard events no matter what widget has focus"""

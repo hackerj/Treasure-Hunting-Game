@@ -1,14 +1,18 @@
-...........F.
+...........E.
 ======================================================================
-FAIL: test_loadClues (__main__.LoadLocTests)
+ERROR: test_loadClues (__main__.LoadLocTests)
 Check if clues are correctly loaded from file
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "AutomatedTests.py", line 154, in test_loadClues
-    self.assertEqual(len(clueList), numClues)
-AssertionError: 0 != 3
+  File "AutomatedTests.py", line 151, in test_loadClues
+    clueGood.loadClues("tests/validClue.test")
+  File "C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Story.py", line 96, in loadClues
+    self.addClues(loadClues)
+  File "C:\cygwin\home\pand\cs121sp2012_4\trunk\beta_05\Story.py", line 113, in addClues
+    clue['story'] = obj[6].replace('\\n ', '\n') #format
+IndexError: list index out of range
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.580s
+Ran 13 tests in 0.577s
 
-FAILED (failures=1)
+FAILED (errors=1)
